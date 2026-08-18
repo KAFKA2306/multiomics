@@ -1,0 +1,27 @@
+name: Validate multiomics data
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Validate JSON syntax
+        run: |
+          python -m json.tool data/multiomics-v1.json > /dev/null
+          python -m json.tool schema/multiomics-v1.schema.json > /dev/null
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+      - name: Verify tracked files unchanged
+        run: git diff --exit-code
