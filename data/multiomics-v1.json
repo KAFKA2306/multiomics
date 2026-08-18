@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "retrieved_at": "2026-08-18T04:13:41Z",
+  "sequencing_costs": [],
+  "clinical_trials": [],
+  "approvals": [
+    {
+      "id": "fda-2026-08-06-tudriqev",
+      "authority": "U.S. Food and Drug Administration",
+      "approval_date": "2026-08-06",
+      "pathway": "accelerated approval",
+      "generic_name": "vusolimogene oderparepvec-wtpg",
+      "brand_name": "Tudriqev",
+      "sponsor": "Replimune, Inc.",
+      "modality": "genetically modified oncolytic viral therapy",
+      "combination_with": [
+        "nivolumab"
+      ],
+      "indication": "adult patients with unresectable advanced cutaneous melanoma who experienced disease progression on a PD-1-blocking antibody-based regimen",
+      "evidence_basis": [
+        "objective response rate",
+        "duration of response"
+      ],
+      "confirmatory_trial_required": true,
+      "source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma",
+      "retrieved_at": "2026-08-18T04:13:41Z"
+    }
+  ],
+  "sources": [
+    {
+      "name": "NHGRI DNA Sequencing Costs",
+      "url": "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data",
+      "use": "sequencing cost observations",
+      "note": "NHGRI publishes Cost per Megabase and Cost per Genome metrics and links its underlying sequencing-cost data."
+    },
+    {
+      "name": "ClinicalTrials.gov API",
+      "url": "https://clinicaltrials.gov/data-api/api",
+      "use": "clinical trial observations",
+      "note": "ClinicalTrials.gov reports that API data are refreshed Monday through Friday and recommends checking the API dataTimestamp before retrieval."
+    },
+    {
+      "name": "FDA approval notification",
+      "url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma",
+      "use": "approval and regulatory-event observations",
+      "note": "Primary source for the approval record stored in this dataset."
+    }
+  ]
+}
