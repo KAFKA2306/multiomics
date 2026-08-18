@@ -2,24 +2,41 @@
 
 ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正準ターゲットrepositoryです。
 
-現時点では実装・datasetはまだ移行されていません。既存の計画では `KAFKA2306/kafin3` の旧AI金融prototypeを置き換え、次の観測事実を収集・構造化する対象として定義されています。
+このrepositoryでは、予測値と観測事実を分け、次の情報を一次資料へ戻れる形で扱います。
 
 - sequencing economics: cost per genome / sequencing cost
 - clinical trials: study / phase / status / sponsor / intervention / dates
 - approvals: drug / biologic approvals and regulatory events
 - modality / phase / sponsor aggregates
-- provenance manifest with source URL and observation time
+- source URL and retrieval time
 
-想定する一次情報は、NHGRIのsequencing cost data、ClinicalTrials.gov、FDA Drugs@FDA等です。ARKの予測値は観測事実へ混ぜず、仮説として別に扱います。
+ARKの予測値は観測事実へ混ぜず、仮説として別に扱います。
 
-## Current state
+## Current data
 
-- repository implementation: **not yet materialized**
-- canonical scope: defined
-- data collection: pending
-- migration source/planning repository: `KAFKA2306/kafin3`
+- canonical data: [`data/multiomics-v1.json`](data/multiomics-v1.json)
+- schema: [`schema/multiomics-v1.schema.json`](schema/multiomics-v1.schema.json)
+- current persisted approval observations: **1**
+- sequencing-cost observations: **not yet materialized**
+- clinical-trial observations: **not yet materialized**
 
-したがって、このREADMEはデータ取得や分析がすでに完成していることを意味しません。実データ・schema・collector・workflowが追加されるまで、成果物の存在を主張しません。
+最初のpersisted recordは、FDAが2026年8月6日に公表したvusolimogene oderparepvec-wtpg (Tudriqev) のaccelerated approvalです。未取得のsequencing costとclinical trialについては値を補完せず、空配列のまま保持します。
+
+## Primary sources
+
+- NHGRI DNA Sequencing Costs: https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data
+- ClinicalTrials.gov API: https://clinicaltrials.gov/data-api/api
+- FDA approval notification: https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma
+
+ClinicalTrials.govのstudy dataは頻繁に更新されるため、利用時は最新のstudy page/APIを確認します。repositoryへclinical-trial observationを追加する場合も、取得日時とsource URLを保持します。
+
+## Validation
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+GitHub ActionsでもJSON syntaxと同じtestsを実行します。新しいruntime dependencyはありません。
 
 ## Project evidence
 
