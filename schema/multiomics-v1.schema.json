@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KAFKA2306/multiomics/blob/main/schema/multiomics-v1.schema.json",
+  "title": "Multiomics primary-source observations",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "retrieved_at",
+    "sequencing_costs",
+    "clinical_trials",
+    "approvals",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "retrieved_at": {"type": "string", "format": "date-time"},
+    "sequencing_costs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/sequencingCost"}
+    },
+    "clinical_trials": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/clinicalTrial"}
+    },
+    "approvals": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/approval"}
+    },
+    "sources": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source"}
+    }
+  },
+  "$defs": {
+    "sequencingCost": {
+      "type": "object",
+      "required": ["id", "period", "metric", "value", "unit", "source_url", "retrieved_at"],
+      "properties": {
+        "id": {"type": "string"},
+        "period": {"type": "string"},
+        "metric": {"enum": ["cost_per_megabase", "cost_per_genome"]},
+        "value": {"type": "number", "minimum": 0},
+        "unit": {"type": "string"},
+        "source_url": {"type": "string", "format": "uri"},
+        "retrieved_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "clinicalTrial": {
+      "type": "object",
+      "required": ["nct_id", "status", "phase", "sponsor", "source_url", "retrieved_at"],
+      "properties": {
+        "nct_id": {"type": "string", "pattern": "^NCT[0-9]{8}$"},
+        "status": {"type": "string"},
+        "phase": {"type": "string"},
+        "sponsor": {"type": "string"},
+        "source_url": {"type": "string", "format": "uri"},
+        "retrieved_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "approval": {
+      "type": "object",
+      "required": [
+        "id",
+        "authority",
+        "approval_date",
+        "pathway",
+        "generic_name",
+        "brand_name",
+        "sponsor",
+        "modality",
+        "indication",
+        "source_url",
+        "retrieved_at"
+      ],
+      "properties": {
+        "id": {"type": "string"},
+        "authority": {"type": "string"},
+        "approval_date": {"type": "string", "format": "date"},
+        "pathway": {"type": "string"},
+        "generic_name": {"type": "string"},
+        "brand_name": {"type": "string"},
+        "sponsor": {"type": "string"},
+        "modality": {"type": "string"},
+        "combination_with": {"type": "array", "items": {"type": "string"}},
+        "indication": {"type": "string"},
+        "evidence_basis": {"type": "array", "items": {"type": "string"}},
+        "confirmatory_trial_required": {"type": "boolean"},
+        "source_url": {"type": "string", "format": "uri"},
+        "retrieved_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["name", "url", "use", "note"],
+      "properties": {
+        "name": {"type": "string"},
+        "url": {"type": "string", "format": "uri"},
+        "use": {"type": "string"},
+        "note": {"type": "string"}
+      }
+    }
+  }
+}
