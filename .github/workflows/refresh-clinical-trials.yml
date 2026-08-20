@@ -1,0 +1,35 @@
+name: Refresh ClinicalTrials.gov evidence
+
+on:
+  schedule:
+    - cron: "15 15 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Refresh NCT06264180 from ClinicalTrials.gov API v2
+        run: python scripts/refresh_clinical_trials.py --nct-id NCT06264180
+      - name: Validate refreshed evidence
+        run: |
+          python -m json.tool data/multiomics-v1.json > /dev/null
+          python -m unittest discover -s tests -v
+      - name: Commit changed primary evidence
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain --untracked-files=all)" ]; then
+            echo "No ClinicalTrials.gov evidence change."
+            exit 0
+          fi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/multiomics-v1.json data/raw/clinicaltrials
+          git commit -m "data: refresh ClinicalTrials.gov evidence"
+          git push
