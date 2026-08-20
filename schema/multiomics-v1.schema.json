@@ -47,14 +47,29 @@
     },
     "clinicalTrial": {
       "type": "object",
-      "required": ["nct_id", "status", "phase", "sponsor", "source_url", "retrieved_at"],
+      "required": [
+        "nct_id",
+        "title",
+        "status",
+        "phase",
+        "sponsor",
+        "interventions",
+        "last_update_posted",
+        "source_url",
+        "retrieved_at"
+      ],
       "properties": {
         "nct_id": {"type": "string", "pattern": "^NCT[0-9]{8}$"},
+        "title": {"type": "string"},
         "status": {"type": "string"},
         "phase": {"type": "string"},
         "sponsor": {"type": "string"},
+        "interventions": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "last_update_posted": {"type": "string", "format": "date"},
         "source_url": {"type": "string", "format": "uri"},
-        "retrieved_at": {"type": "string", "format": "date-time"}
+        "retrieved_at": {"type": "string", "format": "date-time"},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "api_data_timestamp": {"type": "string"}
       }
     },
     "approval": {

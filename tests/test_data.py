@@ -17,13 +17,30 @@ class MultiomicsDataTest(unittest.TestCase):
     def test_versioned_data_shape(self):
         self.assertEqual(self.data["schema_version"], "1.0.0")
         self.assertEqual(self.schema["properties"]["schema_version"]["const"], "1.0.0")
-        self.assertIsInstance(self.data["sequencing_costs"], list)
-        self.assertIsInstance(self.data["clinical_trials"], list)
-        self.assertIsInstance(self.data["approvals"], list)
-        self.assertGreaterEqual(len(self.data["sources"]), 3)
+        self.assertGreaterEqual(len(self.data["sequencing_costs"]), 2)
+        self.assertGreaterEqual(len(self.data["clinical_trials"]), 1)
+        self.assertGreaterEqual(len(self.data["approvals"]), 1)
+        self.assertGreaterEqual(len(self.data["sources"]), 4)
+
+    def test_nhgri_sequencing_cost_observations(self):
+        costs = {row["metric"]: row for row in self.data["sequencing_costs"]}
+        self.assertEqual(costs["cost_per_megabase"]["period"], "2021")
+        self.assertEqual(costs["cost_per_megabase"]["value"], 0.006)
+        self.assertEqual(costs["cost_per_megabase"]["unit"], "USD_per_megabase")
+        self.assertEqual(costs["cost_per_genome"]["value"], 562)
+        self.assertEqual(costs["cost_per_genome"]["unit"], "USD_per_human_genome")
+        self.assertTrue(all(urlparse(row["source_url"]).hostname == "www.genome.gov" for row in costs.values()))
+
+    def test_clinical_trial_observation(self):
+        trial = next(row for row in self.data["clinical_trials"] if row["nct_id"] == "NCT06264180")
+        self.assertEqual(trial["status"], "RECRUITING")
+        self.assertEqual(trial["phase"], "PHASE3")
+        self.assertEqual(trial["sponsor"], "Replimune, Inc.")
+        self.assertEqual(trial["last_update_posted"], "2026-05-15")
+        self.assertIn("Vusolimogene Oderparepvec", trial["interventions"])
+        self.assertEqual(urlparse(trial["source_url"]).hostname, "clinicaltrials.gov")
 
     def test_first_fda_approval_observation(self):
-        self.assertEqual(len(self.data["approvals"]), 1)
         approval = self.data["approvals"][0]
         self.assertEqual(approval["approval_date"], "2026-08-06")
         self.assertEqual(approval["generic_name"], "vusolimogene oderparepvec-wtpg")
@@ -35,10 +52,6 @@ class MultiomicsDataTest(unittest.TestCase):
         self.assertEqual(approval["evidence_basis"], ["objective response rate", "duration of response"])
         self.assertTrue(approval["confirmatory_trial_required"])
         self.assertEqual(urlparse(approval["source_url"]).hostname, "www.fda.gov")
-
-    def test_unmaterialized_classes_are_empty(self):
-        self.assertEqual(self.data["sequencing_costs"], [])
-        self.assertEqual(self.data["clinical_trials"], [])
 
     def test_source_registry_uses_primary_sources(self):
         hosts = {urlparse(source["url"]).hostname for source in self.data["sources"]}

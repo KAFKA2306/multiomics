@@ -1,45 +1,43 @@
 # multiomics
 
-ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正準ターゲットrepositoryです。
+ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正準repositoryです。
 
-このrepositoryでは、予測値と観測事実を分け、次の情報を一次資料へ戻れる形で扱います。
+予測値と観測事実を分離し、sequencing economics、clinical trials、approvals / regulatory eventsを一次資料へ戻れる形で保持します。ARKのforecastは観測値として保存しません。
 
-- sequencing economics: cost per genome / sequencing cost
-- clinical trials: study / phase / status / sponsor / intervention / dates
-- approvals: drug / biologic approvals and regulatory events
-- modality / phase / sponsor aggregates
-- source URL and retrieval time
+## Canonical data
 
-ARKの予測値は観測事実へ混ぜず、仮説として別に扱います。
-
-## Current data
-
-- canonical data: [`data/multiomics-v1.json`](data/multiomics-v1.json)
+- data: [`data/multiomics-v1.json`](data/multiomics-v1.json)
 - schema: [`schema/multiomics-v1.schema.json`](schema/multiomics-v1.schema.json)
-- current persisted approval observations: **1**
-- sequencing-cost observations: **not yet materialized**
-- clinical-trial observations: **not yet materialized**
+- ClinicalTrials.gov refresh: [`scripts/refresh_clinical_trials.py`](scripts/refresh_clinical_trials.py)
+- scheduled refresh: [`.github/workflows/refresh-clinical-trials.yml`](.github/workflows/refresh-clinical-trials.yml)
 
-最初のpersisted recordは、FDAが2026年8月6日に公表したvusolimogene oderparepvec-wtpg (Tudriqev) のaccelerated approvalです。未取得のsequencing costとclinical trialについては値を補完せず、空配列のまま保持します。
+現在のpersisted primary-source observations:
+
+- sequencing economics: NHGRI 2021 `0.006 USD/Mb` and approximately `562 USD/human genome`
+- clinical trial: ClinicalTrials.gov `NCT06264180` (IGNYTE-3), Recruiting, Phase 3, sponsor Replimune, Inc.
+- approval: FDA August 6, 2026 accelerated approval of vusolimogene oderparepvec-wtpg (Tudriqev) with nivolumab
 
 ## Primary sources
 
 - NHGRI DNA Sequencing Costs: https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data
+- NHGRI Megabase reference containing the persisted 2021 values: https://www.genome.gov/genetics-glossary/Megabase-Mb
+- ClinicalTrials.gov study: https://clinicaltrials.gov/study/NCT06264180
 - ClinicalTrials.gov API: https://clinicaltrials.gov/data-api/api
 - FDA approval notification: https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma
 
-ClinicalTrials.govのstudy dataは頻繁に更新されるため、利用時は最新のstudy page/APIを確認します。repositoryへclinical-trial observationを追加する場合も、取得日時とsource URLを保持します。
+ClinicalTrials.govのデータは月曜から金曜に更新されるため、workflowは公式API v2から平日に再取得します。取得したstudy JSONは `data/raw/clinicaltrials/` にcontent-addressed snapshotとして保存し、そのSHA-256とAPI `dataTimestamp` をderived recordへ残します。外部の二次APIや推定値へfallbackしません。
 
-## Validation
+## Reproduce
 
 ```bash
+python scripts/refresh_clinical_trials.py --nct-id NCT06264180
 python -m unittest discover -s tests -v
 ```
 
-GitHub ActionsでもJSON syntaxと同じtestsを実行します。新しいruntime dependencyはありません。
+runtime dependencyはPython標準ライブラリのみです。
 
 ## Project evidence
 
 - ARK 2026 cross-repository plan: https://github.com/KAFKA2306/investor2/issues/111
-- repository rename/responsibility map: https://github.com/KAFKA2306/investor2/issues/110
-- Multiomics implementation plan: https://github.com/KAFKA2306/kafin3/issues/6
+- repository responsibility map: https://github.com/KAFKA2306/investor2/issues/110
+- canonical materialization: https://github.com/KAFKA2306/multiomics/issues/1
