@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -13,15 +12,14 @@ DATA = ROOT / "data" / "multiomics-v1.json"
 API = ROOT / "api" / "v1" / "multiomics"
 
 
-def load() -> tuple[dict[str, Any], bytes]:
-    raw = DATA.read_bytes()
-    value = json.loads(raw)
+def load() -> dict[str, Any]:
+    value = json.loads(DATA.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
         raise ValueError("canonical data must be an object")
-    return value, raw
+    return value
 
 
-def build(data: dict[str, Any], raw: bytes) -> tuple[dict[str, Any], dict[str, Any]]:
+def build(data: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     observations: list[dict[str, Any]] = []
     source_urls: set[str] = set()
 
@@ -89,7 +87,6 @@ def build(data: dict[str, Any], raw: bytes) -> tuple[dict[str, Any], dict[str, A
         "schema_version": 1,
         "retrieved_at": data["retrieved_at"],
         "canonical_data_path": "data/multiomics-v1.json",
-        "canonical_sha256": hashlib.sha256(raw).hexdigest(),
         "metrics_path": "api/v1/multiomics/metrics.json",
         "source_urls": sorted(source_urls),
         "observation_counts": {
@@ -103,8 +100,7 @@ def build(data: dict[str, Any], raw: bytes) -> tuple[dict[str, Any], dict[str, A
 
 
 def write() -> None:
-    data, raw = load()
-    index, metrics = build(data, raw)
+    index, metrics = build(load())
     API.mkdir(parents=True, exist_ok=True)
     (API / "index.json").write_text(json.dumps(index, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (API / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
