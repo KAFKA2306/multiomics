@@ -18,11 +18,15 @@ jobs:
           python-version: "3.12"
       - name: Refresh NCT06264180 from ClinicalTrials.gov API v2
         run: python scripts/refresh_clinical_trials.py --nct-id NCT06264180
+      - name: Rebuild canonical API
+        run: python scripts/build_api.py
       - name: Validate refreshed evidence
         run: |
           python -m json.tool data/multiomics-v1.json > /dev/null
+          python -m json.tool api/v1/multiomics/index.json > /dev/null
+          python -m json.tool api/v1/multiomics/metrics.json > /dev/null
           python -m unittest discover -s tests -v
-      - name: Commit changed primary evidence
+      - name: Commit changed primary evidence and derived views
         run: |
           if git diff --quiet && [ -z "$(git status --porcelain --untracked-files=all)" ]; then
             echo "No ClinicalTrials.gov evidence change."
@@ -30,6 +34,6 @@ jobs:
           fi
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add data/multiomics-v1.json data/raw/clinicaltrials
+          git add data/multiomics-v1.json data/raw/clinicaltrials api/v1/multiomics
           git commit -m "data: refresh ClinicalTrials.gov evidence"
           git push
