@@ -8,6 +8,9 @@ ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正
 
 - data: [`data/multiomics-v1.json`](data/multiomics-v1.json)
 - schema: [`schema/multiomics-v1.schema.json`](schema/multiomics-v1.schema.json)
+- API index: [`api/v1/multiomics/index.json`](api/v1/multiomics/index.json)
+- normalized metrics: [`api/v1/multiomics/metrics.json`](api/v1/multiomics/metrics.json)
+- API builder: [`scripts/build_api.py`](scripts/build_api.py)
 - ClinicalTrials.gov refresh: [`scripts/refresh_clinical_trials.py`](scripts/refresh_clinical_trials.py)
 - scheduled refresh: [`.github/workflows/refresh-clinical-trials.yml`](.github/workflows/refresh-clinical-trials.yml)
 
@@ -16,6 +19,8 @@ ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正
 - sequencing economics: NHGRI 2021 `0.006 USD/Mb` and approximately `562 USD/human genome`
 - clinical trial: ClinicalTrials.gov `NCT06264180` (IGNYTE-3), Recruiting, Phase 3, sponsor Replimune, Inc.
 - approval: FDA August 6, 2026 accelerated approval of vusolimogene oderparepvec-wtpg (Tudriqev) with nivolumab
+
+`api/v1/multiomics/metrics.json` は上記canonical dataから決定的に生成するread-only viewです。`investor2` などのdownstreamはこのviewを参照し、事実の正本を複製しません。
 
 ## Primary sources
 
@@ -31,6 +36,7 @@ ClinicalTrials.govのデータは月曜から金曜に更新されるため、wo
 
 ```bash
 python scripts/refresh_clinical_trials.py --nct-id NCT06264180
+python scripts/build_api.py
 python -m unittest discover -s tests -v
 ```
 

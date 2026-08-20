@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "retrieved_at": "2026-08-20T04:50:00Z",
+  "canonical_data_path": "data/multiomics-v1.json",
+  "metrics_path": "api/v1/multiomics/metrics.json",
+  "source_urls": [
+    "https://clinicaltrials.gov/study/NCT06264180",
+    "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma",
+    "https://www.genome.gov/genetics-glossary/Megabase-Mb"
+  ],
+  "observation_counts": {
+    "sequencing_costs": 2,
+    "clinical_trials": 1,
+    "approvals": 1,
+    "metrics": 5
+  }
+}
