@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "retrieved_at": "2026-09-02T13:41:48Z",
+  "retrieved_at": "2026-09-02T19:50:03Z",
   "canonical_data_path": "data/multiomics-v1.json",
   "metrics_path": "api/v1/multiomics/metrics.json",
   "source_urls": [
@@ -9,9 +9,9 @@
     "https://www.genome.gov/sites/default/files/media/files/2023-05/Sequencing_Cost_Data_Table_May2022.xls"
   ],
   "observation_counts": {
-    "sequencing_costs": 2,
+    "sequencing_costs": 156,
     "clinical_trials": 1,
     "approvals": 1,
-    "metrics": 5
+    "metrics": 159
   }
 }
