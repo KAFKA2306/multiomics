@@ -23,20 +23,24 @@
     <article class="card"><h2>最新の保存済み規制イベント</h2><div id="approval" class="value">—</div><div id="approvalMeta" class="meta"></div></article>
     <article class="card"><h2>追跡中の臨床試験</h2><div id="trial" class="value">—</div><div id="trialMeta" class="meta"></div></article>
     <article class="card"><h2>シーケンシング費用の保存済み観測</h2><div id="seq" class="value">—</div><div id="seqMeta" class="meta"></div></article>
+    <article class="card"><h2>シーケンシング費用の長期低下</h2><div id="seqTrend" class="value">—</div><div id="seqTrendMeta" class="meta"></div></article>
   </section>
 
   <section class="section card">
     <h2>読み方</h2>
-    <div class="row"><span class="pill">承認 ≠ 臨床試験成功</span><span class="pill">試験状態 ≠ 治療推奨</span><span class="pill">過去の費用観測 ≠ 現在価格</span></div>
-    <p class="meta">表示値は <code>data/multiomics-v1.json</code> の正準データから読み込みます。取得に失敗した場合は古い表示へfallbackせず、エラーを表示します。</p>
+    <div class="row"><span class="pill">承認 ≠ 臨床試験成功</span><span class="pill">試験状態 ≠ 治療推奨</span><span class="pill">過去の費用観測 ≠ 現在価格</span><span class="pill">長期回帰 ≠ 因果効果</span></div>
+    <p class="meta">表示値は <code>data/multiomics-v1.json</code> と、そこから決定的に生成した <code>api/v1/multiomics/sequencing-cost-analysis.json</code> を読み込みます。取得に失敗した場合は古い表示へfallbackせず、エラーを表示します。</p>
   </section>
 </main>
 <script>
 const $=id=>document.getElementById(id);
 const link=(url,label)=>`<a class="source" href="${url}" rel="noopener">${label}</a>`;
-fetch('./data/multiomics-v1.json',{cache:'no-store'})
-  .then(r=>{if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json();})
-  .then(d=>{
+const getJson=url=>fetch(url,{cache:'no-store'}).then(r=>{if(!r.ok) throw new Error(`${url}: HTTP ${r.status}`); return r.json();});
+Promise.all([
+  getJson('./data/multiomics-v1.json'),
+  getJson('./api/v1/multiomics/sequencing-cost-analysis.json')
+])
+  .then(([d,analysis])=>{
     $('asof').textContent=`正準データ取得時点: ${d.retrieved_at}`;
     const approvals=[...(d.approvals||[])].sort((a,b)=>b.approval_date.localeCompare(a.approval_date));
     const a=approvals[0];
@@ -48,8 +52,15 @@ fetch('./data/multiomics-v1.json',{cache:'no-store'})
     const genome=costs.find(x=>x.period===latestPeriod&&x.metric==='cost_per_genome');
     const mb=costs.find(x=>x.period===latestPeriod&&x.metric==='cost_per_megabase');
     if(genome&&mb){$('seq').textContent=`${genome.period}: 約 ${genome.value} USD / human genome`;$('seqMeta').innerHTML=`同じ観測時点で ${mb.value} USD / Mb。これは過去の保存済み観測で、現在価格ではありません。<br>${link(genome.source_url,'NHGRI一次情報')}`;}
+    const genomeTrend=(analysis.results||[]).find(x=>x.metric==='cost_per_genome');
+    const mbTrend=(analysis.results||[]).find(x=>x.metric==='cost_per_megabase');
+    if(!genomeTrend||!mbTrend) throw new Error('シーケンシング費用の分析結果が不足しています');
+    const g=genomeTrend.endpoint_summary;
+    const m=mbTrend.endpoint_summary;
+    $('seqTrend').textContent=`${g.first_period} → ${g.last_period}: human genome 約 ${Math.round(g.fold_reduction).toLocaleString()}分の1`;
+    $('seqTrendMeta').innerHTML=`端点からの年率換算低下: human genome ${g.annualized_cost_reduction_percent.toFixed(1)}%、1 Mb ${m.annualized_cost_reduction_percent.toFixed(1)}%。記述統計であり因果効果ではありません。<br>${link(analysis.method_source_url,'NHGRIの定義・技術移行説明')}`;
   })
-  .catch(err=>{$('asof').textContent='正準データを取得できませんでした。';$('error').hidden=false;$('error').textContent=`表示を停止しました: ${err.message}`;});
+  .catch(err=>{$('asof').textContent='正準データまたは派生分析を取得できませんでした。';$('error').hidden=false;$('error').textContent=`表示を停止しました: ${err.message}`;});
 </script>
 </body>
 </html>
