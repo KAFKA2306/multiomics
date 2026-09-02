@@ -30,9 +30,12 @@ jobs:
           python -m json.tool schema/multiomics-v1.schema.json > /dev/null
           python -m json.tool api/v1/multiomics/index.json > /dev/null
           python -m json.tool api/v1/multiomics/metrics.json > /dev/null
-          python -m py_compile scripts/build_api.py scripts/refresh_clinical_trials.py scripts/refresh_sequencing_costs.py tests/test_api.py tests/test_data.py tests/test_pages.py tests/test_refresh.py tests/test_sequencing_refresh.py
-      - name: Rebuild canonical API
-        run: python scripts/build_api.py
+          python -m py_compile scripts/analyze_sequencing_costs.py scripts/build_api.py scripts/refresh_clinical_trials.py scripts/refresh_sequencing_costs.py tests/test_api.py tests/test_data.py tests/test_pages.py tests/test_refresh.py tests/test_sequencing_analysis.py tests/test_sequencing_refresh.py
+      - name: Rebuild derived views
+        run: |
+          python scripts/build_api.py
+          python scripts/analyze_sequencing_costs.py
+          python -m json.tool api/v1/multiomics/sequencing-cost-analysis.json > /dev/null
       - name: Run tests
         run: python -m unittest discover -s tests -v
       - name: Verify tracked files unchanged
