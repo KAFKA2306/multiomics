@@ -1,6 +1,12 @@
 name: Refresh ClinicalTrials.gov evidence
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/refresh_clinical_trials.py"
+      - ".github/workflows/refresh-clinical-trials.yml"
   schedule:
     - cron: "15 15 * * 1-5"
   workflow_dispatch:
