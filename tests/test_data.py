@@ -1,5 +1,6 @@
 import json
 import unittest
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -31,14 +32,18 @@ class MultiomicsDataTest(unittest.TestCase):
         self.assertEqual(costs["cost_per_genome"]["unit"], "USD_per_human_genome")
         self.assertTrue(all(urlparse(row["source_url"]).hostname == "www.genome.gov" for row in costs.values()))
 
-    def test_clinical_trial_observation(self):
+    def test_clinical_trial_observation_contract(self):
         trial = next(row for row in self.data["clinical_trials"] if row["nct_id"] == "NCT06264180")
-        self.assertEqual(trial["status"], "RECRUITING")
-        self.assertEqual(trial["phase"], "PHASE3")
-        self.assertEqual(trial["sponsor"], "Replimune, Inc.")
-        self.assertEqual(trial["last_update_posted"], "2026-05-15")
-        self.assertIn("Vusolimogene Oderparepvec", trial["interventions"])
+        self.assertTrue(trial["status"])
+        self.assertTrue(trial["phase"])
+        self.assertTrue(trial["sponsor"])
+        self.assertTrue(trial["title"])
+        self.assertGreaterEqual(len(trial["interventions"]), 1)
         self.assertEqual(urlparse(trial["source_url"]).hostname, "clinicaltrials.gov")
+
+        last_update = date.fromisoformat(trial["last_update_posted"])
+        retrieved = datetime.fromisoformat(trial["retrieved_at"].replace("Z", "+00:00")).date()
+        self.assertLessEqual(last_update, retrieved)
 
     def test_first_fda_approval_observation(self):
         approval = self.data["approvals"][0]

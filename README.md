@@ -1,8 +1,12 @@
+https://kafka2306.github.io/multiomics/
+
 # multiomics
 
 ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正準repositoryです。
 
 予測値と観測事実を分離し、sequencing economics、clinical trials、approvals / regulatory eventsを一次資料へ戻れる形で保持します。ARKのforecastは観測値として保存しません。
+
+公開ページは、保存済みの正準データを読み込み、承認・臨床試験・シーケンシング費用を同じ「最新値」にまとめず、観測時点と一次情報を分けて表示します。データ取得に失敗した場合は古い値へfallbackしません。
 
 ## Canonical data
 
@@ -20,7 +24,7 @@ ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正
 - clinical trial: ClinicalTrials.gov `NCT06264180` (IGNYTE-3), Recruiting, Phase 3, sponsor Replimune, Inc.
 - approval: FDA August 6, 2026 accelerated approval of vusolimogene oderparepvec-wtpg (Tudriqev) with nivolumab
 
-`api/v1/multiomics/metrics.json` は上記canonical dataから決定的に生成するread-only viewです。`investor2` などのdownstreamはこのviewを参照し、事実の正本を複製しません。
+`api/v1/multiomics/metrics.json` は上記canonical dataから決定的に生成するread-only viewです。downstreamはこのviewを参照し、事実の正本を複製しません。
 
 ## Primary sources
 
@@ -41,9 +45,3 @@ python -m unittest discover -s tests -v
 ```
 
 runtime dependencyはPython標準ライブラリのみです。
-
-## Project evidence
-
-- ARK 2026 cross-repository plan: https://github.com/KAFKA2306/investor2/issues/111
-- repository responsibility map: https://github.com/KAFKA2306/investor2/issues/110
-- canonical materialization: https://github.com/KAFKA2306/multiomics/issues/1

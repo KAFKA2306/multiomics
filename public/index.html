@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Multiomicsの一次情報付き観測事実を確認する公開ダッシュボード">
+  <title>Multiomics — 確認済みの変化</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17202a;background:#f6f7f8}body{margin:0}main{max-width:980px;margin:auto;padding:32px 20px 64px}.eyebrow{font-size:.82rem;color:#56606b}.hero{background:#fff;border-radius:18px;padding:28px;box-shadow:0 8px 28px rgba(0,0,0,.06)}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:.2em 0}.lead{font-size:1.05rem;line-height:1.7;max-width:760px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}.card{background:#fff;border-radius:14px;padding:20px}.card h2{font-size:1rem;margin:0 0 10px}.value{font-size:1.25rem;font-weight:700;line-height:1.35}.meta{font-size:.88rem;color:#56606b;line-height:1.5}.source{display:inline-block;margin-top:10px}.notice{margin-top:20px;padding:14px 16px;border-radius:10px;background:#fff4d6}.error{background:#ffe8e8}.section{margin-top:28px}.section h2{font-size:1.25rem}.row{display:flex;gap:10px;flex-wrap:wrap}.pill{background:#e9eef3;padding:5px 9px;border-radius:999px;font-size:.82rem}a{color:#174ea6}code{background:#eef1f4;padding:2px 5px;border-radius:4px}@media(max-width:520px){main{padding:18px 14px 40px}.hero{padding:20px}}
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="eyebrow">一次情報から保存した観測事実</div>
+    <h1>Multiomicsで、何が確認されているか</h1>
+    <p class="lead">承認、臨床試験、シーケンシング費用を同じ「最新値」にまとめません。各データの観測日・取得時点・一次情報を分けて表示します。古い観測値を現在価格として扱いません。</p>
+    <div id="asof" class="meta">データを読み込み中…</div>
+    <div id="error" class="notice error" hidden></div>
+  </section>
+
+  <section class="grid" aria-label="主要な確認事実">
+    <article class="card"><h2>最新の保存済み規制イベント</h2><div id="approval" class="value">—</div><div id="approvalMeta" class="meta"></div></article>
+    <article class="card"><h2>追跡中の臨床試験</h2><div id="trial" class="value">—</div><div id="trialMeta" class="meta"></div></article>
+    <article class="card"><h2>シーケンシング費用の保存済み観測</h2><div id="seq" class="value">—</div><div id="seqMeta" class="meta"></div></article>
+  </section>
+
+  <section class="section card">
+    <h2>読み方</h2>
+    <div class="row"><span class="pill">承認 ≠ 臨床試験成功</span><span class="pill">試験状態 ≠ 治療推奨</span><span class="pill">過去の費用観測 ≠ 現在価格</span></div>
+    <p class="meta">表示値は <code>data/multiomics-v1.json</code> の正準データから読み込みます。取得に失敗した場合は古い表示へfallbackせず、エラーを表示します。</p>
+  </section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const link=(url,label)=>`<a class="source" href="${url}" rel="noopener">${label}</a>`;
+fetch('./data/multiomics-v1.json',{cache:'no-store'})
+  .then(r=>{if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json();})
+  .then(d=>{
+    $('asof').textContent=`正準データ取得時点: ${d.retrieved_at}`;
+    const approvals=[...(d.approvals||[])].sort((a,b)=>b.approval_date.localeCompare(a.approval_date));
+    const a=approvals[0];
+    if(a){$('approval').textContent=`${a.brand_name} — ${a.pathway}`;$('approvalMeta').innerHTML=`${a.approval_date} / ${a.authority}<br>${a.generic_name}<br>${link(a.source_url,'FDA一次情報')}`;}
+    const t=(d.clinical_trials||[])[0];
+    if(t){$('trial').textContent=`${t.nct_id} — ${t.status}`;$('trialMeta').innerHTML=`${t.phase} / ${t.sponsor}<br>最終更新掲載: ${t.last_update_posted}<br>取得: ${t.retrieved_at}<br>${link(t.source_url,'ClinicalTrials.gov')}`;}
+    const costs=d.sequencing_costs||[];
+    const genome=costs.find(x=>x.metric==='cost_per_genome');
+    const mb=costs.find(x=>x.metric==='cost_per_megabase');
+    if(genome&&mb){$('seq').textContent=`${genome.period}年: 約 ${genome.value} USD / human genome`;$('seqMeta').innerHTML=`同年 ${mb.value} USD / Mb。これは${genome.period}年の保存済み観測で、現在価格ではありません。<br>${link(genome.source_url,'NHGRI一次情報')}`;}
+  })
+  .catch(err=>{$('asof').textContent='正準データを取得できませんでした。';$('error').hidden=false;$('error').textContent=`表示を停止しました: ${err.message}`;});
+</script>
+</body>
+</html>
