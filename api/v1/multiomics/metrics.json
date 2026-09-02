@@ -34,21 +34,21 @@
     },
     {
       "metric": "sequencing_cost_per_genome_usd",
-      "as_of": "2021",
+      "as_of": "2021-08",
       "value": 562,
       "unit": "USD_per_human_genome",
       "provider": "NHGRI",
       "product": "DNA sequencing costs",
-      "source_url": "https://www.genome.gov/genetics-glossary/Megabase-Mb"
+      "source_url": "https://www.genome.gov/sites/default/files/media/files/2023-05/Sequencing_Cost_Data_Table_May2022.xls"
     },
     {
       "metric": "sequencing_cost_per_megabase_usd",
-      "as_of": "2021",
+      "as_of": "2021-08",
       "value": 0.006,
       "unit": "USD_per_megabase",
       "provider": "NHGRI",
       "product": "DNA sequencing costs",
-      "source_url": "https://www.genome.gov/genetics-glossary/Megabase-Mb"
+      "source_url": "https://www.genome.gov/sites/default/files/media/files/2023-05/Sequencing_Cost_Data_Table_May2022.xls"
     }
   ]
 }
