@@ -73,8 +73,12 @@ def refresh(nct_id: str, data_path: Path, raw_dir: Path) -> dict[str, Any]:
     raw_path.parent.mkdir(parents=True, exist_ok=True)
     raw_path.write_bytes(raw)
 
-    retrieved_at = datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     data = json.loads(data_path.read_text(encoding="utf-8"))
+    existing = next((row for row in data["clinical_trials"] if row.get("nct_id") == nct_id), None)
+    if existing is not None and existing.get("source_sha256") == digest:
+        return existing
+
+    retrieved_at = datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     record = extract_trial(
         study,
         retrieved_at=retrieved_at,
