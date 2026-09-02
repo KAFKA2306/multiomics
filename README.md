@@ -14,18 +14,20 @@ ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正
 - schema: [`schema/multiomics-v1.schema.json`](schema/multiomics-v1.schema.json)
 - API index: [`api/v1/multiomics/index.json`](api/v1/multiomics/index.json)
 - normalized metrics: [`api/v1/multiomics/metrics.json`](api/v1/multiomics/metrics.json)
+- sequencing cost analysis: [`api/v1/multiomics/sequencing-cost-analysis.json`](api/v1/multiomics/sequencing-cost-analysis.json)
 - API builder: [`scripts/build_api.py`](scripts/build_api.py)
+- sequencing cost analysis builder: [`scripts/analyze_sequencing_costs.py`](scripts/analyze_sequencing_costs.py)
 - ClinicalTrials.gov refresh: [`scripts/refresh_clinical_trials.py`](scripts/refresh_clinical_trials.py)
 - NHGRI sequencing-cost refresh: [`scripts/refresh_sequencing_costs.py`](scripts/refresh_sequencing_costs.py)
 - scheduled primary-source refresh: [`.github/workflows/refresh-primary-sources.yml`](.github/workflows/refresh-primary-sources.yml)
 
 現在のpersisted primary-source observations:
 
-- sequencing economics: NHGRIの公式Sequencing Costs 2022 Excel表。merge後の定期取得で2001年以降の全観測時点を保存する
+- sequencing economics: NHGRIの公式Sequencing Costs 2022 Excel表。2001年9月〜2022年5月の観測を保存
 - clinical trial: ClinicalTrials.gov `NCT06264180` (IGNYTE-3), Recruiting, Phase 3, sponsor Replimune, Inc.
 - approval: FDA August 6, 2026 accelerated approval of vusolimogene oderparepvec-wtpg (Tudriqev) with nivolumab
 
-`api/v1/multiomics/metrics.json` は上記canonical dataから決定的に生成するread-only viewです。downstreamはこのviewを参照し、事実の正本を複製しません。
+`api/v1/multiomics/metrics.json` は上記canonical dataから決定的に生成するread-only viewです。`api/v1/multiomics/sequencing-cost-analysis.json` はNHGRIの実観測から長期低下率を再計算するread-onlyの派生結果で、因果効果は主張しません。downstreamはこれらを参照し、事実の正本を複製しません。
 
 ## Primary sources
 
@@ -43,6 +45,7 @@ python -m pip install xlrd==2.0.2
 python scripts/refresh_clinical_trials.py --nct-id NCT06264180
 python scripts/refresh_sequencing_costs.py
 python scripts/build_api.py
+python scripts/analyze_sequencing_costs.py
 python -m unittest discover -s tests -v
 ```
 
