@@ -54,6 +54,8 @@
         "phase",
         "sponsor",
         "interventions",
+        "enrollment_count",
+        "enrollment_type",
         "last_update_posted",
         "source_url",
         "retrieved_at"
@@ -65,6 +67,8 @@
         "phase": {"type": "string"},
         "sponsor": {"type": "string"},
         "interventions": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "enrollment_count": {"type": "integer", "minimum": 0},
+        "enrollment_type": {"type": "string"},
         "last_update_posted": {"type": "string", "format": "date"},
         "source_url": {"type": "string", "format": "uri"},
         "retrieved_at": {"type": "string", "format": "date-time"},

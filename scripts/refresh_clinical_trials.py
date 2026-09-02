@@ -46,8 +46,11 @@ def extract_trial(
     nct_id = identification["nctId"]
     phases = design.get("phases", [])
     names = [row["name"] for row in interventions if row.get("name")]
+    enrollment = design.get("enrollmentInfo")
     if not phases or not names:
         raise ValueError(f"missing phase or intervention data for {nct_id}")
+    if not isinstance(enrollment, dict) or not isinstance(enrollment.get("count"), int) or not enrollment.get("type"):
+        raise ValueError(f"missing enrollment data for {nct_id}")
 
     return {
         "nct_id": nct_id,
@@ -56,6 +59,8 @@ def extract_trial(
         "phase": phases[0],
         "sponsor": sponsor["leadSponsor"]["name"],
         "interventions": names,
+        "enrollment_count": enrollment["count"],
+        "enrollment_type": enrollment["type"],
         "last_update_posted": status["lastUpdatePostDateStruct"]["date"],
         "source_url": f"https://clinicaltrials.gov/study/{nct_id}",
         "retrieved_at": retrieved_at,
