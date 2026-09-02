@@ -35,6 +35,7 @@ class SequencingCostsRefreshTest(unittest.TestCase):
     def test_unchanged_workbook_does_not_rewrite_canonical_data(self):
         raw = b"official workbook bytes"
         digest = hashlib.sha256(raw).hexdigest()
+        source_url = "https://www.genome.gov/Sequencing_Cost_Data_Table_May2022.xls"
         existing = [
             {
                 "id": "nhgri-2022-05-cost-per-genome",
@@ -42,7 +43,7 @@ class SequencingCostsRefreshTest(unittest.TestCase):
                 "metric": "cost_per_genome",
                 "value": 525,
                 "unit": "USD_per_human_genome",
-                "source_url": "https://www.genome.gov/example.xls",
+                "source_url": source_url,
                 "retrieved_at": "2026-09-02T19:40:00Z",
                 "source_sha256": digest,
                 "raw_path": f"data/raw/nhgri/sequencing-costs/{digest}.xls",
@@ -60,7 +61,7 @@ class SequencingCostsRefreshTest(unittest.TestCase):
             with patch(
                 "scripts.refresh_sequencing_costs.fetch_bytes",
                 side_effect=[
-                    b'<a href="https://www.genome.gov/example.xls">Sequencing Cost Data</a>',
+                    f'<a href="{source_url}">Sequencing Cost Data</a>'.encode(),
                     raw,
                 ],
             ):
