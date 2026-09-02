@@ -1,0 +1,98 @@
+{
+  "analysis": "NHGRI DNA sequencing cost decline",
+  "method": "Ordinary least squares of natural-log cost against elapsed years, plus endpoint annualized decline. Descriptive only; no causal estimate.",
+  "technology_transition_period": "2008-01",
+  "technology_transition_basis": "NHGRI states that 2001 through October 2007 represent Sanger-based sequencing and observations beginning January 2008 represent second-generation sequencing.",
+  "method_source_url": "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data",
+  "canonical_retrieved_at": "2026-09-02T19:50:03Z",
+  "results": [
+    {
+      "metric": "cost_per_megabase",
+      "unit": "USD_per_megabase",
+      "source_sha256": [
+        "b65205dd4df72f9032b1ca3cd94cc329d8d1f5ee5eb9994a2a51d4e9aa6a5fbd"
+      ],
+      "endpoint_summary": {
+        "first_period": "2001-09",
+        "first_value": 5292.39288459743,
+        "last_period": "2022-05",
+        "last_value": 0.005829163152286766,
+        "elapsed_years": 20.666666666666668,
+        "fold_reduction": 907916.4103549302,
+        "total_cost_reduction_percent": 99.9998898577018,
+        "annualized_cost_reduction_percent": 48.51182979181139
+      },
+      "log_linear_fit_all": {
+        "observation_count": 78,
+        "first_period": "2001-09",
+        "last_period": "2022-05",
+        "log_slope_per_year": -0.7662891056639216,
+        "annual_cost_change_percent": -53.526554715337824,
+        "annual_cost_reduction_percent": 53.526554715337824,
+        "r_squared": 0.87364805801731
+      },
+      "log_linear_fit_sanger_through_2007_10": {
+        "observation_count": 21,
+        "first_period": "2001-09",
+        "last_period": "2007-10",
+        "log_slope_per_year": -0.414955027647533,
+        "annual_cost_change_percent": -33.96300215713819,
+        "annual_cost_reduction_percent": 33.96300215713819,
+        "r_squared": 0.9610616062301193
+      },
+      "log_linear_fit_second_generation_from_2008_01": {
+        "observation_count": 57,
+        "first_period": "2008-01",
+        "last_period": "2022-05",
+        "log_slope_per_year": -0.46613379816014144,
+        "annual_cost_change_percent": -37.25766696561894,
+        "annual_cost_reduction_percent": 37.25766696561894,
+        "r_squared": 0.813023112856932
+      }
+    },
+    {
+      "metric": "cost_per_genome",
+      "unit": "USD_per_human_genome",
+      "source_sha256": [
+        "b65205dd4df72f9032b1ca3cd94cc329d8d1f5ee5eb9994a2a51d4e9aa6a5fbd"
+      ],
+      "endpoint_summary": {
+        "first_period": "2001-09",
+        "first_value": 95263071.9227537,
+        "last_period": "2022-05",
+        "last_value": 524.6246837058089,
+        "elapsed_years": 20.666666666666668,
+        "fold_reduction": 181583.282070986,
+        "total_cost_reduction_percent": 99.99944928850906,
+        "annualized_cost_reduction_percent": 44.34187301033942
+      },
+      "log_linear_fit_all": {
+        "observation_count": 78,
+        "first_period": "2001-09",
+        "last_period": "2022-05",
+        "log_slope_per_year": -0.6705797403809792,
+        "annual_cost_change_percent": -48.85879943635617,
+        "annual_cost_reduction_percent": 48.85879943635617,
+        "r_squared": 0.9010060940922578
+      },
+      "log_linear_fit_sanger_through_2007_10": {
+        "observation_count": 21,
+        "first_period": "2001-09",
+        "last_period": "2007-10",
+        "log_slope_per_year": -0.4149550276475329,
+        "annual_cost_change_percent": -33.96300215713818,
+        "annual_cost_reduction_percent": 33.96300215713818,
+        "r_squared": 0.9610616062301193
+      },
+      "log_linear_fit_second_generation_from_2008_01": {
+        "observation_count": 57,
+        "first_period": "2008-01",
+        "last_period": "2022-05",
+        "log_slope_per_year": -0.4584720458510811,
+        "annual_cost_change_percent": -36.775104474106136,
+        "annual_cost_reduction_percent": 36.775104474106136,
+        "r_squared": 0.832574396300968
+      }
+    }
+  ]
+}
