@@ -43,10 +43,11 @@ fetch('./data/multiomics-v1.json',{cache:'no-store'})
     if(a){$('approval').textContent=`${a.brand_name} — ${a.pathway}`;$('approvalMeta').innerHTML=`${a.approval_date} / ${a.authority}<br>${a.generic_name}<br>${link(a.source_url,'FDA一次情報')}`;}
     const t=(d.clinical_trials||[])[0];
     if(t){$('trial').textContent=`${t.nct_id} — ${t.status}`;$('trialMeta').innerHTML=`${t.phase} / ${t.sponsor}<br>最終更新掲載: ${t.last_update_posted}<br>取得: ${t.retrieved_at}<br>${link(t.source_url,'ClinicalTrials.gov')}`;}
-    const costs=d.sequencing_costs||[];
-    const genome=costs.find(x=>x.metric==='cost_per_genome');
-    const mb=costs.find(x=>x.metric==='cost_per_megabase');
-    if(genome&&mb){$('seq').textContent=`${genome.period}年: 約 ${genome.value} USD / human genome`;$('seqMeta').innerHTML=`同年 ${mb.value} USD / Mb。これは${genome.period}年の保存済み観測で、現在価格ではありません。<br>${link(genome.source_url,'NHGRI一次情報')}`;}
+    const costs=[...(d.sequencing_costs||[])].sort((a,b)=>b.period.localeCompare(a.period));
+    const latestPeriod=costs[0]?.period;
+    const genome=costs.find(x=>x.period===latestPeriod&&x.metric==='cost_per_genome');
+    const mb=costs.find(x=>x.period===latestPeriod&&x.metric==='cost_per_megabase');
+    if(genome&&mb){$('seq').textContent=`${genome.period}: 約 ${genome.value} USD / human genome`;$('seqMeta').innerHTML=`同じ観測時点で ${mb.value} USD / Mb。これは過去の保存済み観測で、現在価格ではありません。<br>${link(genome.source_url,'NHGRI一次情報')}`;}
   })
   .catch(err=>{$('asof').textContent='正準データを取得できませんでした。';$('error').hidden=false;$('error').textContent=`表示を停止しました: ${err.message}`;});
 </script>

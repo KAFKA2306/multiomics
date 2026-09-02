@@ -1,5 +1,6 @@
 import json
 import unittest
+from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlparse
@@ -21,16 +22,26 @@ class MultiomicsDataTest(unittest.TestCase):
         self.assertGreaterEqual(len(self.data["sequencing_costs"]), 2)
         self.assertGreaterEqual(len(self.data["clinical_trials"]), 1)
         self.assertGreaterEqual(len(self.data["approvals"]), 1)
-        self.assertGreaterEqual(len(self.data["sources"]), 4)
+        self.assertGreaterEqual(len(self.data["sources"]), 3)
 
     def test_nhgri_sequencing_cost_observations(self):
-        costs = {row["metric"]: row for row in self.data["sequencing_costs"]}
-        self.assertEqual(costs["cost_per_megabase"]["period"], "2021")
-        self.assertEqual(costs["cost_per_megabase"]["value"], 0.006)
-        self.assertEqual(costs["cost_per_megabase"]["unit"], "USD_per_megabase")
-        self.assertEqual(costs["cost_per_genome"]["value"], 562)
-        self.assertEqual(costs["cost_per_genome"]["unit"], "USD_per_human_genome")
-        self.assertTrue(all(urlparse(row["source_url"]).hostname == "www.genome.gov" for row in costs.values()))
+        costs = self.data["sequencing_costs"]
+        by_key = {(row["period"], row["metric"]): row for row in costs}
+        self.assertEqual(len(by_key), len(costs))
+
+        mb = by_key[("2021-08", "cost_per_megabase")]
+        genome = by_key[("2021-08", "cost_per_genome")]
+        self.assertEqual(mb["value"], 0.006)
+        self.assertEqual(mb["unit"], "USD_per_megabase")
+        self.assertEqual(genome["value"], 562)
+        self.assertEqual(genome["unit"], "USD_per_human_genome")
+        self.assertTrue(all(urlparse(row["source_url"]).hostname == "www.genome.gov" for row in costs))
+
+        metric_counts = Counter(row["metric"] for row in costs)
+        self.assertEqual(metric_counts["cost_per_megabase"], metric_counts["cost_per_genome"])
+        periods = sorted({row["period"] for row in costs})
+        self.assertEqual(len(costs), 2 * len(periods))
+        self.assertTrue(all(len(period) == 7 for period in periods))
 
     def test_clinical_trial_observation_contract(self):
         trial = next(row for row in self.data["clinical_trials"] if row["nct_id"] == "NCT06264180")

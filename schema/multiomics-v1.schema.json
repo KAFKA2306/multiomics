@@ -37,12 +37,14 @@
       "required": ["id", "period", "metric", "value", "unit", "source_url", "retrieved_at"],
       "properties": {
         "id": {"type": "string"},
-        "period": {"type": "string"},
+        "period": {"type": "string", "pattern": "^[0-9]{4}(?:-[0-9]{2})?$"},
         "metric": {"enum": ["cost_per_megabase", "cost_per_genome"]},
         "value": {"type": "number", "minimum": 0},
         "unit": {"type": "string"},
         "source_url": {"type": "string", "format": "uri"},
-        "retrieved_at": {"type": "string", "format": "date-time"}
+        "retrieved_at": {"type": "string", "format": "date-time"},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "raw_path": {"type": "string"}
       }
     },
     "clinicalTrial": {

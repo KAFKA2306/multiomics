@@ -16,11 +16,12 @@ ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正
 - normalized metrics: [`api/v1/multiomics/metrics.json`](api/v1/multiomics/metrics.json)
 - API builder: [`scripts/build_api.py`](scripts/build_api.py)
 - ClinicalTrials.gov refresh: [`scripts/refresh_clinical_trials.py`](scripts/refresh_clinical_trials.py)
-- scheduled refresh: [`.github/workflows/refresh-clinical-trials.yml`](.github/workflows/refresh-clinical-trials.yml)
+- NHGRI sequencing-cost refresh: [`scripts/refresh_sequencing_costs.py`](scripts/refresh_sequencing_costs.py)
+- scheduled primary-source refresh: [`.github/workflows/refresh-primary-sources.yml`](.github/workflows/refresh-primary-sources.yml)
 
 現在のpersisted primary-source observations:
 
-- sequencing economics: NHGRI 2021 `0.006 USD/Mb` and approximately `562 USD/human genome`
+- sequencing economics: NHGRIの公式Sequencing Costs 2022 Excel表。merge後の定期取得で2001年以降の全観測時点を保存する
 - clinical trial: ClinicalTrials.gov `NCT06264180` (IGNYTE-3), Recruiting, Phase 3, sponsor Replimune, Inc.
 - approval: FDA August 6, 2026 accelerated approval of vusolimogene oderparepvec-wtpg (Tudriqev) with nivolumab
 
@@ -29,19 +30,20 @@ ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正
 ## Primary sources
 
 - NHGRI DNA Sequencing Costs: https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data
-- NHGRI Megabase reference containing the persisted 2021 values: https://www.genome.gov/genetics-glossary/Megabase-Mb
 - ClinicalTrials.gov study: https://clinicaltrials.gov/study/NCT06264180
 - ClinicalTrials.gov API: https://clinicaltrials.gov/data-api/api
 - FDA approval notification: https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma
 
-ClinicalTrials.govのデータは月曜から金曜に更新されるため、workflowは公式API v2から平日に再取得します。取得したstudy JSONは `data/raw/clinicaltrials/` にcontent-addressed snapshotとして保存し、そのSHA-256とAPI `dataTimestamp` をderived recordへ残します。外部の二次APIや推定値へfallbackしません。
+ClinicalTrials.govのデータとNHGRIのシーケンシング費用表は、同じ一次情報更新workflowで取得します。ClinicalTrials.govのstudy JSONとNHGRIの公式Excelは `data/raw/` にcontent-addressed snapshotとして保存し、SHA-256と原本pathを正準データへ残します。外部の二次APIや推定値へfallbackしません。
 
 ## Reproduce
 
 ```bash
+python -m pip install xlrd==2.0.2
 python scripts/refresh_clinical_trials.py --nct-id NCT06264180
+python scripts/refresh_sequencing_costs.py
 python scripts/build_api.py
 python -m unittest discover -s tests -v
 ```
 
-runtime dependencyはPython標準ライブラリのみです。
+ClinicalTrials.govのJSON取得とAPI生成はPython標準ライブラリだけで動作します。NHGRIが配布する`.xls`原本の読み取りには`xlrd==2.0.2`を使用します。

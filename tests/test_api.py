@@ -22,24 +22,21 @@ class MultiomicsApiTest(unittest.TestCase):
                 "sequencing_cost_per_megabase_usd",
             },
         )
-        self.assertEqual(index["observation_counts"]["sequencing_costs"], 2)
-        self.assertEqual(index["observation_counts"]["clinical_trials"], 1)
-        self.assertEqual(index["observation_counts"]["approvals"], 1)
-        self.assertEqual(index["observation_counts"]["metrics"], 5)
+        self.assertEqual(index["observation_counts"]["sequencing_costs"], len(data["sequencing_costs"]))
+        self.assertEqual(index["observation_counts"]["clinical_trials"], len(data["clinical_trials"]))
+        self.assertEqual(index["observation_counts"]["approvals"], len(data["approvals"]))
+        self.assertEqual(index["observation_counts"]["metrics"], len(metrics["observations"]))
         count_rows = [
             row
             for row in metrics["observations"]
             if row["metric"] in {"clinical_trial_count", "multiomics_trial_count", "fda_approval_count"}
         ]
         self.assertTrue(all(row["qualifier"] == "tracked_repository_records" for row in count_rows))
-        self.assertEqual(
-            set(index["source_urls"]),
-            {
-                "https://clinicaltrials.gov/study/NCT06264180",
-                "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma",
-                "https://www.genome.gov/genetics-glossary/Megabase-Mb",
-            },
-        )
+
+        expected_sources = {row["source_url"] for row in data["sequencing_costs"]}
+        expected_sources.update(row["source_url"] for row in data["clinical_trials"])
+        expected_sources.update(row["source_url"] for row in data["approvals"])
+        self.assertEqual(set(index["source_urls"]), expected_sources)
 
     def test_committed_api_is_deterministic(self):
         data = json.loads((ROOT / "data" / "multiomics-v1.json").read_text(encoding="utf-8"))
