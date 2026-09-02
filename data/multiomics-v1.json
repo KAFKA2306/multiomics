@@ -3,21 +3,21 @@
   "retrieved_at": "2026-09-02T13:41:48Z",
   "sequencing_costs": [
     {
-      "id": "nhgri-2021-cost-per-megabase",
-      "period": "2021",
+      "id": "nhgri-2021-08-cost-per-megabase",
+      "period": "2021-08",
       "metric": "cost_per_megabase",
       "value": 0.006,
       "unit": "USD_per_megabase",
-      "source_url": "https://www.genome.gov/genetics-glossary/Megabase-Mb",
+      "source_url": "https://www.genome.gov/sites/default/files/media/files/2023-05/Sequencing_Cost_Data_Table_May2022.xls",
       "retrieved_at": "2026-08-20T04:50:00Z"
     },
     {
-      "id": "nhgri-2021-cost-per-genome",
-      "period": "2021",
+      "id": "nhgri-2021-08-cost-per-genome",
+      "period": "2021-08",
       "metric": "cost_per_genome",
       "value": 562,
       "unit": "USD_per_human_genome",
-      "source_url": "https://www.genome.gov/genetics-glossary/Megabase-Mb",
+      "source_url": "https://www.genome.gov/sites/default/files/media/files/2023-05/Sequencing_Cost_Data_Table_May2022.xls",
       "retrieved_at": "2026-08-20T04:50:00Z"
     }
   ],
@@ -73,13 +73,7 @@
       "name": "NHGRI DNA Sequencing Costs",
       "url": "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data",
       "use": "sequencing cost methodology and historical dataset",
-      "note": "NHGRI tracks Cost per Megabase and Cost per Genome for its funded sequencing centers."
-    },
-    {
-      "name": "NHGRI Megabase reference",
-      "url": "https://www.genome.gov/genetics-glossary/Megabase-Mb",
-      "use": "verified 2021 sequencing-cost observations",
-      "note": "NHGRI states that by 2021 sequencing cost was 0.006 USD per megabase and about 562 USD per human genome."
+      "note": "NHGRI tracks Cost per Megabase and Cost per Genome for its funded sequencing centers and provides the historical numbers in the linked Sequencing Costs 2022 Excel table."
     },
     {
       "name": "ClinicalTrials.gov API",
