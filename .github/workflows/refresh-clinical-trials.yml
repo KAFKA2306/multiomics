@@ -38,7 +38,8 @@ jobs:
       - name: Commit changed primary evidence and derived views
         id: commit
         run: |
-          if git diff --quiet && [ -z "$(git status --porcelain --untracked-files=all)" ]; then
+          evidence_status="$(git status --porcelain --untracked-files=all -- data/multiomics-v1.json data/raw/clinicaltrials api/v1/multiomics)"
+          if [ -z "$evidence_status" ]; then
             echo "No ClinicalTrials.gov evidence change."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
