@@ -22,12 +22,13 @@ def log_linear_fit(records: list[dict]) -> dict:
         raise ValueError("at least two observations are required")
 
     ordered = sorted(records, key=lambda row: row["period"])
-    origin = month_index(ordered[0]["period"])
-    x = [(month_index(row["period"]) - origin) / 12.0 for row in ordered]
-    y = [math.log(float(row["value"])) for row in ordered]
-    if any(float(row["value"]) <= 0 for row in ordered):
+    values = [float(row["value"]) for row in ordered]
+    if any(value <= 0 for value in values):
         raise ValueError("sequencing cost must be positive")
 
+    origin = month_index(ordered[0]["period"])
+    x = [(month_index(row["period"]) - origin) / 12.0 for row in ordered]
+    y = [math.log(value) for value in values]
     x_mean = sum(x) / len(x)
     y_mean = sum(y) / len(y)
     ss_x = sum((value - x_mean) ** 2 for value in x)
@@ -92,19 +93,28 @@ def analyze(canonical: dict) -> dict:
         if any("period" not in row or "value" not in row for row in metric_records):
             raise ValueError(f"missing period/value for metric: {metric}")
 
+        periods = [row["period"] for row in metric_records]
+        if len(periods) != len(set(periods)):
+            raise ValueError(f"duplicate period for metric: {metric}")
+
+        units = {row.get("unit") for row in metric_records}
+        if len(units) != 1 or None in units or "" in units:
+            raise ValueError(f"inconsistent or missing unit for metric: {metric}")
+
+        source_hash_values = [row.get("source_sha256") for row in metric_records]
+        if any(not isinstance(value, str) or not value for value in source_hash_values):
+            raise ValueError(f"missing source_sha256 for metric: {metric}")
+        source_hashes = sorted(set(source_hash_values))
+
         pre_transition = [row for row in metric_records if row["period"] < TRANSITION_PERIOD]
         post_transition = [row for row in metric_records if row["period"] >= TRANSITION_PERIOD]
         if len(pre_transition) < 2 or len(post_transition) < 2:
             raise ValueError(f"insufficient observations around {TRANSITION_PERIOD}: {metric}")
 
-        source_hashes = sorted({row.get("source_sha256") for row in metric_records})
-        if None in source_hashes or "" in source_hashes:
-            raise ValueError(f"missing source_sha256 for metric: {metric}")
-
         results.append(
             {
                 "metric": metric,
-                "unit": metric_records[0].get("unit"),
+                "unit": next(iter(units)),
                 "source_sha256": source_hashes,
                 "endpoint_summary": endpoint_summary(metric_records),
                 "log_linear_fit_all": log_linear_fit(metric_records),
