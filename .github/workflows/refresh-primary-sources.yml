@@ -7,6 +7,9 @@ on:
     paths:
       - "scripts/refresh_clinical_trials.py"
       - "scripts/refresh_sequencing_costs.py"
+      - "tests/test_data.py"
+      - "tests/test_refresh.py"
+      - "tests/test_sequencing_refresh.py"
       - ".github/workflows/refresh-primary-sources.yml"
   schedule:
     - cron: "15 15 * * 1-5"
