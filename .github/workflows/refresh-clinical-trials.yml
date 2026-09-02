@@ -17,6 +17,9 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+      commit_sha: ${{ steps.commit.outputs.commit_sha }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
@@ -33,9 +36,12 @@ jobs:
           python -m json.tool api/v1/multiomics/metrics.json > /dev/null
           python -m unittest discover -s tests -v
       - name: Commit changed primary evidence and derived views
+        id: commit
         run: |
           if git diff --quiet && [ -z "$(git status --porcelain --untracked-files=all)" ]; then
             echo "No ClinicalTrials.gov evidence change."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name github-actions[bot]
@@ -43,3 +49,27 @@ jobs:
           git add data/multiomics-v1.json data/raw/clinicaltrials api/v1/multiomics
           git commit -m "data: refresh ClinicalTrials.gov evidence"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  validate-persisted:
+    needs: refresh
+    if: ${{ needs.refresh.outputs.changed == 'true' }}
+    uses: ./.github/workflows/validate.yml
+    with:
+      ref: ${{ needs.refresh.outputs.commit_sha }}
+    permissions:
+      contents: read
+
+  deploy-persisted:
+    needs:
+      - refresh
+      - validate-persisted
+    if: ${{ needs.refresh.outputs.changed == 'true' }}
+    uses: ./.github/workflows/deploy-pages.yml
+    with:
+      ref: ${{ needs.refresh.outputs.commit_sha }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
