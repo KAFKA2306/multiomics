@@ -22,7 +22,7 @@ LIST_HTML = b"""
 </tbody></table></body></html>
 """
 AUG13_HTML = b"""
-<html><body><main><p>On August 13, 2026, the Food and Drug Administration granted accelerated approval to iberdomide (Zenbexus, Bristol-Myers Squibb Company) in combination with daratumumab and hyaluronidase-fihj and dexamethasone for adults with multiple myeloma who have received at least one prior line of therapy including a proteasome inhibitor and an immunomodulatory agent.</p><p>Full prescribing information for Zenbexus will be posted.</p></main></body></html>
+<html><head><script type="application/ld+json">{"description":"On August 13, 2026, the Food and Drug Administration approved polluted metadata (WRONG, Wrong Sponsor), for wrong indication.","datePublished":"2026-08-13"}</script></head><body><main><p>On August 13, 2026, the Food and Drug Administration granted accelerated approval to iberdomide (Zenbexus, Bristol-Myers Squibb Company) in combination with daratumumab and hyaluronidase-fihj and dexamethasone for adults with multiple myeloma who have received at least one prior line of therapy including a proteasome inhibitor and an immunomodulatory agent.</p><p>Full prescribing information for Zenbexus will be posted.</p></main></body></html>
 """
 AUG25_HTML = b"""
 <html><body><main><p>On August 25, 2026, the Food and Drug Administration approved zanidatamab-hrii (Ziihera, Jazz Pharmaceuticals):</p><ul><li>in combination with fluoropyrimidine- and platinum-containing chemotherapy and tislelizumab-jsgr (Tevimbra, BeOne Medicines USA, Inc.), as first-line treatment for adults with HER2-positive unresectable locally advanced or metastatic gastric, gastroesophageal junction, or esophageal adenocarcinoma, and</li><li>in combination with fluoropyrimidine- and platinum-containing chemotherapy, as first-line treatment for adults with HER2-positive unresectable locally advanced or metastatic gastric, gastroesophageal junction, or esophageal adenocarcinoma.</li></ul><p>Today, the FDA also approved two companion diagnostic devices.</p></main></body></html>
@@ -54,6 +54,17 @@ class FdaApprovalRefreshTest(unittest.TestCase):
         self.assertEqual(record["modality"], "inhibitor of the RAS GTPase family")
         self.assertIn("metastatic pancreatic adenocarcinoma", record["indication"])
         self.assertEqual(record["source_sha256"], digest)
+
+    def test_approval_summary_uses_visible_main_content_not_json_ld(self):
+        digest = hashlib.sha256(AUG13_HTML).hexdigest()
+        record = extract_approval(AUG13_HTML, AUG13_URL, "2026-09-03T04:00:00Z", digest, "raw.html")
+        self.assertEqual(record["generic_name"], "iberdomide")
+        self.assertEqual(record["brand_name"], "Zenbexus")
+        self.assertEqual(record["sponsor"], "Bristol-Myers Squibb Company")
+        self.assertIn("multiple myeloma", record["indication"])
+        self.assertTrue(record["approval_summary"].startswith("On August 13, 2026, the Food and Drug Administration granted accelerated approval"))
+        self.assertNotIn("polluted metadata", record["approval_summary"])
+        self.assertNotIn("datePublished", record["approval_summary"])
 
     def test_complex_multi_indication_page_preserves_official_summary_without_guessing(self):
         digest = hashlib.sha256(AUG25_HTML).hexdigest()
@@ -97,8 +108,50 @@ class FdaApprovalRefreshTest(unittest.TestCase):
             for record, html in zip(first, [AUG13_HTML, AUG25_HTML]):
                 self.assertEqual((raw_dir / f"{record['source_sha256']}.html").read_bytes(), html)
 
+    def test_refresh_repairs_existing_summary_from_persisted_raw(self):
+        digest = hashlib.sha256(AUG13_HTML).hexdigest()
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            data_path = root / "multiomics-v1.json"
+            raw_dir = root / "raw"
+            raw_dir.mkdir()
+            raw_path = raw_dir / f"{digest}.html"
+            raw_path.write_bytes(AUG13_HTML)
+            canonical = {
+                "schema_version": "1.0.0",
+                "retrieved_at": "2026-09-03T04:00:00Z",
+                "sequencing_costs": [],
+                "clinical_trials": [],
+                "approvals": [{
+                    "id": "fda-2026-08-13-iberdomide",
+                    "authority": "U.S. Food and Drug Administration",
+                    "approval_date": "2026-08-13",
+                    "pathway": "accelerated approval",
+                    "generic_name": "iberdomide",
+                    "brand_name": "Zenbexus",
+                    "sponsor": "Bristol-Myers Squibb Company",
+                    "modality": None,
+                    "indication": None,
+                    "approval_summary": "polluted metadata",
+                    "source_url": AUG13_URL,
+                    "retrieved_at": "2026-09-03T04:00:00Z",
+                    "source_sha256": digest,
+                    "raw_path": raw_path.as_posix(),
+                }],
+                "sources": [],
+            }
+            data_path.write_text(json.dumps(canonical, indent=2) + "\n", encoding="utf-8")
+            one_row_list = LIST_HTML.replace(b'<tr><td><a href="/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma">August 6</a></td><td>description</td><td>8/6/2026</td></tr>', b'').replace(b'<tr><td><a href="/drugs/resources-information-approved-drugs/fda-approves-zanidatamab-hrii-and-tislelizumab-jsgr-her2-positive-gastric-gastroesophageal-junction">August 25</a></td><td>description</td><td>8/25/2026</td></tr>', b'').replace(b'<tr><td><a href="/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma">August 26</a></td><td>description</td><td>8/26/2026</td></tr>', b'')
+            with patch("scripts.refresh_fda_approvals.fetch_bytes", return_value=one_row_list):
+                self.assertEqual(refresh(data_path, raw_dir), [])
+            repaired = json.loads(data_path.read_text(encoding="utf-8"))["approvals"][0]
+            self.assertIn("multiple myeloma", repaired["approval_summary"])
+            self.assertNotIn("polluted metadata", repaired["approval_summary"])
+            self.assertIn("multiple myeloma", repaired["indication"])
+            self.assertEqual(repaired["source_sha256"], digest)
+
     def test_unparseable_detail_fails_loudly(self):
-        with self.assertRaisesRegex(ValueError, "canonical approval sentence"):
+        with self.assertRaisesRegex(ValueError, "main content element"):
             extract_approval(b"<html><body>unexpected format</body></html>", AUG26_URL, "2026-09-03T04:00:00Z", "a" * 64, "raw.html")
 
 
