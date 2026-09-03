@@ -11,34 +11,11 @@ from scripts import refresh_drugsfda
 
 class DrugsFdaRefreshTest(unittest.TestCase):
     def _archive(self) -> bytes:
-        tables = {
-            "ActionTypes_Lookup.txt": [
-                refresh_drugsfda.EXPECTED_HEADERS["ActionTypes_Lookup.txt"],
-                ["1", "Original", "", ""],
-            ],
-            "Applications.txt": [
-                refresh_drugsfda.EXPECTED_HEADERS["Applications.txt"],
-                ["000001", "NDA", "", "Sponsor"],
-            ],
-            "Join_Submission_ActionType_Lookup.txt": [
-                refresh_drugsfda.EXPECTED_HEADERS["Join_Submission_ActionType_Lookup.txt"],
-                ["1", "1", "ORIG", "000001", "1"],
-            ],
-            "Products.txt": [
-                refresh_drugsfda.EXPECTED_HEADERS["Products.txt"],
-                ["000001", "001", "TABLET", "1 MG", "1", "DRUG", "INGREDIENT", "1"],
-            ],
-            "Submissions.txt": [
-                refresh_drugsfda.EXPECTED_HEADERS["Submissions.txt"],
-                ["000001", "", "ORIG", "1", "AP", "2026-01-01", "", "Priority"],
-            ],
-        }
-        for index in range(7):
-            tables[f"Other{index}.txt"] = [["id"], [str(index)]]
         buffer = io.BytesIO()
         with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as archive:
-            for name, rows in tables.items():
-                text = "\n".join("\t".join(row) for row in rows) + "\n"
+            for index, (name, header) in enumerate(refresh_drugsfda.EXPECTED_HEADERS.items(), start=1):
+                row = [str(index)] * len(header)
+                text = "\t".join(header) + "\n" + "\t".join(row) + "\n"
                 archive.writestr(name, text.encode("utf-8"))
         return buffer.getvalue()
 
@@ -64,11 +41,24 @@ class DrugsFdaRefreshTest(unittest.TestCase):
             self.assertEqual(saved["table_count"], 12)
             self.assertTrue((raw_dir / f"{saved['source_sha256']}.zip").exists())
 
-    def test_rejects_archive_with_wrong_table_count(self):
+    def test_rejects_archive_when_table_name_changes(self):
         buffer = io.BytesIO()
         with zipfile.ZipFile(buffer, "w") as archive:
-            archive.writestr("Applications.txt", "ApplNo\n")
-        with self.assertRaisesRegex(ValueError, "expected 12"):
+            for name, header in refresh_drugsfda.EXPECTED_HEADERS.items():
+                if name == "TE.txt":
+                    name = "Unexpected.txt"
+                archive.writestr(name, "\t".join(header) + "\n")
+        with self.assertRaisesRegex(ValueError, "table set changed"):
+            refresh_drugsfda.inspect_zip(buffer.getvalue())
+
+    def test_rejects_archive_when_header_changes(self):
+        buffer = io.BytesIO()
+        with zipfile.ZipFile(buffer, "w") as archive:
+            for name, header in refresh_drugsfda.EXPECTED_HEADERS.items():
+                if name == "MarketingStatus.txt":
+                    header = list(reversed(header))
+                archive.writestr(name, "\t".join(header) + "\n")
+        with self.assertRaisesRegex(ValueError, "header mismatch for MarketingStatus.txt"):
             refresh_drugsfda.inspect_zip(buffer.getvalue())
 
 
