@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import io
 import json
 import zipfile
@@ -38,8 +39,11 @@ def build_drugsfda_crosswalk(data: dict[str, Any]) -> dict[str, Any]:
     raw_path = ROOT / manifest["raw_path"]
     if not raw_path.exists():
         raise ValueError("Drugs@FDA raw ZIP is missing")
+    raw_bytes = raw_path.read_bytes()
+    if hashlib.sha256(raw_bytes).hexdigest() != manifest["source_sha256"]:
+        raise ValueError("Drugs@FDA raw ZIP sha256 does not match manifest")
 
-    with zipfile.ZipFile(raw_path) as archive:
+    with zipfile.ZipFile(io.BytesIO(raw_bytes)) as archive:
         products = _table_rows(archive, "Products.txt")
         applications = _table_rows(archive, "Applications.txt")
         submissions = _table_rows(archive, "Submissions.txt")
@@ -68,14 +72,8 @@ def build_drugsfda_crosswalk(data: dict[str, Any]) -> dict[str, Any]:
         matched_applications: list[dict[str, Any]] = []
         for application_number in application_numbers:
             application = application_by_number.get(application_number)
-            matching_products = [
-                {
-                    "product_number": row["ProductNo"].strip(),
-                    "drug_name": row["DrugName"].strip() or None,
-                    "active_ingredient": row["ActiveIngredient"].strip() or None,
-                    "form": row["Form"].strip() or None,
-                    "strength": row["Strength"].strip() or None,
-                }
+            brand_products = [
+                row
                 for row in products
                 if row["ApplNo"].strip() == application_number
                 and row["DrugName"].strip().casefold() == brand_name.strip().casefold()
@@ -104,21 +102,15 @@ def build_drugsfda_crosswalk(data: dict[str, Any]) -> dict[str, Any]:
                             }
                         )
                 actions.sort(key=lambda row: row["action_type_id"])
-                docs = []
-                for document in documents:
-                    if (
-                        document["ApplNo"].strip() == application_number
-                        and document["SubmissionType"].strip() == submission_type
-                        and document["SubmissionNo"].strip() == submission_number
-                    ):
-                        docs.append(
-                            {
-                                "document_type": document_type_by_id.get(document["ApplicationDocsTypeID"].strip()),
-                                "document_date": document["ApplicationDocsDate"].strip()[:10] or None,
-                                "document_url": document["ApplicationDocsURL"].strip() or None,
-                            }
-                        )
-                docs.sort(key=lambda row: (row["document_date"] or "", row["document_type"] or "", row["document_url"] or ""))
+                letter_urls = sorted(
+                    document["ApplicationDocsURL"].strip()
+                    for document in documents
+                    if document["ApplNo"].strip() == application_number
+                    and document["SubmissionType"].strip() == submission_type
+                    and document["SubmissionNo"].strip() == submission_number
+                    and document_type_by_id.get(document["ApplicationDocsTypeID"].strip()) == "Letter"
+                    and document["ApplicationDocsURL"].strip()
+                )
                 matching_submissions.append(
                     {
                         "submission_type": submission_type,
@@ -128,7 +120,7 @@ def build_drugsfda_crosswalk(data: dict[str, Any]) -> dict[str, Any]:
                         "submission_class_code_id": submission["SubmissionClassCodeID"].strip() or None,
                         "review_priority": submission["ReviewPriority"].strip() or None,
                         "action_types": actions,
-                        "documents": docs,
+                        "letter_urls": letter_urls,
                     }
                 )
             matching_submissions.sort(key=lambda row: (row["submission_type"], int(row["submission_number"])))
@@ -137,7 +129,8 @@ def build_drugsfda_crosswalk(data: dict[str, Any]) -> dict[str, Any]:
                     "application_number": application_number,
                     "application_type": application["ApplType"].strip() if application else None,
                     "sponsor_name": (application["SponsorName"].strip() or None) if application else None,
-                    "products": matching_products,
+                    "product_numbers": sorted({row["ProductNo"].strip() for row in brand_products}),
+                    "active_ingredients": sorted({row["ActiveIngredient"].strip() for row in brand_products if row["ActiveIngredient"].strip()}),
                     "submissions_on_notification_date": matching_submissions,
                 }
             )
