@@ -20,42 +20,19 @@ MANIFEST = ROOT / "data" / "drugsfda-source.json"
 SOURCE_URL = "https://www.fda.gov/media/89850/download?attachment="
 PAGE_URL = "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files"
 USER_AGENT = "KAFKA2306-multiomics/1.0 (+https://github.com/KAFKA2306/multiomics)"
-EXPECTED_TABLE_COUNT = 12
 EXPECTED_HEADERS = {
-    "ActionTypes_Lookup.txt": [
-        "ActionTypes_LookupID",
-        "ActionTypes_LookupDescription",
-        "SupplCategoryLevel1Code",
-        "SupplCategoryLevel2Code",
-    ],
+    "ActionTypes_Lookup.txt": ["ActionTypes_LookupID", "ActionTypes_LookupDescription", "SupplCategoryLevel1Code", "SupplCategoryLevel2Code"],
+    "ApplicationDocs.txt": ["ApplicationDocsID", "ApplicationDocsTypeID", "ApplNo", "SubmissionType", "SubmissionNo", "ApplicationDocsTitle", "ApplicationDocsURL", "ApplicationDocsDate"],
     "Applications.txt": ["ApplNo", "ApplType", "ApplPublicNotes", "SponsorName"],
-    "Join_Submission_ActionType_Lookup.txt": [
-        "J_SubmissionActionTypeID",
-        "SubmissionNo",
-        "SubmissionType",
-        "ApplNo",
-        "ActionTypes_LookupID",
-    ],
-    "Products.txt": [
-        "ApplNo",
-        "ProductNo",
-        "Form",
-        "Strength",
-        "ReferenceDrug",
-        "DrugName",
-        "ActiveIngredient",
-        "ReferenceStandard",
-    ],
-    "Submissions.txt": [
-        "ApplNo",
-        "SubmissionClassCodeID",
-        "SubmissionType",
-        "SubmissionNo",
-        "SubmissionStatus",
-        "SubmissionStatusDate",
-        "SubmissionsPublicNotes",
-        "ReviewPriority",
-    ],
+    "ApplicationsDocsType_Lookup.txt": ["ApplicationDocsType_Lookup_ID", "ApplicationDocsType_Lookup_Description"],
+    "Join_Submission_ActionTypes_Lookup.txt": ["SubmissionType", "j_submissionActionTypeID", "ApplNo", "SubmissionNo", "ActionTypes_LookupID"],
+    "MarketingStatus.txt": ["MarketingStatusID", "ApplNo", "ProductNo"],
+    "MarketingStatus_Lookup.txt": ["MarketingStatusID", "MarketingStatusDescription"],
+    "Products.txt": ["ApplNo", "ProductNo", "Form", "Strength", "ReferenceDrug", "DrugName", "ActiveIngredient", "ReferenceStandard"],
+    "SubmissionClass_Lookup.txt": ["SubmissionClassCodeID", "SubmissionClassCode", "SubmissionClassCodeDescription"],
+    "SubmissionPropertyType.txt": ["ApplNo", "SubmissionType", "SubmissionNo", "SubmissionPropertyTypeCode", "SubmissionPropertyTypeID"],
+    "Submissions.txt": ["ApplNo", "SubmissionClassCodeID", "SubmissionType", "SubmissionNo", "SubmissionStatus", "SubmissionStatusDate", "SubmissionsPublicNotes", "ReviewPriority"],
+    "TE.txt": ["ApplNo", "ProductNo", "MarketingStatusID", "TECode"],
 }
 
 
@@ -83,11 +60,11 @@ def _decode_table(payload: bytes) -> str:
 def inspect_zip(payload: bytes) -> list[dict[str, object]]:
     with zipfile.ZipFile(io.BytesIO(payload)) as archive:
         names = sorted(name for name in archive.namelist() if not name.endswith("/"))
-        if len(names) != EXPECTED_TABLE_COUNT:
-            raise ValueError(f"Drugs@FDA archive contains {len(names)} files, expected {EXPECTED_TABLE_COUNT}")
         basenames = [Path(name).name for name in names]
         if len(set(basenames)) != len(basenames):
             raise ValueError("Drugs@FDA archive contains duplicate table basenames")
+        if set(basenames) != set(EXPECTED_HEADERS):
+            raise ValueError(f"Drugs@FDA archive table set changed: {basenames!r}")
 
         tables: list[dict[str, object]] = []
         for name in names:
@@ -101,18 +78,9 @@ def inspect_zip(payload: bytes) -> list[dict[str, object]]:
             header = [value.strip().lstrip("\ufeff") for value in header]
             row_count = sum(1 for _ in reader)
             base = Path(name).name
-            expected = EXPECTED_HEADERS.get(base)
-            if expected is not None and header != expected:
+            if header != EXPECTED_HEADERS[base]:
                 raise ValueError(f"Drugs@FDA header mismatch for {base}: {header!r}")
-            tables.append(
-                {
-                    "file_name": name,
-                    "header": header,
-                    "row_count": row_count,
-                    "sha256": hashlib.sha256(raw).hexdigest(),
-                    "size_bytes": len(raw),
-                }
-            )
+            tables.append({"file_name": name, "header": header, "row_count": row_count, "sha256": hashlib.sha256(raw).hexdigest(), "size_bytes": len(raw)})
     return tables
 
 
