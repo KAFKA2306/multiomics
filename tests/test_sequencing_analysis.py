@@ -14,7 +14,18 @@ class SequencingCostAnalysisTest(unittest.TestCase):
         result = log_linear_fit(records)
         self.assertAlmostEqual(result["log_slope_per_year"], math.log(0.5), places=12)
         self.assertAlmostEqual(result["annual_cost_reduction_percent"], 50.0, places=12)
+        self.assertAlmostEqual(result["years_to_half_cost"], 1.0, places=12)
+        self.assertAlmostEqual(result["years_to_one_tenth_cost"], math.log(0.1) / math.log(0.5), places=12)
         self.assertAlmostEqual(result["r_squared"], 1.0, places=12)
+
+    def test_log_linear_fit_does_not_claim_reduction_interval_when_cost_rises(self):
+        records = [
+            {"period": "2020-01", "value": 100.0},
+            {"period": "2021-01", "value": 110.0},
+        ]
+        result = log_linear_fit(records)
+        self.assertIsNone(result["years_to_half_cost"])
+        self.assertIsNone(result["years_to_one_tenth_cost"])
 
     def test_analysis_uses_official_2008_transition_without_mixing_metrics(self):
         canonical = {

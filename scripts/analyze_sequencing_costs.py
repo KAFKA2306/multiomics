@@ -43,7 +43,7 @@ def log_linear_fit(records: list[dict]) -> dict:
     r_squared = 1.0 - ss_residual / ss_total if ss_total else 1.0
 
     annual_factor = math.exp(slope)
-    return {
+    result = {
         "observation_count": len(ordered),
         "first_period": ordered[0]["period"],
         "last_period": ordered[-1]["period"],
@@ -52,6 +52,13 @@ def log_linear_fit(records: list[dict]) -> dict:
         "annual_cost_reduction_percent": (1.0 - annual_factor) * 100.0,
         "r_squared": r_squared,
     }
+    if slope < 0:
+        result["years_to_half_cost"] = math.log(0.5) / slope
+        result["years_to_one_tenth_cost"] = math.log(0.1) / slope
+    else:
+        result["years_to_half_cost"] = None
+        result["years_to_one_tenth_cost"] = None
+    return result
 
 
 def endpoint_summary(records: list[dict]) -> dict:
