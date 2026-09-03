@@ -20,6 +20,9 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "data" / "drugsfda-source.json"
 CROSSCHECK_PATH = ROOT / "api" / "v1" / "multiomics" / "fda-product-identity-crosscheck.json"
 OUTPUT_PATH = ROOT / "api" / "v1" / "multiomics" / "fda-product-coverage-analysis.json"
+ORANGE_BOOK_QA_URL = "https://www.fda.gov/media/160167/download"
+ORANGE_BOOK_PREFACE_URL = "https://www.fda.gov/drugs/development-approval-process-drugs/orange-book-preface"
+TENTATIVE_APPROVAL_STATUS = "None (Tentative Approval)"
 
 
 def _normalize_number(value: str, width: int, label: str) -> str:
@@ -86,8 +89,18 @@ def build() -> dict[str, Any]:
     if sum(counts.values()) != total:
         raise ValueError("marketing-status counts do not cover all Drugs@FDA-only products")
 
+    tentative_approval_count = counts.get(TENTATIVE_APPROVAL_STATUS, 0)
+    remaining_counts = {
+        status: count
+        for status, count in sorted(counts.items())
+        if status != TENTATIVE_APPROVAL_STATUS
+    }
+    remaining_unverified = sum(remaining_counts.values())
+    if tentative_approval_count + remaining_unverified != total:
+        raise ValueError("Orange Book absence evidence does not cover all Drugs@FDA-only products")
+
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "authority": "U.S. Food and Drug Administration",
         "scope": "Drugs@FDA NDA and ANDA products absent from the current Orange Book product file",
         "identity_fields": crosscheck["identity_fields"],
@@ -95,6 +108,17 @@ def build() -> dict[str, Any]:
         "orange_book_source_sha256": crosscheck["orange_book"]["source_sha256"],
         "drugsfda_only_products": total,
         "marketing_status_counts": dict(sorted(counts.items())),
+        "fda_documented_orange_book_absence": {
+            "tentative_approval_products": tentative_approval_count,
+            "source_url": ORANGE_BOOK_QA_URL,
+            "basis": "FDA states that drug products with tentative approval are not listed in the Orange Book.",
+        },
+        "remaining_unverified_products": remaining_unverified,
+        "remaining_marketing_status_counts": remaining_counts,
+        "interpretation": {
+            "source_url": ORANGE_BOOK_PREFACE_URL,
+            "note": "Prescription, over-the-counter, or discontinued Marketing Status alone does not establish why a product is absent from the Orange Book; the Orange Book also contains discontinued products when its inclusion criteria are met.",
+        },
         "products": rows,
     }
 
