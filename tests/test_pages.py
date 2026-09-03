@@ -39,9 +39,24 @@ class PagesContractTests(unittest.TestCase):
         html = (ROOT / "public" / "index.html").read_text(encoding="utf-8")
         self.assertIn("Drugs@FDAとOrange Bookのcoverage差", html)
         self.assertIn("coverage.fda_documented_absence?.tentative_approval_products", html)
+        self.assertIn("coverage.fda_documented_absence?.product_specific_primary_evidence", html)
         self.assertIn("coverage.remaining_unverified_products", html)
-        self.assertIn("推測で分類しません", html)
+        self.assertIn("documented+remaining!==coverage.drugsfda_only_products", html)
+        self.assertIn("理由未検証", html)
         self.assertIn("coverage.fda_documented_absence.source_url", html)
+
+    def test_dashboard_consumes_product_specific_fda_primary_evidence(self):
+        html = (ROOT / "public" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("FDA一次資料で個別理由まで確認できた非掲載製品", html)
+        self.assertIn("e.application_number", html)
+        self.assertIn("e.product_number", html)
+        self.assertIn("e.fda_determination", html)
+        self.assertIn("e.source_document", html)
+        self.assertIn("e.source_publication_date", html)
+        self.assertIn("e.source_url", html)
+        self.assertNotIn("PENTHRANE", html)
+        self.assertNotIn("013056", html)
+        self.assertNotIn("70 FR 53019", html)
 
     def test_readme_starts_with_canonical_production_url(self):
         first_line = (ROOT / "README.md").read_text(encoding="utf-8").splitlines()[0]
