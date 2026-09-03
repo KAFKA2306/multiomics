@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh the latest FDA oncology approval notification into canonical data."""
+"""Refresh FDA oncology approval notifications into canonical data."""
 
 from __future__ import annotations
 
@@ -19,10 +19,17 @@ RAW = ROOT / "data" / "raw" / "fda" / "oncology-approvals"
 LIST_URL = "https://www.fda.gov/drugs/resources-information-approved-drugs/oncology-cancerhematologic-malignancies-approval-notifications"
 USER_AGENT = "KAFKA2306-multiomics/1.0 (+https://github.com/KAFKA2306/multiomics)"
 DATE_RE = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}$")
-ANNOUNCEMENT_RE = re.compile(
-    r"On ([A-Z][a-z]+ \d{1,2}, \d{4}), the Food and Drug Administration "
-    r"(granted accelerated approval|granted traditional approval|approved) "
-    r"(.+?) \(([^,()]+), (.+?)\), (.+?)(?:\.|$)"
+HEADER_RE = re.compile(
+    r"^On ([A-Z][a-z]+ \d{1,2}, \d{4}), the Food and Drug Administration "
+    r"(granted accelerated approval|granted traditional approval|approved)(?: to)? "
+    r"(.+?) \(([^,()]+), (.+?)\)(.*)$"
+)
+MODALITY_RE = re.compile(r"^,\s*(?:an?|the) (.+?), for (.+)$")
+SUMMARY_END_MARKERS = (
+    " Full prescribing information",
+    " Today, the FDA also approved",
+    " Efficacy was evaluated",
+    " The prescribing information",
 )
 
 
@@ -80,10 +87,10 @@ class _TextParser(HTMLParser):
         self.parts.append(data)
 
 
-def latest_detail_url(list_html: bytes) -> str:
+def dated_detail_urls(list_html: bytes) -> list[tuple[datetime, str]]:
     parser = _TableParser()
     parser.feed(list_html.decode("utf-8", errors="strict"))
-    candidates: list[tuple[datetime, str]] = []
+    candidates: dict[str, datetime] = {}
     for cells, href in parser.rows:
         if not href or not href.startswith("/drugs/resources-information-approved-drugs/"):
             continue
@@ -91,27 +98,56 @@ def latest_detail_url(list_html: bytes) -> str:
         if not dates:
             continue
         date = datetime.strptime(dates[-1], "%m/%d/%Y")
-        candidates.append((date, urljoin(LIST_URL, href)))
+        url = urljoin(LIST_URL, href)
+        previous = candidates.get(url)
+        if previous is not None and previous != date:
+            raise ValueError(f"FDA oncology approval link has conflicting dates: {url}")
+        candidates[url] = date
     if not candidates:
         raise ValueError("FDA oncology approval table did not contain a dated approval detail link")
-    return max(candidates, key=lambda item: item[0])[1]
+    return sorted(((date, url) for url, date in candidates.items()), key=lambda item: (item[0], item[1]))
 
 
-def extract_approval(detail_html: bytes, source_url: str, retrieved_at: str, source_sha256: str, raw_path: str) -> dict[str, object]:
+def _approval_summary(detail_html: bytes) -> str:
     parser = _TextParser()
     parser.feed(detail_html.decode("utf-8", errors="strict"))
     text = " ".join(" ".join(parser.parts).split())
-    match = ANNOUNCEMENT_RE.search(text)
+    start_match = re.search(r"On [A-Z][a-z]+ \d{1,2}, \d{4}, the Food and Drug Administration ", text)
+    if not start_match:
+        raise ValueError("FDA approval detail page did not contain a canonical approval sentence")
+    summary = text[start_match.start():]
+    ends = [summary.find(marker) for marker in SUMMARY_END_MARKERS if summary.find(marker) > 0]
+    if ends:
+        summary = summary[: min(ends)]
+    return summary.strip()
+
+
+def extract_approval(detail_html: bytes, source_url: str, retrieved_at: str, source_sha256: str, raw_path: str) -> dict[str, object]:
+    summary = _approval_summary(detail_html)
+    match = HEADER_RE.match(summary)
     if not match:
         raise ValueError("FDA approval detail page did not match the canonical approval sentence")
 
     date_text, action, generic_name, brand_name, sponsor, remainder = match.groups()
-    if ", for " not in remainder:
-        raise ValueError("FDA approval detail page did not expose modality and indication separately")
-    modality, indication = remainder.split(", for ", 1)
-    modality = re.sub(r"^(?:an?|the) ", "", modality.strip())
-    if not all((generic_name.strip(), brand_name.strip(), sponsor.strip(), modality, indication.strip())):
-        raise ValueError("FDA approval detail page contained an empty required field")
+    generic_name = generic_name.strip()
+    brand_name = brand_name.strip()
+    sponsor = sponsor.strip()
+    if not all((generic_name, brand_name, sponsor)):
+        raise ValueError("FDA approval detail page contained an empty required product field")
+
+    modality: str | None = None
+    indication: str | None = None
+    modality_match = MODALITY_RE.match(remainder.strip())
+    if modality_match:
+        modality, indication = modality_match.groups()
+        modality = modality.strip()
+        indication = indication.strip().rstrip(".")
+    else:
+        normalized_remainder = remainder.strip().lstrip(":,").strip()
+        for_token = " for "
+        if normalized_remainder.count(for_token) == 1:
+            _, indication = normalized_remainder.split(for_token, 1)
+            indication = indication.strip().rstrip(".")
 
     approval_date = datetime.strptime(date_text, "%B %d, %Y").date().isoformat()
     pathway = {
@@ -125,11 +161,12 @@ def extract_approval(detail_html: bytes, source_url: str, retrieved_at: str, sou
         "authority": "U.S. Food and Drug Administration",
         "approval_date": approval_date,
         "pathway": pathway,
-        "generic_name": generic_name.strip(),
-        "brand_name": brand_name.strip(),
-        "sponsor": sponsor.strip(),
+        "generic_name": generic_name,
+        "brand_name": brand_name,
+        "sponsor": sponsor,
         "modality": modality,
-        "indication": indication.strip(),
+        "indication": indication,
+        "approval_summary": summary,
         "source_url": source_url,
         "retrieved_at": retrieved_at,
         "source_sha256": source_sha256,
@@ -137,34 +174,44 @@ def extract_approval(detail_html: bytes, source_url: str, retrieved_at: str, sou
     }
 
 
-def refresh(data_path: Path = DATA, raw_dir: Path = RAW) -> dict[str, object]:
+def refresh(data_path: Path = DATA, raw_dir: Path = RAW) -> list[dict[str, object]]:
     list_html = fetch_bytes(LIST_URL)
-    source_url = latest_detail_url(list_html)
-    detail_html = fetch_bytes(source_url)
-    digest = hashlib.sha256(detail_html).hexdigest()
-    raw_path = raw_dir / f"{digest}.html"
-    raw_path.parent.mkdir(parents=True, exist_ok=True)
-    if not raw_path.exists():
-        raw_path.write_bytes(detail_html)
-
+    candidates = dated_detail_urls(list_html)
     canonical = json.loads(data_path.read_text(encoding="utf-8"))
     approvals = canonical.get("approvals")
     if not isinstance(approvals, list):
         raise ValueError("canonical approvals must be an array")
-    existing = next((row for row in approvals if row.get("source_sha256") == digest), None)
-    if existing is not None:
-        return existing
+
+    existing_urls = {row.get("source_url") for row in approvals}
+    if approvals:
+        baseline = min(datetime.fromisoformat(row["approval_date"]) for row in approvals)
+        candidates = [(date, url) for date, url in candidates if date >= baseline]
+    missing = [(date, url) for date, url in candidates if url not in existing_urls]
+    if not missing:
+        return []
 
     retrieved_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-    relative_raw_path = raw_path.relative_to(ROOT).as_posix() if raw_dir == RAW else raw_path.as_posix()
-    record = extract_approval(detail_html, source_url, retrieved_at, digest, relative_raw_path)
-    if any(row.get("id") == record["id"] and row.get("source_sha256") != digest for row in approvals):
-        raise ValueError(f"FDA approval identity changed without a new id: {record['id']}")
-    approvals.append(record)
+    records: list[dict[str, object]] = []
+    for listed_date, source_url in missing:
+        detail_html = fetch_bytes(source_url)
+        digest = hashlib.sha256(detail_html).hexdigest()
+        raw_path = raw_dir / f"{digest}.html"
+        raw_path.parent.mkdir(parents=True, exist_ok=True)
+        if not raw_path.exists():
+            raw_path.write_bytes(detail_html)
+        relative_raw_path = raw_path.relative_to(ROOT).as_posix() if raw_dir == RAW else raw_path.as_posix()
+        record = extract_approval(detail_html, source_url, retrieved_at, digest, relative_raw_path)
+        if datetime.fromisoformat(record["approval_date"]) != listed_date:
+            raise ValueError(f"FDA list/detail date mismatch for {source_url}")
+        if any(row.get("id") == record["id"] for row in approvals):
+            raise ValueError(f"FDA approval identity already exists with a different source URL: {record['id']}")
+        approvals.append(record)
+        records.append(record)
+
     approvals.sort(key=lambda row: (row["approval_date"], row["id"]))
     canonical["retrieved_at"] = retrieved_at
     data_path.write_text(json.dumps(canonical, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return record
+    return records
 
 
 def main() -> None:
@@ -172,8 +219,8 @@ def main() -> None:
     parser.add_argument("--data", type=Path, default=DATA)
     parser.add_argument("--raw-dir", type=Path, default=RAW)
     args = parser.parse_args()
-    record = refresh(args.data, args.raw_dir)
-    print(json.dumps(record, ensure_ascii=False, indent=2))
+    records = refresh(args.data, args.raw_dir)
+    print(json.dumps(records, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
