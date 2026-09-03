@@ -78,8 +78,11 @@ class DrugsFdaRefreshTest(unittest.TestCase):
             submissions = self._rows(archive, "Submissions.txt")
             joins = self._rows(archive, "Join_Submission_ActionTypes_Lookup.txt")
             action_types = self._rows(archive, "ActionTypes_Lookup.txt")
+            docs = self._rows(archive, "ApplicationDocs.txt")
+            doc_types = self._rows(archive, "ApplicationsDocsType_Lookup.txt")
         app_by_no = {row["ApplNo"]: row for row in applications}
         action_by_id = {row["ActionTypes_LookupID"]: row for row in action_types}
+        doc_type_by_id = {row["ApplicationDocsType_Lookup_ID"]: row["ApplicationDocsType_Lookup_Description"] for row in doc_types}
         matched_products = [row for row in products if row["DrugName"].strip().upper() in targets]
         target_apps = sorted({row["ApplNo"] for row in matched_products})
         result = []
@@ -92,15 +95,24 @@ class DrugsFdaRefreshTest(unittest.TestCase):
                 action = action_by_id.get(row["ActionTypes_LookupID"])
                 detail["ActionTypes_LookupDescription"] = action["ActionTypes_LookupDescription"] if action else None
                 join_details.append(detail)
-            result.append({"application": app_by_no.get(app_no), "products": [row for row in matched_products if row["ApplNo"] == app_no], "submissions": app_submissions, "actions": join_details})
+            app_docs = []
+            for row in docs:
+                if row["ApplNo"] != app_no:
+                    continue
+                detail = dict(row)
+                detail["ApplicationDocsType"] = doc_type_by_id.get(row["ApplicationDocsTypeID"])
+                app_docs.append(detail)
+            result.append({"application": app_by_no.get(app_no), "products": [row for row in matched_products if row["ApplNo"] == app_no], "submissions": app_submissions, "actions": join_details, "documents": app_docs})
         status_counts = Counter((row["SubmissionType"].strip(), row["SubmissionStatus"].strip()) for row in submissions)
         original_approved = [row for row in submissions if row["SubmissionType"].strip() == "ORIG" and row["SubmissionStatus"].strip() == "AP" and row["SubmissionStatusDate"].strip()]
         app_type_by_no = {row["ApplNo"]: row["ApplType"].strip() for row in applications}
         original_approved_by_type = Counter(app_type_by_no.get(row["ApplNo"], "MISSING") for row in original_approved)
         dates = sorted(row["SubmissionStatusDate"][:10] for row in original_approved)
+        doc_title_counts = Counter(row["ApplicationDocsTitle"].strip() for row in docs if row["ApplicationDocsTitle"].strip())
         print("DRUGSFDA_TARGET_RECORDS=" + json.dumps(result, ensure_ascii=False, sort_keys=True))
         print("DRUGSFDA_STATUS_COUNTS=" + json.dumps({f"{k[0]}:{k[1]}": v for k, v in sorted(status_counts.items())}, sort_keys=True))
         print("DRUGSFDA_ORIG_AP=" + json.dumps({"count": len(original_approved), "by_application_type": dict(sorted(original_approved_by_type.items())), "first_date": dates[0], "last_date": dates[-1]}, sort_keys=True))
+        print("DRUGSFDA_DOC_TITLES=" + json.dumps(doc_title_counts.most_common(20), ensure_ascii=False))
         self.assertEqual({"220910", "221075", "761416"}, set(target_apps))
 
 
