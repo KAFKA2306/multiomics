@@ -6,7 +6,7 @@
   <meta name="description" content="Multiomicsの一次情報付き観測事実を確認する公開ダッシュボード">
   <title>Multiomics — 確認済みの変化</title>
   <style>
-    :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17202a;background:#f6f7f8}body{margin:0}main{max-width:980px;margin:auto;padding:32px 20px 64px}.eyebrow{font-size:.82rem;color:#56606b}.hero{background:#fff;border-radius:18px;padding:28px;box-shadow:0 8px 28px rgba(0,0,0,.06)}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:.2em 0}.lead{font-size:1.05rem;line-height:1.7;max-width:760px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}.card{background:#fff;border-radius:14px;padding:20px}.card h2{font-size:1rem;margin:0 0 10px}.value{font-size:1.25rem;font-weight:700;line-height:1.35}.meta{font-size:.88rem;color:#56606b;line-height:1.5}.source{display:inline-block;margin-top:10px}.notice{margin-top:20px;padding:14px 16px;border-radius:10px;background:#fff4d6}.error{background:#ffe8e8}.section{margin-top:28px}.section h2{font-size:1.25rem}.row{display:flex;gap:10px;flex-wrap:wrap}.pill{background:#e9eef3;padding:5px 9px;border-radius:999px;font-size:.82rem}a{color:#174ea6}code{background:#eef1f4;padding:2px 5px;border-radius:4px}@media(max-width:520px){main{padding:18px 14px 40px}.hero{padding:20px}}
+    :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17202a;background:#f6f7f8}body{margin:0}main{max-width:980px;margin:auto;padding:32px 20px 64px}.eyebrow{font-size:.82rem;color:#56606b}.hero{background:#fff;border-radius:18px;padding:28px;box-shadow:0 8px 28px rgba(0,0,0,.06)}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:.2em 0}.lead{font-size:1.05rem;line-height:1.7;max-width:760px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}.card{background:#fff;border-radius:14px;padding:20px}.card h2{font-size:1rem;margin:0 0 10px}.value{font-size:1.25rem;font-weight:700;line-height:1.35}.meta{font-size:.88rem;color:#56606b;line-height:1.5}.source{display:inline-block;margin-top:10px}.notice{margin-top:20px;padding:14px 16px;border-radius:10px;background:#fff4d6}.error{background:#ffe8e8}.section{margin-top:28px}.section h2{font-size:1.25rem}.row{display:flex;gap:10px;flex-wrap:wrap}.pill{background:#e9eef3;padding:5px 9px;border-radius:999px;font-size:.82rem}.evidence-list{display:grid;gap:12px;margin-top:14px}.evidence-item{border-top:1px solid #e3e7eb;padding-top:12px}.evidence-item:first-child{border-top:0;padding-top:0}a{color:#174ea6}code{background:#eef1f4;padding:2px 5px;border-radius:4px}@media(max-width:520px){main{padding:18px 14px 40px}.hero{padding:20px}}
   </style>
 </head>
 <body>
@@ -25,6 +25,12 @@
     <article class="card"><h2>シーケンシング費用の保存済み観測</h2><div id="seq" class="value">—</div><div id="seqMeta" class="meta"></div></article>
     <article class="card"><h2>シーケンシング費用の長期低下</h2><div id="seqTrend" class="value">—</div><div id="seqTrendMeta" class="meta"></div></article>
     <article class="card"><h2>Drugs@FDAとOrange Bookのcoverage差</h2><div id="coverage" class="value">—</div><div id="coverageMeta" class="meta"></div></article>
+  </section>
+
+  <section class="section card" aria-labelledby="coverageEvidenceTitle">
+    <h2 id="coverageEvidenceTitle">FDA一次資料で個別理由まで確認できた非掲載製品</h2>
+    <p class="meta">tentative approvalの一括説明とは別に、製品単位でFDA一次資料へ直接結び付いた根拠だけを表示します。Marketing Statusだけから理由を推測しません。</p>
+    <div id="coverageEvidence" class="evidence-list"><div class="meta">データを読み込み中…</div></div>
   </section>
 
   <section class="section card">
@@ -61,11 +67,16 @@ Promise.all([
     const m=mbTrend.endpoint_summary;
     $('seqTrend').textContent=`${g.first_period} → ${g.last_period}: human genome 約 ${Math.round(g.fold_reduction).toLocaleString()}分の1`;
     $('seqTrendMeta').innerHTML=`端点からの年率換算低下: human genome ${g.annualized_cost_reduction_percent.toFixed(1)}%、1 Mb ${m.annualized_cost_reduction_percent.toFixed(1)}%。記述統計であり因果効果ではありません。<br>${link(analysis.method_source_url,'NHGRIの定義・技術移行説明')}`;
-    const explained=coverage.fda_documented_absence?.tentative_approval_products;
+    const tentative=coverage.fda_documented_absence?.tentative_approval_products;
+    const productEvidence=coverage.fda_documented_absence?.product_specific_primary_evidence||[];
     const remaining=coverage.remaining_unverified_products;
-    if(!Number.isInteger(explained)||!Number.isInteger(remaining)) throw new Error('FDA coverage evidenceが不足しています');
-    $('coverage').textContent=`${coverage.drugsfda_only_products.toLocaleString()}製品の差分中 ${explained.toLocaleString()}製品をFDA一次資料で説明`;
-    $('coverageMeta').innerHTML=`tentative approval: ${explained.toLocaleString()}。残る ${remaining.toLocaleString()} 製品は理由未検証のままです。推測で分類しません。<br>${link(coverage.fda_documented_absence.source_url,'FDA一次情報')}`;
+    if(!Number.isInteger(tentative)||!Number.isInteger(remaining)||!Array.isArray(productEvidence)) throw new Error('FDA coverage evidenceが不足しています');
+    const documented=tentative+productEvidence.length;
+    if(documented+remaining!==coverage.drugsfda_only_products) throw new Error('FDA coverage evidenceの件数が整合しません');
+    $('coverage').textContent=`${coverage.drugsfda_only_products.toLocaleString()}製品の差分中 ${documented.toLocaleString()}製品をFDA一次資料で説明`;
+    $('coverageMeta').innerHTML=`tentative approval: ${tentative.toLocaleString()}、製品別一次資料: ${productEvidence.length.toLocaleString()}。残る ${remaining.toLocaleString()} 製品は理由未検証です。<br>${link(coverage.fda_documented_absence.source_url,'Orange BookのFDA一次情報')}`;
+    if(productEvidence.length===0){$('coverageEvidence').innerHTML='<div class="meta">製品単位で確定した一次資料根拠はまだありません。</div>';}
+    else{$('coverageEvidence').innerHTML=productEvidence.map(e=>`<article class="evidence-item"><strong>${e.drug_name}</strong><div class="meta">NDA/ANDA ${e.application_number} / product ${e.product_number}<br>FDA determination: ${e.fda_determination}<br>${e.source_document} / ${e.source_publication_date}<br>${link(e.source_url,'製品別の一次資料')}</div></article>`).join('');}
   })
   .catch(err=>{$('asof').textContent='正準データまたは派生分析を取得できませんでした。';$('error').hidden=false;$('error').textContent=`表示を停止しました: ${err.message}`;});
 </script>
