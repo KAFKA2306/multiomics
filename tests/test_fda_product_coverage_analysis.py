@@ -18,27 +18,29 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
         self.assertEqual(sum(result["marketing_status_counts"].values()), result["drugsfda_only_products"])
         self.assertEqual(len(result["products"]), result["drugsfda_only_products"])
         self.assertTrue(all(row["marketing_status"] for row in result["products"]))
-        self.assertEqual(
-            result["drugsfda_source_sha256"],
-            crosscheck["drugsfda"]["source_sha256"],
-        )
-        self.assertEqual(
-            result["orange_book_source_sha256"],
-            crosscheck["orange_book"]["source_sha256"],
-        )
+        self.assertEqual(result["drugsfda_source_sha256"], crosscheck["drugsfda"]["source_sha256"])
+        self.assertEqual(result["orange_book_source_sha256"], crosscheck["orange_book"]["source_sha256"])
 
-    def test_tentative_approval_is_the_only_current_difference_with_direct_fda_absence_support(self):
+    def test_primary_evidence_reduces_only_the_matching_unverified_product(self):
         analysis = analyze_fda_product_coverage.build()
         evidence = analyze_fda_product_coverage.build_absence_evidence(analysis)
-        tentative = evidence["fda_documented_absence"]["tentative_approval_products"]
+        documented = evidence["fda_documented_absence"]
+        tentative = documented["tentative_approval_products"]
+        verified = documented["product_specific_primary_evidence"]
         remaining = evidence["remaining_unverified_products"]
 
         self.assertEqual(tentative, analysis["marketing_status_counts"]["None (Tentative Approval)"])
-        self.assertEqual(tentative + remaining, analysis["drugsfda_only_products"])
+        self.assertEqual(tentative + len(verified) + remaining, analysis["drugsfda_only_products"])
+        self.assertEqual(len(verified), 1)
+        self.assertEqual(verified[0]["application_number"], "013056")
+        self.assertEqual(verified[0]["product_number"], "001")
+        self.assertEqual(verified[0]["drug_name"], "PENTHRANE")
+        self.assertEqual(verified[0]["marketing_status"], "Discontinued")
+        self.assertEqual(remaining, 790)
+        self.assertEqual(evidence["remaining_marketing_status_counts"]["Discontinued"], 211)
+        self.assertTrue(verified[0]["source_url"].startswith("https://www.federalregister.gov/"))
         self.assertNotIn("None (Tentative Approval)", evidence["remaining_marketing_status_counts"])
         self.assertEqual(sum(evidence["remaining_marketing_status_counts"].values()), remaining)
-        self.assertTrue(evidence["fda_documented_absence"]["source_url"].startswith("https://www.fda.gov/"))
-        self.assertTrue(evidence["interpretation"]["source_url"].startswith("https://www.fda.gov/"))
 
     def test_committed_analysis_is_deterministic_when_present(self):
         output = ROOT / "api" / "v1" / "multiomics" / "fda-product-coverage-analysis.json"

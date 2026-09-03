@@ -19,6 +19,7 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "data" / "drugsfda-source.json"
 CROSSCHECK_PATH = ROOT / "api" / "v1" / "multiomics" / "fda-product-identity-crosscheck.json"
+PRIMARY_EVIDENCE_PATH = ROOT / "data" / "fda-orange-book-absence-primary-evidence.json"
 OUTPUT_PATH = ROOT / "api" / "v1" / "multiomics" / "fda-product-coverage-analysis.json"
 EVIDENCE_OUTPUT_PATH = ROOT / "api" / "v1" / "multiomics" / "fda-product-coverage-evidence.json"
 ORANGE_BOOK_QA_URL = "https://www.fda.gov/media/160167/download"
@@ -103,6 +104,36 @@ def build() -> dict[str, Any]:
     }
 
 
+def _verified_primary_evidence(analysis: dict[str, Any]) -> list[dict[str, Any]]:
+    source = json.loads(PRIMARY_EVIDENCE_PATH.read_text(encoding="utf-8"))
+    if source.get("authority") != "U.S. Food and Drug Administration":
+        raise ValueError("primary evidence authority must be U.S. Food and Drug Administration")
+
+    products = {
+        (row["application_number"], row["product_number"]): row
+        for row in analysis["products"]
+    }
+    verified: list[dict[str, Any]] = []
+    seen: set[tuple[str, str]] = set()
+    for record in source.get("records", []):
+        identity = (record["application_number"], record["product_number"])
+        if identity in seen:
+            raise ValueError(f"duplicate primary evidence for {identity}")
+        seen.add(identity)
+        product = products.get(identity)
+        if product is None:
+            raise ValueError(f"primary evidence identity is not a Drugs@FDA-only product: {identity}")
+        if product["marketing_status"] == TENTATIVE_APPROVAL_STATUS:
+            raise ValueError(f"primary evidence duplicates tentative-approval evidence: {identity}")
+        if record["drug_name"] != product["drug_name"]:
+            raise ValueError(f"primary evidence drug name does not match canonical product: {identity}")
+        if not record["source_url"].startswith("https://www.federalregister.gov/"):
+            raise ValueError(f"primary evidence must use the official Federal Register source: {identity}")
+        verified.append({**record, "marketing_status": product["marketing_status"]})
+
+    return sorted(verified, key=lambda row: (row["application_number"], row["product_number"]))
+
+
 def build_absence_evidence(analysis: dict[str, Any] | None = None) -> dict[str, Any]:
     analysis = analysis or build()
     counts = analysis["marketing_status_counts"]
@@ -112,12 +143,19 @@ def build_absence_evidence(analysis: dict[str, Any] | None = None) -> dict[str, 
         for status, count in sorted(counts.items())
         if status != TENTATIVE_APPROVAL_STATUS
     }
+    verified = _verified_primary_evidence(analysis)
+    for record in verified:
+        status = record["marketing_status"]
+        if remaining_counts.get(status, 0) <= 0:
+            raise ValueError(f"primary evidence exceeds remaining count for {status}")
+        remaining_counts[status] -= 1
+    remaining_counts = {status: count for status, count in remaining_counts.items() if count}
     remaining_unverified = sum(remaining_counts.values())
-    if tentative_approval_count + remaining_unverified != analysis["drugsfda_only_products"]:
+    if tentative_approval_count + len(verified) + remaining_unverified != analysis["drugsfda_only_products"]:
         raise ValueError("Orange Book absence evidence does not cover all Drugs@FDA-only products")
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "authority": "U.S. Food and Drug Administration",
         "scope": "Evidence for why Drugs@FDA NDA and ANDA products are absent from the current Orange Book product file",
         "drugsfda_source_sha256": analysis["drugsfda_source_sha256"],
@@ -127,6 +165,7 @@ def build_absence_evidence(analysis: dict[str, Any] | None = None) -> dict[str, 
             "tentative_approval_products": tentative_approval_count,
             "source_url": ORANGE_BOOK_QA_URL,
             "basis": "FDA states that drug products with tentative approval are not listed in the Orange Book.",
+            "product_specific_primary_evidence": verified,
         },
         "remaining_unverified_products": remaining_unverified,
         "remaining_marketing_status_counts": remaining_counts,

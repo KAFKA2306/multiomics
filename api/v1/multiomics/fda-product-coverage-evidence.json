@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "authority": "U.S. Food and Drug Administration",
   "scope": "Evidence for why Drugs@FDA NDA and ANDA products are absent from the current Orange Book product file",
   "drugsfda_source_sha256": "06e4421640e35fc4f64109f762ada7b8f6ac431863c9133c76a0a495a6dc9c13",
@@ -8,11 +8,24 @@
   "fda_documented_absence": {
     "tentative_approval_products": 1424,
     "source_url": "https://www.fda.gov/media/160167/download",
-    "basis": "FDA states that drug products with tentative approval are not listed in the Orange Book."
+    "basis": "FDA states that drug products with tentative approval are not listed in the Orange Book.",
+    "product_specific_primary_evidence": [
+      {
+        "application_number": "013056",
+        "product_number": "001",
+        "drug_name": "PENTHRANE",
+        "evidence": "withdrawn from sale for reasons of safety or effectiveness",
+        "fda_determination": "withdrawn from the market for safety reasons",
+        "source_url": "https://www.federalregister.gov/documents/2005/09/06/05-17559/determination-that-penthrane-methoxyflurane-inhalation-liquid-999-percent-was-withdrawn-from-sale",
+        "source_document": "70 FR 53019",
+        "source_publication_date": "2005-09-06",
+        "marketing_status": "Discontinued"
+      }
+    ]
   },
-  "remaining_unverified_products": 791,
+  "remaining_unverified_products": 790,
   "remaining_marketing_status_counts": {
-    "Discontinued": 212,
+    "Discontinued": 211,
     "Over-the-counter": 12,
     "Prescription": 567
   },
