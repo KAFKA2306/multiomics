@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "data" / "drugsfda-source.json"
 CROSSCHECK_PATH = ROOT / "api" / "v1" / "multiomics" / "fda-product-identity-crosscheck.json"
 OUTPUT_PATH = ROOT / "api" / "v1" / "multiomics" / "fda-product-coverage-analysis.json"
+EVIDENCE_OUTPUT_PATH = ROOT / "api" / "v1" / "multiomics" / "fda-product-coverage-evidence.json"
 ORANGE_BOOK_QA_URL = "https://www.fda.gov/media/160167/download"
 ORANGE_BOOK_PREFACE_URL = "https://www.fda.gov/drugs/development-approval-process-drugs/orange-book-preface"
 TENTATIVE_APPROVAL_STATUS = "None (Tentative Approval)"
@@ -89,18 +90,8 @@ def build() -> dict[str, Any]:
     if sum(counts.values()) != total:
         raise ValueError("marketing-status counts do not cover all Drugs@FDA-only products")
 
-    tentative_approval_count = counts.get(TENTATIVE_APPROVAL_STATUS, 0)
-    remaining_counts = {
-        status: count
-        for status, count in sorted(counts.items())
-        if status != TENTATIVE_APPROVAL_STATUS
-    }
-    remaining_unverified = sum(remaining_counts.values())
-    if tentative_approval_count + remaining_unverified != total:
-        raise ValueError("Orange Book absence evidence does not cover all Drugs@FDA-only products")
-
     return {
-        "schema_version": 2,
+        "schema_version": 1,
         "authority": "U.S. Food and Drug Administration",
         "scope": "Drugs@FDA NDA and ANDA products absent from the current Orange Book product file",
         "identity_fields": crosscheck["identity_fields"],
@@ -108,7 +99,31 @@ def build() -> dict[str, Any]:
         "orange_book_source_sha256": crosscheck["orange_book"]["source_sha256"],
         "drugsfda_only_products": total,
         "marketing_status_counts": dict(sorted(counts.items())),
-        "fda_documented_orange_book_absence": {
+        "products": rows,
+    }
+
+
+def build_absence_evidence(analysis: dict[str, Any] | None = None) -> dict[str, Any]:
+    analysis = analysis or build()
+    counts = analysis["marketing_status_counts"]
+    tentative_approval_count = counts.get(TENTATIVE_APPROVAL_STATUS, 0)
+    remaining_counts = {
+        status: count
+        for status, count in sorted(counts.items())
+        if status != TENTATIVE_APPROVAL_STATUS
+    }
+    remaining_unverified = sum(remaining_counts.values())
+    if tentative_approval_count + remaining_unverified != analysis["drugsfda_only_products"]:
+        raise ValueError("Orange Book absence evidence does not cover all Drugs@FDA-only products")
+
+    return {
+        "schema_version": 1,
+        "authority": "U.S. Food and Drug Administration",
+        "scope": "Evidence for why Drugs@FDA NDA and ANDA products are absent from the current Orange Book product file",
+        "drugsfda_source_sha256": analysis["drugsfda_source_sha256"],
+        "orange_book_source_sha256": analysis["orange_book_source_sha256"],
+        "drugsfda_only_products": analysis["drugsfda_only_products"],
+        "fda_documented_absence": {
             "tentative_approval_products": tentative_approval_count,
             "source_url": ORANGE_BOOK_QA_URL,
             "basis": "FDA states that drug products with tentative approval are not listed in the Orange Book.",
@@ -119,14 +134,15 @@ def build() -> dict[str, Any]:
             "source_url": ORANGE_BOOK_PREFACE_URL,
             "note": "Prescription, over-the-counter, or discontinued Marketing Status alone does not establish why a product is absent from the Orange Book; the Orange Book also contains discontinued products when its inclusion criteria are met.",
         },
-        "products": rows,
     }
 
 
 def write() -> None:
     result = build()
+    evidence = build_absence_evidence(result)
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    EVIDENCE_OUTPUT_PATH.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
