@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "authority": "U.S. Food and Drug Administration",
+  "records": [
+    {
+      "application_number": "013056",
+      "product_number": "001",
+      "drug_name": "PENTHRANE",
+      "evidence": "withdrawn from sale for reasons of safety or effectiveness",
+      "fda_determination": "withdrawn from the market for safety reasons",
+      "source_url": "https://www.federalregister.gov/documents/2005/09/06/05-17559/determination-that-penthrane-methoxyflurane-inhalation-liquid-999-percent-was-withdrawn-from-sale",
+      "source_document": "70 FR 53019",
+      "source_publication_date": "2005-09-06"
+    }
+  ]
+}
