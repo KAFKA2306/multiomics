@@ -26,6 +26,7 @@ class MultiomicsApiTest(unittest.TestCase):
         self.assertEqual(index["observation_counts"]["clinical_trials"], len(data["clinical_trials"]))
         self.assertEqual(index["observation_counts"]["approvals"], len(data["approvals"]))
         self.assertEqual(index["observation_counts"]["metrics"], len(metrics["observations"]))
+        self.assertEqual(index["fda_product_identity_crosscheck_path"], "api/v1/multiomics/fda-product-identity-crosscheck.json")
         count_rows = [
             row
             for row in metrics["observations"]
@@ -59,17 +60,48 @@ class MultiomicsApiTest(unittest.TestCase):
         }
         self.assertEqual(descriptions, {"Efficacy-New Indication", "Labeling-Package Insert"})
 
+    def test_fda_product_identity_crosscheck_uses_current_real_sources(self):
+        result = build_api.build_fda_product_identity_crosscheck()
+        counts = result["counts"]
+        orange_manifest = json.loads((ROOT / "data" / "orange-book-source.json").read_text(encoding="utf-8"))
+        orange_products = next(row for row in orange_manifest["tables"] if row["file_name"].lower() == "products.txt")
+
+        self.assertEqual(counts["orange_book_products"], orange_products["row_count"])
+        self.assertEqual(
+            counts["orange_book_products"],
+            counts["identity_overlap_products"] + counts["orange_book_only_products"],
+        )
+        self.assertEqual(
+            counts["drugsfda_nda_anda_products"],
+            counts["identity_overlap_products"] + counts["drugsfda_only_products"],
+        )
+        self.assertEqual(
+            counts["identity_overlap_products"],
+            counts["matched_application_type_products"] + counts["application_type_mismatch_products"],
+        )
+        self.assertEqual(
+            counts["orange_book_products"],
+            counts["orange_book_dated_products"] + counts["orange_book_pre_1982_products"],
+        )
+        self.assertEqual(len(result["application_type_mismatches"]), counts["application_type_mismatch_products"])
+        self.assertEqual(len(result["orange_book_only"]), counts["orange_book_only_products"])
+        self.assertEqual(len(result["drugsfda_only"]), counts["drugsfda_only_products"])
+
     def test_committed_api_is_deterministic(self):
         data = json.loads((ROOT / "data" / "multiomics-v1.json").read_text(encoding="utf-8"))
         expected_index, expected_metrics = build_api.build(data)
         expected_crosswalk = build_api.build_drugsfda_crosswalk(data)
+        expected_identity_crosscheck = build_api.build_fda_product_identity_crosscheck()
         committed_index = json.loads((ROOT / "api" / "v1" / "multiomics" / "index.json").read_text(encoding="utf-8"))
         committed_metrics = json.loads((ROOT / "api" / "v1" / "multiomics" / "metrics.json").read_text(encoding="utf-8"))
         crosswalk_path = ROOT / "api" / "v1" / "multiomics" / "drugsfda-oncology-crosswalk.json"
         committed_crosswalk = json.loads(crosswalk_path.read_text(encoding="utf-8"))
+        identity_path = ROOT / "api" / "v1" / "multiomics" / "fda-product-identity-crosscheck.json"
+        committed_identity_crosscheck = json.loads(identity_path.read_text(encoding="utf-8"))
         self.assertEqual(committed_index, expected_index)
         self.assertEqual(committed_metrics, expected_metrics)
         self.assertEqual(committed_crosswalk, expected_crosswalk)
+        self.assertEqual(committed_identity_crosscheck, expected_identity_crosscheck)
 
 
 if __name__ == "__main__":
