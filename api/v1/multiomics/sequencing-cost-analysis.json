@@ -1,6 +1,6 @@
 {
   "analysis": "NHGRI DNA sequencing cost decline",
-  "method": "Ordinary least squares of natural-log cost against elapsed years, plus endpoint annualized decline. Descriptive only; no causal estimate.",
+  "method": "Ordinary least squares of natural-log cost against elapsed years, endpoint annualized decline, and an exhaustive single change-point search within second-generation observations. Descriptive only; no causal estimate or forecast.",
   "technology_transition_period": "2008-01",
   "technology_transition_basis": "NHGRI states that 2001 through October 2007 represent Sanger-based sequencing and observations beginning January 2008 represent second-generation sequencing.",
   "method_source_url": "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data",
@@ -54,6 +54,37 @@
         "r_squared": 0.813023112856932,
         "years_to_half_cost": 1.487013349591554,
         "years_to_one_tenth_cost": 4.939751423480746
+      },
+      "change_point_analysis_second_generation": {
+        "change_period": "2010-10",
+        "residual_sum_of_squares": 7.809167584155549,
+        "before": {
+          "observation_count": 11,
+          "first_period": "2008-01",
+          "last_period": "2010-07",
+          "log_slope_per_year": -2.0270780597970406,
+          "annual_cost_change_percent": -86.82801631118134,
+          "annual_cost_reduction_percent": 86.82801631118134,
+          "r_squared": 0.9155521034655905,
+          "years_to_half_cost": 0.34194400023714233,
+          "years_to_one_tenth_cost": 1.1359133812659339
+        },
+        "after": {
+          "observation_count": 46,
+          "first_period": "2010-10",
+          "last_period": "2022-05",
+          "log_slope_per_year": -0.3055264656748565,
+          "annual_cost_change_percent": -26.326459362824018,
+          "annual_cost_reduction_percent": 26.326459362824018,
+          "r_squared": 0.9082375249688489,
+          "years_to_half_cost": 2.2686976692146783,
+          "years_to_one_tenth_cost": 7.536450526169715
+        },
+        "single_line_residual_sum_of_squares": 51.59246005124741,
+        "single_line_bic": 2.404585979141637,
+        "change_point_bic": -93.08665856172007,
+        "bic_improvement_vs_single_line": 95.49124454086171,
+        "minimum_observations_per_segment": 8
       }
     },
     {
@@ -104,6 +135,37 @@
         "r_squared": 0.832574396300968,
         "years_to_half_cost": 1.5118635625280639,
         "years_to_one_tenth_cost": 5.022302043998471
+      },
+      "change_point_analysis_second_generation": {
+        "change_period": "2011-07",
+        "residual_sum_of_squares": 5.505984859140909,
+        "before": {
+          "observation_count": 14,
+          "first_period": "2008-01",
+          "last_period": "2011-04",
+          "log_slope_per_year": -1.526703426526254,
+          "annual_cost_change_percent": -78.27493290635336,
+          "annual_cost_reduction_percent": 78.27493290635336,
+          "r_squared": 0.9450345869854847,
+          "years_to_half_cost": 0.45401560546509034,
+          "years_to_one_tenth_cost": 1.5082071953117797
+        },
+        "after": {
+          "observation_count": 43,
+          "first_period": "2011-07",
+          "last_period": "2022-05",
+          "log_slope_per_year": -0.2803946993899091,
+          "annual_cost_change_percent": -24.45145070628042,
+          "annual_cost_reduction_percent": 24.45145070628042,
+          "r_squared": 0.9086150145845764,
+          "years_to_half_cost": 2.472040955367969,
+          "years_to_one_tenth_cost": 8.211942301349051
+        },
+        "single_line_residual_sum_of_squares": 43.64199147852365,
+        "single_line_bic": -7.134691463192821,
+        "change_point_bic": -113.0060334879135,
+        "bic_improvement_vs_single_line": 105.87134202472068,
+        "minimum_observations_per_segment": 8
       }
     }
   ]
