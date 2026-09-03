@@ -28,8 +28,13 @@
           "application_number": "221075",
           "application_type": "NDA",
           "sponsor_name": "BRISTOL MYERS SQUIBB",
-          "product_numbers": ["001", "002"],
-          "active_ingredients": ["IBERDOMIDE HYDROCHLORIDE"],
+          "product_numbers": [
+            "001",
+            "002"
+          ],
+          "active_ingredients": [
+            "IBERDOMIDE HYDROCHLORIDE"
+          ],
           "submissions_on_notification_date": [
             {
               "submission_type": "ORIG",
@@ -38,8 +43,15 @@
               "submission_status_date": "2026-08-13",
               "submission_class_code_id": "7",
               "review_priority": "PRIORITY",
-              "action_types": [{"action_type_id": "46", "description": ""}],
-              "letter_urls": ["https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/221075Orig1s000ltr.pdf"]
+              "action_types": [
+                {
+                  "action_type_id": "46",
+                  "description": ""
+                }
+              ],
+              "letter_urls": [
+                "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/221075Orig1s000ltr.pdf"
+              ]
             }
           ]
         }
@@ -57,8 +69,12 @@
           "application_number": "761416",
           "application_type": "BLA",
           "sponsor_name": "JAZZ PHARMS",
-          "product_numbers": ["001"],
-          "active_ingredients": ["ZANIDATAMAB-HRII"],
+          "product_numbers": [
+            "001"
+          ],
+          "active_ingredients": [
+            "ZANIDATAMAB-HRII"
+          ],
           "submissions_on_notification_date": [
             {
               "submission_type": "SUPPL",
@@ -67,8 +83,15 @@
               "submission_status_date": "2026-08-25",
               "submission_class_code_id": "2",
               "review_priority": "PRIORITY",
-              "action_types": [{"action_type_id": "8", "description": "Efficacy-New Indication"}],
-              "letter_urls": ["https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/761416Orig1s002ltr.pdf"]
+              "action_types": [
+                {
+                  "action_type_id": "8",
+                  "description": "Efficacy-New Indication"
+                }
+              ],
+              "letter_urls": [
+                "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/761416Orig1s002ltr.pdf"
+              ]
             },
             {
               "submission_type": "SUPPL",
@@ -77,8 +100,15 @@
               "submission_status_date": "2026-08-25",
               "submission_class_code_id": "3",
               "review_priority": "STANDARD",
-              "action_types": [{"action_type_id": "19", "description": "Labeling-Package Insert"}],
-              "letter_urls": ["https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/761416Orig1s003ltr.pdf"]
+              "action_types": [
+                {
+                  "action_type_id": "19",
+                  "description": "Labeling-Package Insert"
+                }
+              ],
+              "letter_urls": [
+                "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/761416Orig1s003ltr.pdf"
+              ]
             }
           ]
         }
@@ -96,8 +126,13 @@
           "application_number": "220910",
           "application_type": "NDA",
           "sponsor_name": "REVOLUTION MEDICINES INC",
-          "product_numbers": ["001", "002"],
-          "active_ingredients": ["DARAXONRASIB"],
+          "product_numbers": [
+            "001",
+            "002"
+          ],
+          "active_ingredients": [
+            "DARAXONRASIB"
+          ],
           "submissions_on_notification_date": [
             {
               "submission_type": "ORIG",
@@ -106,8 +141,15 @@
               "submission_status_date": "2026-08-26",
               "submission_class_code_id": "7",
               "review_priority": "PRIORITY",
-              "action_types": [{"action_type_id": "46", "description": ""}],
-              "letter_urls": ["https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/220910Orig1s000ltr.pdf"]
+              "action_types": [
+                {
+                  "action_type_id": "46",
+                  "description": ""
+                }
+              ],
+              "letter_urls": [
+                "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/220910Orig1s000ltr.pdf"
+              ]
             }
           ]
         }
