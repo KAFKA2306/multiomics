@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 import zipfile
+from collections import Counter
 from pathlib import Path
 from unittest.mock import patch
 
@@ -91,14 +92,16 @@ class DrugsFdaRefreshTest(unittest.TestCase):
                 action = action_by_id.get(row["ActionTypes_LookupID"])
                 detail["ActionTypes_LookupDescription"] = action["ActionTypes_LookupDescription"] if action else None
                 join_details.append(detail)
-            result.append({
-                "application": app_by_no.get(app_no),
-                "products": [row for row in matched_products if row["ApplNo"] == app_no],
-                "submissions": app_submissions,
-                "actions": join_details,
-            })
+            result.append({"application": app_by_no.get(app_no), "products": [row for row in matched_products if row["ApplNo"] == app_no], "submissions": app_submissions, "actions": join_details})
+        status_counts = Counter((row["SubmissionType"].strip(), row["SubmissionStatus"].strip()) for row in submissions)
+        original_approved = [row for row in submissions if row["SubmissionType"].strip() == "ORIG" and row["SubmissionStatus"].strip() == "AP" and row["SubmissionStatusDate"].strip()]
+        app_type_by_no = {row["ApplNo"]: row["ApplType"].strip() for row in applications}
+        original_approved_by_type = Counter(app_type_by_no.get(row["ApplNo"], "MISSING") for row in original_approved)
+        dates = sorted(row["SubmissionStatusDate"][:10] for row in original_approved)
         print("DRUGSFDA_TARGET_RECORDS=" + json.dumps(result, ensure_ascii=False, sort_keys=True))
-        self.assertIn("761416", target_apps)
+        print("DRUGSFDA_STATUS_COUNTS=" + json.dumps({f"{k[0]}:{k[1]}": v for k, v in sorted(status_counts.items())}, sort_keys=True))
+        print("DRUGSFDA_ORIG_AP=" + json.dumps({"count": len(original_approved), "by_application_type": dict(sorted(original_approved_by_type.items())), "first_date": dates[0], "last_date": dates[-1]}, sort_keys=True))
+        self.assertEqual({"220910", "221075", "761416"}, set(target_apps))
 
 
 if __name__ == "__main__":
