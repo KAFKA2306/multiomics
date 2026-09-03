@@ -6,10 +6,12 @@ on:
       - main
     paths:
       - "scripts/analyze_sequencing_costs.py"
+      - "scripts/build_api.py"
       - "scripts/refresh_clinical_trials.py"
       - "scripts/refresh_drugsfda.py"
       - "scripts/refresh_fda_approvals.py"
       - "scripts/refresh_sequencing_costs.py"
+      - "tests/test_api.py"
       - "tests/test_data.py"
       - "tests/test_drugsfda_refresh.py"
       - "tests/test_fda_refresh.py"
@@ -55,6 +57,7 @@ jobs:
           python -m json.tool data/drugsfda-source.json > /dev/null
           python -m json.tool api/v1/multiomics/index.json > /dev/null
           python -m json.tool api/v1/multiomics/metrics.json > /dev/null
+          python -m json.tool api/v1/multiomics/drugsfda-oncology-crosswalk.json > /dev/null
           python -m json.tool api/v1/multiomics/sequencing-cost-analysis.json > /dev/null
           python -m unittest discover -s tests -v
       - name: Commit changed primary evidence and derived views

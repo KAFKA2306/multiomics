@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "authority": "U.S. Food and Drug Administration",
+  "dataset": "Drugs@FDA Data Files",
+  "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
+  "source_sha256": "06e4421640e35fc4f64109f762ada7b8f6ac431863c9133c76a0a495a6dc9c13",
+  "source_retrieved_at": "2026-09-03T08:41:39Z",
+  "canonical_approval_path": "data/multiomics-v1.json",
+  "approvals": [
+    {
+      "approval_id": "fda-2026-08-06-tudriqev",
+      "approval_date": "2026-08-06",
+      "brand_name": "Tudriqev",
+      "generic_name": "vusolimogene oderparepvec-wtpg",
+      "notification_source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma",
+      "notification_source_sha256": null,
+      "applications": []
+    },
+    {
+      "approval_id": "fda-2026-08-13-iberdomide",
+      "approval_date": "2026-08-13",
+      "brand_name": "Zenbexus",
+      "generic_name": "iberdomide",
+      "notification_source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-iberdomide-daratumumab-and-hyaluronidase-fihj-and-dexamethasone",
+      "notification_source_sha256": "8528eccc017e6a9aa567b6da75562995a6ab748457de2c034818f7e8ed349910",
+      "applications": [
+        {
+          "application_number": "221075",
+          "application_type": "NDA",
+          "sponsor_name": "BRISTOL MYERS SQUIBB",
+          "product_numbers": [
+            "001",
+            "002"
+          ],
+          "active_ingredients": [
+            "IBERDOMIDE HYDROCHLORIDE"
+          ],
+          "submissions_on_notification_date": [
+            {
+              "submission_type": "ORIG",
+              "submission_number": "1",
+              "submission_status": "AP",
+              "submission_status_date": "2026-08-13",
+              "submission_class_code_id": "7",
+              "review_priority": "PRIORITY",
+              "action_types": [
+                {
+                  "action_type_id": "46",
+                  "description": ""
+                }
+              ],
+              "letter_urls": [
+                "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/221075Orig1s000ltr.pdf"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "approval_id": "fda-2026-08-25-zanidatamab-hrii",
+      "approval_date": "2026-08-25",
+      "brand_name": "Ziihera",
+      "generic_name": "zanidatamab-hrii",
+      "notification_source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-zanidatamab-hrii-and-tislelizumab-jsgr-her2-positive-gastric-gastroesophageal-junction",
+      "notification_source_sha256": "6ac78a42a779e5202cfc2214c2a19c1688b6e00e41de40c039571cfcb09b2fef",
+      "applications": [
+        {
+          "application_number": "761416",
+          "application_type": "BLA",
+          "sponsor_name": "JAZZ PHARMS",
+          "product_numbers": [
+            "001"
+          ],
+          "active_ingredients": [
+            "ZANIDATAMAB-HRII"
+          ],
+          "submissions_on_notification_date": [
+            {
+              "submission_type": "SUPPL",
+              "submission_number": "2",
+              "submission_status": "AP",
+              "submission_status_date": "2026-08-25",
+              "submission_class_code_id": "2",
+              "review_priority": "PRIORITY",
+              "action_types": [
+                {
+                  "action_type_id": "8",
+                  "description": "Efficacy-New Indication"
+                }
+              ],
+              "letter_urls": [
+                "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/761416Orig1s002ltr.pdf"
+              ]
+            },
+            {
+              "submission_type": "SUPPL",
+              "submission_number": "3",
+              "submission_status": "AP",
+              "submission_status_date": "2026-08-25",
+              "submission_class_code_id": "3",
+              "review_priority": "STANDARD",
+              "action_types": [
+                {
+                  "action_type_id": "19",
+                  "description": "Labeling-Package Insert"
+                }
+              ],
+              "letter_urls": [
+                "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/761416Orig1s003ltr.pdf"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "approval_id": "fda-2026-08-26-daraxonrasib",
+      "approval_date": "2026-08-26",
+      "brand_name": "RASONQUE",
+      "generic_name": "daraxonrasib",
+      "notification_source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma",
+      "notification_source_sha256": "2a18ff36d2054e54516631f7e34b7fd62997f7d53c122ef616c8f2439552584c",
+      "applications": [
+        {
+          "application_number": "220910",
+          "application_type": "NDA",
+          "sponsor_name": "REVOLUTION MEDICINES INC",
+          "product_numbers": [
+            "001",
+            "002"
+          ],
+          "active_ingredients": [
+            "DARAXONRASIB"
+          ],
+          "submissions_on_notification_date": [
+            {
+              "submission_type": "ORIG",
+              "submission_number": "1",
+              "submission_status": "AP",
+              "submission_status_date": "2026-08-26",
+              "submission_class_code_id": "7",
+              "review_priority": "PRIORITY",
+              "action_types": [
+                {
+                  "action_type_id": "46",
+                  "description": ""
+                }
+              ],
+              "letter_urls": [
+                "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/220910Orig1s000ltr.pdf"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

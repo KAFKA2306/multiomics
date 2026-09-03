@@ -3,6 +3,7 @@
   "retrieved_at": "2026-09-03T05:47:27Z",
   "canonical_data_path": "data/multiomics-v1.json",
   "metrics_path": "api/v1/multiomics/metrics.json",
+  "drugsfda_oncology_crosswalk_path": "api/v1/multiomics/drugsfda-oncology-crosswalk.json",
   "source_urls": [
     "https://clinicaltrials.gov/study/NCT06264180",
     "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma",
