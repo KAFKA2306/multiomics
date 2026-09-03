@@ -1,7 +1,7 @@
 import math
 import unittest
 
-from scripts.analyze_sequencing_costs import analyze, log_linear_fit
+from scripts.analyze_sequencing_costs import analyze, change_point_analysis, log_linear_fit
 
 
 class SequencingCostAnalysisTest(unittest.TestCase):
@@ -27,6 +27,23 @@ class SequencingCostAnalysisTest(unittest.TestCase):
         self.assertIsNone(result["years_to_half_cost"])
         self.assertIsNone(result["years_to_one_tenth_cost"])
 
+    def test_change_point_analysis_finds_sustained_slowdown(self):
+        records = []
+        value = 1000.0
+        for offset, year in enumerate(range(2000, 2020)):
+            if offset:
+                value *= 0.52 if year < 2010 else 0.91
+            value *= 1.0 + 0.008 * math.sin(offset)
+            records.append({"period": f"{year}-01", "value": value})
+
+        result = change_point_analysis(records)
+        self.assertEqual(result["change_period"], "2009-01")
+        self.assertGreater(result["bic_improvement_vs_single_line"], 0.0)
+        self.assertGreater(
+            result["before"]["annual_cost_reduction_percent"],
+            result["after"]["annual_cost_reduction_percent"],
+        )
+
     def test_analysis_uses_official_2008_transition_without_mixing_metrics(self):
         canonical = {
             "retrieved_at": "2026-09-02T19:50:03Z",
@@ -36,15 +53,24 @@ class SequencingCostAnalysisTest(unittest.TestCase):
             ("cost_per_megabase", "USD_per_megabase", 1.0),
             ("cost_per_genome", "USD_per_human_genome", 1000.0),
         ):
-            for period, value in (
-                ("2007-01", 100.0 * scale),
-                ("2007-10", 80.0 * scale),
-                ("2008-01", 40.0 * scale),
-                ("2009-01", 20.0 * scale),
-            ):
+            for year in range(2000, 2008):
                 canonical["sequencing_costs"].append(
                     {
-                        "period": period,
+                        "period": f"{year}-10",
+                        "metric": metric,
+                        "value": 100.0 * scale * (0.8 ** (year - 2000)),
+                        "unit": unit,
+                        "source_sha256": "a" * 64,
+                    }
+                )
+            value = 40.0 * scale
+            for offset, year in enumerate(range(2008, 2024)):
+                if offset:
+                    value *= 0.6 if year < 2016 else 0.9
+                value *= 1.0 + 0.005 * math.sin(offset)
+                canonical["sequencing_costs"].append(
+                    {
+                        "period": f"{year}-01",
                         "metric": metric,
                         "value": value,
                         "unit": unit,
@@ -65,6 +91,10 @@ class SequencingCostAnalysisTest(unittest.TestCase):
                 "2008-01",
             )
             self.assertEqual(metric_result["source_sha256"], ["a" * 64])
+            self.assertGreater(
+                metric_result["change_point_analysis_second_generation"]["bic_improvement_vs_single_line"],
+                0.0,
+            )
 
 
 if __name__ == "__main__":
