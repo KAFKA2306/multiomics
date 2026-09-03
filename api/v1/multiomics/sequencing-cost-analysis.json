@@ -4,7 +4,7 @@
   "technology_transition_period": "2008-01",
   "technology_transition_basis": "NHGRI states that 2001 through October 2007 represent Sanger-based sequencing and observations beginning January 2008 represent second-generation sequencing.",
   "method_source_url": "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data",
-  "canonical_retrieved_at": "2026-09-03T05:42:43Z",
+  "canonical_retrieved_at": "2026-09-03T05:47:27Z",
   "results": [
     {
       "metric": "cost_per_megabase",
