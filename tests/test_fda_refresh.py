@@ -5,30 +5,43 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from scripts.refresh_fda_approvals import extract_approval, latest_detail_url, refresh
+from scripts.refresh_fda_approvals import dated_detail_urls, extract_approval, refresh
 
+
+AUG13_URL = "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-iberdomide-daratumumab-and-hyaluronidase-fihj-and-dexamethasone"
+AUG25_URL = "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-zanidatamab-hrii-and-tislelizumab-jsgr-her2-positive-gastric-gastroesophageal-junction"
+AUG26_URL = "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma"
+AUG6_URL = "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma"
 
 LIST_HTML = b"""
 <html><body><table><tbody>
-<tr><td><a href="/drugs/resources-information-approved-drugs/fda-approves-old-drug">Older approval</a></td><td>description</td><td>8/13/2026</td></tr>
-<tr><td><a href="/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma">FDA approves daraxonrasib</a></td><td>description</td><td>8/26/2026</td></tr>
+<tr><td><a href="/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma">August 6</a></td><td>description</td><td>8/6/2026</td></tr>
+<tr><td><a href="/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-iberdomide-daratumumab-and-hyaluronidase-fihj-and-dexamethasone">August 13</a></td><td>description</td><td>8/13/2026</td></tr>
+<tr><td><a href="/drugs/resources-information-approved-drugs/fda-approves-zanidatamab-hrii-and-tislelizumab-jsgr-her2-positive-gastric-gastroesophageal-junction">August 25</a></td><td>description</td><td>8/25/2026</td></tr>
+<tr><td><a href="/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma">August 26</a></td><td>description</td><td>8/26/2026</td></tr>
 </tbody></table></body></html>
 """
-DETAIL_URL = "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma"
-DETAIL_HTML = b"""
+AUG13_HTML = b"""
+<html><body><main><p>On August 13, 2026, the Food and Drug Administration granted accelerated approval to iberdomide (Zenbexus, Bristol-Myers Squibb Company) in combination with daratumumab and hyaluronidase-fihj and dexamethasone for adults with multiple myeloma who have received at least one prior line of therapy including a proteasome inhibitor and an immunomodulatory agent.</p><p>Full prescribing information for Zenbexus will be posted.</p></main></body></html>
+"""
+AUG25_HTML = b"""
+<html><body><main><p>On August 25, 2026, the Food and Drug Administration approved zanidatamab-hrii (Ziihera, Jazz Pharmaceuticals):</p><ul><li>in combination with fluoropyrimidine- and platinum-containing chemotherapy and tislelizumab-jsgr (Tevimbra, BeOne Medicines USA, Inc.), as first-line treatment for adults with HER2-positive unresectable locally advanced or metastatic gastric, gastroesophageal junction, or esophageal adenocarcinoma, and</li><li>in combination with fluoropyrimidine- and platinum-containing chemotherapy, as first-line treatment for adults with HER2-positive unresectable locally advanced or metastatic gastric, gastroesophageal junction, or esophageal adenocarcinoma.</li></ul><p>Today, the FDA also approved two companion diagnostic devices.</p></main></body></html>
+"""
+AUG26_HTML = b"""
 <html><body><main><p>On August 26, 2026, the Food and Drug Administration approved daraxonrasib (RASONQUE, Revolution Medicines, Inc.), an inhibitor of the RAS GTPase family, for adults with metastatic pancreatic adenocarcinoma who have received at least one prior systemic therapy or who are not candidates for multiagent systemic therapy.</p></main></body></html>
 """
 
 
 class FdaApprovalRefreshTest(unittest.TestCase):
-    def test_latest_detail_url_uses_newest_dated_row(self):
-        self.assertEqual(latest_detail_url(LIST_HTML), DETAIL_URL)
+    def test_dated_detail_urls_returns_all_rows_in_date_order(self):
+        rows = dated_detail_urls(LIST_HTML)
+        self.assertEqual([url for _, url in rows], [AUG6_URL, AUG13_URL, AUG25_URL, AUG26_URL])
 
-    def test_extracts_required_approval_fields(self):
-        digest = hashlib.sha256(DETAIL_HTML).hexdigest()
+    def test_extracts_simple_approval_fields(self):
+        digest = hashlib.sha256(AUG26_HTML).hexdigest()
         record = extract_approval(
-            DETAIL_HTML,
-            DETAIL_URL,
+            AUG26_HTML,
+            AUG26_URL,
             "2026-09-03T04:00:00Z",
             digest,
             f"data/raw/fda/oncology-approvals/{digest}.html",
@@ -42,35 +55,51 @@ class FdaApprovalRefreshTest(unittest.TestCase):
         self.assertIn("metastatic pancreatic adenocarcinoma", record["indication"])
         self.assertEqual(record["source_sha256"], digest)
 
-    def test_refresh_persists_raw_evidence_and_does_not_duplicate_same_source(self):
+    def test_complex_multi_indication_page_preserves_official_summary_without_guessing(self):
+        digest = hashlib.sha256(AUG25_HTML).hexdigest()
+        record = extract_approval(AUG25_HTML, AUG25_URL, "2026-09-03T04:00:00Z", digest, "raw.html")
+        self.assertEqual(record["approval_date"], "2026-08-25")
+        self.assertEqual(record["generic_name"], "zanidatamab-hrii")
+        self.assertEqual(record["brand_name"], "Ziihera")
+        self.assertEqual(record["sponsor"], "Jazz Pharmaceuticals")
+        self.assertIsNone(record["modality"])
+        self.assertIsNone(record["indication"])
+        self.assertIn("tislelizumab-jsgr", record["approval_summary"])
+        self.assertIn("first-line treatment", record["approval_summary"])
+        self.assertNotIn("companion diagnostic devices", record["approval_summary"])
+
+    def test_refresh_backfills_missing_rows_between_existing_approvals(self):
         canonical = {
             "schema_version": "1.0.0",
             "retrieved_at": "2026-09-02T00:00:00Z",
             "sequencing_costs": [],
             "clinical_trials": [],
-            "approvals": [],
+            "approvals": [
+                {"id": "fda-2026-08-06-existing", "approval_date": "2026-08-06", "source_url": AUG6_URL},
+                {"id": "fda-2026-08-26-existing", "approval_date": "2026-08-26", "source_url": AUG26_URL},
+            ],
             "sources": [],
         }
-        digest = hashlib.sha256(DETAIL_HTML).hexdigest()
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             data_path = root / "multiomics-v1.json"
             raw_dir = root / "raw"
             data_path.write_text(json.dumps(canonical, indent=2) + "\n", encoding="utf-8")
-            with patch("scripts.refresh_fda_approvals.fetch_bytes", side_effect=[LIST_HTML, DETAIL_HTML]):
+            with patch("scripts.refresh_fda_approvals.fetch_bytes", side_effect=[LIST_HTML, AUG13_HTML, AUG25_HTML]):
                 first = refresh(data_path, raw_dir)
-            with patch("scripts.refresh_fda_approvals.fetch_bytes", side_effect=[LIST_HTML, DETAIL_HTML]):
+            with patch("scripts.refresh_fda_approvals.fetch_bytes", return_value=LIST_HTML):
                 second = refresh(data_path, raw_dir)
 
             persisted = json.loads(data_path.read_text(encoding="utf-8"))
-            self.assertEqual(len(persisted["approvals"]), 1)
-            self.assertEqual(first["source_sha256"], digest)
-            self.assertEqual(second["source_sha256"], digest)
-            self.assertEqual((raw_dir / f"{digest}.html").read_bytes(), DETAIL_HTML)
+            self.assertEqual([row["approval_date"] for row in persisted["approvals"]], ["2026-08-06", "2026-08-13", "2026-08-25", "2026-08-26"])
+            self.assertEqual([row["approval_date"] for row in first], ["2026-08-13", "2026-08-25"])
+            self.assertEqual(second, [])
+            for record, html in zip(first, [AUG13_HTML, AUG25_HTML]):
+                self.assertEqual((raw_dir / f"{record['source_sha256']}.html").read_bytes(), html)
 
     def test_unparseable_detail_fails_loudly(self):
         with self.assertRaisesRegex(ValueError, "canonical approval sentence"):
-            extract_approval(b"<html><body>unexpected format</body></html>", DETAIL_URL, "2026-09-03T04:00:00Z", "a" * 64, "raw.html")
+            extract_approval(b"<html><body>unexpected format</body></html>", AUG26_URL, "2026-09-03T04:00:00Z", "a" * 64, "raw.html")
 
 
 if __name__ == "__main__":
