@@ -29,7 +29,9 @@
         "log_slope_per_year": -0.7662891056639216,
         "annual_cost_change_percent": -53.526554715337824,
         "annual_cost_reduction_percent": 53.526554715337824,
-        "r_squared": 0.87364805801731
+        "r_squared": 0.87364805801731,
+        "years_to_half_cost": 0.90455048288778,
+        "years_to_one_tenth_cost": 3.004851662348846
       },
       "log_linear_fit_sanger_through_2007_10": {
         "observation_count": 21,
@@ -38,7 +40,9 @@
         "log_slope_per_year": -0.414955027647533,
         "annual_cost_change_percent": -33.96300215713819,
         "annual_cost_reduction_percent": 33.96300215713819,
-        "r_squared": 0.9610616062301193
+        "r_squared": 0.9610616062301193,
+        "years_to_half_cost": 1.6704151880977123,
+        "years_to_one_tenth_cost": 5.5489991434683485
       },
       "log_linear_fit_second_generation_from_2008_01": {
         "observation_count": 57,
@@ -47,7 +51,9 @@
         "log_slope_per_year": -0.46613379816014144,
         "annual_cost_change_percent": -37.25766696561894,
         "annual_cost_reduction_percent": 37.25766696561894,
-        "r_squared": 0.813023112856932
+        "r_squared": 0.813023112856932,
+        "years_to_half_cost": 1.487013349591554,
+        "years_to_one_tenth_cost": 4.939751423480746
       }
     },
     {
@@ -73,7 +79,9 @@
         "log_slope_per_year": -0.6705797403809792,
         "annual_cost_change_percent": -48.85879943635617,
         "annual_cost_reduction_percent": 48.85879943635617,
-        "r_squared": 0.9010060940922578
+        "r_squared": 0.9010060940922578,
+        "years_to_half_cost": 1.0336536265860712,
+        "years_to_one_tenth_cost": 3.4337230225384805
       },
       "log_linear_fit_sanger_through_2007_10": {
         "observation_count": 21,
@@ -82,7 +90,9 @@
         "log_slope_per_year": -0.4149550276475329,
         "annual_cost_change_percent": -33.96300215713818,
         "annual_cost_reduction_percent": 33.96300215713818,
-        "r_squared": 0.9610616062301193
+        "r_squared": 0.9610616062301193,
+        "years_to_half_cost": 1.670415188097713,
+        "years_to_one_tenth_cost": 5.548999143468349
       },
       "log_linear_fit_second_generation_from_2008_01": {
         "observation_count": 57,
@@ -91,7 +101,9 @@
         "log_slope_per_year": -0.4584720458510811,
         "annual_cost_change_percent": -36.775104474106136,
         "annual_cost_reduction_percent": 36.775104474106136,
-        "r_squared": 0.832574396300968
+        "r_squared": 0.832574396300968,
+        "years_to_half_cost": 1.5118635625280639,
+        "years_to_one_tenth_cost": 5.022302043998471
       }
     }
   ]
