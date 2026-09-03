@@ -26,6 +26,12 @@ class PagesContractTests(unittest.TestCase):
         self.assertIn("記述統計であり因果効果ではありません", html)
         self.assertIn("analysis.method_source_url", html)
 
+    def test_dashboard_labels_fda_source_scope(self):
+        html = (ROOT / "public" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("FDA Oncology approval notificationsの最新保存イベント", html)
+        self.assertIn("FDA全承認の完全一覧ではありません", html)
+        self.assertIn("対象: FDA Oncology approval notifications掲載イベント", html)
+
     def test_readme_starts_with_canonical_production_url(self):
         first_line = (ROOT / "README.md").read_text(encoding="utf-8").splitlines()[0]
         self.assertEqual(first_line, "https://kafka2306.github.io/multiomics/")
