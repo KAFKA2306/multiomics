@@ -58,7 +58,6 @@ class MultiomicsApiTest(unittest.TestCase):
             for action in submission["action_types"]
         }
         self.assertEqual(descriptions, {"Efficacy-New Indication", "Labeling-Package Insert"})
-        print("DRUGSFDA_CROSSWALK=" + json.dumps(crosswalk, ensure_ascii=False, sort_keys=True))
 
     def test_committed_api_is_deterministic(self):
         data = json.loads((ROOT / "data" / "multiomics-v1.json").read_text(encoding="utf-8"))
@@ -67,7 +66,7 @@ class MultiomicsApiTest(unittest.TestCase):
         committed_index = json.loads((ROOT / "api" / "v1" / "multiomics" / "index.json").read_text(encoding="utf-8"))
         committed_metrics = json.loads((ROOT / "api" / "v1" / "multiomics" / "metrics.json").read_text(encoding="utf-8"))
         crosswalk_path = ROOT / "api" / "v1" / "multiomics" / "drugsfda-oncology-crosswalk.json"
-        committed_crosswalk = json.loads(crosswalk_path.read_text(encoding="utf-8")) if crosswalk_path.exists() else None
+        committed_crosswalk = json.loads(crosswalk_path.read_text(encoding="utf-8"))
         self.assertEqual(committed_index, expected_index)
         self.assertEqual(committed_metrics, expected_metrics)
         self.assertEqual(committed_crosswalk, expected_crosswalk)
