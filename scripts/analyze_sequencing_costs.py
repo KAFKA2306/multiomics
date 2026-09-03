@@ -6,6 +6,7 @@ from pathlib import Path
 
 NHGRI_METHOD_URL = "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data"
 TRANSITION_PERIOD = "2008-01"
+MIN_CHANGE_POINT_SEGMENT_OBSERVATIONS = 8
 
 
 def month_index(period: str) -> int:
@@ -17,7 +18,7 @@ def month_index(period: str) -> int:
     return year * 12 + month - 1
 
 
-def log_linear_fit(records: list[dict]) -> dict:
+def _linear_components(records: list[dict]) -> dict:
     if len(records) < 2:
         raise ValueError("at least two observations are required")
 
@@ -40,6 +41,21 @@ def log_linear_fit(records: list[dict]) -> dict:
     predictions = [intercept + slope * xi for xi in x]
     ss_total = sum((yi - y_mean) ** 2 for yi in y)
     ss_residual = sum((yi - predicted) ** 2 for yi, predicted in zip(y, predictions))
+    return {
+        "ordered": ordered,
+        "slope": slope,
+        "intercept": intercept,
+        "ss_total": ss_total,
+        "ss_residual": ss_residual,
+    }
+
+
+def log_linear_fit(records: list[dict]) -> dict:
+    components = _linear_components(records)
+    ordered = components["ordered"]
+    slope = components["slope"]
+    ss_total = components["ss_total"]
+    ss_residual = components["ss_residual"]
     r_squared = 1.0 - ss_residual / ss_total if ss_total else 1.0
 
     annual_factor = math.exp(slope)
@@ -87,6 +103,50 @@ def endpoint_summary(records: list[dict]) -> dict:
     }
 
 
+def change_point_analysis(records: list[dict]) -> dict:
+    ordered = sorted(records, key=lambda row: row["period"])
+    minimum = MIN_CHANGE_POINT_SEGMENT_OBSERVATIONS
+    if len(ordered) < minimum * 2:
+        raise ValueError("insufficient observations for change-point analysis")
+
+    single = _linear_components(ordered)
+    n = len(ordered)
+    single_rss = single["ss_residual"]
+    if single_rss <= 0:
+        raise ValueError("single-line residual sum of squares must be positive")
+
+    best = None
+    for split_index in range(minimum, n - minimum + 1):
+        before = ordered[:split_index]
+        after = ordered[split_index:]
+        before_components = _linear_components(before)
+        after_components = _linear_components(after)
+        rss = before_components["ss_residual"] + after_components["ss_residual"]
+        candidate = {
+            "change_period": after[0]["period"],
+            "residual_sum_of_squares": rss,
+            "before": log_linear_fit(before),
+            "after": log_linear_fit(after),
+        }
+        if best is None or rss < best["residual_sum_of_squares"]:
+            best = candidate
+
+    if best is None or best["residual_sum_of_squares"] <= 0:
+        raise ValueError("unable to fit change-point model")
+
+    # BIC for Gaussian residuals. The two-line model counts two intercepts,
+    # two slopes and the selected change point (5 parameters); the single
+    # line counts one intercept and one slope (2 parameters).
+    single_bic = n * math.log(single_rss / n) + 2 * math.log(n)
+    change_bic = n * math.log(best["residual_sum_of_squares"] / n) + 5 * math.log(n)
+    best["single_line_residual_sum_of_squares"] = single_rss
+    best["single_line_bic"] = single_bic
+    best["change_point_bic"] = change_bic
+    best["bic_improvement_vs_single_line"] = single_bic - change_bic
+    best["minimum_observations_per_segment"] = minimum
+    return best
+
+
 def analyze(canonical: dict) -> dict:
     records = canonical.get("sequencing_costs")
     if not isinstance(records, list) or not records:
@@ -127,12 +187,13 @@ def analyze(canonical: dict) -> dict:
                 "log_linear_fit_all": log_linear_fit(metric_records),
                 "log_linear_fit_sanger_through_2007_10": log_linear_fit(pre_transition),
                 "log_linear_fit_second_generation_from_2008_01": log_linear_fit(post_transition),
+                "change_point_analysis_second_generation": change_point_analysis(post_transition),
             }
         )
 
     return {
         "analysis": "NHGRI DNA sequencing cost decline",
-        "method": "Ordinary least squares of natural-log cost against elapsed years, plus endpoint annualized decline. Descriptive only; no causal estimate.",
+        "method": "Ordinary least squares of natural-log cost against elapsed years, endpoint annualized decline, and an exhaustive single change-point search within second-generation observations. Descriptive only; no causal estimate or forecast.",
         "technology_transition_period": TRANSITION_PERIOD,
         "technology_transition_basis": "NHGRI states that 2001 through October 2007 represent Sanger-based sequencing and observations beginning January 2008 represent second-generation sequencing.",
         "method_source_url": NHGRI_METHOD_URL,
