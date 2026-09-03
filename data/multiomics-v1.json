@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "retrieved_at": "2026-09-03T04:41:45Z",
+  "retrieved_at": "2026-09-03T05:42:43Z",
   "sequencing_costs": [
     {
       "id": "nhgri-2001-09-cost-per-megabase",
@@ -1764,6 +1764,38 @@
       "confirmatory_trial_required": true,
       "source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma",
       "retrieved_at": "2026-08-18T04:13:41Z"
+    },
+    {
+      "id": "fda-2026-08-13-iberdomide",
+      "authority": "U.S. Food and Drug Administration",
+      "approval_date": "2026-08-13",
+      "pathway": "accelerated approval",
+      "generic_name": "iberdomide",
+      "brand_name": "Zenbexus",
+      "sponsor": "Bristol-Myers Squibb Company",
+      "modality": null,
+      "indication": null,
+      "approval_summary": "On August 13, 2026, the Food and Drug Administration granted accelerated approval to iberdomide (Zenbexus, Bristol-Myers Squibb Company) in combination with daratumumab and hyaluronidase-fihj and dexamethasone for adults with multiple myeloma who have received at least one prior line of therapy incl\", \"datePublished\": \"Thu, 08/13/2026 - 15:58\", \"dateModified\": \"Thu, 08/13/2026 - 00:00\", \"author\": { \"@type\": \"Organization\", \"name\": \"Center for Drug Evaluation and Research\" }, \"publisher\": { \"@type\": \"Organization\", \"name\": \"FDA\" } } ] } FDA grants accelerated approval to iberdomide with daratumumab and hyaluronidase-fihj and dexamethasone for multiple myeloma | FDA window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag(\"js\", new Date());gtag(\"set\", \"developer_id.dMDhkMT\", true);gtag(\"config\", \"G-273DTKB5QW\", {\"groups\":\"default\",\"page_placeholder\":\"PLACEHOLDER_page_location\",\"allow_ad_personalization_signals\":false}); Skip to main content Skip to FDA Search Skip to in this section menu Skip to footer links An official website of the United States government Here’s how you know The .gov means it’s official. Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you're on a federal government site. The site is secure. The https:// ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely. Search Menu Search FDA Submit search Featured Report a Product Problem Contact FDA FDA Guidance Documents Recalls, Market Withdrawals and Safety Alerts Press Announcements Warning Letters Advisory Committees En Español Products Food Drugs Medical Devices Radiation-Emitting Products Vaccines, Blood, and Biologics Animal and Veterinary Cosmetics Tobacco Products Topics About FDA Combination Products Regulatory Information Safety Emergency Preparedness International Programs News and Events Training and Continuing Education Inspections and Compliance Science and Research Information For Consumers Patients Industry Health Professionals Federal, State and Local Officials Home Drugs Development & Approval Process | Drugs Drug Approvals and Databases Resources for Information | Approved Drugs FDA grants accelerated approval to iberdomide with daratumumab and hyaluronidase-fihj and dexamethasone for multiple myeloma Resources for Information | Approved Drugs In this section Resources for Information | Approved Drugs Oncology (Cancer)/Hematologic Malignancies Approval Notifications Ongoing | Cancer Accelerated Approvals Verified Clinical Benefit | Cancer Accelerated Approvals Withdrawn | Cancer Accelerated Approvals Other | Cancer Accelerated Approvals FDA grants accelerated approval to iberdomide with daratumumab and hyaluronidase-fihj and dexamethasone for multiple myeloma Resources for Information | Approved Drugs Oncology (Cancer)/Hematologic Malignancies Approval Notifications Ongoing | Cancer Accelerated Approvals Verified Clinical Benefit | Cancer Accelerated Approvals Withdrawn | Cancer Accelerated Approvals Other | Cancer Accelerated Approvals On August 13, 2026, the Food and Drug Administration granted accelerated approval to iberdomide (Zenbexus, Bristol-Myers Squibb Company) in combination with daratumumab and hyaluronidase-fihj and dexamethasone for adults with multiple myeloma who have received at least one prior line of therapy including a proteasome inhibitor and an immunomodulatory agent.",
+      "source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-iberdomide-daratumumab-and-hyaluronidase-fihj-and-dexamethasone",
+      "retrieved_at": "2026-09-03T05:42:43Z",
+      "source_sha256": "8528eccc017e6a9aa567b6da75562995a6ab748457de2c034818f7e8ed349910",
+      "raw_path": "data/raw/fda/oncology-approvals/8528eccc017e6a9aa567b6da75562995a6ab748457de2c034818f7e8ed349910.html"
+    },
+    {
+      "id": "fda-2026-08-25-zanidatamab-hrii",
+      "authority": "U.S. Food and Drug Administration",
+      "approval_date": "2026-08-25",
+      "pathway": "approval",
+      "generic_name": "zanidatamab-hrii",
+      "brand_name": "Ziihera",
+      "sponsor": "Jazz Pharmaceuticals",
+      "modality": null,
+      "indication": null,
+      "approval_summary": "On August 25, 2026, the Food and Drug Administration approved zanidatamab-hrii (Ziihera, Jazz Pharmaceuticals): in combination with fluoropyrimidine- and platinum-containing chemotherapy and tislelizumab-jsgr (Tevimbra, BeOne Medicines USA, Inc.), as first-line treatment for adults with HER2-positive (IHC 3+ or IHC 2+/ISH+) unresectable locally advanced or metastatic gastric, gastroesophageal junction, or esophageal adenocarcinoma, as detected by an FDA-approved test, and in combination with fluoropyrimidine-, and platinum-containing chemotherapy, as first-line treatment for adults with HER2-positive (IHC 3+) unresectable locally advanced or metastatic gastric, gastroesophageal junction, or esophageal adenocarcinoma, as detected by an FDA-approved test.",
+      "source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-zanidatamab-hrii-and-tislelizumab-jsgr-her2-positive-gastric-gastroesophageal-junction",
+      "retrieved_at": "2026-09-03T05:42:43Z",
+      "source_sha256": "6ac78a42a779e5202cfc2214c2a19c1688b6e00e41de40c039571cfcb09b2fef",
+      "raw_path": "data/raw/fda/oncology-approvals/6ac78a42a779e5202cfc2214c2a19c1688b6e00e41de40c039571cfcb09b2fef.html"
     },
     {
       "id": "fda-2026-08-26-daraxonrasib",
