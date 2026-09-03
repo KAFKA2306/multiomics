@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "authority": "U.S. Food and Drug Administration",
+  "dataset": "Orange Book Data Files",
+  "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files",
+  "source_download_url": "https://www.fda.gov/media/76860/download?attachment=",
+  "retrieved_at": "2026-09-03T11:38:48Z",
+  "source_sha256": "caaa826d4ba72f1abb156c8a38063929d3930d3700e091130474a876513a4da3",
+  "raw_path": "data/raw/fda/orange-book/caaa826d4ba72f1abb156c8a38063929d3930d3700e091130474a876513a4da3.zip",
+  "archive_size_bytes": 1095244,
+  "table_count": 3,
+  "tables": [
+    {
+      "file_name": "exclusivity.txt",
+      "header": [
+        "Appl_Type",
+        "Appl_No",
+        "Product_No",
+        "Exclusivity_Code",
+        "Exclusivity_Date"
+      ],
+      "row_count": 2370,
+      "sha256": "d96f310956a7b08c63359db4d2b569036538267abd0ecbf33d26a9bd761b4867",
+      "size_bytes": 76263
+    },
+    {
+      "file_name": "patent.txt",
+      "header": [
+        "Appl_Type",
+        "Appl_No",
+        "Product_No",
+        "Patent_No",
+        "Patent_Expire_Date_Text",
+        "Drug_Substance_Flag",
+        "Drug_Product_Flag",
+        "Patent_Use_Code",
+        "Delist_Flag",
+        "Submission_Date"
+      ],
+      "row_count": 22205,
+      "sha256": "14cbd6fb39b9658d4bd66506d8ec745956f8ac75c80c45a5ac21ea8755a51a22",
+      "size_bytes": 1227788
+    },
+    {
+      "file_name": "products.txt",
+      "header": [
+        "Ingredient",
+        "DF;Route",
+        "Trade_Name",
+        "Applicant",
+        "Strength",
+        "Appl_Type",
+        "Appl_No",
+        "Product_No",
+        "TE_Code",
+        "Approval_Date",
+        "RLD",
+        "RS",
+        "Type",
+        "Applicant_Full_Name"
+      ],
+      "row_count": 48664,
+      "sha256": "34def970b7b1fb7996c31d5d24cad1b7f0f4b1e300312592205af8d7ef42dd5c",
+      "size_bytes": 7490228
+    }
+  ]
+}
