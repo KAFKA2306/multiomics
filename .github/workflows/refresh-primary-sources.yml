@@ -63,6 +63,7 @@ jobs:
           python -m json.tool api/v1/multiomics/index.json > /dev/null
           python -m json.tool api/v1/multiomics/metrics.json > /dev/null
           python -m json.tool api/v1/multiomics/drugsfda-oncology-crosswalk.json > /dev/null
+          python -m json.tool api/v1/multiomics/fda-product-identity-crosscheck.json > /dev/null
           python -m json.tool api/v1/multiomics/sequencing-cost-analysis.json > /dev/null
           python -m unittest discover -s tests -v
       - name: Commit changed primary evidence and derived views
