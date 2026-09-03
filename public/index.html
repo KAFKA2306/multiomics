@@ -20,7 +20,7 @@
   </section>
 
   <section class="grid" aria-label="主要な確認事実">
-    <article class="card"><h2>最新の保存済み規制イベント</h2><div id="approval" class="value">—</div><div id="approvalMeta" class="meta"></div></article>
+    <article class="card"><h2>FDA Oncology approval notificationsの最新保存イベント</h2><div id="approval" class="value">—</div><div id="approvalMeta" class="meta"></div></article>
     <article class="card"><h2>追跡中の臨床試験</h2><div id="trial" class="value">—</div><div id="trialMeta" class="meta"></div></article>
     <article class="card"><h2>シーケンシング費用の保存済み観測</h2><div id="seq" class="value">—</div><div id="seqMeta" class="meta"></div></article>
     <article class="card"><h2>シーケンシング費用の長期低下</h2><div id="seqTrend" class="value">—</div><div id="seqTrendMeta" class="meta"></div></article>
@@ -29,7 +29,7 @@
   <section class="section card">
     <h2>読み方</h2>
     <div class="row"><span class="pill">承認 ≠ 臨床試験成功</span><span class="pill">試験状態 ≠ 治療推奨</span><span class="pill">過去の費用観測 ≠ 現在価格</span><span class="pill">長期回帰 ≠ 因果効果</span></div>
-    <p class="meta">表示値は <code>data/multiomics-v1.json</code> と、そこから決定的に生成した <code>api/v1/multiomics/sequencing-cost-analysis.json</code> を読み込みます。取得に失敗した場合は古い表示へfallbackせず、エラーを表示します。</p>
+    <p class="meta">規制イベントはFDA Oncology approval notificationsに掲載された通知を追跡しています。FDA全承認の完全一覧ではありません。表示値は <code>data/multiomics-v1.json</code> と、そこから決定的に生成した <code>api/v1/multiomics/sequencing-cost-analysis.json</code> を読み込みます。取得に失敗した場合は古い表示へfallbackせず、エラーを表示します。</p>
   </section>
 </main>
 <script>
@@ -44,7 +44,7 @@ Promise.all([
     $('asof').textContent=`正準データ取得時点: ${d.retrieved_at}`;
     const approvals=[...(d.approvals||[])].sort((a,b)=>b.approval_date.localeCompare(a.approval_date));
     const a=approvals[0];
-    if(a){$('approval').textContent=`${a.brand_name} — ${a.pathway}`;$('approvalMeta').innerHTML=`${a.approval_date} / ${a.authority}<br>${a.generic_name}<br>${link(a.source_url,'FDA一次情報')}`;}
+    if(a){$('approval').textContent=`${a.brand_name} — ${a.pathway}`;$('approvalMeta').innerHTML=`${a.approval_date} / ${a.authority}<br>${a.generic_name}<br>対象: FDA Oncology approval notifications掲載イベント<br>${link(a.source_url,'FDA一次情報')}`;}
     const t=(d.clinical_trials||[])[0];
     if(t){$('trial').textContent=`${t.nct_id} — ${t.status}`;$('trialMeta').innerHTML=`${t.phase} / ${t.sponsor}<br>最終更新掲載: ${t.last_update_posted}<br>取得: ${t.retrieved_at}<br>${link(t.source_url,'ClinicalTrials.gov')}`;}
     const costs=[...(d.sequencing_costs||[])].sort((a,b)=>b.period.localeCompare(a.period));
