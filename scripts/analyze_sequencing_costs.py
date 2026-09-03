@@ -7,6 +7,7 @@ from pathlib import Path
 NHGRI_METHOD_URL = "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data"
 TRANSITION_PERIOD = "2008-01"
 MIN_CHANGE_POINT_SEGMENT_OBSERVATIONS = 8
+CHANGE_POINT_SENSITIVITY_MINIMUMS = (6, 8, 10, 12)
 
 
 def month_index(period: str) -> int:
@@ -50,6 +51,22 @@ def _linear_components(records: list[dict]) -> dict:
     }
 
 
+def _slope_summary(slope: float) -> dict:
+    annual_factor = math.exp(slope)
+    result = {
+        "log_slope_per_year": slope,
+        "annual_cost_change_percent": (annual_factor - 1.0) * 100.0,
+        "annual_cost_reduction_percent": (1.0 - annual_factor) * 100.0,
+    }
+    if slope < 0:
+        result["years_to_half_cost"] = math.log(0.5) / slope
+        result["years_to_one_tenth_cost"] = math.log(0.1) / slope
+    else:
+        result["years_to_half_cost"] = None
+        result["years_to_one_tenth_cost"] = None
+    return result
+
+
 def log_linear_fit(records: list[dict]) -> dict:
     components = _linear_components(records)
     ordered = components["ordered"]
@@ -58,22 +75,13 @@ def log_linear_fit(records: list[dict]) -> dict:
     ss_residual = components["ss_residual"]
     r_squared = 1.0 - ss_residual / ss_total if ss_total else 1.0
 
-    annual_factor = math.exp(slope)
     result = {
         "observation_count": len(ordered),
         "first_period": ordered[0]["period"],
         "last_period": ordered[-1]["period"],
-        "log_slope_per_year": slope,
-        "annual_cost_change_percent": (annual_factor - 1.0) * 100.0,
-        "annual_cost_reduction_percent": (1.0 - annual_factor) * 100.0,
+        **_slope_summary(slope),
         "r_squared": r_squared,
     }
-    if slope < 0:
-        result["years_to_half_cost"] = math.log(0.5) / slope
-        result["years_to_one_tenth_cost"] = math.log(0.1) / slope
-    else:
-        result["years_to_half_cost"] = None
-        result["years_to_one_tenth_cost"] = None
     return result
 
 
@@ -103,9 +111,13 @@ def endpoint_summary(records: list[dict]) -> dict:
     }
 
 
-def change_point_analysis(records: list[dict]) -> dict:
+def change_point_analysis(
+    records: list[dict], minimum_observations: int = MIN_CHANGE_POINT_SEGMENT_OBSERVATIONS
+) -> dict:
     ordered = sorted(records, key=lambda row: row["period"])
-    minimum = MIN_CHANGE_POINT_SEGMENT_OBSERVATIONS
+    minimum = minimum_observations
+    if minimum < 2:
+        raise ValueError("minimum observations per segment must be at least two")
     if len(ordered) < minimum * 2:
         raise ValueError("insufficient observations for change-point analysis")
 
@@ -134,9 +146,6 @@ def change_point_analysis(records: list[dict]) -> dict:
     if best is None or best["residual_sum_of_squares"] <= 0:
         raise ValueError("unable to fit change-point model")
 
-    # BIC for Gaussian residuals. The two-line model counts two intercepts,
-    # two slopes and the selected change point (5 parameters); the single
-    # line counts one intercept and one slope (2 parameters).
     single_bic = n * math.log(single_rss / n) + 2 * math.log(n)
     change_bic = n * math.log(best["residual_sum_of_squares"] / n) + 5 * math.log(n)
     best["single_line_residual_sum_of_squares"] = single_rss
@@ -144,6 +153,114 @@ def change_point_analysis(records: list[dict]) -> dict:
     best["change_point_bic"] = change_bic
     best["bic_improvement_vs_single_line"] = single_bic - change_bic
     best["minimum_observations_per_segment"] = minimum
+    return best
+
+
+def change_point_sensitivity(records: list[dict]) -> dict:
+    analyses = [
+        change_point_analysis(records, minimum_observations=minimum)
+        for minimum in CHANGE_POINT_SENSITIVITY_MINIMUMS
+    ]
+    periods = [analysis["change_period"] for analysis in analyses]
+    return {
+        "minimum_observations_tested": list(CHANGE_POINT_SENSITIVITY_MINIMUMS),
+        "change_periods": periods,
+        "earliest_change_period": min(periods),
+        "latest_change_period": max(periods),
+        "all_bic_improvements_positive": all(
+            analysis["bic_improvement_vs_single_line"] > 0 for analysis in analyses
+        ),
+        "results": [
+            {
+                "minimum_observations_per_segment": analysis["minimum_observations_per_segment"],
+                "change_period": analysis["change_period"],
+                "bic_improvement_vs_single_line": analysis["bic_improvement_vs_single_line"],
+                "before_annual_cost_reduction_percent": analysis["before"]["annual_cost_reduction_percent"],
+                "after_annual_cost_reduction_percent": analysis["after"]["annual_cost_reduction_percent"],
+            }
+            for analysis in analyses
+        ],
+    }
+
+
+def _solve_three_by_three(matrix: list[list[float]], vector: list[float]) -> list[float]:
+    augmented = [row[:] + [value] for row, value in zip(matrix, vector)]
+    for column in range(3):
+        pivot = max(range(column, 3), key=lambda row: abs(augmented[row][column]))
+        if abs(augmented[pivot][column]) < 1e-12:
+            raise ValueError("segmented regression design is singular")
+        augmented[column], augmented[pivot] = augmented[pivot], augmented[column]
+        divisor = augmented[column][column]
+        augmented[column] = [value / divisor for value in augmented[column]]
+        for row in range(3):
+            if row == column:
+                continue
+            factor = augmented[row][column]
+            augmented[row] = [
+                value - factor * pivot_value
+                for value, pivot_value in zip(augmented[row], augmented[column])
+            ]
+    return [augmented[row][3] for row in range(3)]
+
+
+def continuous_segmented_regression(
+    records: list[dict], minimum_observations: int = MIN_CHANGE_POINT_SEGMENT_OBSERVATIONS
+) -> dict:
+    ordered = sorted(records, key=lambda row: row["period"])
+    if len(ordered) < minimum_observations * 2:
+        raise ValueError("insufficient observations for segmented regression")
+    values = [float(row["value"]) for row in ordered]
+    if any(value <= 0 for value in values):
+        raise ValueError("sequencing cost must be positive")
+
+    origin = month_index(ordered[0]["period"])
+    x = [(month_index(row["period"]) - origin) / 12.0 for row in ordered]
+    y = [math.log(value) for value in values]
+    n = len(ordered)
+    single_rss = _linear_components(ordered)["ss_residual"]
+    best = None
+
+    for split_index in range(minimum_observations, n - minimum_observations + 1):
+        knot = x[split_index]
+        rows = [[1.0, xi, max(0.0, xi - knot)] for xi in x]
+        xtx = [[sum(row[i] * row[j] for row in rows) for j in range(3)] for i in range(3)]
+        xty = [sum(row[i] * yi for row, yi in zip(rows, y)) for i in range(3)]
+        intercept, before_slope, slope_change = _solve_three_by_three(xtx, xty)
+        predictions = [
+            intercept + before_slope * xi + slope_change * max(0.0, xi - knot)
+            for xi in x
+        ]
+        rss = sum((yi - predicted) ** 2 for yi, predicted in zip(y, predictions))
+        after_slope = before_slope + slope_change
+        candidate = {
+            "change_period": ordered[split_index]["period"],
+            "residual_sum_of_squares": rss,
+            "before": {
+                "observation_count": split_index,
+                "first_period": ordered[0]["period"],
+                "last_period": ordered[split_index - 1]["period"],
+                **_slope_summary(before_slope),
+            },
+            "after": {
+                "observation_count": n - split_index,
+                "first_period": ordered[split_index]["period"],
+                "last_period": ordered[-1]["period"],
+                **_slope_summary(after_slope),
+            },
+        }
+        if best is None or rss < best["residual_sum_of_squares"]:
+            best = candidate
+
+    if best is None or best["residual_sum_of_squares"] <= 0:
+        raise ValueError("unable to fit continuous segmented regression")
+
+    single_bic = n * math.log(single_rss / n) + 2 * math.log(n)
+    segmented_bic = n * math.log(best["residual_sum_of_squares"] / n) + 4 * math.log(n)
+    best["single_line_residual_sum_of_squares"] = single_rss
+    best["single_line_bic"] = single_bic
+    best["segmented_bic"] = segmented_bic
+    best["bic_improvement_vs_single_line"] = single_bic - segmented_bic
+    best["minimum_observations_per_segment"] = minimum_observations
     return best
 
 
@@ -188,12 +305,14 @@ def analyze(canonical: dict) -> dict:
                 "log_linear_fit_sanger_through_2007_10": log_linear_fit(pre_transition),
                 "log_linear_fit_second_generation_from_2008_01": log_linear_fit(post_transition),
                 "change_point_analysis_second_generation": change_point_analysis(post_transition),
+                "change_point_sensitivity_second_generation": change_point_sensitivity(post_transition),
+                "continuous_segmented_regression_second_generation": continuous_segmented_regression(post_transition),
             }
         )
 
     return {
         "analysis": "NHGRI DNA sequencing cost decline",
-        "method": "Ordinary least squares of natural-log cost against elapsed years, endpoint annualized decline, and an exhaustive single change-point search within second-generation observations. Descriptive only; no causal estimate or forecast.",
+        "method": "Ordinary least squares of natural-log cost against elapsed years, endpoint annualized decline, exhaustive single change-point searches with sensitivity to minimum segment size, and continuous segmented regression within second-generation observations. Descriptive only; no causal estimate or forecast.",
         "technology_transition_period": TRANSITION_PERIOD,
         "technology_transition_basis": "NHGRI states that 2001 through October 2007 represent Sanger-based sequencing and observations beginning January 2008 represent second-generation sequencing.",
         "method_source_url": NHGRI_METHOD_URL,
