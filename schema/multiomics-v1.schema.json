@@ -101,13 +101,16 @@
         "generic_name": {"type": "string"},
         "brand_name": {"type": "string"},
         "sponsor": {"type": "string"},
-        "modality": {"type": "string"},
+        "modality": {"type": ["string", "null"]},
         "combination_with": {"type": "array", "items": {"type": "string"}},
-        "indication": {"type": "string"},
+        "indication": {"type": ["string", "null"]},
+        "approval_summary": {"type": "string"},
         "evidence_basis": {"type": "array", "items": {"type": "string"}},
         "confirmatory_trial_required": {"type": "boolean"},
         "source_url": {"type": "string", "format": "uri"},
-        "retrieved_at": {"type": "string", "format": "date-time"}
+        "retrieved_at": {"type": "string", "format": "date-time"},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "raw_path": {"type": "string"}
       }
     },
     "source": {
