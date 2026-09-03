@@ -37,7 +37,7 @@ jobs:
         run: python -m pip install xlrd==2.0.2
       - name: Refresh NCT06264180 from ClinicalTrials.gov API v2
         run: python scripts/refresh_clinical_trials.py --nct-id NCT06264180
-      - name: Refresh latest oncology approval from FDA
+      - name: Refresh oncology approvals from FDA
         run: python scripts/refresh_fda_approvals.py
       - name: Refresh sequencing costs from NHGRI
         run: python scripts/refresh_sequencing_costs.py
