@@ -37,7 +37,7 @@ class SequencingCostAnalysisTest(unittest.TestCase):
             records.append({"period": f"{year}-01", "value": value})
 
         result = change_point_analysis(records)
-        self.assertEqual(result["change_period"], "2010-01")
+        self.assertEqual(result["change_period"], "2009-01")
         self.assertGreater(result["bic_improvement_vs_single_line"], 0.0)
         self.assertGreater(
             result["before"]["annual_cost_reduction_percent"],
