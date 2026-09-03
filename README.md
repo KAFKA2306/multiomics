@@ -26,7 +26,7 @@ ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正
 
 - sequencing economics: NHGRIの公式Sequencing Costs 2022 Excel表。2001年9月〜2022年5月の観測を保存
 - clinical trial: ClinicalTrials.gov `NCT06264180` (IGNYTE-3), Recruiting, Phase 3, sponsor Replimune, Inc.
-- approvals: FDA Oncology Center of Excellenceの承認通知一覧から最新の保存済み承認を取得し、個別のFDA承認ページを一次情報として保存
+- approvals: FDA Oncology Center of Excellenceの承認通知一覧を基準に、正準データで追跡を開始した日以降の未保存通知をすべて取得し、個別のFDA承認ページを一次情報として保存
 
 `api/v1/multiomics/metrics.json` は上記canonical dataから決定的に生成するread-only viewです。`api/v1/multiomics/sequencing-cost-analysis.json` はNHGRIの実観測から長期低下率を再計算するread-onlyの派生結果で、因果効果は主張しません。downstreamはこれらを参照し、事実の正本を複製しません。
 
@@ -37,7 +37,7 @@ ARK Big Ideas 2026 の **Multiomics** を一次情報で検証するための正
 - ClinicalTrials.gov API: https://clinicaltrials.gov/data-api/api
 - FDA Oncology approval notifications: https://www.fda.gov/drugs/resources-information-approved-drugs/oncology-cancerhematologic-malignancies-approval-notifications
 
-ClinicalTrials.gov、FDA、NHGRIの一次情報は、同じ一次情報更新workflowで取得します。ClinicalTrials.govのstudy JSON、FDA承認詳細ページのHTML、NHGRIの公式Excelは `data/raw/` にcontent-addressed snapshotとして保存し、取得したFDA承認にはSHA-256と原本pathを正準データへ残します。外部の二次APIや推定値へfallbackしません。FDAの承認ページが必要項目へ解析できない場合は更新を停止し、既存値を新しい承認として扱いません。
+ClinicalTrials.gov、FDA、NHGRIの一次情報は、同じ一次情報更新workflowで取得します。ClinicalTrials.govのstudy JSON、FDA承認詳細ページのHTML、NHGRIの公式Excelは `data/raw/` にcontent-addressed snapshotとして保存し、取得したFDA承認にはSHA-256と原本pathを正準データへ残します。外部の二次APIや推定値へfallbackしません。FDA一覧の日付と個別ページの日付が一致しない場合、または個別ページの主要な製品情報を解析できない場合は更新を停止します。FDA本文が複数薬剤・複数適応をまとめており `modality` や単一の `indication` に安全に分解できない場合は、推測せず `null` を保存し、FDAの承認要約本文を `approval_summary` に保持します。
 
 ## Reproduce
 
