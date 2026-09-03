@@ -78,13 +78,25 @@ class _TableParser(HTMLParser):
             self._in_row = False
 
 
-class _TextParser(HTMLParser):
+class _MainTextParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.parts: list[str] = []
+        self._main_depth = 0
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "main":
+            self._main_depth += 1
+        elif self._main_depth and tag not in {"script", "style"}:
+            self._main_depth += 1
+
+    def handle_endtag(self, tag: str) -> None:
+        if self._main_depth:
+            self._main_depth -= 1
 
     def handle_data(self, data: str) -> None:
-        self.parts.append(data)
+        if self._main_depth:
+            self.parts.append(data)
 
 
 def dated_detail_urls(list_html: bytes) -> list[tuple[datetime, str]]:
@@ -109,8 +121,10 @@ def dated_detail_urls(list_html: bytes) -> list[tuple[datetime, str]]:
 
 
 def _approval_summary(detail_html: bytes) -> str:
-    parser = _TextParser()
+    parser = _MainTextParser()
     parser.feed(detail_html.decode("utf-8", errors="strict"))
+    if not parser.parts:
+        raise ValueError("FDA approval detail page did not contain a main content element")
     text = " ".join(" ".join(parser.parts).split())
     start_match = re.search(r"On [A-Z][a-z]+ \d{1,2}, \d{4}, the Food and Drug Administration ", text)
     if not start_match:
@@ -174,6 +188,11 @@ def extract_approval(detail_html: bytes, source_url: str, retrieved_at: str, sou
     }
 
 
+def _raw_file(raw_path: str) -> Path:
+    path = Path(raw_path)
+    return path if path.is_absolute() else ROOT / path
+
+
 def refresh(data_path: Path = DATA, raw_dir: Path = RAW) -> list[dict[str, object]]:
     list_html = fetch_bytes(LIST_URL)
     candidates = dated_detail_urls(list_html)
@@ -182,13 +201,29 @@ def refresh(data_path: Path = DATA, raw_dir: Path = RAW) -> list[dict[str, objec
     if not isinstance(approvals, list):
         raise ValueError("canonical approvals must be an array")
 
+    changed = False
+    for index, row in enumerate(approvals):
+        if "approval_summary" not in row:
+            continue
+        required = ("source_url", "retrieved_at", "source_sha256", "raw_path")
+        if any(not row.get(key) for key in required):
+            raise ValueError(f"FDA approval with approval_summary lacks persisted provenance: {row.get('id')}")
+        raw_file = _raw_file(row["raw_path"])
+        if not raw_file.exists():
+            raise ValueError(f"persisted FDA raw evidence is missing: {row['raw_path']}")
+        corrected = extract_approval(
+            raw_file.read_bytes(), row["source_url"], row["retrieved_at"], row["source_sha256"], row["raw_path"]
+        )
+        merged = {**row, **corrected}
+        if merged != row:
+            approvals[index] = merged
+            changed = True
+
     existing_urls = {row.get("source_url") for row in approvals}
     if approvals:
         baseline = min(datetime.fromisoformat(row["approval_date"]) for row in approvals)
         candidates = [(date, url) for date, url in candidates if date >= baseline]
     missing = [(date, url) for date, url in candidates if url not in existing_urls]
-    if not missing:
-        return []
 
     retrieved_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     records: list[dict[str, object]] = []
@@ -207,10 +242,12 @@ def refresh(data_path: Path = DATA, raw_dir: Path = RAW) -> list[dict[str, objec
             raise ValueError(f"FDA approval identity already exists with a different source URL: {record['id']}")
         approvals.append(record)
         records.append(record)
+        changed = True
 
-    approvals.sort(key=lambda row: (row["approval_date"], row["id"]))
-    canonical["retrieved_at"] = retrieved_at
-    data_path.write_text(json.dumps(canonical, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if changed:
+        approvals.sort(key=lambda row: (row["approval_date"], row["id"]))
+        canonical["retrieved_at"] = retrieved_at
+        data_path.write_text(json.dumps(canonical, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return records
 
 
