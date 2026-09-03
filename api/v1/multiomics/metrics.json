@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "retrieved_at": "2026-09-02T19:50:03Z",
+  "retrieved_at": "2026-09-03T04:41:45Z",
   "observations": [
     {
       "metric": "clinical_trial_count",
@@ -14,13 +14,13 @@
     },
     {
       "metric": "fda_approval_count",
-      "as_of": "2026-08-06",
-      "value": 1,
+      "as_of": "2026-08-26",
+      "value": 2,
       "unit": "approvals",
       "provider": "U.S. Food and Drug Administration",
       "product": "canonical Multiomics tracked approvals",
       "qualifier": "tracked_repository_records",
-      "source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma"
+      "source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma"
     },
     {
       "metric": "multiomics_trial_count",
