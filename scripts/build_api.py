@@ -136,7 +136,7 @@ def build_drugsfda_crosswalk(data: dict[str, Any]) -> dict[str, Any]:
                 {
                     "application_number": application_number,
                     "application_type": application["ApplType"].strip() if application else None,
-                    "sponsor_name": application["SponsorName"].strip() or None if application else None,
+                    "sponsor_name": (application["SponsorName"].strip() or None) if application else None,
                     "products": matching_products,
                     "submissions_on_notification_date": matching_submissions,
                 }
@@ -148,7 +148,7 @@ def build_drugsfda_crosswalk(data: dict[str, Any]) -> dict[str, Any]:
                 "brand_name": brand_name,
                 "generic_name": approval["generic_name"],
                 "notification_source_url": approval["source_url"],
-                "notification_source_sha256": approval["source_sha256"],
+                "notification_source_sha256": approval.get("source_sha256"),
                 "applications": matched_applications,
             }
         )
