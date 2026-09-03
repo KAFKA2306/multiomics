@@ -1,6 +1,6 @@
 {
   "analysis": "NHGRI DNA sequencing cost decline",
-  "method": "Ordinary least squares of natural-log cost against elapsed years, endpoint annualized decline, and an exhaustive single change-point search within second-generation observations. Descriptive only; no causal estimate or forecast.",
+  "method": "Ordinary least squares of natural-log cost against elapsed years, endpoint annualized decline, exhaustive single change-point searches with sensitivity to minimum segment size, and continuous segmented regression within second-generation observations. Descriptive only; no causal estimate or forecast.",
   "technology_transition_period": "2008-01",
   "technology_transition_basis": "NHGRI states that 2001 through October 2007 represent Sanger-based sequencing and observations beginning January 2008 represent second-generation sequencing.",
   "method_source_url": "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data",
@@ -29,9 +29,9 @@
         "log_slope_per_year": -0.7662891056639216,
         "annual_cost_change_percent": -53.526554715337824,
         "annual_cost_reduction_percent": 53.526554715337824,
-        "r_squared": 0.87364805801731,
         "years_to_half_cost": 0.90455048288778,
-        "years_to_one_tenth_cost": 3.004851662348846
+        "years_to_one_tenth_cost": 3.004851662348846,
+        "r_squared": 0.87364805801731
       },
       "log_linear_fit_sanger_through_2007_10": {
         "observation_count": 21,
@@ -40,9 +40,9 @@
         "log_slope_per_year": -0.414955027647533,
         "annual_cost_change_percent": -33.96300215713819,
         "annual_cost_reduction_percent": 33.96300215713819,
-        "r_squared": 0.9610616062301193,
         "years_to_half_cost": 1.6704151880977123,
-        "years_to_one_tenth_cost": 5.5489991434683485
+        "years_to_one_tenth_cost": 5.5489991434683485,
+        "r_squared": 0.9610616062301193
       },
       "log_linear_fit_second_generation_from_2008_01": {
         "observation_count": 57,
@@ -51,9 +51,9 @@
         "log_slope_per_year": -0.46613379816014144,
         "annual_cost_change_percent": -37.25766696561894,
         "annual_cost_reduction_percent": 37.25766696561894,
-        "r_squared": 0.813023112856932,
         "years_to_half_cost": 1.487013349591554,
-        "years_to_one_tenth_cost": 4.939751423480746
+        "years_to_one_tenth_cost": 4.939751423480746,
+        "r_squared": 0.813023112856932
       },
       "change_point_analysis_second_generation": {
         "change_period": "2010-10",
@@ -65,9 +65,9 @@
           "log_slope_per_year": -2.0270780597970406,
           "annual_cost_change_percent": -86.82801631118134,
           "annual_cost_reduction_percent": 86.82801631118134,
-          "r_squared": 0.9155521034655905,
           "years_to_half_cost": 0.34194400023714233,
-          "years_to_one_tenth_cost": 1.1359133812659339
+          "years_to_one_tenth_cost": 1.1359133812659339,
+          "r_squared": 0.9155521034655905
         },
         "after": {
           "observation_count": 46,
@@ -76,14 +76,90 @@
           "log_slope_per_year": -0.3055264656748565,
           "annual_cost_change_percent": -26.326459362824018,
           "annual_cost_reduction_percent": 26.326459362824018,
-          "r_squared": 0.9082375249688489,
           "years_to_half_cost": 2.2686976692146783,
-          "years_to_one_tenth_cost": 7.536450526169715
+          "years_to_one_tenth_cost": 7.536450526169715,
+          "r_squared": 0.9082375249688489
         },
         "single_line_residual_sum_of_squares": 51.59246005124741,
         "single_line_bic": 2.404585979141637,
         "change_point_bic": -93.08665856172007,
         "bic_improvement_vs_single_line": 95.49124454086171,
+        "minimum_observations_per_segment": 8
+      },
+      "change_point_sensitivity_second_generation": {
+        "minimum_observations_tested": [
+          6,
+          8,
+          10,
+          12
+        ],
+        "change_periods": [
+          "2010-10",
+          "2010-10",
+          "2010-10",
+          "2011-01"
+        ],
+        "earliest_change_period": "2010-10",
+        "latest_change_period": "2011-01",
+        "all_bic_improvements_positive": true,
+        "results": [
+          {
+            "minimum_observations_per_segment": 6,
+            "change_period": "2010-10",
+            "bic_improvement_vs_single_line": 95.49124454086171,
+            "before_annual_cost_reduction_percent": 86.82801631118134,
+            "after_annual_cost_reduction_percent": 26.326459362824018
+          },
+          {
+            "minimum_observations_per_segment": 8,
+            "change_period": "2010-10",
+            "bic_improvement_vs_single_line": 95.49124454086171,
+            "before_annual_cost_reduction_percent": 86.82801631118134,
+            "after_annual_cost_reduction_percent": 26.326459362824018
+          },
+          {
+            "minimum_observations_per_segment": 10,
+            "change_period": "2010-10",
+            "bic_improvement_vs_single_line": 95.49124454086171,
+            "before_annual_cost_reduction_percent": 86.82801631118134,
+            "after_annual_cost_reduction_percent": 26.326459362824018
+          },
+          {
+            "minimum_observations_per_segment": 12,
+            "change_period": "2011-01",
+            "bic_improvement_vs_single_line": 95.46128775861526,
+            "before_annual_cost_reduction_percent": 84.51540127094248,
+            "after_annual_cost_reduction_percent": 25.610144719351336
+          }
+        ]
+      },
+      "continuous_segmented_regression_second_generation": {
+        "change_period": "2010-10",
+        "residual_sum_of_squares": 7.895608808602384,
+        "before": {
+          "observation_count": 11,
+          "first_period": "2008-01",
+          "last_period": "2010-07",
+          "log_slope_per_year": -1.9364524832209984,
+          "annual_cost_change_percent": -85.57853527308805,
+          "annual_cost_reduction_percent": 85.57853527308805,
+          "years_to_half_cost": 0.3579469088789614,
+          "years_to_one_tenth_cost": 1.1890738930831086
+        },
+        "after": {
+          "observation_count": 46,
+          "first_period": "2010-10",
+          "last_period": "2022-05",
+          "log_slope_per_year": -0.3011553814119714,
+          "annual_cost_change_percent": -26.003721264906243,
+          "annual_cost_reduction_percent": 26.003721264906243,
+          "years_to_half_cost": 2.3016264139465634,
+          "years_to_one_tenth_cost": 7.645837448423938
+        },
+        "single_line_residual_sum_of_squares": 51.59246005124741,
+        "single_line_bic": 2.404585979141637,
+        "segmented_bic": -96.50223199376842,
+        "bic_improvement_vs_single_line": 98.90681797291006,
         "minimum_observations_per_segment": 8
       }
     },
@@ -110,9 +186,9 @@
         "log_slope_per_year": -0.6705797403809792,
         "annual_cost_change_percent": -48.85879943635617,
         "annual_cost_reduction_percent": 48.85879943635617,
-        "r_squared": 0.9010060940922578,
         "years_to_half_cost": 1.0336536265860712,
-        "years_to_one_tenth_cost": 3.4337230225384805
+        "years_to_one_tenth_cost": 3.4337230225384805,
+        "r_squared": 0.9010060940922578
       },
       "log_linear_fit_sanger_through_2007_10": {
         "observation_count": 21,
@@ -121,9 +197,9 @@
         "log_slope_per_year": -0.4149550276475329,
         "annual_cost_change_percent": -33.96300215713818,
         "annual_cost_reduction_percent": 33.96300215713818,
-        "r_squared": 0.9610616062301193,
         "years_to_half_cost": 1.670415188097713,
-        "years_to_one_tenth_cost": 5.548999143468349
+        "years_to_one_tenth_cost": 5.548999143468349,
+        "r_squared": 0.9610616062301193
       },
       "log_linear_fit_second_generation_from_2008_01": {
         "observation_count": 57,
@@ -132,9 +208,9 @@
         "log_slope_per_year": -0.4584720458510811,
         "annual_cost_change_percent": -36.775104474106136,
         "annual_cost_reduction_percent": 36.775104474106136,
-        "r_squared": 0.832574396300968,
         "years_to_half_cost": 1.5118635625280639,
-        "years_to_one_tenth_cost": 5.022302043998471
+        "years_to_one_tenth_cost": 5.022302043998471,
+        "r_squared": 0.832574396300968
       },
       "change_point_analysis_second_generation": {
         "change_period": "2011-07",
@@ -146,9 +222,9 @@
           "log_slope_per_year": -1.526703426526254,
           "annual_cost_change_percent": -78.27493290635336,
           "annual_cost_reduction_percent": 78.27493290635336,
-          "r_squared": 0.9450345869854847,
           "years_to_half_cost": 0.45401560546509034,
-          "years_to_one_tenth_cost": 1.5082071953117797
+          "years_to_one_tenth_cost": 1.5082071953117797,
+          "r_squared": 0.9450345869854847
         },
         "after": {
           "observation_count": 43,
@@ -157,14 +233,90 @@
           "log_slope_per_year": -0.2803946993899091,
           "annual_cost_change_percent": -24.45145070628042,
           "annual_cost_reduction_percent": 24.45145070628042,
-          "r_squared": 0.9086150145845764,
           "years_to_half_cost": 2.472040955367969,
-          "years_to_one_tenth_cost": 8.211942301349051
+          "years_to_one_tenth_cost": 8.211942301349051,
+          "r_squared": 0.9086150145845764
         },
         "single_line_residual_sum_of_squares": 43.64199147852365,
         "single_line_bic": -7.134691463192821,
         "change_point_bic": -113.0060334879135,
         "bic_improvement_vs_single_line": 105.87134202472068,
+        "minimum_observations_per_segment": 8
+      },
+      "change_point_sensitivity_second_generation": {
+        "minimum_observations_tested": [
+          6,
+          8,
+          10,
+          12
+        ],
+        "change_periods": [
+          "2011-07",
+          "2011-07",
+          "2011-07",
+          "2011-07"
+        ],
+        "earliest_change_period": "2011-07",
+        "latest_change_period": "2011-07",
+        "all_bic_improvements_positive": true,
+        "results": [
+          {
+            "minimum_observations_per_segment": 6,
+            "change_period": "2011-07",
+            "bic_improvement_vs_single_line": 105.87134202472068,
+            "before_annual_cost_reduction_percent": 78.27493290635336,
+            "after_annual_cost_reduction_percent": 24.45145070628042
+          },
+          {
+            "minimum_observations_per_segment": 8,
+            "change_period": "2011-07",
+            "bic_improvement_vs_single_line": 105.87134202472068,
+            "before_annual_cost_reduction_percent": 78.27493290635336,
+            "after_annual_cost_reduction_percent": 24.45145070628042
+          },
+          {
+            "minimum_observations_per_segment": 10,
+            "change_period": "2011-07",
+            "bic_improvement_vs_single_line": 105.87134202472068,
+            "before_annual_cost_reduction_percent": 78.27493290635336,
+            "after_annual_cost_reduction_percent": 24.45145070628042
+          },
+          {
+            "minimum_observations_per_segment": 12,
+            "change_period": "2011-07",
+            "bic_improvement_vs_single_line": 105.87134202472068,
+            "before_annual_cost_reduction_percent": 78.27493290635336,
+            "after_annual_cost_reduction_percent": 24.45145070628042
+          }
+        ]
+      },
+      "continuous_segmented_regression_second_generation": {
+        "change_period": "2011-04",
+        "residual_sum_of_squares": 5.549747841889117,
+        "before": {
+          "observation_count": 13,
+          "first_period": "2008-01",
+          "last_period": "2011-01",
+          "log_slope_per_year": -1.566998398095184,
+          "annual_cost_change_percent": -79.13294106855278,
+          "annual_cost_reduction_percent": 79.13294106855278,
+          "years_to_half_cost": 0.44234070781598944,
+          "years_to_one_tenth_cost": 1.469424024806297
+        },
+        "after": {
+          "observation_count": 44,
+          "first_period": "2011-04",
+          "last_period": "2022-05",
+          "log_slope_per_year": -0.28483084858985896,
+          "annual_cost_change_percent": -24.785853065005547,
+          "annual_cost_reduction_percent": 24.785853065005547,
+          "years_to_half_cost": 2.4335397095910767,
+          "years_to_one_tenth_cost": 8.08404393131463
+        },
+        "single_line_residual_sum_of_squares": 43.64199147852365,
+        "single_line_bic": -7.134691463192821,
+        "segmented_bic": -116.59782510378781,
+        "bic_improvement_vs_single_line": 109.46313364059499,
         "minimum_observations_per_segment": 8
       }
     }
