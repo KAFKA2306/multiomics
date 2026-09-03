@@ -31,6 +31,7 @@ jobs:
           python -m json.tool api/v1/multiomics/index.json > /dev/null
           python -m json.tool api/v1/multiomics/metrics.json > /dev/null
           python -m json.tool api/v1/multiomics/drugsfda-oncology-crosswalk.json > /dev/null
+          if [ -f api/v1/multiomics/fda-product-identity-crosscheck.json ]; then python -m json.tool api/v1/multiomics/fda-product-identity-crosscheck.json > /dev/null; fi
           if [ -f data/drugsfda-source.json ]; then python -m json.tool data/drugsfda-source.json > /dev/null; fi
           if [ -f data/orange-book-source.json ]; then python -m json.tool data/orange-book-source.json > /dev/null; fi
           python -m py_compile scripts/analyze_sequencing_costs.py scripts/build_api.py scripts/refresh_clinical_trials.py scripts/refresh_drugsfda.py scripts/refresh_fda_approvals.py scripts/refresh_orange_book.py scripts/refresh_sequencing_costs.py tests/test_api.py tests/test_data.py tests/test_drugsfda_refresh.py tests/test_fda_refresh.py tests/test_orange_book_refresh.py tests/test_pages.py tests/test_refresh.py tests/test_sequencing_analysis.py tests/test_sequencing_refresh.py
@@ -39,6 +40,7 @@ jobs:
           python scripts/build_api.py
           python scripts/analyze_sequencing_costs.py
           python -m json.tool api/v1/multiomics/drugsfda-oncology-crosswalk.json > /dev/null
+          python -m json.tool api/v1/multiomics/fda-product-identity-crosscheck.json > /dev/null
           python -m json.tool api/v1/multiomics/sequencing-cost-analysis.json > /dev/null
       - name: Run tests
         run: python -m unittest discover -s tests -v
