@@ -83,6 +83,36 @@
       "source_publication_date": "2017-06-21"
     },
     {
+      "application_number": "021647",
+      "product_number": "001",
+      "drug_name": "VIOXX",
+      "evidence": "application approval withdrawn under 21 CFR 314.150(d)",
+      "fda_determination": "FDA withdrew approval of NDA 21647 and all amendments and supplements because Merck did not provide the additional information FDA required to reintroduce VIOXX to the U.S. market",
+      "source_url": "https://www.federalregister.gov/d/2022-19740",
+      "source_document": "87 FR 56061",
+      "source_publication_date": "2022-09-13"
+    },
+    {
+      "application_number": "021647",
+      "product_number": "002",
+      "drug_name": "VIOXX",
+      "evidence": "application approval withdrawn under 21 CFR 314.150(d)",
+      "fda_determination": "FDA withdrew approval of NDA 21647 and all amendments and supplements because Merck did not provide the additional information FDA required to reintroduce VIOXX to the U.S. market",
+      "source_url": "https://www.federalregister.gov/d/2022-19740",
+      "source_document": "87 FR 56061",
+      "source_publication_date": "2022-09-13"
+    },
+    {
+      "application_number": "021647",
+      "product_number": "003",
+      "drug_name": "VIOXX",
+      "evidence": "application approval withdrawn under 21 CFR 314.150(d)",
+      "fda_determination": "FDA withdrew approval of NDA 21647 and all amendments and supplements because Merck did not provide the additional information FDA required to reintroduce VIOXX to the U.S. market",
+      "source_url": "https://www.federalregister.gov/d/2022-19740",
+      "source_document": "87 FR 56061",
+      "source_publication_date": "2022-09-13"
+    },
+    {
       "application_number": "021763",
       "product_number": "004",
       "drug_name": "CITALOPRAM HYDROBROMIDE",
