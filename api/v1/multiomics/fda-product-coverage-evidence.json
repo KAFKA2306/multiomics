@@ -99,6 +99,17 @@
         "marketing_status": "Discontinued"
       },
       {
+        "application_number": "021551",
+        "product_number": "002",
+        "drug_name": "HALFLYTELY",
+        "evidence": "application approval voluntarily withdrawn under 21 CFR 314.150(c)",
+        "fda_determination": "FDA withdrew approval of the entire NDA at the application holder's request because the drug product was no longer marketed",
+        "source_url": "https://www.federalregister.gov/d/2019-06237",
+        "source_document": "84 FR 12262",
+        "source_publication_date": "2019-04-01",
+        "marketing_status": "Discontinued"
+      },
+      {
         "application_number": "021647",
         "product_number": "001",
         "drug_name": "VIOXX",
@@ -144,9 +155,9 @@
       }
     ]
   },
-  "remaining_unverified_products": 785,
+  "remaining_unverified_products": 784,
   "remaining_marketing_status_counts": {
-    "Discontinued": 202,
+    "Discontinued": 201,
     "Over-the-counter": 12,
     "Prescription": 571
   },
