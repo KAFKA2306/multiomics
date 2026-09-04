@@ -31,7 +31,7 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
 
         self.assertEqual(tentative, analysis["marketing_status_counts"]["None (Tentative Approval)"])
         self.assertEqual(tentative + len(verified) + remaining, analysis["drugsfda_only_products"])
-        self.assertEqual(len(verified), 5)
+        self.assertEqual(len(verified), 7)
         identities = {
             (row["application_number"], row["product_number"], row["drug_name"])
             for row in verified
@@ -39,6 +39,8 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
         self.assertEqual(
             identities,
             {
+                ("004589", "004", "ALCOHOL 5% AND DEXTROSE 5%"),
+                ("012828", "001", "TRAVASE"),
                 ("013056", "001", "PENTHRANE"),
                 ("019415", "002", "METRODIN"),
                 ("019415", "003", "METRODIN"),
@@ -47,8 +49,8 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
             },
         )
         self.assertTrue(all(row["marketing_status"] == "Discontinued" for row in verified))
-        self.assertEqual(remaining, 786)
-        self.assertEqual(evidence["remaining_marketing_status_counts"]["Discontinued"], 207)
+        self.assertEqual(remaining, 784)
+        self.assertEqual(evidence["remaining_marketing_status_counts"]["Discontinued"], 205)
         self.assertTrue(all(row["source_url"].startswith("https://www.federalregister.gov/") for row in verified))
         self.assertNotIn("None (Tentative Approval)", evidence["remaining_marketing_status_counts"])
         self.assertEqual(sum(evidence["remaining_marketing_status_counts"].values()), remaining)
