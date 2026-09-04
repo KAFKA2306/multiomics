@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "authority": "U.S. Food and Drug Administration",
+  "dataset": "Ongoing | Cancer Accelerated Approvals",
+  "source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/ongoing-cancer-accelerated-approvals",
+  "retrieved_at": "2026-09-04T01:38:57Z",
+  "records": [
+    {
+      "brand_name": "Tudriqev",
+      "generic_name": "vusolimogene oderparepvec-wtpg",
+      "sponsor": "Replimune, Inc.",
+      "approval_date": "2026-08-06",
+      "nct_id": "NCT06264180",
+      "trial_name": "IGNYTE-3 (RP1-104)",
+      "trial_phase": "PHASE3",
+      "primary_endpoint": "Overall survival",
+      "planned_enrollment": 400,
+      "postmarketing_requirement_due_date": "2031-03-31",
+      "requirement_summary": "Replimune, Inc. must complete the ongoing randomized Phase 3 IGNYTE-3 confirmatory trial to verify clinical benefit after accelerated approval."
+    }
+  ]
+}
