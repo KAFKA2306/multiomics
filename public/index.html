@@ -21,6 +21,7 @@
 
   <section class="grid" aria-label="主要な確認事実">
     <article class="card"><h2>FDA Oncology approval notificationsの最新保存イベント</h2><div id="approval" class="value">—</div><div id="approvalMeta" class="meta"></div></article>
+    <article class="card"><h2>Accelerated approval後の確認試験</h2><div id="confirmatory" class="value">—</div><div id="confirmatoryMeta" class="meta"></div></article>
     <article class="card"><h2>追跡中の臨床試験</h2><div id="trial" class="value">—</div><div id="trialMeta" class="meta"></div></article>
     <article class="card"><h2>前回取得からの臨床試験変化</h2><div id="trialChange" class="value">—</div><div id="trialChangeMeta" class="meta"></div></article>
     <article class="card"><h2>シーケンシング費用の保存済み観測</h2><div id="seq" class="value">—</div><div id="seqMeta" class="meta"></div></article>
@@ -36,8 +37,8 @@
 
   <section class="section card">
     <h2>読み方</h2>
-    <div class="row"><span class="pill">承認 ≠ 臨床試験成功</span><span class="pill">試験状態 ≠ 治療推奨</span><span class="pill">過去の費用観測 ≠ 現在価格</span><span class="pill">長期回帰 ≠ 因果効果</span><span class="pill">未検証 ≠ 理由なし</span></div>
-    <p class="meta">規制イベントはFDA Oncology approval notificationsに掲載された通知を追跡しています。FDA全承認の完全一覧ではありません。臨床試験の「変化なし」は、保存した異なるClinicalTrials.gov実snapshot間でstatus、phase、sponsor、interventions、enrollment、last updateを比較した結果です。取得不能とは別です。FDA database coverageはDrugs@FDAとOrange Bookの公式product identity照合から生成し、FDA一次資料で理由を直接確認できた範囲と未検証を分けます。取得に失敗した場合は古い表示へfallbackせず、エラーを表示します。</p>
+    <div class="row"><span class="pill">Accelerated approval ≠ clinical benefit確認完了</span><span class="pill">承認 ≠ 臨床試験成功</span><span class="pill">試験状態 ≠ 治療推奨</span><span class="pill">過去の費用観測 ≠ 現在価格</span><span class="pill">長期回帰 ≠ 因果効果</span><span class="pill">未検証 ≠ 理由なし</span></div>
+    <p class="meta">規制イベントはFDA Oncology approval notificationsに掲載された通知を追跡しています。FDA全承認の完全一覧ではありません。Accelerated approvalの確認試験はFDAのOngoing Cancer Accelerated ApprovalsでNCT番号まで明示された要件と、保存済みClinicalTrials.gov recordを結合したものです。臨床試験の「変化なし」は、保存した異なるClinicalTrials.gov実snapshot間でstatus、phase、sponsor、interventions、enrollment、last updateを比較した結果です。取得不能とは別です。FDA database coverageはDrugs@FDAとOrange Bookの公式product identity照合から生成し、FDA一次資料で理由を直接確認できた範囲と未検証を分けます。取得に失敗した場合は古い表示へfallbackせず、エラーを表示します。</p>
   </section>
 </main>
 <script>
@@ -48,13 +49,17 @@ Promise.all([
   getJson('./data/multiomics-v1.json'),
   getJson('./api/v1/multiomics/sequencing-cost-analysis.json'),
   getJson('./api/v1/multiomics/fda-product-coverage-evidence.json'),
-  getJson('./api/v1/multiomics/clinical-trial-change-evidence.json')
+  getJson('./api/v1/multiomics/clinical-trial-change-evidence.json'),
+  getJson('./api/v1/multiomics/accelerated-approval-confirmatory-trials.json')
 ])
-  .then(([d,analysis,coverage,trialChange])=>{
+  .then(([d,analysis,coverage,trialChange,confirmatory])=>{
     $('asof').textContent=`正準データ取得時点: ${d.retrieved_at}`;
     const approvals=[...(d.approvals||[])].sort((a,b)=>b.approval_date.localeCompare(a.approval_date));
     const a=approvals[0];
     if(a){$('approval').textContent=`${a.brand_name} — ${a.pathway}`;$('approvalMeta').innerHTML=`${a.approval_date} / ${a.authority}<br>${a.generic_name}<br>対象: FDA Oncology approval notifications掲載イベント<br>${link(a.source_url,'FDA一次情報')}`;}
+    if(!Number.isInteger(confirmatory.linked_records)||!Array.isArray(confirmatory.records)) throw new Error('FDA confirmatory trial evidenceが不足しています');
+    const c=confirmatory.records[0];
+    if(c){$('confirmatory').textContent=`${c.brand_name} → ${c.nct_id} ${c.trial_status}`;$('confirmatoryMeta').innerHTML=`${c.trial_name} / ${c.trial_phase} / ${c.trial_enrollment_count}人予定<br>主要評価項目: ${c.primary_endpoint}<br>FDA要件期限: ${c.postmarketing_requirement_due_date}<br>${link(confirmatory.source_url,'FDA確認試験要件')}<br>${link(c.trial_source_url,'ClinicalTrials.gov')}`;}
     const t=(d.clinical_trials||[])[0];
     if(t){$('trial').textContent=`${t.nct_id} — ${t.status}`;$('trialMeta').innerHTML=`${t.phase} / ${t.sponsor}<br>最終更新掲載: ${t.last_update_posted}<br>取得: ${t.retrieved_at}<br>${link(t.source_url,'ClinicalTrials.gov')}`;}
     if(!Array.isArray(trialChange.changed_fields)||!Array.isArray(trialChange.monitored_fields)) throw new Error('ClinicalTrials.gov snapshot比較結果が不足しています');
