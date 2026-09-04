@@ -1,0 +1,22 @@
+{
+  "source": "ClinicalTrials.gov API v2",
+  "nct_id": "NCT06264180",
+  "source_url": "https://clinicaltrials.gov/study/NCT06264180",
+  "compared_at": "2026-09-03T15:42:39Z",
+  "previous_source_sha256": "27546c0ca9210a0042554b5952a1ba67d76069efe49d70a74ad6fe6410c5ce63",
+  "current_source_sha256": "da24e07603358a5e7c646536719cb8ffc8c09b31958a849854964f74bfefe370",
+  "previous_retrieved_at": "2026-09-02T13:39:11Z",
+  "current_retrieved_at": "2026-09-03T15:42:39Z",
+  "previous_api_data_timestamp": "2026-09-02T09:00:04",
+  "current_api_data_timestamp": "2026-09-03T09:00:05",
+  "monitored_fields": [
+    "status",
+    "phase",
+    "sponsor",
+    "interventions",
+    "enrollment_count",
+    "enrollment_type",
+    "last_update_posted"
+  ],
+  "changed_fields": []
+}

@@ -11,6 +11,7 @@ class PagesContractTests(unittest.TestCase):
         self.assertIn("./data/multiomics-v1.json", html)
         self.assertIn("./api/v1/multiomics/sequencing-cost-analysis.json", html)
         self.assertIn("./api/v1/multiomics/fda-product-coverage-evidence.json", html)
+        self.assertIn("./api/v1/multiomics/clinical-trial-change-evidence.json", html)
         self.assertIn("正準データまたは派生分析を取得できませんでした", html)
         self.assertNotIn("562 USD", html)
         self.assertNotIn("Tudriqev — accelerated approval", html)
@@ -34,6 +35,14 @@ class PagesContractTests(unittest.TestCase):
         self.assertIn("FDA Oncology approval notificationsの最新保存イベント", html)
         self.assertIn("FDA全承認の完全一覧ではありません", html)
         self.assertIn("対象: FDA Oncology approval notifications掲載イベント", html)
+
+    def test_dashboard_distinguishes_verified_no_trial_change_from_fetch_failure(self):
+        html = (ROOT / "public" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("前回取得からの臨床試験変化", html)
+        self.assertIn("trialChange.changed_fields.length===0", html)
+        self.assertIn("確認対象項目に変化なし", html)
+        self.assertIn("取得不能とは別です", html)
+        self.assertIn("ClinicalTrials.gov snapshot比較結果が不足しています", html)
 
     def test_dashboard_keeps_fda_coverage_verified_and_unverified_separate(self):
         html = (ROOT / "public" / "index.html").read_text(encoding="utf-8")

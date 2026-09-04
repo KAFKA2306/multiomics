@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from scripts.refresh_clinical_trials import extract_trial, refresh
+from scripts.refresh_clinical_trials import build_change_evidence, extract_trial, refresh
 
 
 class ClinicalTrialsRefreshTest(unittest.TestCase):
@@ -73,6 +73,52 @@ class ClinicalTrialsRefreshTest(unittest.TestCase):
                 raw_path="data/raw/clinicaltrials/NCT06264180/a.json",
                 api_data_timestamp="2026-08-20T14:00:00Z",
             )
+
+    def test_change_evidence_ignores_retrieval_metadata_only_changes(self):
+        previous = {
+            "nct_id": "NCT06264180",
+            "status": "RECRUITING",
+            "phase": "PHASE3",
+            "sponsor": "Replimune, Inc.",
+            "interventions": ["Nivolumab"],
+            "enrollment_count": 400,
+            "enrollment_type": "ESTIMATED",
+            "last_update_posted": "2026-07-15",
+            "source_url": "https://clinicaltrials.gov/study/NCT06264180",
+            "retrieved_at": "2026-09-02T13:39:11Z",
+            "source_sha256": "a" * 64,
+            "api_data_timestamp": "2026-09-02T09:00:04",
+        }
+        current = dict(previous)
+        current.update(
+            retrieved_at="2026-09-03T15:42:39Z",
+            source_sha256="b" * 64,
+            api_data_timestamp="2026-09-03T09:00:05",
+        )
+        evidence = build_change_evidence(previous, current)
+        self.assertEqual(evidence["changed_fields"], [])
+        self.assertEqual(evidence["previous_source_sha256"], "a" * 64)
+        self.assertEqual(evidence["current_source_sha256"], "b" * 64)
+
+    def test_change_evidence_reports_monitored_field_changes(self):
+        previous = {
+            "nct_id": "NCT06264180",
+            "status": "RECRUITING",
+            "phase": "PHASE3",
+            "sponsor": "Replimune, Inc.",
+            "interventions": ["Nivolumab"],
+            "enrollment_count": 400,
+            "enrollment_type": "ESTIMATED",
+            "last_update_posted": "2026-07-15",
+            "source_url": "https://clinicaltrials.gov/study/NCT06264180",
+            "retrieved_at": "2026-09-02T13:39:11Z",
+            "source_sha256": "a" * 64,
+            "api_data_timestamp": "2026-09-02T09:00:04",
+        }
+        current = dict(previous)
+        current.update(status="ACTIVE_NOT_RECRUITING", enrollment_count=420, source_sha256="b" * 64)
+        evidence = build_change_evidence(previous, current)
+        self.assertEqual(evidence["changed_fields"], ["status", "enrollment_count"])
 
     def test_unchanged_source_does_not_rewrite_canonical_data(self):
         raw = b'{"protocolSection": {}}'
