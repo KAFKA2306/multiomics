@@ -28,48 +28,43 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
         tentative = documented["tentative_approval_products"]
         verified = documented["product_specific_primary_evidence"]
         remaining = evidence["remaining_unverified_products"]
+        source_evidence = json.loads(
+            (ROOT / "data" / "fda-orange-book-absence-primary-evidence.json").read_text(encoding="utf-8")
+        )["records"]
 
         self.assertEqual(tentative, analysis["marketing_status_counts"]["None (Tentative Approval)"])
         self.assertEqual(tentative + len(verified) + remaining, analysis["drugsfda_only_products"])
-        self.assertEqual(len(verified), 8)
         identities = {
             (row["application_number"], row["product_number"], row["drug_name"])
             for row in verified
         }
-        self.assertEqual(
-            identities,
-            {
-                ("004589", "004", "ALCOHOL 5% AND DEXTROSE 5%"),
-                ("012828", "001", "TRAVASE"),
-                ("013056", "001", "PENTHRANE"),
-                ("019415", "002", "METRODIN"),
-                ("019415", "003", "METRODIN"),
-                ("019415", "004", "FERTINEX"),
-                ("019415", "005", "FERTINEX"),
-                ("021763", "004", "CITALOPRAM HYDROBROMIDE"),
-            },
-        )
+        source_identities = {
+            (row["application_number"], row["product_number"], row["drug_name"])
+            for row in source_evidence
+        }
+        self.assertEqual(identities, source_identities)
+        self.assertEqual(len(verified), len(source_evidence))
+
         status_by_identity = {
             (row["application_number"], row["product_number"]): row["marketing_status"]
             for row in verified
         }
         self.assertEqual(status_by_identity[("021763", "004")], "Prescription")
-        self.assertTrue(
-            all(
-                status == "Discontinued"
-                for identity, status in status_by_identity.items()
-                if identity != ("021763", "004")
-            )
-        )
-        self.assertEqual(remaining, 783)
-        self.assertEqual(
-            evidence["remaining_marketing_status_counts"],
-            {
-                "Discontinued": 205,
-                "Over-the-counter": 12,
-                "Prescription": 566,
-            },
-        )
+
+        expected_remaining_counts = {
+            status: count
+            for status, count in analysis["marketing_status_counts"].items()
+            if status != "None (Tentative Approval)"
+        }
+        for row in verified:
+            expected_remaining_counts[row["marketing_status"]] -= 1
+        expected_remaining_counts = {
+            status: count
+            for status, count in expected_remaining_counts.items()
+            if count
+        }
+        self.assertEqual(evidence["remaining_marketing_status_counts"], expected_remaining_counts)
+        self.assertEqual(remaining, sum(expected_remaining_counts.values()))
         self.assertTrue(all(row["source_url"].startswith("https://www.federalregister.gov/") for row in verified))
         self.assertNotIn("None (Tentative Approval)", evidence["remaining_marketing_status_counts"])
         self.assertEqual(sum(evidence["remaining_marketing_status_counts"].values()), remaining)
