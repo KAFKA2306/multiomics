@@ -3,6 +3,26 @@
   "authority": "U.S. Food and Drug Administration",
   "records": [
     {
+      "application_number": "004589",
+      "product_number": "004",
+      "drug_name": "ALCOHOL 5% AND DEXTROSE 5%",
+      "evidence": "withdrawn from sale for reasons of safety or effectiveness",
+      "fda_determination": "FDA determined Alcohol and Dextrose Injection was withdrawn from sale for reasons of safety or effectiveness and would be removed from the Orange Book",
+      "source_url": "https://www.federalregister.gov/d/2021-27696",
+      "source_document": "86 FR 72606",
+      "source_publication_date": "2021-12-22"
+    },
+    {
+      "application_number": "012828",
+      "product_number": "001",
+      "drug_name": "TRAVASE",
+      "evidence": "application approval voluntarily withdrawn under 21 CFR 314.150(c)",
+      "fda_determination": "approval withdrawn at the application holder's request because the drug product was no longer marketed",
+      "source_url": "https://www.federalregister.gov/d/2013-17324",
+      "source_document": "78 FR 43210",
+      "source_publication_date": "2013-07-19"
+    },
+    {
       "application_number": "013056",
       "product_number": "001",
       "drug_name": "PENTHRANE",
