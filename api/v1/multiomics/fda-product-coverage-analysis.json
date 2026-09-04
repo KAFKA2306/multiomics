@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "06e4421640e35fc4f64109f762ada7b8f6ac431863c9133c76a0a495a6dc9c13",
+  "drugsfda_source_sha256": "abf8470eda9f3da86b083180bd29db86dea854783e97426cdb2655732e524380",
   "orange_book_source_sha256": "caaa826d4ba72f1abb156c8a38063929d3930d3700e091130474a876513a4da3",
-  "drugsfda_only_products": 2215,
+  "drugsfda_only_products": 2218,
   "marketing_status_counts": {
     "Discontinued": 212,
-    "None (Tentative Approval)": 1424,
+    "None (Tentative Approval)": 1421,
     "Over-the-counter": 12,
-    "Prescription": 567
+    "Prescription": 573
   },
   "products": [
     {
@@ -2935,6 +2935,22 @@
       "drug_name": "ALBUTEROL SULFATE",
       "active_ingredient": "ALBUTEROL SULFATE",
       "marketing_status": "Discontinued"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "072193",
+      "product_number": "002",
+      "drug_name": "TRAZODONE HYDROCHLORIDE",
+      "active_ingredient": "TRAZODONE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "072193",
+      "product_number": "003",
+      "drug_name": "TRAZODONE HYDROCHLORIDE",
+      "active_ingredient": "TRAZODONE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -10890,6 +10906,30 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "210245",
+      "product_number": "001",
+      "drug_name": "POMALIDOMIDE",
+      "active_ingredient": "POMALIDOMIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "210245",
+      "product_number": "002",
+      "drug_name": "POMALIDOMIDE",
+      "active_ingredient": "POMALIDOMIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "210245",
+      "product_number": "003",
+      "drug_name": "POMALIDOMIDE",
+      "active_ingredient": "POMALIDOMIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "210291",
       "product_number": "001",
       "drug_name": "DIMETHYL FUMARATE",
@@ -11519,38 +11559,6 @@
       "drug_name": "VORTIOXETINE HYDROBROMIDE",
       "active_ingredient": "VORTIOXETINE HYDROBROMIDE",
       "marketing_status": "Discontinued"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "001",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
-      "marketing_status": "None (Tentative Approval)"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "002",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
-      "marketing_status": "None (Tentative Approval)"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "003",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
-      "marketing_status": "None (Tentative Approval)"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "004",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
-      "marketing_status": "None (Tentative Approval)"
     },
     {
       "application_type": "ANDA",
@@ -16362,6 +16370,14 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "219429",
+      "product_number": "001",
+      "drug_name": "SODIUM SULFATE, POTASSIUM SULFATE AND MAGNESIUM SULFATE",
+      "active_ingredient": "MAGNESIUM SULFATE; POTASSIUM SULFATE; SODIUM SULFATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "219442",
       "product_number": "002",
       "drug_name": "TOFACITINIB CITRATE",
@@ -17642,6 +17658,14 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "220919",
+      "product_number": "001",
+      "drug_name": "DIFELIKEFALIN ACETATE",
+      "active_ingredient": "DIFELIKEFALIN ACETATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "220938",
       "product_number": "001",
       "drug_name": "NEOMYCIN AND POLYMYXIN B SULFATES AND HYDROCORTISONE",
@@ -17678,7 +17702,7 @@
       "product_number": "001",
       "drug_name": "EDARAVONE",
       "active_ingredient": "EDARAVONE",
-      "marketing_status": "Prescription"
+      "marketing_status": "None (Tentative Approval)"
     },
     {
       "application_type": "NDA",

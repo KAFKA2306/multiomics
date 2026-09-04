@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "06e4421640e35fc4f64109f762ada7b8f6ac431863c9133c76a0a495a6dc9c13",
-    "source_retrieved_at": "2026-09-03T08:41:39Z"
+    "source_sha256": "abf8470eda9f3da86b083180bd29db86dea854783e97426cdb2655732e524380",
+    "source_retrieved_at": "2026-09-04T13:24:02Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48664,
     "orange_book_dated_products": 42791,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 50876,
+    "drugsfda_nda_anda_products": 50879,
     "identity_overlap_products": 48661,
     "matched_application_type_products": 48661,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 3,
-    "drugsfda_only_products": 2215
+    "drugsfda_only_products": 2218
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -2609,6 +2609,20 @@
       "product_number": "001",
       "drug_name": "ALBUTEROL SULFATE",
       "active_ingredient": "ALBUTEROL SULFATE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "072193",
+      "product_number": "002",
+      "drug_name": "TRAZODONE HYDROCHLORIDE",
+      "active_ingredient": "TRAZODONE HYDROCHLORIDE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "072193",
+      "product_number": "003",
+      "drug_name": "TRAZODONE HYDROCHLORIDE",
+      "active_ingredient": "TRAZODONE HYDROCHLORIDE"
     },
     {
       "application_type": "ANDA",
@@ -9570,6 +9584,27 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "210245",
+      "product_number": "001",
+      "drug_name": "POMALIDOMIDE",
+      "active_ingredient": "POMALIDOMIDE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "210245",
+      "product_number": "002",
+      "drug_name": "POMALIDOMIDE",
+      "active_ingredient": "POMALIDOMIDE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "210245",
+      "product_number": "003",
+      "drug_name": "POMALIDOMIDE",
+      "active_ingredient": "POMALIDOMIDE"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "210291",
       "product_number": "001",
       "drug_name": "DIMETHYL FUMARATE",
@@ -10120,34 +10155,6 @@
       "product_number": "003",
       "drug_name": "VORTIOXETINE HYDROBROMIDE",
       "active_ingredient": "VORTIOXETINE HYDROBROMIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "001",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "002",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "003",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "004",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE"
     },
     {
       "application_type": "ANDA",
@@ -14358,6 +14365,13 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "219429",
+      "product_number": "001",
+      "drug_name": "SODIUM SULFATE, POTASSIUM SULFATE AND MAGNESIUM SULFATE",
+      "active_ingredient": "MAGNESIUM SULFATE; POTASSIUM SULFATE; SODIUM SULFATE"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "219442",
       "product_number": "002",
       "drug_name": "TOFACITINIB CITRATE",
@@ -15475,6 +15489,13 @@
       "product_number": "002",
       "drug_name": "RASONQUE",
       "active_ingredient": "DARAXONRASIB"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220919",
+      "product_number": "001",
+      "drug_name": "DIFELIKEFALIN ACETATE",
+      "active_ingredient": "DIFELIKEFALIN ACETATE"
     },
     {
       "application_type": "ANDA",
