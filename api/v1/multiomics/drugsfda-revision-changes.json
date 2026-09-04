@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "authority": "U.S. Food and Drug Administration",
+  "dataset": "Drugs@FDA Data Files",
+  "scope": "NDA and ANDA product identity and marketing-status changes between the latest two persisted official Drugs@FDA revisions",
+  "identity_fields": [
+    "application_number",
+    "product_number"
+  ],
+  "previous_revision": {
+    "source_sha256": "06e4421640e35fc4f64109f762ada7b8f6ac431863c9133c76a0a495a6dc9c13",
+    "retrieved_at": "2026-09-03T08:41:39Z"
+  },
+  "current_revision": {
+    "source_sha256": "abf8470eda9f3da86b083180bd29db86dea854783e97426cdb2655732e524380",
+    "retrieved_at": "2026-09-04T13:24:02Z"
+  },
+  "counts": {
+    "previous_products": 50876,
+    "current_products": 50879,
+    "added_products": 7,
+    "removed_products": 4,
+    "changed_products": 1
+  },
+  "added": [
+    {
+      "application_type": "ANDA",
+      "application_number": "072193",
+      "product_number": "002",
+      "drug_name": "TRAZODONE HYDROCHLORIDE",
+      "active_ingredient": "TRAZODONE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "072193",
+      "product_number": "003",
+      "drug_name": "TRAZODONE HYDROCHLORIDE",
+      "active_ingredient": "TRAZODONE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "210245",
+      "product_number": "001",
+      "drug_name": "POMALIDOMIDE",
+      "active_ingredient": "POMALIDOMIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "210245",
+      "product_number": "002",
+      "drug_name": "POMALIDOMIDE",
+      "active_ingredient": "POMALIDOMIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "210245",
+      "product_number": "003",
+      "drug_name": "POMALIDOMIDE",
+      "active_ingredient": "POMALIDOMIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219429",
+      "product_number": "001",
+      "drug_name": "SODIUM SULFATE, POTASSIUM SULFATE AND MAGNESIUM SULFATE",
+      "active_ingredient": "MAGNESIUM SULFATE; POTASSIUM SULFATE; SODIUM SULFATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220919",
+      "product_number": "001",
+      "drug_name": "DIFELIKEFALIN ACETATE",
+      "active_ingredient": "DIFELIKEFALIN ACETATE",
+      "marketing_status": "Prescription"
+    }
+  ],
+  "removed": [
+    {
+      "application_type": "ANDA",
+      "application_number": "211148",
+      "product_number": "001",
+      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
+      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
+      "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "211148",
+      "product_number": "002",
+      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
+      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
+      "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "211148",
+      "product_number": "003",
+      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
+      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
+      "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "211148",
+      "product_number": "004",
+      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
+      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
+      "marketing_status": "None (Tentative Approval)"
+    }
+  ],
+  "changed": [
+    {
+      "application_number": "221059",
+      "product_number": "001",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "None (Tentative Approval)"
+        }
+      }
+    }
+  ],
+  "interpretation": "A changed record reports only fields that differ between official snapshots; it does not infer the regulatory cause of the change."
+}
