@@ -44,6 +44,17 @@
         "marketing_status": "Discontinued"
       },
       {
+        "application_number": "017948",
+        "product_number": "001",
+        "drug_name": "NORMINEST FE",
+        "evidence": "application approval voluntarily withdrawn under 21 CFR 314.150(c)",
+        "fda_determination": "approval withdrawn at the application holder's request because the drug product was no longer marketed",
+        "source_url": "https://www.federalregister.gov/d/2026-04546",
+        "source_document": "91 FR 11321",
+        "source_publication_date": "2026-03-09",
+        "marketing_status": "Prescription"
+      },
+      {
         "application_number": "019415",
         "product_number": "002",
         "drug_name": "METRODIN",
@@ -100,11 +111,11 @@
       }
     ]
   },
-  "remaining_unverified_products": 789,
+  "remaining_unverified_products": 788,
   "remaining_marketing_status_counts": {
     "Discontinued": 205,
     "Over-the-counter": 12,
-    "Prescription": 572
+    "Prescription": 571
   },
   "interpretation": {
     "source_url": "https://www.fda.gov/drugs/development-approval-process-drugs/orange-book-preface",
