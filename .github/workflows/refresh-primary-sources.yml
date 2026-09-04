@@ -8,11 +8,13 @@ on:
       - "scripts/analyze_fda_product_coverage.py"
       - "scripts/analyze_sequencing_costs.py"
       - "scripts/build_api.py"
+      - "scripts/build_regulatory_decision_support.py"
       - "scripts/refresh_clinical_trials.py"
       - "scripts/refresh_drugsfda.py"
       - "scripts/refresh_fda_approvals.py"
       - "scripts/refresh_orange_book.py"
       - "scripts/refresh_sequencing_costs.py"
+      - "data/fda-confirmatory-trial-requirements.json"
       - "tests/test_api.py"
       - "tests/test_data.py"
       - "tests/test_drugsfda_refresh.py"
@@ -56,6 +58,7 @@ jobs:
       - name: Rebuild derived views
         run: |
           python scripts/build_api.py
+          python scripts/build_regulatory_decision_support.py
           python scripts/analyze_fda_product_coverage.py
           python scripts/analyze_sequencing_costs.py
       - name: Validate refreshed evidence
@@ -63,17 +66,19 @@ jobs:
           python -m json.tool data/multiomics-v1.json > /dev/null
           python -m json.tool data/drugsfda-source.json > /dev/null
           python -m json.tool data/orange-book-source.json > /dev/null
+          python -m json.tool data/fda-confirmatory-trial-requirements.json > /dev/null
           python -m json.tool api/v1/multiomics/index.json > /dev/null
           python -m json.tool api/v1/multiomics/metrics.json > /dev/null
           python -m json.tool api/v1/multiomics/drugsfda-oncology-crosswalk.json > /dev/null
           python -m json.tool api/v1/multiomics/fda-product-identity-crosscheck.json > /dev/null
           python -m json.tool api/v1/multiomics/fda-product-coverage-analysis.json > /dev/null
+          python -m json.tool api/v1/multiomics/accelerated-approval-confirmatory-trials.json > /dev/null
           python -m json.tool api/v1/multiomics/sequencing-cost-analysis.json > /dev/null
           python -m unittest discover -s tests -v
       - name: Commit changed primary evidence and derived views
         id: commit
         run: |
-          evidence_status="$(git status --porcelain --untracked-files=all -- data/multiomics-v1.json data/drugsfda-source.json data/orange-book-source.json data/raw/clinicaltrials data/raw/fda data/raw/nhgri api/v1/multiomics)"
+          evidence_status="$(git status --porcelain --untracked-files=all -- data/multiomics-v1.json data/drugsfda-source.json data/orange-book-source.json data/fda-confirmatory-trial-requirements.json data/raw/clinicaltrials data/raw/fda data/raw/nhgri api/v1/multiomics)"
           if [ -z "$evidence_status" ]; then
             echo "No primary-source evidence or derived-view change."
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -82,7 +87,7 @@ jobs:
           fi
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add data/multiomics-v1.json data/drugsfda-source.json data/orange-book-source.json data/raw/clinicaltrials data/raw/fda data/raw/nhgri api/v1/multiomics
+          git add data/multiomics-v1.json data/drugsfda-source.json data/orange-book-source.json data/fda-confirmatory-trial-requirements.json data/raw/clinicaltrials data/raw/fda data/raw/nhgri api/v1/multiomics
           git commit -m "data: refresh primary-source evidence"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
