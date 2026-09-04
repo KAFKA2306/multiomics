@@ -14,8 +14,18 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA = ROOT / "data" / "multiomics-v1.json"
 DEFAULT_RAW_DIR = ROOT / "data" / "raw" / "clinicaltrials"
+DEFAULT_CHANGE_EVIDENCE = ROOT / "api" / "v1" / "multiomics" / "clinical-trial-change-evidence.json"
 API = "https://clinicaltrials.gov/api/v2"
 UA = "KAFKA2306-multiomics/1.0"
+MONITORED_FIELDS = (
+    "status",
+    "phase",
+    "sponsor",
+    "interventions",
+    "enrollment_count",
+    "enrollment_type",
+    "last_update_posted",
+)
 
 
 def fetch_json(url: str) -> tuple[dict[str, Any], bytes]:
@@ -70,7 +80,32 @@ def extract_trial(
     }
 
 
-def refresh(nct_id: str, data_path: Path, raw_dir: Path) -> dict[str, Any]:
+def build_change_evidence(existing: dict[str, Any], current: dict[str, Any]) -> dict[str, Any]:
+    if existing.get("nct_id") != current.get("nct_id"):
+        raise ValueError("cannot compare different NCT identifiers")
+    changed_fields = [field for field in MONITORED_FIELDS if existing.get(field) != current.get(field)]
+    return {
+        "source": "ClinicalTrials.gov API v2",
+        "nct_id": current["nct_id"],
+        "source_url": current["source_url"],
+        "compared_at": current["retrieved_at"],
+        "previous_source_sha256": existing.get("source_sha256"),
+        "current_source_sha256": current["source_sha256"],
+        "previous_retrieved_at": existing.get("retrieved_at"),
+        "current_retrieved_at": current["retrieved_at"],
+        "previous_api_data_timestamp": existing.get("api_data_timestamp"),
+        "current_api_data_timestamp": current.get("api_data_timestamp"),
+        "monitored_fields": list(MONITORED_FIELDS),
+        "changed_fields": changed_fields,
+    }
+
+
+def refresh(
+    nct_id: str,
+    data_path: Path,
+    raw_dir: Path,
+    change_evidence_path: Path | None = None,
+) -> dict[str, Any]:
     version, _ = fetch_json(f"{API}/version")
     study, raw = fetch_json(f"{API}/studies/{nct_id}")
     digest = hashlib.sha256(raw).hexdigest()
@@ -88,9 +123,14 @@ def refresh(nct_id: str, data_path: Path, raw_dir: Path) -> dict[str, Any]:
         study,
         retrieved_at=retrieved_at,
         source_sha256=digest,
-        raw_path=raw_path.relative_to(ROOT).as_posix(),
+        raw_path=raw_path.relative_to(ROOT).as_posix() if raw_path.is_relative_to(ROOT) else raw_path.as_posix(),
         api_data_timestamp=str(version["dataTimestamp"]),
     )
+    if existing is not None and change_evidence_path is not None:
+        evidence = build_change_evidence(existing, record)
+        change_evidence_path.parent.mkdir(parents=True, exist_ok=True)
+        change_evidence_path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     records = [row for row in data["clinical_trials"] if row.get("nct_id") != nct_id]
     records.append(record)
     data["clinical_trials"] = sorted(records, key=lambda row: row["nct_id"])
@@ -104,8 +144,9 @@ def main() -> None:
     parser.add_argument("--nct-id", default="NCT06264180")
     parser.add_argument("--data", type=Path, default=DEFAULT_DATA)
     parser.add_argument("--raw-dir", type=Path, default=DEFAULT_RAW_DIR)
+    parser.add_argument("--change-evidence", type=Path, default=DEFAULT_CHANGE_EVIDENCE)
     args = parser.parse_args()
-    print(json.dumps(refresh(args.nct_id, args.data, args.raw_dir), ensure_ascii=False, sort_keys=True))
+    print(json.dumps(refresh(args.nct_id, args.data, args.raw_dir, args.change_evidence), ensure_ascii=False, sort_keys=True))
 
 
 if __name__ == "__main__":
