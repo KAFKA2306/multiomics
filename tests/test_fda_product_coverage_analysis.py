@@ -31,7 +31,7 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
 
         self.assertEqual(tentative, analysis["marketing_status_counts"]["None (Tentative Approval)"])
         self.assertEqual(tentative + len(verified) + remaining, analysis["drugsfda_only_products"])
-        self.assertEqual(len(verified), 7)
+        self.assertEqual(len(verified), 8)
         identities = {
             (row["application_number"], row["product_number"], row["drug_name"])
             for row in verified
@@ -46,11 +46,30 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
                 ("019415", "003", "METRODIN"),
                 ("019415", "004", "FERTINEX"),
                 ("019415", "005", "FERTINEX"),
+                ("021763", "004", "CITALOPRAM HYDROBROMIDE"),
             },
         )
-        self.assertTrue(all(row["marketing_status"] == "Discontinued" for row in verified))
-        self.assertEqual(remaining, 784)
-        self.assertEqual(evidence["remaining_marketing_status_counts"]["Discontinued"], 205)
+        status_by_identity = {
+            (row["application_number"], row["product_number"]): row["marketing_status"]
+            for row in verified
+        }
+        self.assertEqual(status_by_identity[("021763", "004")], "Prescription")
+        self.assertTrue(
+            all(
+                status == "Discontinued"
+                for identity, status in status_by_identity.items()
+                if identity != ("021763", "004")
+            )
+        )
+        self.assertEqual(remaining, 783)
+        self.assertEqual(
+            evidence["remaining_marketing_status_counts"],
+            {
+                "Discontinued": 205,
+                "Over-the-counter": 12,
+                "Prescription": 566,
+            },
+        )
         self.assertTrue(all(row["source_url"].startswith("https://www.federalregister.gov/") for row in verified))
         self.assertNotIn("None (Tentative Approval)", evidence["remaining_marketing_status_counts"])
         self.assertEqual(sum(evidence["remaining_marketing_status_counts"].values()), remaining)
