@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "retrieved_at": "2026-09-03T15:42:39Z",
+  "retrieved_at": "2026-09-04T15:28:22Z",
   "canonical_data_path": "data/multiomics-v1.json",
   "metrics_path": "api/v1/multiomics/metrics.json",
   "drugsfda_oncology_crosswalk_path": "api/v1/multiomics/drugsfda-oncology-crosswalk.json",
