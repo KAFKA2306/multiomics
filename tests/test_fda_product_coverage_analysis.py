@@ -21,7 +21,7 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
         self.assertEqual(result["drugsfda_source_sha256"], crosscheck["drugsfda"]["source_sha256"])
         self.assertEqual(result["orange_book_source_sha256"], crosscheck["orange_book"]["source_sha256"])
 
-    def test_primary_evidence_reduces_only_the_matching_unverified_product(self):
+    def test_primary_evidence_reduces_only_matching_unverified_products(self):
         analysis = analyze_fda_product_coverage.build()
         evidence = analyze_fda_product_coverage.build_absence_evidence(analysis)
         documented = evidence["fda_documented_absence"]
@@ -31,14 +31,25 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
 
         self.assertEqual(tentative, analysis["marketing_status_counts"]["None (Tentative Approval)"])
         self.assertEqual(tentative + len(verified) + remaining, analysis["drugsfda_only_products"])
-        self.assertEqual(len(verified), 1)
-        self.assertEqual(verified[0]["application_number"], "013056")
-        self.assertEqual(verified[0]["product_number"], "001")
-        self.assertEqual(verified[0]["drug_name"], "PENTHRANE")
-        self.assertEqual(verified[0]["marketing_status"], "Discontinued")
-        self.assertEqual(remaining, 790)
-        self.assertEqual(evidence["remaining_marketing_status_counts"]["Discontinued"], 211)
-        self.assertTrue(verified[0]["source_url"].startswith("https://www.federalregister.gov/"))
+        self.assertEqual(len(verified), 5)
+        identities = {
+            (row["application_number"], row["product_number"], row["drug_name"])
+            for row in verified
+        }
+        self.assertEqual(
+            identities,
+            {
+                ("013056", "001", "PENTHRANE"),
+                ("019415", "002", "METRODIN"),
+                ("019415", "003", "METRODIN"),
+                ("019415", "004", "FERTINEX"),
+                ("019415", "005", "FERTINEX"),
+            },
+        )
+        self.assertTrue(all(row["marketing_status"] == "Discontinued" for row in verified))
+        self.assertEqual(remaining, 786)
+        self.assertEqual(evidence["remaining_marketing_status_counts"]["Discontinued"], 207)
+        self.assertTrue(all(row["source_url"].startswith("https://www.federalregister.gov/") for row in verified))
         self.assertNotIn("None (Tentative Approval)", evidence["remaining_marketing_status_counts"])
         self.assertEqual(sum(evidence["remaining_marketing_status_counts"].values()), remaining)
 
