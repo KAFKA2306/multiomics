@@ -12,6 +12,8 @@ class DrugsFdaRevisionTest(unittest.TestCase):
                 "product_number": "001",
                 "drug_name": "A",
                 "active_ingredient": "A",
+                "dosage_form": "TABLET",
+                "strength": "10MG",
                 "marketing_status": "Prescription",
             },
             ("000002", "001"): {
@@ -20,12 +22,16 @@ class DrugsFdaRevisionTest(unittest.TestCase):
                 "product_number": "001",
                 "drug_name": "B",
                 "active_ingredient": "B",
+                "dosage_form": "TABLET",
+                "strength": "20MG",
                 "marketing_status": "Prescription",
             },
         }
         current = {
             ("000001", "001"): {
                 **previous[("000001", "001")],
+                "dosage_form": "TABLET, EXTENDED RELEASE",
+                "strength": "20MG",
                 "marketing_status": "None (Tentative Approval)",
             },
             ("000003", "001"): {
@@ -34,6 +40,8 @@ class DrugsFdaRevisionTest(unittest.TestCase):
                 "product_number": "001",
                 "drug_name": "C",
                 "active_ingredient": "C",
+                "dosage_form": "CAPSULE",
+                "strength": "30MG",
                 "marketing_status": "Prescription",
             },
         }
@@ -57,10 +65,18 @@ class DrugsFdaRevisionTest(unittest.TestCase):
                     "application_number": "000001",
                     "product_number": "001",
                     "changes": {
+                        "dosage_form": {
+                            "before": "TABLET",
+                            "after": "TABLET, EXTENDED RELEASE",
+                        },
+                        "strength": {
+                            "before": "10MG",
+                            "after": "20MG",
+                        },
                         "marketing_status": {
                             "before": "Prescription",
                             "after": "None (Tentative Approval)",
-                        }
+                        },
                     },
                 }
             ],
