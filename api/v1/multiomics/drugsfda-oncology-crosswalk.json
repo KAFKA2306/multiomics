@@ -154,6 +154,15 @@
           ]
         }
       ]
+    },
+    {
+      "approval_id": "fda-2026-09-04-camizestrant",
+      "approval_date": "2026-09-04",
+      "brand_name": "Etcamah",
+      "generic_name": "camizestrant",
+      "notification_source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-camizestrant-cdk46-inhibitor-esr1-mutated-hr-positive-her2-negative",
+      "notification_source_sha256": "af2c64c04a6fe266ebf140042a930f9cc377c95979abb0ecc14bcf428e1f5c25",
+      "applications": []
     }
   ]
 }

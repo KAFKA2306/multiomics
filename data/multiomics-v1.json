@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "retrieved_at": "2026-09-04T15:28:22Z",
+  "retrieved_at": "2026-09-05T01:18:27Z",
   "sequencing_costs": [
     {
       "id": "nhgri-2001-09-cost-per-megabase",
@@ -1811,6 +1811,22 @@
       "retrieved_at": "2026-09-03T04:41:45Z",
       "source_sha256": "2a18ff36d2054e54516631f7e34b7fd62997f7d53c122ef616c8f2439552584c",
       "raw_path": "data/raw/fda/oncology-approvals/2a18ff36d2054e54516631f7e34b7fd62997f7d53c122ef616c8f2439552584c.html"
+    },
+    {
+      "id": "fda-2026-09-04-camizestrant",
+      "authority": "U.S. Food and Drug Administration",
+      "approval_date": "2026-09-04",
+      "pathway": "accelerated approval",
+      "generic_name": "camizestrant",
+      "brand_name": "Etcamah",
+      "sponsor": "AstraZeneca",
+      "modality": null,
+      "indication": null,
+      "approval_summary": "On September 4, 2026, the Food and Drug Administration granted accelerated approval to camizestrant (Etcamah, AstraZeneca), an estrogen receptor antagonist, in combination with a CDK4/6 inhibitor (abemaciclib, palbociclib, or ribociclib) for adults with hormone receptor (HR)-positive, human epidermal growth factor receptor 2 (HER2)-negative locally advanced or metastatic breast cancer upon detection of estrogen receptor-1 ( ESR1) mutation during aromatase inhibitor and CDK4/6 inhibitor therapy, based on an FDA-authorized test. FDA also approved the Guardant360 CDx assay as a companion diagnostic device to identify patients with breast cancer with ESR1 mutations for treatment with camizestrant.",
+      "source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-camizestrant-cdk46-inhibitor-esr1-mutated-hr-positive-her2-negative",
+      "retrieved_at": "2026-09-05T01:18:27Z",
+      "source_sha256": "af2c64c04a6fe266ebf140042a930f9cc377c95979abb0ecc14bcf428e1f5c25",
+      "raw_path": "data/raw/fda/oncology-approvals/af2c64c04a6fe266ebf140042a930f9cc377c95979abb0ecc14bcf428e1f5c25.html"
     }
   ],
   "sources": [
