@@ -10,6 +10,7 @@ import json
 import zipfile
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlencode
 
 try:
     import refresh_drugsfda
@@ -35,6 +36,12 @@ def _normalize_number(value: str, width: int, label: str) -> str:
     if not text or not text.isdigit() or len(text) > width:
         raise ValueError(f"invalid {label}: {value!r}")
     return text.zfill(width)
+
+
+def _application_history_url(application_number: str) -> str:
+    normalized = _normalize_number(application_number, 6, "application number")
+    query = urlencode({"event": "overview.process", "ApplNo": normalized})
+    return f"https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?{query}"
 
 
 def _table_rows(archive: zipfile.ZipFile, name: str) -> list[dict[str, str]]:
@@ -135,6 +142,7 @@ def _compare_states(
                 {
                     "application_number": key[0],
                     "product_number": key[1],
+                    "application_history_url": _application_history_url(key[0]),
                     "changes": field_changes,
                 }
             )
@@ -190,7 +198,7 @@ def build(existing_path: Path = OUTPUT_PATH) -> dict[str, Any]:
         "previous_revision": previous_revision,
         "current_revision": current_revision,
         **comparison,
-        "interpretation": "A changed record reports only fields that differ between official snapshots; it does not infer the regulatory cause of the change.",
+        "interpretation": "A changed record reports only fields that differ between official snapshots and links to the current official Drugs@FDA application history; the linked history does not establish the regulatory cause of the snapshot change.",
     }
 
 
