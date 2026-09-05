@@ -8,7 +8,6 @@ import hashlib
 import io
 import json
 import zipfile
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
@@ -123,19 +122,7 @@ def _product_state(payload: bytes) -> dict[tuple[str, str], dict[str, str]]:
     return state
 
 
-def _submission_date(value: str) -> str:
-    text = value.strip()
-    if not text:
-        raise ValueError("Drugs@FDA SubmissionStatusDate is missing")
-    for fmt in ("%m/%d/%Y %H:%M:%S", "%m/%d/%Y", "%Y-%m-%d"):
-        try:
-            return datetime.strptime(text, fmt).date().isoformat()
-        except ValueError:
-            continue
-    raise ValueError(f"invalid Drugs@FDA SubmissionStatusDate: {value!r}")
-
-
-def _latest_submission_context(
+def _submission_context(
     payload: bytes, application_numbers: set[str]
 ) -> dict[str, dict[str, Any]]:
     normalized_numbers = {
@@ -151,17 +138,20 @@ def _latest_submission_context(
         application_number = _normalize_number(row["ApplNo"], 6, "application number")
         if application_number not in by_application:
             continue
+        submission_type = row["SubmissionType"].strip()
         submission_number = row["SubmissionNo"].strip()
+        if not submission_type:
+            raise ValueError(
+                f"Drugs@FDA SubmissionType missing for changed application {application_number}"
+            )
         if not submission_number.isdigit():
             raise ValueError(
                 f"invalid Drugs@FDA SubmissionNo for {application_number}: {submission_number!r}"
             )
         by_application[application_number].append(
             {
-                "submission_type": row["SubmissionType"].strip(),
+                "submission_type": submission_type,
                 "submission_number": int(submission_number),
-                "submission_status_date": _submission_date(row["SubmissionStatusDate"]),
-                "review_priority": row["ReviewPriority"].strip() or None,
             }
         )
 
@@ -171,17 +161,10 @@ def _latest_submission_context(
             raise ValueError(
                 f"Drugs@FDA submission history missing for changed application {application_number}"
             )
-        rows.sort(
-            key=lambda row: (
-                row["submission_status_date"],
-                row["submission_type"],
-                row["submission_number"],
-            ),
-            reverse=True,
-        )
+        rows.sort(key=lambda row: (row["submission_type"], row["submission_number"]))
         result[application_number] = {
             "matched_submission_count": len(rows),
-            "latest_submission": rows[0],
+            "submissions": rows,
         }
     return result
 
@@ -257,7 +240,7 @@ def build(existing_path: Path = OUTPUT_PATH) -> dict[str, Any]:
     changed_applications = {
         row["application_number"] for row in comparison["changed"]
     }
-    submission_context = _latest_submission_context(current_payload, changed_applications)
+    submission_context = _submission_context(current_payload, changed_applications)
     for row in comparison["changed"]:
         row["official_submission_context"] = submission_context[row["application_number"]]
     return {
@@ -269,7 +252,7 @@ def build(existing_path: Path = OUTPUT_PATH) -> dict[str, Any]:
         "previous_revision": previous_revision,
         "current_revision": current_revision,
         **comparison,
-        "interpretation": "A changed record reports only fields that differ between official snapshots and includes the latest exact-application submission context from the current official Drugs@FDA revision; neither the linked history nor the submission context establishes the regulatory cause of the snapshot change.",
+        "interpretation": "A changed record reports only fields that differ between official snapshots and includes exact-application submission identities from the current official Drugs@FDA revision; neither the linked history nor the submission context establishes the regulatory cause of the snapshot change.",
     }
 
 
