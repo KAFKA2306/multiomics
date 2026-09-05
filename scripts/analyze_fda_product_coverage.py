@@ -61,8 +61,6 @@ def _product_strength_by_identity() -> dict[tuple[str, str], str]:
             _normalize_number(row["ProductNo"], 3, "product number"),
         )
         strength = row["Strength"].strip()
-        if not strength:
-            raise ValueError(f"Drugs@FDA product strength is empty for {identity}")
         previous = strengths.get(identity)
         if previous is not None and previous != strength:
             raise ValueError(f"conflicting Drugs@FDA product strength for {identity}")
@@ -156,7 +154,7 @@ def _verified_primary_evidence(analysis: dict[str, Any]) -> list[dict[str, Any]]
             raise ValueError(f"primary evidence drug name does not match canonical product: {identity}")
         if "strength" in record:
             canonical_strength = strengths.get(identity)
-            if canonical_strength is None:
+            if not canonical_strength:
                 raise ValueError(f"Drugs@FDA product strength is missing for primary evidence: {identity}")
             if record["strength"] != canonical_strength:
                 raise ValueError(
