@@ -140,6 +140,7 @@
     {
       "application_number": "211148",
       "product_number": "005",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=211148",
       "changes": {
         "strength": {
           "before": "200MG",
@@ -150,6 +151,7 @@
     {
       "application_number": "221059",
       "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=221059",
       "changes": {
         "marketing_status": {
           "before": "Prescription",
@@ -158,5 +160,5 @@
       }
     }
   ],
-  "interpretation": "A changed record reports only fields that differ between official snapshots; it does not infer the regulatory cause of the change."
+  "interpretation": "A changed record reports only fields that differ between official snapshots and links to the current official Drugs@FDA application history; the linked history does not establish the regulatory cause of the snapshot change."
 }
