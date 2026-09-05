@@ -43,6 +43,16 @@
       "source_publication_date": "2010-07-21"
     },
     {
+      "application_number": "018050",
+      "product_number": "001",
+      "drug_name": "CORSYM",
+      "evidence": "application approval withdrawn because the drug product was no longer considered safe",
+      "fda_determination": "FDA withdrew approval of NDA 018050 for CORSYM Extended-Release Suspension because phenylpropanolamine was no longer shown to be safe due to its association with increased risk of hemorrhagic stroke",
+      "source_url": "https://www.federalregister.gov/documents/2014/02/20/2014-03596/phenylpropanolamine-withdrawal-of-approval-of-13-new-drug-applications-and-7-abbreviated-new-drug",
+      "source_document": "79 FR 9744",
+      "source_publication_date": "2014-02-20"
+    },
+    {
       "application_number": "017948",
       "product_number": "001",
       "drug_name": "NORMINEST FE",
