@@ -50,6 +50,7 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
             for row in verified
         }
         self.assertEqual(status_by_identity[("017118", "001")], "Discontinued")
+        self.assertEqual(status_by_identity[("018050", "001")], "Discontinued")
         self.assertEqual(status_by_identity[("018181", "002")], "Over-the-counter")
         self.assertEqual(status_by_identity[("019386", "002")], "Discontinued")
         self.assertEqual(status_by_identity[("021763", "004")], "Prescription")
@@ -74,7 +75,7 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
         }
         self.assertEqual(evidence["remaining_marketing_status_counts"], expected_remaining_counts)
         self.assertEqual(remaining, sum(expected_remaining_counts.values()))
-        self.assertEqual(remaining, 781)
+        self.assertEqual(remaining, 780)
         self.assertTrue(all(row["source_url"].startswith("https://www.federalregister.gov/") for row in verified))
         self.assertNotIn("None (Tentative Approval)", evidence["remaining_marketing_status_counts"])
         self.assertEqual(sum(evidence["remaining_marketing_status_counts"].values()), remaining)
