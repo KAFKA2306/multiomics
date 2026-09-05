@@ -20,7 +20,14 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "data" / "drugsfda-source.json"
 RAW_DIR = ROOT / "data" / "raw" / "fda" / "drugsatfda"
 OUTPUT_PATH = ROOT / "api" / "v1" / "multiomics" / "drugsfda-revision-changes.json"
-TRACKED_FIELDS = ("application_type", "drug_name", "active_ingredient", "marketing_status")
+TRACKED_FIELDS = (
+    "application_type",
+    "drug_name",
+    "active_ingredient",
+    "dosage_form",
+    "strength",
+    "marketing_status",
+)
 
 
 def _normalize_number(value: str, width: int, label: str) -> str:
@@ -101,6 +108,8 @@ def _product_state(payload: bytes) -> dict[tuple[str, str], dict[str, str]]:
             "product_number": product_number,
             "drug_name": row["DrugName"].strip(),
             "active_ingredient": row["ActiveIngredient"].strip(),
+            "dosage_form": row["Form"].strip(),
+            "strength": row["Strength"].strip(),
             "marketing_status": marketing_status,
         }
     return state
