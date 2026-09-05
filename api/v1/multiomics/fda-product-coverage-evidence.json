@@ -144,6 +144,28 @@
         "marketing_status": "Discontinued"
       },
       {
+        "application_number": "019983",
+        "product_number": "001",
+        "drug_name": "PROSTEP",
+        "evidence": "application approval withdrawn under section 505(e) after the holder reported the drug product was no longer marketed and requested withdrawal",
+        "fda_determination": "FDA withdrew approval of NDA 019983 for PROSTEP (nicotine) Transdermal System after the holder reported the drug product was no longer marketed and requested withdrawal",
+        "source_url": "https://www.federalregister.gov/documents/2009/05/19/E9-11628/novartis-pharmaceuticals-corp-et-al-withdrawal-of-approval-of-92-new-drug-applications-and-49",
+        "source_document": "74 FR 23407",
+        "source_publication_date": "2009-05-19",
+        "marketing_status": "Discontinued"
+      },
+      {
+        "application_number": "019983",
+        "product_number": "002",
+        "drug_name": "PROSTEP",
+        "evidence": "application approval withdrawn under section 505(e) after the holder reported the drug product was no longer marketed and requested withdrawal",
+        "fda_determination": "FDA withdrew approval of NDA 019983 for PROSTEP (nicotine) Transdermal System after the holder reported the drug product was no longer marketed and requested withdrawal",
+        "source_url": "https://www.federalregister.gov/documents/2009/05/19/E9-11628/novartis-pharmaceuticals-corp-et-al-withdrawal-of-approval-of-92-new-drug-applications-and-49",
+        "source_document": "74 FR 23407",
+        "source_publication_date": "2009-05-19",
+        "marketing_status": "Discontinued"
+      },
+      {
         "application_number": "021551",
         "product_number": "002",
         "drug_name": "HALFLYTELY",
@@ -200,9 +222,9 @@
       }
     ]
   },
-  "remaining_unverified_products": 780,
+  "remaining_unverified_products": 778,
   "remaining_marketing_status_counts": {
-    "Discontinued": 198,
+    "Discontinued": 196,
     "Over-the-counter": 11,
     "Prescription": 571
   },
