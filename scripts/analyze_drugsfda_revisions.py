@@ -127,7 +127,7 @@ def _submission_date(value: str) -> str:
     text = value.strip()
     if not text:
         raise ValueError("Drugs@FDA SubmissionStatusDate is missing")
-    for fmt in ("%m/%d/%Y", "%Y-%m-%d"):
+    for fmt in ("%m/%d/%Y %H:%M:%S", "%m/%d/%Y", "%Y-%m-%d"):
         try:
             return datetime.strptime(text, fmt).date().isoformat()
         except ValueError:
