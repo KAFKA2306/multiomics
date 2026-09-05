@@ -20,7 +20,7 @@
     "current_products": 50879,
     "added_products": 7,
     "removed_products": 4,
-    "changed_products": 1
+    "changed_products": 2
   },
   "added": [
     {
@@ -29,6 +29,8 @@
       "product_number": "002",
       "drug_name": "TRAZODONE HYDROCHLORIDE",
       "active_ingredient": "TRAZODONE HYDROCHLORIDE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "25MG",
       "marketing_status": "Prescription"
     },
     {
@@ -37,6 +39,8 @@
       "product_number": "003",
       "drug_name": "TRAZODONE HYDROCHLORIDE",
       "active_ingredient": "TRAZODONE HYDROCHLORIDE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "75MG",
       "marketing_status": "Prescription"
     },
     {
@@ -45,6 +49,8 @@
       "product_number": "001",
       "drug_name": "POMALIDOMIDE",
       "active_ingredient": "POMALIDOMIDE",
+      "dosage_form": "CAPSULE;ORAL",
+      "strength": "2MG",
       "marketing_status": "Prescription"
     },
     {
@@ -53,6 +59,8 @@
       "product_number": "002",
       "drug_name": "POMALIDOMIDE",
       "active_ingredient": "POMALIDOMIDE",
+      "dosage_form": "CAPSULE;ORAL",
+      "strength": "3MG",
       "marketing_status": "Prescription"
     },
     {
@@ -61,6 +69,8 @@
       "product_number": "003",
       "drug_name": "POMALIDOMIDE",
       "active_ingredient": "POMALIDOMIDE",
+      "dosage_form": "CAPSULE;ORAL",
+      "strength": "4MG",
       "marketing_status": "Prescription"
     },
     {
@@ -69,6 +79,8 @@
       "product_number": "001",
       "drug_name": "SODIUM SULFATE, POTASSIUM SULFATE AND MAGNESIUM SULFATE",
       "active_ingredient": "MAGNESIUM SULFATE; POTASSIUM SULFATE; SODIUM SULFATE",
+      "dosage_form": "SOLUTION;ORAL",
+      "strength": "1.6GM/BOT;3.13GM/BOT;17.5GM/BOT",
       "marketing_status": "Prescription"
     },
     {
@@ -77,6 +89,8 @@
       "product_number": "001",
       "drug_name": "DIFELIKEFALIN ACETATE",
       "active_ingredient": "DIFELIKEFALIN ACETATE",
+      "dosage_form": "SOLUTION;INTRAVENOUS",
+      "strength": "EQ 0.065MG BASE/1.3ML (EQ 0.05MG BASE/ML)",
       "marketing_status": "Prescription"
     }
   ],
@@ -87,6 +101,8 @@
       "product_number": "001",
       "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
       "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
+      "dosage_form": "TABLET; ORAL",
+      "strength": "10MG",
       "marketing_status": "None (Tentative Approval)"
     },
     {
@@ -95,6 +111,8 @@
       "product_number": "002",
       "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
       "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
+      "dosage_form": "TABLET; ORAL",
+      "strength": "15MG",
       "marketing_status": "None (Tentative Approval)"
     },
     {
@@ -103,6 +121,8 @@
       "product_number": "003",
       "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
       "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
+      "dosage_form": "TABLET; ORAL",
+      "strength": "25MG",
       "marketing_status": "None (Tentative Approval)"
     },
     {
@@ -111,10 +131,22 @@
       "product_number": "004",
       "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
       "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
+      "dosage_form": "TABLET; ORAL",
+      "strength": "120MG",
       "marketing_status": "None (Tentative Approval)"
     }
   ],
   "changed": [
+    {
+      "application_number": "211148",
+      "product_number": "005",
+      "changes": {
+        "strength": {
+          "before": "200MG",
+          "after": "200MG/25MG"
+        }
+      }
+    },
     {
       "application_number": "221059",
       "product_number": "001",
