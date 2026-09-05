@@ -64,6 +64,7 @@ class DrugsFdaRevisionTest(unittest.TestCase):
                 {
                     "application_number": "000001",
                     "product_number": "001",
+                    "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=000001",
                     "changes": {
                         "dosage_form": {
                             "before": "TABLET",
@@ -81,6 +82,10 @@ class DrugsFdaRevisionTest(unittest.TestCase):
                 }
             ],
         )
+
+    def test_application_history_url_rejects_invalid_application_number(self):
+        with self.assertRaises(ValueError):
+            analyze_drugsfda_revisions._application_history_url("not-a-number")
 
     def test_revision_pair_rolls_current_revision_forward(self):
         manifest = {"source_sha256": "new", "retrieved_at": "2026-09-05T00:00:00Z"}
