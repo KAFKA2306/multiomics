@@ -28,7 +28,7 @@ on:
       - "tests/test_sequencing_refresh.py"
       - ".github/workflows/refresh-primary-sources.yml"
   schedule:
-    - cron: "15 15 * * 1-5"
+    - cron: "15 23 * * *"
   workflow_dispatch:
 
 permissions:
