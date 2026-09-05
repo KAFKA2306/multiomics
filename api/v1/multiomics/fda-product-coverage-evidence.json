@@ -55,6 +55,18 @@
         "marketing_status": "Prescription"
       },
       {
+        "application_number": "019386",
+        "product_number": "002",
+        "drug_name": "BREVIBLOC",
+        "strength": "250MG/ML",
+        "evidence": "withdrawn from sale for reasons of safety or effectiveness",
+        "fda_determination": "FDA determined BREVIBLOC (esmolol hydrochloride) Injection, 250 mg/mL, 10-mL ampule was withdrawn from sale for reasons of safety because medication errors caused serious adverse events, including deaths, and stated that it would be removed from the Orange Book",
+        "source_url": "https://www.federalregister.gov/documents/2010/05/05/2010-10559/determination-that-brevibloc-esmolol-hydrochloride-injection-250-milligramsmilliliter-10-milliliter",
+        "source_document": "75 FR 24710",
+        "source_publication_date": "2010-05-05",
+        "marketing_status": "Discontinued"
+      },
+      {
         "application_number": "019415",
         "product_number": "002",
         "drug_name": "METRODIN",
@@ -155,9 +167,9 @@
       }
     ]
   },
-  "remaining_unverified_products": 784,
+  "remaining_unverified_products": 783,
   "remaining_marketing_status_counts": {
-    "Discontinued": 201,
+    "Discontinued": 200,
     "Over-the-counter": 12,
     "Prescription": 571
   },

@@ -39,15 +39,39 @@ def _table_rows(archive: zipfile.ZipFile, name: str) -> list[dict[str, str]]:
     return list(csv.DictReader(io.StringIO(text), delimiter="\t"))
 
 
-def build() -> dict[str, Any]:
+def _verified_drugsfda_raw() -> bytes:
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-    crosscheck = json.loads(CROSSCHECK_PATH.read_text(encoding="utf-8"))
     raw_path = ROOT / manifest["raw_path"]
     if not raw_path.exists():
         raise ValueError("Drugs@FDA raw ZIP is missing")
     raw_bytes = raw_path.read_bytes()
     if hashlib.sha256(raw_bytes).hexdigest() != manifest["source_sha256"]:
         raise ValueError("Drugs@FDA raw ZIP sha256 does not match manifest")
+    return raw_bytes
+
+
+def _product_strength_by_identity() -> dict[tuple[str, str], str]:
+    with zipfile.ZipFile(io.BytesIO(_verified_drugsfda_raw())) as archive:
+        product_rows = _table_rows(archive, "Products.txt")
+
+    strengths: dict[tuple[str, str], str] = {}
+    for row in product_rows:
+        identity = (
+            _normalize_number(row["ApplNo"], 6, "application number"),
+            _normalize_number(row["ProductNo"], 3, "product number"),
+        )
+        strength = row["Strength"].strip()
+        previous = strengths.get(identity)
+        if previous is not None and previous != strength:
+            raise ValueError(f"conflicting Drugs@FDA product strength for {identity}")
+        strengths[identity] = strength
+    return strengths
+
+
+def build() -> dict[str, Any]:
+    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    crosscheck = json.loads(CROSSCHECK_PATH.read_text(encoding="utf-8"))
+    raw_bytes = _verified_drugsfda_raw()
     if crosscheck["drugsfda"]["source_sha256"] != manifest["source_sha256"]:
         raise ValueError("product crosscheck and Drugs@FDA manifest use different source revisions")
 
@@ -113,6 +137,7 @@ def _verified_primary_evidence(analysis: dict[str, Any]) -> list[dict[str, Any]]
         (row["application_number"], row["product_number"]): row
         for row in analysis["products"]
     }
+    strengths = _product_strength_by_identity()
     verified: list[dict[str, Any]] = []
     seen: set[tuple[str, str]] = set()
     for record in source.get("records", []):
@@ -127,6 +152,15 @@ def _verified_primary_evidence(analysis: dict[str, Any]) -> list[dict[str, Any]]
             raise ValueError(f"primary evidence duplicates tentative-approval evidence: {identity}")
         if record["drug_name"] != product["drug_name"]:
             raise ValueError(f"primary evidence drug name does not match canonical product: {identity}")
+        if "strength" in record:
+            canonical_strength = strengths.get(identity)
+            if not canonical_strength:
+                raise ValueError(f"Drugs@FDA product strength is missing for primary evidence: {identity}")
+            if record["strength"] != canonical_strength:
+                raise ValueError(
+                    f"primary evidence strength does not match Drugs@FDA product {identity}: "
+                    f"{record['strength']!r} != {canonical_strength!r}"
+                )
         if not record["source_url"].startswith("https://www.federalregister.gov/"):
             raise ValueError(f"primary evidence must use the official Federal Register source: {identity}")
         verified.append({**record, "marketing_status": product["marketing_status"]})
