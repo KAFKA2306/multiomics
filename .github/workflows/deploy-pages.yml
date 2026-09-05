@@ -44,3 +44,25 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify production Drugs@FDA revision API
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          api_url="${SITE_URL%/}/api/v1/multiomics/drugsfda-revision-changes.json"
+          curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 2 "$api_url" -o /tmp/drugsfda-revision-changes.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('/tmp/drugsfda-revision-changes.json').read_text(encoding='utf-8'))
+          if data.get('authority') != 'U.S. Food and Drug Administration':
+              raise SystemExit('production Drugs@FDA revision API authority mismatch')
+          changed = data.get('changed')
+          if not isinstance(changed, list):
+              raise SystemExit('production Drugs@FDA revision API changed must be an array')
+          for row in changed:
+              application_number = row.get('application_number')
+              expected = f'https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo={application_number}'
+              if row.get('application_history_url') != expected:
+                  raise SystemExit(f'production application history URL mismatch for {application_number}')
+          PY
