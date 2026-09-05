@@ -1,4 +1,6 @@
+import io
 import unittest
+import zipfile
 
 from scripts import analyze_drugsfda_revisions
 
@@ -82,6 +84,47 @@ class DrugsFdaRevisionTest(unittest.TestCase):
                 }
             ],
         )
+
+    def test_submission_context_uses_exact_application_and_preserves_all_identities(self):
+        payload = io.BytesIO()
+        with zipfile.ZipFile(payload, "w") as archive:
+            archive.writestr(
+                "Submissions.txt",
+                "ApplNo\tSubmissionClassCodeID\tSubmissionType\tSubmissionNo\t"
+                "SubmissionStatus\tSubmissionStatusDate\tSubmissionsPublicNotes\tReviewPriority\n"
+                "1\t\tORIG\t1\tAP\t01/02/2024\t\tSTANDARD\n"
+                "1\t\tSUPPL\t2\tAP\t\t\t\n"
+                "2\t\tORIG\t1\tAP\t03/04/2026\t\tPRIORITY\n",
+            )
+        result = analyze_drugsfda_revisions._submission_context(
+            payload.getvalue(), {"000001"}
+        )
+        self.assertEqual(
+            result,
+            {
+                "000001": {
+                    "matched_submission_count": 2,
+                    "submissions": [
+                        {"submission_type": "ORIG", "submission_number": 1},
+                        {"submission_type": "SUPPL", "submission_number": 2},
+                    ],
+                }
+            },
+        )
+
+    def test_submission_context_fails_when_changed_application_has_no_history(self):
+        payload = io.BytesIO()
+        with zipfile.ZipFile(payload, "w") as archive:
+            archive.writestr(
+                "Submissions.txt",
+                "ApplNo\tSubmissionClassCodeID\tSubmissionType\tSubmissionNo\t"
+                "SubmissionStatus\tSubmissionStatusDate\tSubmissionsPublicNotes\tReviewPriority\n"
+                "2\t\tORIG\t1\tAP\t03/04/2026\t\tSTANDARD\n",
+            )
+        with self.assertRaises(ValueError):
+            analyze_drugsfda_revisions._submission_context(
+                payload.getvalue(), {"000001"}
+            )
 
     def test_application_history_url_rejects_invalid_application_number(self):
         with self.assertRaises(ValueError):
