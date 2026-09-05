@@ -146,6 +146,15 @@
           "before": "200MG",
           "after": "200MG/25MG"
         }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
       }
     },
     {
@@ -157,8 +166,17 @@
           "before": "Prescription",
           "after": "None (Tentative Approval)"
         }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
       }
     }
   ],
-  "interpretation": "A changed record reports only fields that differ between official snapshots and links to the current official Drugs@FDA application history; the linked history does not establish the regulatory cause of the snapshot change."
+  "interpretation": "A changed record reports only fields that differ between official snapshots and includes exact-application submission identities from the current official Drugs@FDA revision; neither the linked history nor the submission context establishes the regulatory cause of the snapshot change."
 }
