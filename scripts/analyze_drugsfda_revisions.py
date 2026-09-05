@@ -8,6 +8,7 @@ import hashlib
 import io
 import json
 import zipfile
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
@@ -122,6 +123,69 @@ def _product_state(payload: bytes) -> dict[tuple[str, str], dict[str, str]]:
     return state
 
 
+def _submission_date(value: str) -> str:
+    text = value.strip()
+    if not text:
+        raise ValueError("Drugs@FDA SubmissionStatusDate is missing")
+    for fmt in ("%m/%d/%Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(text, fmt).date().isoformat()
+        except ValueError:
+            continue
+    raise ValueError(f"invalid Drugs@FDA SubmissionStatusDate: {value!r}")
+
+
+def _latest_submission_context(
+    payload: bytes, application_numbers: set[str]
+) -> dict[str, dict[str, Any]]:
+    normalized_numbers = {
+        _normalize_number(value, 6, "application number") for value in application_numbers
+    }
+    with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+        submissions = _table_rows(archive, "Submissions.txt")
+
+    by_application: dict[str, list[dict[str, Any]]] = {
+        application_number: [] for application_number in normalized_numbers
+    }
+    for row in submissions:
+        application_number = _normalize_number(row["ApplNo"], 6, "application number")
+        if application_number not in by_application:
+            continue
+        submission_number = row["SubmissionNo"].strip()
+        if not submission_number.isdigit():
+            raise ValueError(
+                f"invalid Drugs@FDA SubmissionNo for {application_number}: {submission_number!r}"
+            )
+        by_application[application_number].append(
+            {
+                "submission_type": row["SubmissionType"].strip(),
+                "submission_number": int(submission_number),
+                "submission_status_date": _submission_date(row["SubmissionStatusDate"]),
+                "review_priority": row["ReviewPriority"].strip() or None,
+            }
+        )
+
+    result: dict[str, dict[str, Any]] = {}
+    for application_number, rows in by_application.items():
+        if not rows:
+            raise ValueError(
+                f"Drugs@FDA submission history missing for changed application {application_number}"
+            )
+        rows.sort(
+            key=lambda row: (
+                row["submission_status_date"],
+                row["submission_type"],
+                row["submission_number"],
+            ),
+            reverse=True,
+        )
+        result[application_number] = {
+            "matched_submission_count": len(rows),
+            "latest_submission": rows[0],
+        }
+    return result
+
+
 def _compare_states(
     previous: dict[tuple[str, str], dict[str, str]],
     current: dict[tuple[str, str], dict[str, str]],
@@ -187,8 +251,15 @@ def build(existing_path: Path = OUTPUT_PATH) -> dict[str, Any]:
     existing = json.loads(existing_path.read_text(encoding="utf-8")) if existing_path.exists() else None
     previous_revision, current_revision = _revision_pair(manifest, existing)
     previous_state = _product_state(_verified_raw(previous_revision["source_sha256"]))
-    current_state = _product_state(_verified_raw(current_revision["source_sha256"]))
+    current_payload = _verified_raw(current_revision["source_sha256"])
+    current_state = _product_state(current_payload)
     comparison = _compare_states(previous_state, current_state)
+    changed_applications = {
+        row["application_number"] for row in comparison["changed"]
+    }
+    submission_context = _latest_submission_context(current_payload, changed_applications)
+    for row in comparison["changed"]:
+        row["official_submission_context"] = submission_context[row["application_number"]]
     return {
         "schema_version": 1,
         "authority": "U.S. Food and Drug Administration",
@@ -198,7 +269,7 @@ def build(existing_path: Path = OUTPUT_PATH) -> dict[str, Any]:
         "previous_revision": previous_revision,
         "current_revision": current_revision,
         **comparison,
-        "interpretation": "A changed record reports only fields that differ between official snapshots and links to the current official Drugs@FDA application history; the linked history does not establish the regulatory cause of the snapshot change.",
+        "interpretation": "A changed record reports only fields that differ between official snapshots and includes the latest exact-application submission context from the current official Drugs@FDA revision; neither the linked history nor the submission context establishes the regulatory cause of the snapshot change.",
     }
 
 
