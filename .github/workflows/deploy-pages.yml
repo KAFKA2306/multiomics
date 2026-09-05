@@ -44,25 +44,26 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      - name: Verify production Drugs@FDA revision API
+      - name: Verify production API parity
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
-          api_url="${SITE_URL%/}/api/v1/multiomics/drugsfda-revision-changes.json"
-          curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 2 "$api_url" -o /tmp/drugsfda-revision-changes.json
-          python - <<'PY'
+          mkdir -p /tmp/production-api
+          for local_path in api/v1/multiomics/*.json; do
+            name="$(basename "$local_path")"
+            api_url="${SITE_URL%/}/api/v1/multiomics/$name"
+            production_path="/tmp/production-api/$name"
+            curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 2 "$api_url" -o "$production_path"
+            python - "$local_path" "$production_path" <<'PY'
           import json
+          import sys
           from pathlib import Path
 
-          data = json.loads(Path('/tmp/drugsfda-revision-changes.json').read_text(encoding='utf-8'))
-          if data.get('authority') != 'U.S. Food and Drug Administration':
-              raise SystemExit('production Drugs@FDA revision API authority mismatch')
-          changed = data.get('changed')
-          if not isinstance(changed, list):
-              raise SystemExit('production Drugs@FDA revision API changed must be an array')
-          for row in changed:
-              application_number = row.get('application_number')
-              expected = f'https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo={application_number}'
-              if row.get('application_history_url') != expected:
-                  raise SystemExit(f'production application history URL mismatch for {application_number}')
+          local_path = Path(sys.argv[1])
+          production_path = Path(sys.argv[2])
+          local = json.loads(local_path.read_text(encoding='utf-8'))
+          production = json.loads(production_path.read_text(encoding='utf-8'))
+          if production != local:
+              raise SystemExit(f'production API differs from deployed canonical JSON: {local_path.name}')
           PY
+          done
