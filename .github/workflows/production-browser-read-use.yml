@@ -1,0 +1,183 @@
+name: Production browser read-use
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/production-browser-read-use.yml'
+      - 'public/**'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/production-browser-read-use.yml'
+  workflow_run:
+    workflows: ['Deploy Pages']
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.event_name == 'pull_request' || github.event_name == 'push' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: Verify production in a real browser
+        env:
+          PAGE_URL: https://kafka2306.github.io/multiomics/
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          export CHROME_BIN
+          node --input-type=module <<'NODE'
+          import { spawn } from 'node:child_process';
+
+          const pageUrl = process.env.PAGE_URL;
+          const chrome = spawn(process.env.CHROME_BIN, [
+            '--headless=new',
+            '--no-sandbox',
+            '--disable-gpu',
+            '--remote-debugging-port=9222',
+            '--user-data-dir=/tmp/multiomics-browser',
+            'about:blank'
+          ], { stdio: 'ignore' });
+
+          const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+          async function retry(fn, attempts = 80) {
+            let last;
+            for (let i = 0; i < attempts; i++) {
+              try { return await fn(); } catch (error) { last = error; await sleep(250); }
+            }
+            throw last;
+          }
+
+          let socket;
+          const pending = new Map();
+          let nextId = 1;
+          function send(method, params = {}) {
+            const id = nextId++;
+            socket.send(JSON.stringify({ id, method, params }));
+            return new Promise((resolve, reject) => pending.set(id, { resolve, reject }));
+          }
+
+          async function evaluate(expression) {
+            const result = await send('Runtime.evaluate', {
+              expression,
+              returnByValue: true,
+              awaitPromise: true
+            });
+            if (result.exceptionDetails) throw new Error(JSON.stringify(result.exceptionDetails));
+            return result.result.value;
+          }
+
+          try {
+            const targets = await retry(async () => {
+              const response = await fetch('http://127.0.0.1:9222/json');
+              if (!response.ok) throw new Error(`CDP target list: HTTP ${response.status}`);
+              const rows = await response.json();
+              if (!rows.some(row => row.type === 'page')) throw new Error('No page target yet');
+              return rows;
+            });
+            const target = targets.find(row => row.type === 'page');
+            socket = new WebSocket(target.webSocketDebuggerUrl);
+            await new Promise((resolve, reject) => {
+              socket.addEventListener('open', resolve, { once: true });
+              socket.addEventListener('error', reject, { once: true });
+            });
+            socket.addEventListener('message', event => {
+              const message = JSON.parse(event.data);
+              if (!message.id || !pending.has(message.id)) return;
+              const waiter = pending.get(message.id);
+              pending.delete(message.id);
+              if (message.error) waiter.reject(new Error(JSON.stringify(message.error)));
+              else waiter.resolve(message.result || {});
+            });
+
+            await send('Page.enable');
+            await send('Runtime.enable');
+            await send('Emulation.setDeviceMetricsOverride', {
+              width: 390,
+              height: 844,
+              deviceScaleFactor: 1,
+              mobile: true
+            });
+            await send('Page.navigate', { url: pageUrl });
+
+            await retry(async () => {
+              const ready = await evaluate(`(() => ({
+                state: document.readyState,
+                asof: document.querySelector('#asof')?.textContent.trim() || '',
+                approval: document.querySelector('#approval')?.textContent.trim() || '',
+                trialChange: document.querySelector('#trialChange')?.textContent.trim() || '',
+                sequencing: document.querySelector('#seq')?.textContent.trim() || '',
+                coverage: document.querySelector('#coverage')?.textContent.trim() || '',
+                errorHidden: document.querySelector('#error')?.hidden === true
+              }))()`);
+              const values = [ready.approval, ready.trialChange, ready.sequencing, ready.coverage];
+              if (ready.state !== 'complete' || !ready.asof || ready.asof.includes('読み込み中') || values.some(value => !value || value === '—') || !ready.errorHidden) {
+                throw new Error(`Dashboard not ready: ${JSON.stringify(ready)}`);
+              }
+              return ready;
+            });
+
+            const mobile = await evaluate(`(() => ({
+              width: window.innerWidth,
+              scrollWidth: document.documentElement.scrollWidth,
+              decisionFields: ['approval','trialChange','seq','coverage'].map(id => document.querySelector('#'+id)?.textContent.trim() || ''),
+              asof: document.querySelector('#asof')?.textContent.trim() || '',
+              errorHidden: document.querySelector('#error')?.hidden === true
+            }))()`);
+            if (mobile.width !== 390) throw new Error(`Unexpected mobile viewport: ${mobile.width}`);
+            if (mobile.scrollWidth > mobile.width + 1) throw new Error(`Horizontal overflow: ${mobile.scrollWidth} > ${mobile.width}`);
+            if (mobile.decisionFields.some(value => !value || value === '—')) throw new Error(`Decision fields missing: ${JSON.stringify(mobile)}`);
+            if (!mobile.asof || !mobile.errorHidden) throw new Error(`As-of/fail-loudly state missing: ${JSON.stringify(mobile)}`);
+
+            const sources = await evaluate(`(() => [...document.querySelectorAll('a.source')].map(a => ({ text: a.textContent.trim(), href: a.href })))()`);
+            if (sources.length < 5 || sources.some(source => !source.text || !source.href.startsWith('http'))) {
+              throw new Error(`Primary-source links are not one-step usable: ${JSON.stringify(sources)}`);
+            }
+
+            const textualState = await evaluate(`(() => ({
+              trialChange: document.querySelector('#trialChange')?.textContent.trim() || '',
+              trial: document.querySelector('#trial')?.textContent.trim() || '',
+              pills: [...document.querySelectorAll('.pill')].map(node => node.textContent.trim()).filter(Boolean)
+            }))()`);
+            if (!textualState.trialChange || !textualState.trial || textualState.pills.length < 5) {
+              throw new Error(`Decision state depends on missing non-color text: ${JSON.stringify(textualState)}`);
+            }
+
+            await send('Input.dispatchKeyEvent', { type: 'rawKeyDown', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9 });
+            await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9 });
+            const focus = await evaluate(`(() => {
+              const node = document.activeElement;
+              const style = getComputedStyle(node);
+              return {
+                tag: node?.tagName || '',
+                href: node?.href || '',
+                outlineStyle: style.outlineStyle,
+                outlineWidth: style.outlineWidth
+              };
+            })()`);
+            if (focus.tag !== 'A' || !focus.href) throw new Error(`Keyboard Tab did not reach a link: ${JSON.stringify(focus)}`);
+            if (focus.outlineStyle === 'none' || focus.outlineWidth === '0px') throw new Error(`Keyboard focus is not visibly indicated: ${JSON.stringify(focus)}`);
+
+            console.log(JSON.stringify({
+              pageUrl,
+              mobileViewport: `${mobile.width}x844`,
+              horizontalOverflow: false,
+              decisionFields: mobile.decisionFields.length,
+              primarySourceLinks: sources.length,
+              nonColorStateText: true,
+              failLoudlyState: true,
+              keyboardFocus: focus
+            }, null, 2));
+          } finally {
+            if (socket) socket.close();
+            chrome.kill('SIGTERM');
+          }
+          NODE
