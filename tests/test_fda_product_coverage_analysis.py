@@ -54,6 +54,16 @@ class FdaProductCoverageAnalysisTest(unittest.TestCase):
         self.assertEqual(status_by_identity[("018181", "002")], "Over-the-counter")
         self.assertEqual(status_by_identity[("019386", "002")], "Discontinued")
         self.assertEqual(status_by_identity[("021763", "004")], "Prescription")
+        for application_number in ("020888", "020889", "020890"):
+            self.assertEqual(status_by_identity[(application_number, "001")], "Over-the-counter")
+        bulk_lotrimin = [
+            row
+            for row in verified
+            if row["application_number"] in {"020888", "020889", "020890"}
+        ]
+        self.assertEqual(len(bulk_lotrimin), 3)
+        self.assertTrue(all(row["source_document"] == "83 FR 7738" for row in bulk_lotrimin))
+        self.assertTrue(all(row["source_publication_date"] == "2018-02-22" for row in bulk_lotrimin))
         brevibloc = next(
             row
             for row in verified
