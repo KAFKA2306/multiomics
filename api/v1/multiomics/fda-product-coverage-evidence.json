@@ -166,6 +166,39 @@
         "marketing_status": "Discontinued"
       },
       {
+        "application_number": "020888",
+        "product_number": "001",
+        "drug_name": "LOTRIMIN AF",
+        "evidence": "application approval voluntarily withdrawn under 21 CFR 314.150(c)",
+        "fda_determination": "FDA withdrew approval of NDA 020888 for LOTRIMIN AF (clotrimazole) Cream, 1% after the holder reported the drug product was no longer marketed and requested withdrawal",
+        "source_url": "https://www.federalregister.gov/d/2018-03607",
+        "source_document": "83 FR 7738",
+        "source_publication_date": "2018-02-22",
+        "marketing_status": "Over-the-counter"
+      },
+      {
+        "application_number": "020889",
+        "product_number": "001",
+        "drug_name": "LOTRIMIN AF",
+        "evidence": "application approval voluntarily withdrawn under 21 CFR 314.150(c)",
+        "fda_determination": "FDA withdrew approval of NDA 020889 for LOTRIMIN AF (clotrimazole) Lotion, 1% after the holder reported the drug product was no longer marketed and requested withdrawal",
+        "source_url": "https://www.federalregister.gov/d/2018-03607",
+        "source_document": "83 FR 7738",
+        "source_publication_date": "2018-02-22",
+        "marketing_status": "Over-the-counter"
+      },
+      {
+        "application_number": "020890",
+        "product_number": "001",
+        "drug_name": "LOTRIMIN AF",
+        "evidence": "application approval voluntarily withdrawn under 21 CFR 314.150(c)",
+        "fda_determination": "FDA withdrew approval of NDA 020890 for LOTRIMIN AF (clotrimazole) Topical Solution, 1% after the holder reported the drug product was no longer marketed and requested withdrawal",
+        "source_url": "https://www.federalregister.gov/d/2018-03607",
+        "source_document": "83 FR 7738",
+        "source_publication_date": "2018-02-22",
+        "marketing_status": "Over-the-counter"
+      },
+      {
         "application_number": "021551",
         "product_number": "002",
         "drug_name": "HALFLYTELY",
@@ -222,10 +255,10 @@
       }
     ]
   },
-  "remaining_unverified_products": 778,
+  "remaining_unverified_products": 775,
   "remaining_marketing_status_counts": {
     "Discontinued": 196,
-    "Over-the-counter": 11,
+    "Over-the-counter": 8,
     "Prescription": 571
   },
   "interpretation": {
