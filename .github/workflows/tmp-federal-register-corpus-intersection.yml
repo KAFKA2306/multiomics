@@ -1,0 +1,175 @@
+name: Temporary Federal Register withdrawal corpus intersection
+
+on:
+  push:
+    branches:
+      - research/federal-register-2017-bulk-intersection-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Measure correction-aware official corpus intersection
+        run: |
+          python - <<'PY'
+          import html
+          import json
+          import re
+          import time
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+
+          API = "https://www.federalregister.gov/api/v1"
+          UA = "KAFKA2306-multiomics-evidence-audit/1.0"
+
+          def get_json(url):
+              req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+              with urllib.request.urlopen(req, timeout=60) as response:
+                  return json.load(response)
+
+          def get_text(url):
+              req = urllib.request.Request(url, headers={"User-Agent": UA})
+              with urllib.request.urlopen(req, timeout=60) as response:
+                  raw = response.read().decode("utf-8", errors="replace")
+              text = html.unescape(re.sub(r"<[^>]+>", " ", raw))
+              return re.sub(r"\s+", " ", text)
+
+          params = [
+              ("conditions[term]", "withdrawal of approval"),
+              ("conditions[agencies][]", "food-and-drug-administration"),
+              ("conditions[type][]", "NOTICE"),
+              ("per_page", "1000"),
+              ("order", "oldest"),
+          ]
+          url = API + "/documents.json?" + urllib.parse.urlencode(params)
+          docs = []
+          while url:
+              payload = get_json(url)
+              docs.extend(payload.get("results", []))
+              url = payload.get("next_page_url")
+              if url:
+                  time.sleep(0.15)
+
+          analysis = json.loads(Path("api/v1/multiomics/fda-product-coverage-analysis.json").read_text())
+          evidence = json.loads(Path("data/fda-orange-book-absence-primary-evidence.json").read_text())
+          existing = {(r["application_number"], r["product_number"]) for r in evidence.get("records", [])}
+          residual = [
+              r for r in analysis["products"]
+              if r["marketing_status"] != "None (Tentative Approval)"
+              and (r["application_number"], r["product_number"]) not in existing
+          ]
+          residual_by_app = {}
+          for row in residual:
+              residual_by_app.setdefault(row["application_number"], []).append(row)
+          residual_apps = set(residual_by_app)
+
+          candidate_docs = []
+          unresolved_corrections = []
+          product_sources = {}
+          for doc in docs:
+              title = doc.get("title") or ""
+              if "withdrawal of approval" not in title.lower() or "correction" in title.lower():
+                  continue
+              number = doc["document_number"]
+              detail = get_json(f"{API}/documents/{number}.json")
+              raw_url = detail.get("raw_text_url") or detail.get("body_html_url")
+              if not raw_url:
+                  continue
+              text = get_text(raw_url)
+              apps = set(re.findall(r"\b(?:NDA|ANDA)\s+(?:No\.?\s*)?(\d{4,6})\b", text, re.IGNORECASE))
+              apps = {a.zfill(6) for a in apps}
+              hit_apps = apps & residual_apps
+              if not hit_apps:
+                  continue
+
+              corrections = detail.get("corrections") or []
+              removed_by_correction = set()
+              correction_unresolved = False
+              correction_docs = []
+              for corr in corrections:
+                  corr_num = corr.get("document_number") if isinstance(corr, dict) else None
+                  if not corr_num:
+                      correction_unresolved = True
+                      continue
+                  corr_detail = get_json(f"{API}/documents/{corr_num}.json")
+                  corr_url = corr_detail.get("raw_text_url") or corr_detail.get("body_html_url")
+                  if not corr_url:
+                      correction_unresolved = True
+                      continue
+                  corr_text = get_text(corr_url)
+                  correction_docs.append({
+                      "document_number": corr_num,
+                      "html_url": corr_detail.get("html_url"),
+                      "publication_date": corr_detail.get("publication_date"),
+                  })
+                  for app in hit_apps:
+                      patterns = [
+                          rf"entry\s+for\s+(?:NDA|ANDA)\s+0*{int(app)}\s+is\s+removed",
+                          rf"approval\s+of\s+(?:NDA|ANDA)\s+0*{int(app)}\s+is\s+still\s+in\s+effect",
+                      ]
+                      if any(re.search(p, corr_text, re.IGNORECASE) for p in patterns):
+                          removed_by_correction.add(app)
+
+              effective_hit_apps = hit_apps - removed_by_correction
+              if corrections and correction_unresolved:
+                  unresolved_corrections.append({
+                      "document_number": number,
+                      "html_url": detail.get("html_url"),
+                      "hit_applications": sorted(hit_apps),
+                  })
+                  continue
+
+              candidate_docs.append({
+                  "document_number": number,
+                  "title": title,
+                  "publication_date": detail.get("publication_date"),
+                  "html_url": detail.get("html_url"),
+                  "raw_text_url": raw_url,
+                  "hit_applications_before_correction": sorted(hit_apps),
+                  "removed_by_correction": sorted(removed_by_correction),
+                  "effective_hit_applications": sorted(effective_hit_apps),
+                  "corrections": correction_docs,
+              })
+              for app in effective_hit_apps:
+                  for row in residual_by_app[app]:
+                      key = (row["application_number"], row["product_number"])
+                      product_sources.setdefault(key, []).append({
+                          "document_number": number,
+                          "title": title,
+                          "publication_date": detail.get("publication_date"),
+                          "html_url": detail.get("html_url"),
+                      })
+              time.sleep(0.05)
+
+          hits = []
+          by_identity = {(r["application_number"], r["product_number"]): r for r in residual}
+          for key, sources in sorted(product_sources.items()):
+              hits.append({**by_identity[key], "sources": sources})
+
+          result = {
+              "authority": "Federal Register / U.S. Food and Drug Administration",
+              "search_url": API + "/documents.json",
+              "searched_document_count": len(docs),
+              "current_residual_product_count": len(residual),
+              "candidate_document_count": len(candidate_docs),
+              "unresolved_correction_document_count": len(unresolved_corrections),
+              "hit_product_count": len(hits),
+              "hit_application_count": len({r["application_number"] for r in hits}),
+              "candidate_documents": candidate_docs,
+              "unresolved_corrections": unresolved_corrections,
+              "hits": hits,
+          }
+          Path("federal-register-corpus-intersection.json").write_text(json.dumps(result, indent=2) + "\n")
+          print(json.dumps({k: v for k, v in result.items() if k not in {"candidate_documents", "unresolved_corrections", "hits"}}, indent=2))
+          for row in hits:
+              print("HIT", row["application_number"], row["product_number"], row["drug_name"], row["marketing_status"])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: federal-register-corpus-intersection
+          path: federal-register-corpus-intersection.json
