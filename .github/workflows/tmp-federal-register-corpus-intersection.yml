@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Diagnose and measure official corpus
+      - name: Diagnose FDA-scoped official corpus
         run: |
           python - <<'PY'
           import json
@@ -24,7 +24,11 @@ jobs:
 
           API = "https://www.federalregister.gov/api/v1"
           UA = "KAFKA2306-multiomics-evidence-audit/1.0"
-          params = [("conditions[term]", "withdrawal of approval"), ("per_page", "1000")]
+          params = [
+              ("conditions[term]", "withdrawal of approval"),
+              ("conditions[agencies][]", "food-and-drug-administration"),
+              ("per_page", "1000"),
+          ]
           url = API + "/documents.json?" + urllib.parse.urlencode(params)
           result = {"search_url": url, "status": "UNVERIFIED"}
           try:
