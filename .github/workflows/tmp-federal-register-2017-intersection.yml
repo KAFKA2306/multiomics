@@ -16,30 +16,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install PDF text extractor
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
       - name: Measure correction-aware intersection
         run: |
+          set -euo pipefail
+          notice_pdf="https://www.govinfo.gov/content/pkg/FR-2017-06-21/pdf/2017-12908.pdf"
+          correction_pdf="https://www.govinfo.gov/content/pkg/FR-2018-02-27/pdf/2018-03925.pdf"
+          curl --fail --location --silent --show-error "$notice_pdf" -o notice.pdf
+          curl --fail --location --silent --show-error "$correction_pdf" -o correction.pdf
+          pdftotext -layout notice.pdf notice.txt
+          pdftotext -layout correction.pdf correction.txt
           python - <<'PY'
-          import html
           import json
           import re
-          import urllib.request
           from pathlib import Path
 
           notice_url = "https://www.federalregister.gov/documents/2017/06/21/2017-12908/wyeth-pharmaceuticals-inc-et-al-withdrawal-of-approval-of-121-new-drug-applications-and-161"
-          correction_url = "https://www.federalregister.gov/documents/2018/12/12/2018-26925/wyeth-pharmaceuticals-inc-et-al-withdrawal-of-approval-of-121-new-drug-applications-and-161"
-
-          def fetch_text(url: str) -> str:
-              req = urllib.request.Request(url, headers={"User-Agent": "KAFKA2306-multiomics-evidence-audit/1.0"})
-              with urllib.request.urlopen(req, timeout=60) as response:
-                  body = response.read().decode("utf-8", errors="strict")
-              text = html.unescape(re.sub(r"<[^>]+>", " ", body))
-              return re.sub(r"\s+", " ", text)
-
-          notice = fetch_text(notice_url)
-          correction = fetch_text(correction_url)
+          correction_url = "https://www.federalregister.gov/documents/2018/02/27/2018-03925/wyeth-pharmaceuticals-inc-et-al-withdrawal-of-approval-of-121-new-drug-applications-and-161"
+          notice = Path("notice.txt").read_text(errors="strict")
+          correction = Path("correction.txt").read_text(errors="strict")
           withdrawn_apps = set(re.findall(r"\b(?:NDA|ANDA)\s+(\d{6})\b", notice))
-          if len(withdrawn_apps) < 250:
-              raise SystemExit(f"FAIL: parsed only {len(withdrawn_apps)} application numbers from 2017 notice")
+          if len(withdrawn_apps) != 282:
+              raise SystemExit(f"FAIL: expected 282 application numbers from 2017 notice, parsed {len(withdrawn_apps)}")
           if "204508" not in correction or "still in effect" not in correction:
               raise SystemExit("FAIL: correction semantics for NDA 204508 not verified")
           corrected_still_effective = {"204508"}
@@ -73,6 +72,8 @@ jobs:
               print(row["application_number"], row["product_number"], row["drug_name"], row["marketing_status"])
           PY
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: federal-register-2017-intersection
           path: bulk-intersection.json
+          if-no-files-found: ignore
