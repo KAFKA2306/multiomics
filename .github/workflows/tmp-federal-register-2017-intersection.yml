@@ -37,7 +37,10 @@ jobs:
           notice = re.sub(r"\s+", " ", Path("notice.txt").read_text(errors="strict"))
           correction = re.sub(r"\s+", " ", Path("correction.txt").read_text(errors="strict"))
           withdrawn_apps = set(re.findall(r"\b(?:NDA|ANDA)\s+(\d{6})\b", notice))
-          correction_verified = "204508" in correction and "still in effect" in correction
+          correction_verified = (
+              "204508" in correction
+              and re.search(r"entry\s+for\s+NDA\s+204508\s+is\s+removed", correction, re.IGNORECASE) is not None
+          )
           corrected_still_effective = {"204508"} if correction_verified else set()
           effective_withdrawn_apps = withdrawn_apps - corrected_still_effective
 
@@ -56,7 +59,6 @@ jobs:
               "source_notice_url": notice_url,
               "source_correction_url": correction_url,
               "parsed_notice_application_count": len(withdrawn_apps),
-              "application_samples": sorted(withdrawn_apps)[:20],
               "correction_verified": correction_verified,
               "parse_complete": parse_complete,
               "corrected_still_effective_applications": sorted(corrected_still_effective),
