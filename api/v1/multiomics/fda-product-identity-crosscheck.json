@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "abf8470eda9f3da86b083180bd29db86dea854783e97426cdb2655732e524380",
-    "source_retrieved_at": "2026-09-04T13:24:02Z"
+    "source_sha256": "3d182f45f3fff89944de21019eab570dbb077a3a8137eaeb3f7501aeeecaa753",
+    "source_retrieved_at": "2026-09-09T01:15:10Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48664,
     "orange_book_dated_products": 42791,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 50879,
+    "drugsfda_nda_anda_products": 50891,
     "identity_overlap_products": 48661,
     "matched_application_type_products": 48661,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 3,
-    "drugsfda_only_products": 2218
+    "drugsfda_only_products": 2230
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -8751,6 +8751,20 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "208343",
+      "product_number": "001",
+      "drug_name": "MODAFINIL",
+      "active_ingredient": "MODAFINIL"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "208343",
+      "product_number": "002",
+      "drug_name": "MODAFINIL",
+      "active_ingredient": "MODAFINIL"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "208355",
       "product_number": "001",
       "drug_name": "DOLUTEGRAVIR SODIUM",
@@ -11320,6 +11334,27 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "213631",
+      "product_number": "001",
+      "drug_name": "SACUBITRIL AND VALSARTAN",
+      "active_ingredient": "SACUBITRIL; VALSARTAN"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "213631",
+      "product_number": "002",
+      "drug_name": "SACUBITRIL AND VALSARTAN",
+      "active_ingredient": "SACUBITRIL; VALSARTAN"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "213631",
+      "product_number": "003",
+      "drug_name": "SACUBITRIL AND VALSARTAN",
+      "active_ingredient": "SACUBITRIL; VALSARTAN"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "213650",
       "product_number": "001",
       "drug_name": "SUMATRIPTAN",
@@ -11751,6 +11786,13 @@
       "product_number": "002",
       "drug_name": "HETLIOZ LQ",
       "active_ingredient": "TASIMELTEON"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214523",
+      "product_number": "001",
+      "drug_name": "ALENDRONATE SODIUM",
+      "active_ingredient": "ALENDRONATE SODIUM"
     },
     {
       "application_type": "NDA",
@@ -14456,6 +14498,13 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "219478",
+      "product_number": "001",
+      "drug_name": "TESTOSTERONE CYPIONATE",
+      "active_ingredient": "TESTOSTERONE CYPIONATE"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "219492",
       "product_number": "001",
       "drug_name": "SELENIOUS ACID",
@@ -14792,6 +14841,13 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "219913",
+      "product_number": "001",
+      "drug_name": "RELUGOLIX",
+      "active_ingredient": "RELUGOLIX"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "219942",
       "product_number": "001",
       "drug_name": "NALOXONE HYDROCHLORIDE",
@@ -15020,6 +15076,13 @@
       "product_number": "003",
       "drug_name": "CABOZANTINIB",
       "active_ingredient": "CABOZANTINIB"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220210",
+      "product_number": "001",
+      "drug_name": "ZANVASTRO",
+      "active_ingredient": "ZILGANERSEN"
     },
     {
       "application_type": "ANDA",
@@ -15454,6 +15517,27 @@
       "product_number": "003",
       "drug_name": "ORZEYFUL",
       "active_ingredient": "OVEPOREXTON"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220865",
+      "product_number": "001",
+      "drug_name": "TAPENTADOL HYDROCHLORIDE",
+      "active_ingredient": "TAPENTADOL HYDROCHLORIDE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220865",
+      "product_number": "002",
+      "drug_name": "TAPENTADOL HYDROCHLORIDE",
+      "active_ingredient": "TAPENTADOL HYDROCHLORIDE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220865",
+      "product_number": "003",
+      "drug_name": "TAPENTADOL HYDROCHLORIDE",
+      "active_ingredient": "TAPENTADOL HYDROCHLORIDE"
     },
     {
       "application_type": "ANDA",

@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "abf8470eda9f3da86b083180bd29db86dea854783e97426cdb2655732e524380",
+  "drugsfda_source_sha256": "3d182f45f3fff89944de21019eab570dbb077a3a8137eaeb3f7501aeeecaa753",
   "orange_book_source_sha256": "caaa826d4ba72f1abb156c8a38063929d3930d3700e091130474a876513a4da3",
-  "drugsfda_only_products": 2218,
+  "drugsfda_only_products": 2230,
   "marketing_status_counts": {
     "Discontinued": 212,
     "None (Tentative Approval)": 1421,
     "Over-the-counter": 12,
-    "Prescription": 573
+    "Prescription": 585
   },
   "products": [
     {
@@ -9954,6 +9954,22 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "208343",
+      "product_number": "001",
+      "drug_name": "MODAFINIL",
+      "active_ingredient": "MODAFINIL",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "208343",
+      "product_number": "002",
+      "drug_name": "MODAFINIL",
+      "active_ingredient": "MODAFINIL",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "208355",
       "product_number": "001",
       "drug_name": "DOLUTEGRAVIR SODIUM",
@@ -12890,6 +12906,30 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "213631",
+      "product_number": "001",
+      "drug_name": "SACUBITRIL AND VALSARTAN",
+      "active_ingredient": "SACUBITRIL; VALSARTAN",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "213631",
+      "product_number": "002",
+      "drug_name": "SACUBITRIL AND VALSARTAN",
+      "active_ingredient": "SACUBITRIL; VALSARTAN",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "213631",
+      "product_number": "003",
+      "drug_name": "SACUBITRIL AND VALSARTAN",
+      "active_ingredient": "SACUBITRIL; VALSARTAN",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "213650",
       "product_number": "001",
       "drug_name": "SUMATRIPTAN",
@@ -13382,6 +13422,14 @@
       "product_number": "002",
       "drug_name": "HETLIOZ LQ",
       "active_ingredient": "TASIMELTEON",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214523",
+      "product_number": "001",
+      "drug_name": "ALENDRONATE SODIUM",
+      "active_ingredient": "ALENDRONATE SODIUM",
       "marketing_status": "Prescription"
     },
     {
@@ -16474,6 +16522,14 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "219478",
+      "product_number": "001",
+      "drug_name": "TESTOSTERONE CYPIONATE",
+      "active_ingredient": "TESTOSTERONE CYPIONATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "219492",
       "product_number": "001",
       "drug_name": "SELENIOUS ACID",
@@ -16858,6 +16914,14 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "219913",
+      "product_number": "001",
+      "drug_name": "RELUGOLIX",
+      "active_ingredient": "RELUGOLIX",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "219942",
       "product_number": "001",
       "drug_name": "NALOXONE HYDROCHLORIDE",
@@ -17119,6 +17183,14 @@
       "drug_name": "CABOZANTINIB",
       "active_ingredient": "CABOZANTINIB",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220210",
+      "product_number": "001",
+      "drug_name": "ZANVASTRO",
+      "active_ingredient": "ZILGANERSEN",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -17614,6 +17686,30 @@
       "product_number": "003",
       "drug_name": "ORZEYFUL",
       "active_ingredient": "OVEPOREXTON",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220865",
+      "product_number": "001",
+      "drug_name": "TAPENTADOL HYDROCHLORIDE",
+      "active_ingredient": "TAPENTADOL HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220865",
+      "product_number": "002",
+      "drug_name": "TAPENTADOL HYDROCHLORIDE",
+      "active_ingredient": "TAPENTADOL HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220865",
+      "product_number": "003",
+      "drug_name": "TAPENTADOL HYDROCHLORIDE",
+      "active_ingredient": "TAPENTADOL HYDROCHLORIDE",
       "marketing_status": "Prescription"
     },
     {

@@ -8,175 +8,143 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "06e4421640e35fc4f64109f762ada7b8f6ac431863c9133c76a0a495a6dc9c13",
-    "retrieved_at": "2026-09-03T08:41:39Z"
-  },
-  "current_revision": {
     "source_sha256": "abf8470eda9f3da86b083180bd29db86dea854783e97426cdb2655732e524380",
     "retrieved_at": "2026-09-04T13:24:02Z"
   },
+  "current_revision": {
+    "source_sha256": "3d182f45f3fff89944de21019eab570dbb077a3a8137eaeb3f7501aeeecaa753",
+    "retrieved_at": "2026-09-09T01:15:10Z"
+  },
   "counts": {
-    "previous_products": 50876,
-    "current_products": 50879,
-    "added_products": 7,
-    "removed_products": 4,
-    "changed_products": 2
+    "previous_products": 50879,
+    "current_products": 50891,
+    "added_products": 12,
+    "removed_products": 0,
+    "changed_products": 0
   },
   "added": [
     {
       "application_type": "ANDA",
-      "application_number": "072193",
-      "product_number": "002",
-      "drug_name": "TRAZODONE HYDROCHLORIDE",
-      "active_ingredient": "TRAZODONE HYDROCHLORIDE",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "25MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "072193",
-      "product_number": "003",
-      "drug_name": "TRAZODONE HYDROCHLORIDE",
-      "active_ingredient": "TRAZODONE HYDROCHLORIDE",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "75MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "210245",
+      "application_number": "208343",
       "product_number": "001",
-      "drug_name": "POMALIDOMIDE",
-      "active_ingredient": "POMALIDOMIDE",
-      "dosage_form": "CAPSULE;ORAL",
-      "strength": "2MG",
+      "drug_name": "MODAFINIL",
+      "active_ingredient": "MODAFINIL",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "100MG",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
-      "application_number": "210245",
+      "application_number": "208343",
       "product_number": "002",
-      "drug_name": "POMALIDOMIDE",
-      "active_ingredient": "POMALIDOMIDE",
-      "dosage_form": "CAPSULE;ORAL",
-      "strength": "3MG",
+      "drug_name": "MODAFINIL",
+      "active_ingredient": "MODAFINIL",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "200MG",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
-      "application_number": "210245",
-      "product_number": "003",
-      "drug_name": "POMALIDOMIDE",
-      "active_ingredient": "POMALIDOMIDE",
-      "dosage_form": "CAPSULE;ORAL",
-      "strength": "4MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "219429",
+      "application_number": "213631",
       "product_number": "001",
-      "drug_name": "SODIUM SULFATE, POTASSIUM SULFATE AND MAGNESIUM SULFATE",
-      "active_ingredient": "MAGNESIUM SULFATE; POTASSIUM SULFATE; SODIUM SULFATE",
+      "drug_name": "SACUBITRIL AND VALSARTAN",
+      "active_ingredient": "SACUBITRIL; VALSARTAN",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "24MG;26MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "213631",
+      "product_number": "002",
+      "drug_name": "SACUBITRIL AND VALSARTAN",
+      "active_ingredient": "SACUBITRIL; VALSARTAN",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "49MG;51MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "213631",
+      "product_number": "003",
+      "drug_name": "SACUBITRIL AND VALSARTAN",
+      "active_ingredient": "SACUBITRIL; VALSARTAN",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "97MG;103MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214523",
+      "product_number": "001",
+      "drug_name": "ALENDRONATE SODIUM",
+      "active_ingredient": "ALENDRONATE SODIUM",
       "dosage_form": "SOLUTION;ORAL",
-      "strength": "1.6GM/BOT;3.13GM/BOT;17.5GM/BOT",
+      "strength": "EQ 70MG BASE/75ML",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
-      "application_number": "220919",
+      "application_number": "219478",
       "product_number": "001",
-      "drug_name": "DIFELIKEFALIN ACETATE",
-      "active_ingredient": "DIFELIKEFALIN ACETATE",
-      "dosage_form": "SOLUTION;INTRAVENOUS",
-      "strength": "EQ 0.065MG BASE/1.3ML (EQ 0.05MG BASE/ML)",
+      "drug_name": "TESTOSTERONE CYPIONATE",
+      "active_ingredient": "TESTOSTERONE CYPIONATE",
+      "dosage_form": "INJECTABLE;INJECTION",
+      "strength": "200MG/ML",
       "marketing_status": "Prescription"
-    }
-  ],
-  "removed": [
+    },
     {
       "application_type": "ANDA",
-      "application_number": "211148",
+      "application_number": "219913",
       "product_number": "001",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
-      "dosage_form": "TABLET; ORAL",
-      "strength": "10MG",
-      "marketing_status": "None (Tentative Approval)"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "002",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
-      "dosage_form": "TABLET; ORAL",
-      "strength": "15MG",
-      "marketing_status": "None (Tentative Approval)"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "003",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
-      "dosage_form": "TABLET; ORAL",
-      "strength": "25MG",
-      "marketing_status": "None (Tentative Approval)"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "211148",
-      "product_number": "004",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
-      "active_ingredient": "EMTRICITABINE, TENOFOVIR ALAFENAMIDE",
+      "drug_name": "RELUGOLIX",
+      "active_ingredient": "RELUGOLIX",
       "dosage_form": "TABLET; ORAL",
       "strength": "120MG",
-      "marketing_status": "None (Tentative Approval)"
-    }
-  ],
-  "changed": [
-    {
-      "application_number": "211148",
-      "product_number": "005",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=211148",
-      "changes": {
-        "strength": {
-          "before": "200MG",
-          "after": "200MG/25MG"
-        }
-      },
-      "official_submission_context": {
-        "matched_submission_count": 1,
-        "submissions": [
-          {
-            "submission_type": "ORIG",
-            "submission_number": 1
-          }
-        ]
-      }
+      "marketing_status": "Prescription"
     },
     {
-      "application_number": "221059",
+      "application_type": "NDA",
+      "application_number": "220210",
       "product_number": "001",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=221059",
-      "changes": {
-        "marketing_status": {
-          "before": "Prescription",
-          "after": "None (Tentative Approval)"
-        }
-      },
-      "official_submission_context": {
-        "matched_submission_count": 1,
-        "submissions": [
-          {
-            "submission_type": "ORIG",
-            "submission_number": 1
-          }
-        ]
-      }
+      "drug_name": "ZANVASTRO",
+      "active_ingredient": "ZILGANERSEN",
+      "dosage_form": "INJECTION;SOLUTION",
+      "strength": "50MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220865",
+      "product_number": "001",
+      "drug_name": "TAPENTADOL HYDROCHLORIDE",
+      "active_ingredient": "TAPENTADOL HYDROCHLORIDE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220865",
+      "product_number": "002",
+      "drug_name": "TAPENTADOL HYDROCHLORIDE",
+      "active_ingredient": "TAPENTADOL HYDROCHLORIDE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 75MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220865",
+      "product_number": "003",
+      "drug_name": "TAPENTADOL HYDROCHLORIDE",
+      "active_ingredient": "TAPENTADOL HYDROCHLORIDE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 100MG BASE",
+      "marketing_status": "Prescription"
     }
   ],
+  "removed": [],
+  "changed": [],
   "interpretation": "A changed record reports only fields that differ between official snapshots and includes exact-application submission identities from the current official Drugs@FDA revision; neither the linked history nor the submission context establishes the regulatory cause of the snapshot change."
 }
