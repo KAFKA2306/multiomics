@@ -13,13 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Measure complete FDA withdrawal corpus intersection
+      - name: Bulk-search residual applications in Federal Register
         run: |
           python - <<'PY'
           from concurrent.futures import ThreadPoolExecutor, as_completed
           import html
           import json
-          import math
           import re
           import urllib.parse
           import urllib.request
@@ -27,37 +26,18 @@ jobs:
 
           API = "https://www.federalregister.gov/api/v1"
           UA = "KAFKA2306-multiomics-evidence-audit/1.0"
+          FIELDS = ["document_number", "title", "publication_date", "type", "html_url", "raw_text_url"]
 
           def get_json(url):
               req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-              with urllib.request.urlopen(req, timeout=60) as response:
+              with urllib.request.urlopen(req, timeout=30) as response:
                   return json.load(response)
 
           def get_text(url):
               req = urllib.request.Request(url, headers={"User-Agent": UA})
-              with urllib.request.urlopen(req, timeout=60) as response:
+              with urllib.request.urlopen(req, timeout=30) as response:
                   raw = response.read().decode("utf-8", errors="replace")
-              text = html.unescape(re.sub(r"<[^>]+>", " ", raw))
-              return re.sub(r"\s+", " ", text)
-
-          fields = ["document_number", "title", "publication_date", "type", "html_url", "raw_text_url"]
-          base_params = [
-              ("conditions[term]", "withdrawal of approval"),
-              ("conditions[agencies][]", "food-and-drug-administration"),
-              ("per_page", "1000"),
-          ] + [("fields[]", f) for f in fields]
-          first_url = API + "/documents.json?" + urllib.parse.urlencode(base_params + [("page", "1")])
-          first = get_json(first_url)
-          expected_count = int(first.get("count", 0))
-          page_count = max(1, math.ceil(expected_count / 1000))
-          docs = list(first.get("results", []))
-          for page in range(2, page_count + 1):
-              url = API + "/documents.json?" + urllib.parse.urlencode(base_params + [("page", str(page))])
-              docs.extend(get_json(url).get("results", []))
-          if len(docs) != expected_count:
-              raise SystemExit(f"FAIL: expected {expected_count} FDA search results, received {len(docs)}")
-          if any(not doc.get("raw_text_url") for doc in docs):
-              raise SystemExit("FAIL: requested raw_text_url missing from FDA corpus search result")
+              return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", raw)))
 
           analysis = json.loads(Path("api/v1/multiomics/fda-product-coverage-analysis.json").read_text())
           evidence = json.loads(Path("data/fda-orange-book-absence-primary-evidence.json").read_text())
@@ -66,46 +46,85 @@ jobs:
           residual_by_app = {}
           for row in residual:
               residual_by_app.setdefault(row["application_number"], []).append(row)
-          residual_apps = set(residual_by_app)
+          apps = sorted(residual_by_app)
 
-          eligible_docs = [doc for doc in docs if "withdrawal of approval" in (doc.get("title") or "").lower() and "correction" not in (doc.get("title") or "").lower()]
-          candidates = []
-          failed_text_fetches = []
+          def search_app(app):
+              term = str(int(app))
+              params = [
+                  ("conditions[term]", term),
+                  ("conditions[agencies][]", "food-and-drug-administration"),
+                  ("per_page", "100"),
+              ] + [("fields[]", f) for f in FIELDS]
+              url = API + "/documents.json?" + urllib.parse.urlencode(params)
+              payload = get_json(url)
+              docs = []
+              for doc in payload.get("results", []):
+                  title = (doc.get("title") or "").lower()
+                  if "withdrawal of approval" not in title or "correction" in title:
+                      continue
+                  docs.append(doc)
+              return app, docs
 
-          def inspect_doc(doc):
+          search_failures = []
+          candidate_doc_apps = {}
+          with ThreadPoolExecutor(max_workers=32) as pool:
+              futures = {pool.submit(search_app, app): app for app in apps}
+              for future in as_completed(futures):
+                  app = futures[future]
+                  try:
+                      _, docs = future.result()
+                  except Exception as exc:
+                      search_failures.append({"application_number": app, "error": repr(exc)})
+                      continue
+                  for doc in docs:
+                      candidate_doc_apps.setdefault(doc["document_number"], {"doc": doc, "queried_apps": set()})["queried_apps"].add(app)
+          if search_failures:
+              raise SystemExit(f"FAIL: official API searches failed for {len(search_failures)} residual applications")
+
+          verified_candidates = []
+          body_failures = []
+          def verify_doc(item):
+              number, payload = item
+              doc = payload["doc"]
+              raw_url = doc.get("raw_text_url")
+              if not raw_url:
+                  detail = get_json(f"{API}/documents/{number}.json")
+                  raw_url = detail.get("raw_text_url") or detail.get("body_html_url")
+              if not raw_url:
+                  return "failed", {"document_number": number, "error": "no official text URL"}
               try:
-                  text = get_text(doc["raw_text_url"])
-                  apps = {a.zfill(6) for a in re.findall(r"\b(?:NDA|ANDA)\s+(?:No\.?\s*)?(\d{4,6})\b", text, re.IGNORECASE)}
-                  hit_apps = sorted(apps & residual_apps)
-                  if not hit_apps:
-                      return ("none", None)
-                  return ("candidate", {
-                      "document_number": doc["document_number"],
-                      "title": doc.get("title"),
-                      "publication_date": doc.get("publication_date"),
-                      "html_url": doc.get("html_url"),
-                      "raw_text_url": doc.get("raw_text_url"),
-                      "hit_applications": hit_apps,
-                  })
+                  text = get_text(raw_url)
               except Exception as exc:
-                  return ("failed", {"document_number": doc.get("document_number"), "error": repr(exc)})
+                  return "failed", {"document_number": number, "error": repr(exc)}
+              body_apps = {a.zfill(6) for a in re.findall(r"\b(?:NDA|ANDA)\s+(?:No\.?\s*)?(\d{4,6})\b", text, re.IGNORECASE)}
+              hits = sorted(body_apps & set(payload["queried_apps"]))
+              if not hits:
+                  return "none", None
+              return "candidate", {
+                  "document_number": number,
+                  "title": doc.get("title"),
+                  "publication_date": doc.get("publication_date"),
+                  "html_url": doc.get("html_url"),
+                  "raw_text_url": raw_url,
+                  "hit_applications": hits,
+              }
 
-          with ThreadPoolExecutor(max_workers=24) as pool:
-              futures = [pool.submit(inspect_doc, doc) for doc in eligible_docs]
+          with ThreadPoolExecutor(max_workers=16) as pool:
+              futures = [pool.submit(verify_doc, item) for item in candidate_doc_apps.items()]
               for future in as_completed(futures):
                   kind, payload = future.result()
                   if kind == "candidate":
-                      candidates.append(payload)
+                      verified_candidates.append(payload)
                   elif kind == "failed":
-                      failed_text_fetches.append(payload)
-          candidates.sort(key=lambda d: (d["publication_date"] or "", d["document_number"]))
-          if failed_text_fetches:
-              raise SystemExit(f"FAIL: {len(failed_text_fetches)} official raw texts could not be fetched")
+                      body_failures.append(payload)
+          if body_failures:
+              raise SystemExit(f"FAIL: official text fetches failed for {len(body_failures)} candidate documents")
+          verified_candidates.sort(key=lambda d: (d["publication_date"] or "", d["document_number"]))
 
           product_sources = {}
           unresolved_corrections = []
           resolved_candidates = []
-          for candidate in candidates:
+          for candidate in verified_candidates:
               detail = get_json(f"{API}/documents/{candidate['document_number']}.json")
               corrections = detail.get("corrections") or []
               removed = set()
@@ -124,11 +143,11 @@ jobs:
                   corr_text = get_text(corr_url)
                   correction_sources.append({"document_number": corr_num, "html_url": corr_detail.get("html_url"), "publication_date": corr_detail.get("publication_date")})
                   for app in candidate["hit_applications"]:
-                      patterns = [
+                      pats = [
                           rf"entry\s+for\s+(?:NDA|ANDA)\s+0*{int(app)}\s+is\s+removed",
                           rf"approval\s+of\s+(?:NDA|ANDA)\s+0*{int(app)}\s+is\s+still\s+in\s+effect",
                       ]
-                      if any(re.search(p, corr_text, re.IGNORECASE) for p in patterns):
+                      if any(re.search(p, corr_text, re.IGNORECASE) for p in pats):
                           removed.add(app)
               if corrections and unresolved:
                   unresolved_corrections.append({**candidate, "corrections": correction_sources})
@@ -144,11 +163,11 @@ jobs:
           hits = [{**by_identity[key], "sources": sources} for key, sources in sorted(product_sources.items())]
           result = {
               "authority": "Federal Register / U.S. Food and Drug Administration",
-              "searched_document_count": len(docs),
-              "eligible_withdrawal_notice_count": len(eligible_docs),
-              "failed_text_fetch_count": len(failed_text_fetches),
               "current_residual_product_count": len(residual),
-              "candidate_document_count": len(candidates),
+              "current_residual_application_count": len(apps),
+              "official_search_request_count": len(apps),
+              "candidate_document_count_before_body_verification": len(candidate_doc_apps),
+              "verified_candidate_document_count": len(verified_candidates),
               "unresolved_correction_document_count": len(unresolved_corrections),
               "hit_product_count": len(hits),
               "hit_application_count": len({r["application_number"] for r in hits}),
