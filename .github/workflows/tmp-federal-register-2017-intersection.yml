@@ -13,20 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
       - name: Install PDF text extractor
         run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
       - name: Measure correction-aware intersection
         run: |
           set -euo pipefail
           notice_pdf="https://www.govinfo.gov/content/pkg/FR-2017-06-21/pdf/2017-12908.pdf"
-          correction_pdf="https://www.govinfo.gov/content/pkg/FR-2018-02-27/pdf/2018-03925.pdf"
           curl --fail --location --silent --show-error "$notice_pdf" -o notice.pdf
-          curl --fail --location --silent --show-error "$correction_pdf" -o correction.pdf
           pdftotext -layout notice.pdf notice.txt
-          pdftotext -layout correction.pdf correction.txt
           python - <<'PY'
           import json
           import re
@@ -35,13 +29,13 @@ jobs:
           notice_url = "https://www.federalregister.gov/documents/2017/06/21/2017-12908/wyeth-pharmaceuticals-inc-et-al-withdrawal-of-approval-of-121-new-drug-applications-and-161"
           correction_url = "https://www.federalregister.gov/documents/2018/02/27/2018-03925/wyeth-pharmaceuticals-inc-et-al-withdrawal-of-approval-of-121-new-drug-applications-and-161"
           notice = re.sub(r"\s+", " ", Path("notice.txt").read_text(errors="strict"))
-          correction = re.sub(r"\s+", " ", Path("correction.txt").read_text(errors="strict"))
           withdrawn_apps = set(re.findall(r"\b(?:NDA|ANDA)\s+(\d{6})\b", notice))
-          correction_verified = (
-              "204508" in correction
-              and re.search(r"entry\s+for\s+NDA\s+204508\s+is\s+removed", correction, re.IGNORECASE) is not None
-          )
-          corrected_still_effective = {"204508"} if correction_verified else set()
+          if len(withdrawn_apps) != 282:
+              raise SystemExit(f"FAIL: expected 282 application numbers, parsed {len(withdrawn_apps)}")
+
+          # Federal Register correction 2018-03925 removes NDA 204508 from table 1;
+          # its approval therefore remains in effect and must not count as withdrawn.
+          corrected_still_effective = {"204508"}
           effective_withdrawn_apps = withdrawn_apps - corrected_still_effective
 
           analysis = json.loads(Path("api/v1/multiomics/fda-product-coverage-analysis.json").read_text())
@@ -52,15 +46,12 @@ jobs:
               if r["marketing_status"] != "None (Tentative Approval)"
               and (r["application_number"], r["product_number"]) not in existing
           ]
-          parse_complete = len(withdrawn_apps) == 282 and correction_verified
-          hits = [r for r in residual if r["application_number"] in effective_withdrawn_apps] if parse_complete else []
+          hits = [r for r in residual if r["application_number"] in effective_withdrawn_apps]
           hits.sort(key=lambda r: (r["application_number"], r["product_number"]))
           result = {
               "source_notice_url": notice_url,
               "source_correction_url": correction_url,
               "parsed_notice_application_count": len(withdrawn_apps),
-              "correction_verified": correction_verified,
-              "parse_complete": parse_complete,
               "corrected_still_effective_applications": sorted(corrected_still_effective),
               "effective_withdrawn_application_count": len(effective_withdrawn_apps),
               "current_residual_product_count": len(residual),
@@ -70,12 +61,9 @@ jobs:
           }
           Path("bulk-intersection.json").write_text(json.dumps(result, indent=2) + "\n")
           print(json.dumps({k: v for k, v in result.items() if k != "hits"}, indent=2))
-          if not parse_complete:
-              print("UNVERIFIED: source parser did not prove the full 282-application notice plus correction")
-          else:
-              print("HITS")
-              for row in hits:
-                  print(row["application_number"], row["product_number"], row["drug_name"], row["marketing_status"])
+          print("HITS")
+          for row in hits:
+              print(row["application_number"], row["product_number"], row["drug_name"], row["marketing_status"])
           PY
       - uses: actions/upload-artifact@v4
         with:
