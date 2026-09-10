@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "3d182f45f3fff89944de21019eab570dbb077a3a8137eaeb3f7501aeeecaa753",
-    "source_retrieved_at": "2026-09-09T01:15:10Z"
+    "source_sha256": "6b5f031d45b1067fe870fa1c0e9bb8aecb47cc0fd2f137704c5f44b89b8c59d1",
+    "source_retrieved_at": "2026-09-10T01:04:56Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48664,
     "orange_book_dated_products": 42791,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 50891,
+    "drugsfda_nda_anda_products": 50892,
     "identity_overlap_products": 48661,
     "matched_application_type_products": 48661,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 3,
-    "drugsfda_only_products": 2230
+    "drugsfda_only_products": 2231
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -15237,6 +15237,13 @@
       "product_number": "003",
       "drug_name": "VILOXAZINE HYDROCHLORIDE",
       "active_ingredient": "VILOXAZINE HYDROCHLORIDE"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220359",
+      "product_number": "001",
+      "drug_name": "CAMIZESTRANT",
+      "active_ingredient": "CAMIZESTRANT"
     },
     {
       "application_type": "ANDA",

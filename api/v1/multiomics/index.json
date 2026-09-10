@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "retrieved_at": "2026-09-09T01:15:09Z",
+  "retrieved_at": "2026-09-10T01:04:56Z",
   "canonical_data_path": "data/multiomics-v1.json",
   "metrics_path": "api/v1/multiomics/metrics.json",
   "drugsfda_oncology_crosswalk_path": "api/v1/multiomics/drugsfda-oncology-crosswalk.json",
@@ -11,13 +11,14 @@
     "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-zanidatamab-hrii-and-tislelizumab-jsgr-her2-positive-gastric-gastroesophageal-junction",
     "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-camizestrant-cdk46-inhibitor-esr1-mutated-hr-positive-her2-negative",
     "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-iberdomide-daratumumab-and-hyaluronidase-fihj-and-dexamethasone",
+    "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sevabertinib-locally-advanced-or-metastatic-non-squamous-non-small",
     "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma",
     "https://www.genome.gov/sites/default/files/media/files/2023-05/Sequencing_Cost_Data_Table_May2022.xls"
   ],
   "observation_counts": {
     "sequencing_costs": 156,
     "clinical_trials": 1,
-    "approvals": 5,
+    "approvals": 6,
     "metrics": 159
   }
 }

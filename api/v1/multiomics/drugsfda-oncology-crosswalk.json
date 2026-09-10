@@ -3,8 +3,8 @@
   "authority": "U.S. Food and Drug Administration",
   "dataset": "Drugs@FDA Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
-  "source_sha256": "3d182f45f3fff89944de21019eab570dbb077a3a8137eaeb3f7501aeeecaa753",
-  "source_retrieved_at": "2026-09-09T01:15:10Z",
+  "source_sha256": "6b5f031d45b1067fe870fa1c0e9bb8aecb47cc0fd2f137704c5f44b89b8c59d1",
+  "source_retrieved_at": "2026-09-10T01:04:56Z",
   "canonical_approval_path": "data/multiomics-v1.json",
   "approvals": [
     {
@@ -163,6 +163,28 @@
       "notification_source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-camizestrant-cdk46-inhibitor-esr1-mutated-hr-positive-her2-negative",
       "notification_source_sha256": "af2c64c04a6fe266ebf140042a930f9cc377c95979abb0ecc14bcf428e1f5c25",
       "applications": []
+    },
+    {
+      "approval_id": "fda-2026-09-09-sevabertinib",
+      "approval_date": "2026-09-09",
+      "brand_name": "Hyrnuo",
+      "generic_name": "sevabertinib",
+      "notification_source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sevabertinib-locally-advanced-or-metastatic-non-squamous-non-small",
+      "notification_source_sha256": "306441b2ee27e4dea6d4f4ea86ff01d662f4ee9163c063f325a31d0bab4af002",
+      "applications": [
+        {
+          "application_number": "219972",
+          "application_type": "NDA",
+          "sponsor_name": "BAYER HEALTHCARE",
+          "product_numbers": [
+            "001"
+          ],
+          "active_ingredients": [
+            "SEVABERTINIB"
+          ],
+          "submissions_on_notification_date": []
+        }
+      ]
     }
   ]
 }

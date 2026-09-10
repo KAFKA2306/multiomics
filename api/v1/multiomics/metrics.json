@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "retrieved_at": "2026-09-09T01:15:09Z",
+  "retrieved_at": "2026-09-10T01:04:56Z",
   "observations": [
     {
       "metric": "clinical_trial_count",
@@ -14,8 +14,8 @@
     },
     {
       "metric": "fda_approval_count",
-      "as_of": "2026-09-04",
-      "value": 5,
+      "as_of": "2026-09-09",
+      "value": 6,
       "unit": "approvals",
       "provider": "U.S. Food and Drug Administration",
       "product": "canonical Multiomics tracked approvals",

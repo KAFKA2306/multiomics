@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "3d182f45f3fff89944de21019eab570dbb077a3a8137eaeb3f7501aeeecaa753",
+  "drugsfda_source_sha256": "6b5f031d45b1067fe870fa1c0e9bb8aecb47cc0fd2f137704c5f44b89b8c59d1",
   "orange_book_source_sha256": "caaa826d4ba72f1abb156c8a38063929d3930d3700e091130474a876513a4da3",
-  "drugsfda_only_products": 2230,
+  "drugsfda_only_products": 2231,
   "marketing_status_counts": {
     "Discontinued": 212,
     "None (Tentative Approval)": 1421,
     "Over-the-counter": 12,
-    "Prescription": 585
+    "Prescription": 586
   },
   "products": [
     {
@@ -17367,6 +17367,14 @@
       "drug_name": "VILOXAZINE HYDROCHLORIDE",
       "active_ingredient": "VILOXAZINE HYDROCHLORIDE",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220359",
+      "product_number": "001",
+      "drug_name": "CAMIZESTRANT",
+      "active_ingredient": "CAMIZESTRANT",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",

@@ -8,139 +8,29 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "abf8470eda9f3da86b083180bd29db86dea854783e97426cdb2655732e524380",
-    "retrieved_at": "2026-09-04T13:24:02Z"
-  },
-  "current_revision": {
     "source_sha256": "3d182f45f3fff89944de21019eab570dbb077a3a8137eaeb3f7501aeeecaa753",
     "retrieved_at": "2026-09-09T01:15:10Z"
   },
+  "current_revision": {
+    "source_sha256": "6b5f031d45b1067fe870fa1c0e9bb8aecb47cc0fd2f137704c5f44b89b8c59d1",
+    "retrieved_at": "2026-09-10T01:04:56Z"
+  },
   "counts": {
-    "previous_products": 50879,
-    "current_products": 50891,
-    "added_products": 12,
+    "previous_products": 50891,
+    "current_products": 50892,
+    "added_products": 1,
     "removed_products": 0,
     "changed_products": 0
   },
   "added": [
     {
-      "application_type": "ANDA",
-      "application_number": "208343",
-      "product_number": "001",
-      "drug_name": "MODAFINIL",
-      "active_ingredient": "MODAFINIL",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "100MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "208343",
-      "product_number": "002",
-      "drug_name": "MODAFINIL",
-      "active_ingredient": "MODAFINIL",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "200MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "213631",
-      "product_number": "001",
-      "drug_name": "SACUBITRIL AND VALSARTAN",
-      "active_ingredient": "SACUBITRIL; VALSARTAN",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "24MG;26MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "213631",
-      "product_number": "002",
-      "drug_name": "SACUBITRIL AND VALSARTAN",
-      "active_ingredient": "SACUBITRIL; VALSARTAN",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "49MG;51MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "213631",
-      "product_number": "003",
-      "drug_name": "SACUBITRIL AND VALSARTAN",
-      "active_ingredient": "SACUBITRIL; VALSARTAN",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "97MG;103MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "214523",
-      "product_number": "001",
-      "drug_name": "ALENDRONATE SODIUM",
-      "active_ingredient": "ALENDRONATE SODIUM",
-      "dosage_form": "SOLUTION;ORAL",
-      "strength": "EQ 70MG BASE/75ML",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "219478",
-      "product_number": "001",
-      "drug_name": "TESTOSTERONE CYPIONATE",
-      "active_ingredient": "TESTOSTERONE CYPIONATE",
-      "dosage_form": "INJECTABLE;INJECTION",
-      "strength": "200MG/ML",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "219913",
-      "product_number": "001",
-      "drug_name": "RELUGOLIX",
-      "active_ingredient": "RELUGOLIX",
-      "dosage_form": "TABLET; ORAL",
-      "strength": "120MG",
-      "marketing_status": "Prescription"
-    },
-    {
       "application_type": "NDA",
-      "application_number": "220210",
+      "application_number": "220359",
       "product_number": "001",
-      "drug_name": "ZANVASTRO",
-      "active_ingredient": "ZILGANERSEN",
-      "dosage_form": "INJECTION;SOLUTION",
-      "strength": "50MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220865",
-      "product_number": "001",
-      "drug_name": "TAPENTADOL HYDROCHLORIDE",
-      "active_ingredient": "TAPENTADOL HYDROCHLORIDE",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "EQ 50MG BASE",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220865",
-      "product_number": "002",
-      "drug_name": "TAPENTADOL HYDROCHLORIDE",
-      "active_ingredient": "TAPENTADOL HYDROCHLORIDE",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "EQ 75MG BASE",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220865",
-      "product_number": "003",
-      "drug_name": "TAPENTADOL HYDROCHLORIDE",
-      "active_ingredient": "TAPENTADOL HYDROCHLORIDE",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "EQ 100MG BASE",
+      "drug_name": "CAMIZESTRANT",
+      "active_ingredient": "CAMIZESTRANT",
+      "dosage_form": "TABLET; FILM COATED",
+      "strength": "75MG",
       "marketing_status": "Prescription"
     }
   ],
