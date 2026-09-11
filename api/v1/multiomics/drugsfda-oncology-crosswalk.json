@@ -3,8 +3,8 @@
   "authority": "U.S. Food and Drug Administration",
   "dataset": "Drugs@FDA Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
-  "source_sha256": "6b5f031d45b1067fe870fa1c0e9bb8aecb47cc0fd2f137704c5f44b89b8c59d1",
-  "source_retrieved_at": "2026-09-10T01:04:56Z",
+  "source_sha256": "5995d67965955054a52a617a0b144e1e853bbe06aef267cf6d0774bf0ea8a267",
+  "source_retrieved_at": "2026-09-11T01:06:45Z",
   "canonical_approval_path": "data/multiomics-v1.json",
   "approvals": [
     {
@@ -162,7 +162,38 @@
       "generic_name": "camizestrant",
       "notification_source_url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-camizestrant-cdk46-inhibitor-esr1-mutated-hr-positive-her2-negative",
       "notification_source_sha256": "af2c64c04a6fe266ebf140042a930f9cc377c95979abb0ecc14bcf428e1f5c25",
-      "applications": []
+      "applications": [
+        {
+          "application_number": "220359",
+          "application_type": "NDA",
+          "sponsor_name": "ASTRAZENECA PHARMACEUTICALS, LP",
+          "product_numbers": [
+            "001"
+          ],
+          "active_ingredients": [
+            "CAMIZESTRANT"
+          ],
+          "submissions_on_notification_date": [
+            {
+              "submission_type": "ORIG",
+              "submission_number": "1",
+              "submission_status": "AP",
+              "submission_status_date": "2026-09-04",
+              "submission_class_code_id": "7",
+              "review_priority": "STANDARD",
+              "action_types": [
+                {
+                  "action_type_id": "",
+                  "description": null
+                }
+              ],
+              "letter_urls": [
+                "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/220359Orig1s000ltr.pdf"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "approval_id": "fda-2026-09-09-sevabertinib",
