@@ -4,10 +4,10 @@
   "dataset": "Orange Book Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files",
   "source_download_url": "https://www.fda.gov/media/76860/download?attachment=",
-  "retrieved_at": "2026-09-03T11:38:48Z",
-  "source_sha256": "caaa826d4ba72f1abb156c8a38063929d3930d3700e091130474a876513a4da3",
-  "raw_path": "data/raw/fda/orange-book/caaa826d4ba72f1abb156c8a38063929d3930d3700e091130474a876513a4da3.zip",
-  "archive_size_bytes": 1095244,
+  "retrieved_at": "2026-09-12T01:07:47Z",
+  "source_sha256": "84e616aacf4f42bb85a94586c10abfc260f8fb9b60f07db3f10315ae70a3298e",
+  "raw_path": "data/raw/fda/orange-book/84e616aacf4f42bb85a94586c10abfc260f8fb9b60f07db3f10315ae70a3298e.zip",
+  "archive_size_bytes": 1097768,
   "table_count": 3,
   "tables": [
     {
@@ -19,9 +19,9 @@
         "Exclusivity_Code",
         "Exclusivity_Date"
       ],
-      "row_count": 2370,
-      "sha256": "d96f310956a7b08c63359db4d2b569036538267abd0ecbf33d26a9bd761b4867",
-      "size_bytes": 76263
+      "row_count": 2400,
+      "sha256": "f8f26ff708031abae27b53d00fd1704fc8b75dc5f7f05c6e079009394a0972f1",
+      "size_bytes": 77200
     },
     {
       "file_name": "patent.txt",
@@ -37,9 +37,9 @@
         "Delist_Flag",
         "Submission_Date"
       ],
-      "row_count": 22205,
-      "sha256": "14cbd6fb39b9658d4bd66506d8ec745956f8ac75c80c45a5ac21ea8755a51a22",
-      "size_bytes": 1227788
+      "row_count": 22303,
+      "sha256": "f909ff63621887801ba1523977204f80912740f4ab97c2ffa89fc236f898fcff",
+      "size_bytes": 1233408
     },
     {
       "file_name": "products.txt",
@@ -59,9 +59,9 @@
         "Type",
         "Applicant_Full_Name"
       ],
-      "row_count": 48664,
-      "sha256": "34def970b7b1fb7996c31d5d24cad1b7f0f4b1e300312592205af8d7ef42dd5c",
-      "size_bytes": 7490228
+      "row_count": 48761,
+      "sha256": "01881fcea81c3dee9df65b1fbe2eba55f2934b327707bccffdc2864cbe285239",
+      "size_bytes": 7504811
     }
   ]
 }

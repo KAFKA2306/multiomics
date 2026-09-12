@@ -8,70 +8,450 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "6b5f031d45b1067fe870fa1c0e9bb8aecb47cc0fd2f137704c5f44b89b8c59d1",
-    "retrieved_at": "2026-09-10T01:04:56Z"
-  },
-  "current_revision": {
     "source_sha256": "5995d67965955054a52a617a0b144e1e853bbe06aef267cf6d0774bf0ea8a267",
     "retrieved_at": "2026-09-11T01:06:45Z"
   },
+  "current_revision": {
+    "source_sha256": "bfd7c48d1d1dd643d974a935c6a395e70886f97257eb74e12dd3c6e35a3fe4db",
+    "retrieved_at": "2026-09-12T01:07:47Z"
+  },
   "counts": {
-    "previous_products": 50892,
-    "current_products": 50895,
-    "added_products": 3,
+    "previous_products": 50895,
+    "current_products": 50900,
+    "added_products": 5,
     "removed_products": 0,
-    "changed_products": 1
+    "changed_products": 4
   },
   "added": [
     {
       "application_type": "ANDA",
-      "application_number": "220136",
+      "application_number": "211182",
       "product_number": "001",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM",
-      "dosage_form": "TABLET;ORAL",
+      "drug_name": "IBRUTINIB",
+      "active_ingredient": "IBRUTINIB",
+      "dosage_form": "CAPSULE;ORAL",
+      "strength": "140MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219183",
+      "product_number": "001",
+      "drug_name": "TOPIRAMATE",
+      "active_ingredient": "TOPIRAMATE",
+      "dosage_form": "CAPSULE, EXTENDED RELEASE;ORAL",
       "strength": "25MG",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
-      "application_number": "220136",
+      "application_number": "219183",
       "product_number": "002",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM",
-      "dosage_form": "TABLET;ORAL",
+      "drug_name": "TOPIRAMATE",
+      "active_ingredient": "TOPIRAMATE",
+      "dosage_form": "CAPSULE, EXTENDED RELEASE;ORAL",
       "strength": "50MG",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
-      "application_number": "220136",
+      "application_number": "219183",
       "product_number": "003",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM",
-      "dosage_form": "TABLET;ORAL",
+      "drug_name": "TOPIRAMATE",
+      "active_ingredient": "TOPIRAMATE",
+      "dosage_form": "CAPSULE, EXTENDED RELEASE;ORAL",
       "strength": "100MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219183",
+      "product_number": "004",
+      "drug_name": "TOPIRAMATE",
+      "active_ingredient": "TOPIRAMATE",
+      "dosage_form": "CAPSULE, EXTENDED RELEASE;ORAL",
+      "strength": "200MG",
       "marketing_status": "Prescription"
     }
   ],
   "removed": [],
   "changed": [
     {
-      "application_number": "220359",
-      "product_number": "001",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=220359",
+      "application_number": "017922",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=017922",
       "changes": {
-        "drug_name": {
-          "before": "CAMIZESTRANT",
-          "after": "ETCAMAH"
+        "strength": {
+          "before": "0.01MG/SPRAY",
+          "after": "0.01MG/SPRAY **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**"
         }
       },
       "official_submission_context": {
-        "matched_submission_count": 1,
+        "matched_submission_count": 35,
         "submissions": [
           {
             "submission_type": "ORIG",
             "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 5
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 6
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 7
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 9
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 10
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 11
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 13
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 14
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 15
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 17
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 18
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 19
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 20
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 21
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 22
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 23
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 24
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 25
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 26
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 27
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 28
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 29
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 31
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 34
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 38
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 39
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 42
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 43
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 44
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 46
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "019183",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=019183",
+      "changes": {
+        "strength": {
+          "before": "1GM/10ML",
+          "after": "1GM/10ML **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 14,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 3
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 6
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 7
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 9
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 11
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 14
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 16
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 18
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 19
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 21
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "021487",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=021487",
+      "changes": {
+        "strength": {
+          "before": "5MG",
+          "after": "5MG **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 15,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 6
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 7
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 8
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 10
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 14
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 17
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 18
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 20
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 21
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 22
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 25
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "021487",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=021487",
+      "changes": {
+        "strength": {
+          "before": "10MG",
+          "after": "10MG **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 15,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 6
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 7
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 8
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 10
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 14
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 17
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 18
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 20
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 21
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 22
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 25
           }
         ]
       }
