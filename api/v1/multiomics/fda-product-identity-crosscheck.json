@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "bfd7c48d1d1dd643d974a935c6a395e70886f97257eb74e12dd3c6e35a3fe4db",
-    "source_retrieved_at": "2026-09-12T01:07:47Z"
+    "source_sha256": "837d2ce1c2eee38af5ff25a2fa80238fc961322487e9e3fb4c533f781cdb0b7e",
+    "source_retrieved_at": "2026-09-15T01:29:13Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,11 +20,11 @@
     "orange_book_products": 48761,
     "orange_book_dated_products": 42888,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 50900,
-    "identity_overlap_products": 48747,
-    "matched_application_type_products": 48747,
+    "drugsfda_nda_anda_products": 50904,
+    "identity_overlap_products": 48751,
+    "matched_application_type_products": 48751,
     "application_type_mismatch_products": 0,
-    "orange_book_only_products": 14,
+    "orange_book_only_products": 10,
     "drugsfda_only_products": 2153
   },
   "application_type_mismatches": [],
@@ -70,30 +70,6 @@
       "approval_date": "Aug 27, 2026"
     },
     {
-      "application_type": "ANDA",
-      "application_number": "220336",
-      "product_number": "001",
-      "trade_name": "ISOTRETINOIN",
-      "ingredient": "ISOTRETINOIN",
-      "approval_date": "Sep 10, 2026"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220336",
-      "product_number": "002",
-      "trade_name": "ISOTRETINOIN",
-      "ingredient": "ISOTRETINOIN",
-      "approval_date": "Sep 10, 2026"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220336",
-      "product_number": "003",
-      "trade_name": "ISOTRETINOIN",
-      "ingredient": "ISOTRETINOIN",
-      "approval_date": "Sep 10, 2026"
-    },
-    {
       "application_type": "NDA",
       "application_number": "220605",
       "product_number": "002",
@@ -124,14 +100,6 @@
       "trade_name": "MIMRYLO",
       "ingredient": "RUSFERTIDE ACETATE",
       "approval_date": "Aug 28, 2026"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220884",
-      "product_number": "001",
-      "trade_name": "SPIRONOLACTONE AND HYDROCHLOROTHIAZIDE",
-      "ingredient": "HYDROCHLOROTHIAZIDE; SPIRONOLACTONE",
-      "approval_date": "Sep 10, 2026"
     },
     {
       "application_type": "NDA",
