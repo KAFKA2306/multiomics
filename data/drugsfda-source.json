@@ -4,10 +4,10 @@
   "dataset": "Drugs@FDA Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
   "source_download_url": "https://www.fda.gov/media/89850/download?attachment=",
-  "retrieved_at": "2026-09-15T01:29:13Z",
-  "source_sha256": "837d2ce1c2eee38af5ff25a2fa80238fc961322487e9e3fb4c533f781cdb0b7e",
-  "raw_path": "data/raw/fda/drugsatfda/837d2ce1c2eee38af5ff25a2fa80238fc961322487e9e3fb4c533f781cdb0b7e.zip",
-  "archive_size_bytes": 6080620,
+  "retrieved_at": "2026-09-16T01:26:26Z",
+  "source_sha256": "0b230b90b5723ddbdb9428a3be5bd64feceb1aac1150d4f44773bde7405057fa",
+  "raw_path": "data/raw/fda/drugsatfda/0b230b90b5723ddbdb9428a3be5bd64feceb1aac1150d4f44773bde7405057fa.zip",
+  "archive_size_bytes": 6080512,
   "table_count": 12,
   "tables": [
     {
@@ -47,8 +47,8 @@
         "SponsorName"
       ],
       "row_count": 29330,
-      "sha256": "9fe5a282510120e782e21a1beb07163d4f0ec7e2fde44976cf646f703020a39d",
-      "size_bytes": 781032
+      "sha256": "378cd9d25f9c78ec070be888f841f09b63d6e44c3c398bc20848552810e95ed6",
+      "size_bytes": 780877
     },
     {
       "file_name": "ApplicationsDocsType_Lookup.txt",
@@ -70,7 +70,7 @@
         "ActionTypes_LookupID"
       ],
       "row_count": 209343,
-      "sha256": "4406e23489fbcb86cd2a4dfc080f08b66f8ebaed675a794d4b57ddd6f4f5b9c9",
+      "sha256": "0141e9d255eea41f1d7c870aefa47156b279a213036d5bbddb7b5e9c99059c7b",
       "size_bytes": 6919757
     },
     {
@@ -80,9 +80,9 @@
         "ApplNo",
         "ProductNo"
       ],
-      "row_count": 52363,
-      "sha256": "335cdad094d3360bee5eff4791b4b484e2e946da736345c6062d14f9d99701d5",
-      "size_bytes": 733118
+      "row_count": 52371,
+      "sha256": "4dece7f331c03bbc49c875727dd03d78e29dfa1d12baf1bc251aae14f959048a",
+      "size_bytes": 733230
     },
     {
       "file_name": "MarketingStatus_Lookup.txt",
@@ -106,9 +106,9 @@
         "ActiveIngredient",
         "ReferenceStandard"
       ],
-      "row_count": 51755,
-      "sha256": "fdef51214726839aa99be3128e3c3aa4abc566d3f532f44c81a57bd193ee614b",
-      "size_bytes": 4644246
+      "row_count": 51763,
+      "sha256": "80b72f94be0a15c1f50e447597d6dfada0267d1225ab5ea7d59468a656a17ffa",
+      "size_bytes": 4645002
     },
     {
       "file_name": "SubmissionClass_Lookup.txt",
@@ -131,7 +131,7 @@
         "SubmissionPropertyTypeID"
       ],
       "row_count": 318990,
-      "sha256": "b78746644b72206e9447ec7ece9f4e4da5b9e7faf4c024c58977ca5ed8ebb21c",
+      "sha256": "a9f34855a07d7a11d58b4ee8ba9df2b4e1fea9988759caaadcf557e851925d25",
       "size_bytes": 9266849
     },
     {
@@ -147,7 +147,7 @@
         "ReviewPriority"
       ],
       "row_count": 193713,
-      "sha256": "8021ff3e993f8bb9a316770cdfecbdb9f4e6fc71f198ee9d1e3757c63cccc2ae",
+      "sha256": "18e21b31304394850b3b599123f77b7661b6bc9a4e989b8c64923a9632dae4ff",
       "size_bytes": 9345422
     },
     {

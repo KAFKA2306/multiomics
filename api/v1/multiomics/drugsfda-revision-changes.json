@@ -8,72 +8,388 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "bfd7c48d1d1dd643d974a935c6a395e70886f97257eb74e12dd3c6e35a3fe4db",
-    "retrieved_at": "2026-09-12T01:07:47Z"
-  },
-  "current_revision": {
     "source_sha256": "837d2ce1c2eee38af5ff25a2fa80238fc961322487e9e3fb4c533f781cdb0b7e",
     "retrieved_at": "2026-09-15T01:29:13Z"
   },
+  "current_revision": {
+    "source_sha256": "0b230b90b5723ddbdb9428a3be5bd64feceb1aac1150d4f44773bde7405057fa",
+    "retrieved_at": "2026-09-16T01:26:26Z"
+  },
   "counts": {
-    "previous_products": 50900,
-    "current_products": 50904,
-    "added_products": 4,
+    "previous_products": 50904,
+    "current_products": 50912,
+    "added_products": 8,
     "removed_products": 0,
-    "changed_products": 1
+    "changed_products": 11
   },
   "added": [
     {
       "application_type": "ANDA",
-      "application_number": "220336",
-      "product_number": "001",
-      "drug_name": "ISOTRETINOIN",
-      "active_ingredient": "ISOTRETINOIN",
-      "dosage_form": "CAPSULE;ORAL",
-      "strength": "20MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220336",
+      "application_number": "085418",
       "product_number": "002",
-      "drug_name": "ISOTRETINOIN",
-      "active_ingredient": "ISOTRETINOIN",
-      "dosage_form": "CAPSULE;ORAL",
-      "strength": "30MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220336",
-      "product_number": "003",
-      "drug_name": "ISOTRETINOIN",
-      "active_ingredient": "ISOTRETINOIN",
-      "dosage_form": "CAPSULE;ORAL",
-      "strength": "40MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220884",
-      "product_number": "001",
-      "drug_name": "SPIRONOLACTONE AND HYDROCHLOROTHIAZIDE",
-      "active_ingredient": "HYDROCHLOROTHIAZIDE; SPIRONOLACTONE",
+      "drug_name": "SODIUM BUTABARBITAL",
+      "active_ingredient": "BUTABARBITAL SODIUM",
       "dosage_form": "TABLET;ORAL",
-      "strength": "25MG;25MG",
+      "strength": "30MG",
+      "marketing_status": "Discontinued"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "213953",
+      "product_number": "004",
+      "drug_name": "KYZATREX",
+      "active_ingredient": "TESTOSTERONE UNDECANOATE",
+      "dosage_form": "CAPSULE;ORAL",
+      "strength": "50MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220106",
+      "product_number": "001",
+      "drug_name": "LISRAYA",
+      "active_ingredient": "BREPOCITINIB TOSYLATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 30MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220605",
+      "product_number": "002",
+      "drug_name": "MIMRYLO",
+      "active_ingredient": "RUSFERTIDE ACETATE",
+      "dosage_form": "POWDER;SUBCUTANEOUS",
+      "strength": "EQ 19MG BASE/VIAL",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220605",
+      "product_number": "003",
+      "drug_name": "MIMRYLO",
+      "active_ingredient": "RUSFERTIDE ACETATE",
+      "dosage_form": "POWDER;SUBCUTANEOUS",
+      "strength": "EQ 28MG BASE/VIAL",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220605",
+      "product_number": "004",
+      "drug_name": "MIMRYLO",
+      "active_ingredient": "RUSFERTIDE ACETATE",
+      "dosage_form": "POWDER;SUBCUTANEOUS",
+      "strength": "EQ 41MG BASE/VIAL",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220605",
+      "product_number": "005",
+      "drug_name": "MIMRYLO",
+      "active_ingredient": "RUSFERTIDE ACETATE",
+      "dosage_form": "POWDER;SUBCUTANEOUS",
+      "strength": "EQ 54MG BASE/VIAL",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221443",
+      "product_number": "001",
+      "drug_name": "BIXLENVO SUNLENCA STARTER PACK (COPACKAGED)",
+      "active_ingredient": "BICTEGRAVIR SODIUM, LENACAPAVIR SODIUM; LENACAPAVIR SODIUM",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 75MG BASE, EQ 50MG BASE; EQ 300MG BASE",
       "marketing_status": "Prescription"
     }
   ],
   "removed": [],
   "changed": [
     {
-      "application_number": "207970",
+      "application_number": "021304",
       "product_number": "001",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=207970",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=021304",
       "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 12,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 7
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 8
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 10
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 11
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 14
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 15
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 16
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 17
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "203540",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=203540",
+      "changes": {
+        "marketing_status": {
+          "before": "Discontinued",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "212027",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212027",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "212156",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212156",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "212156",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212156",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "213225",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=213225",
+      "changes": {
+        "dosage_form": {
+          "before": "INJECTABLE;INJECTION",
+          "after": "SOLUTION;SUBCUTANEOUS"
+        },
         "strength": {
-          "before": "60MG/6ML (10MG/ML)",
-          "after": "60MG/6ML (10MG/ML) **Federal Register determination that product was not discontinued or withdrawn for safety or effectiveness reasons**"
+          "before": "10MG/1ML,2.8ML",
+          "after": "28MG/2.8ML (10MG/ML)"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "215192",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215192",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 2,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 3
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "215559",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215559",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 2,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "220482",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=220482",
+      "changes": {
+        "drug_name": {
+          "before": "CIPEPOFOL",
+          "after": "CYPSEDO"
+        },
+        "dosage_form": {
+          "before": "INJECTION",
+          "after": "EMULSION;INTRAVENOUS"
+        },
+        "strength": {
+          "before": "50MG/20ML",
+          "after": "50MG/20ML (2.5MG/ML)"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "220605",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=220605",
+      "changes": {
+        "dosage_form": {
+          "before": "INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION",
+          "after": "POWDER;SUBCUTANEOUS"
+        },
+        "strength": {
+          "before": "",
+          "after": "EQ 9.5MG BASE/VIAL"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "221104",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=221104",
+      "changes": {
+        "active_ingredient": {
+          "before": "BICTEGRAVIR AND LENACAPAVIR",
+          "after": "BICTEGRAVIR SODIUM; LENACAPAVIR SODIUM"
+        },
+        "dosage_form": {
+          "before": "TABLET; ORAL",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "75MG;50MG",
+          "after": "EQ 75MG BASE;EQ 50MG BASE"
         }
       },
       "official_submission_context": {

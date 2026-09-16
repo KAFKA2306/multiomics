@@ -2,7 +2,7 @@
   "schema_version": 2,
   "authority": "U.S. Food and Drug Administration",
   "scope": "Evidence for why Drugs@FDA NDA and ANDA products are absent from the current Orange Book product file",
-  "drugsfda_source_sha256": "837d2ce1c2eee38af5ff25a2fa80238fc961322487e9e3fb4c533f781cdb0b7e",
+  "drugsfda_source_sha256": "0b230b90b5723ddbdb9428a3be5bd64feceb1aac1150d4f44773bde7405057fa",
   "orange_book_source_sha256": "84e616aacf4f42bb85a94586c10abfc260f8fb9b60f07db3f10315ae70a3298e",
   "drugsfda_only_products": 2153,
   "fda_documented_absence": {

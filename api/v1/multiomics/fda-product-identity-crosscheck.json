@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "837d2ce1c2eee38af5ff25a2fa80238fc961322487e9e3fb4c533f781cdb0b7e",
-    "source_retrieved_at": "2026-09-15T01:29:13Z"
+    "source_sha256": "0b230b90b5723ddbdb9428a3be5bd64feceb1aac1150d4f44773bde7405057fa",
+    "source_retrieved_at": "2026-09-16T01:26:26Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,25 +20,17 @@
     "orange_book_products": 48761,
     "orange_book_dated_products": 42888,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 50904,
-    "identity_overlap_products": 48751,
-    "matched_application_type_products": 48751,
+    "drugsfda_nda_anda_products": 50912,
+    "identity_overlap_products": 48759,
+    "matched_application_type_products": 48759,
     "application_type_mismatch_products": 0,
-    "orange_book_only_products": 10,
+    "orange_book_only_products": 2,
     "drugsfda_only_products": 2153
   },
   "application_type_mismatches": [],
   "orange_book_only": [
     {
       "application_type": "ANDA",
-      "application_number": "085418",
-      "product_number": "002",
-      "trade_name": "SODIUM BUTABARBITAL",
-      "ingredient": "BUTABARBITAL SODIUM",
-      "approval_date": "Approved Prior to Jan 1, 1982"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "205581",
       "product_number": "001",
       "trade_name": "EPTIFIBATIDE",
@@ -52,62 +44,6 @@
       "trade_name": "EPTIFIBATIDE",
       "ingredient": "EPTIFIBATIDE",
       "approval_date": "Dec 8, 2016"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "213953",
-      "product_number": "004",
-      "trade_name": "KYZATREX",
-      "ingredient": "TESTOSTERONE UNDECANOATE",
-      "approval_date": "Aug 25, 2026"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "220106",
-      "product_number": "001",
-      "trade_name": "LISRAYA",
-      "ingredient": "BREPOCITINIB TOSYLATE",
-      "approval_date": "Aug 27, 2026"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "220605",
-      "product_number": "002",
-      "trade_name": "MIMRYLO",
-      "ingredient": "RUSFERTIDE ACETATE",
-      "approval_date": "Aug 28, 2026"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "220605",
-      "product_number": "003",
-      "trade_name": "MIMRYLO",
-      "ingredient": "RUSFERTIDE ACETATE",
-      "approval_date": "Aug 28, 2026"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "220605",
-      "product_number": "004",
-      "trade_name": "MIMRYLO",
-      "ingredient": "RUSFERTIDE ACETATE",
-      "approval_date": "Aug 28, 2026"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "220605",
-      "product_number": "005",
-      "trade_name": "MIMRYLO",
-      "ingredient": "RUSFERTIDE ACETATE",
-      "approval_date": "Aug 28, 2026"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "221443",
-      "product_number": "001",
-      "trade_name": "BIXLENVO SUNLENCA STARTER PACK (COPACKAGED)",
-      "ingredient": "BICTEGRAVIR SODIUM, LENACAPAVIR SODIUM; LENACAPAVIR SODIUM",
-      "approval_date": "Aug 27, 2026"
     }
   ],
   "drugsfda_only": [

@@ -3,8 +3,8 @@
   "authority": "U.S. Food and Drug Administration",
   "dataset": "Drugs@FDA Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
-  "source_sha256": "837d2ce1c2eee38af5ff25a2fa80238fc961322487e9e3fb4c533f781cdb0b7e",
-  "source_retrieved_at": "2026-09-15T01:29:13Z",
+  "source_sha256": "0b230b90b5723ddbdb9428a3be5bd64feceb1aac1150d4f44773bde7405057fa",
+  "source_retrieved_at": "2026-09-16T01:26:26Z",
   "canonical_approval_path": "data/multiomics-v1.json",
   "approvals": [
     {
@@ -125,7 +125,7 @@
         {
           "application_number": "220910",
           "application_type": "NDA",
-          "sponsor_name": "REVOLUTION MEDICINES INC",
+          "sponsor_name": "REVOLUTION MEDICINES",
           "product_numbers": [
             "001",
             "002"
