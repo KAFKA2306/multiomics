@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "0b230b90b5723ddbdb9428a3be5bd64feceb1aac1150d4f44773bde7405057fa",
-    "source_retrieved_at": "2026-09-16T01:26:26Z"
+    "source_sha256": "e145bc0f21e0da7a6fa54dadac35ab6b66396b8e8ccde41171c761acf89af9ba",
+    "source_retrieved_at": "2026-09-17T01:26:31Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48761,
     "orange_book_dated_products": 42888,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 50912,
+    "drugsfda_nda_anda_products": 50927,
     "identity_overlap_products": 48759,
     "matched_application_type_products": 48759,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 2,
-    "drugsfda_only_products": 2153
+    "drugsfda_only_products": 2168
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -12711,6 +12711,13 @@
       "active_ingredient": "ABACAVIR; DOLUTEGRAVIR; LAMIVUDINE"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "217072",
+      "product_number": "001",
+      "drug_name": "METOCLOPRAMIDE HYDROCHLORIDE",
+      "active_ingredient": "METOCLOPRAMIDE HYDROCHLORIDE"
+    },
+    {
       "application_type": "NDA",
       "application_number": "217082",
       "product_number": "001",
@@ -13339,6 +13346,13 @@
       "product_number": "001",
       "drug_name": "ERDAFITINIB",
       "active_ingredient": "ERDAFITINIB"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "218592",
+      "product_number": "001",
+      "drug_name": "PIXCLARA",
+      "active_ingredient": "FLORETYROSINE F 18"
     },
     {
       "application_type": "NDA",
@@ -14175,10 +14189,59 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "219561",
+      "product_number": "001",
+      "drug_name": "HYDROXYZINE HYDROCHLORIDE",
+      "active_ingredient": "HYDROXYZINE HYDROCHLORIDE"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "219570",
       "product_number": "002",
       "drug_name": "RIFAXIMIN",
       "active_ingredient": "RIFAXIMIN"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "001",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "002",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "003",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "004",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "005",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "006",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB"
     },
     {
       "application_type": "ANDA",
@@ -14426,6 +14489,13 @@
       "active_ingredient": "DOLUTEGRAVIR; LAMIVUDINE; TENOFOVIR DISOPROXIL FUMARATE"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "219832",
+      "product_number": "001",
+      "drug_name": "EPINEPHRINE",
+      "active_ingredient": "EPINEPHRINE"
+    },
+    {
       "application_type": "NDA",
       "application_number": "219843",
       "product_number": "002",
@@ -14668,7 +14738,7 @@
       "application_number": "220210",
       "product_number": "001",
       "drug_name": "ZANVASTRO",
-      "active_ingredient": "ZILGANERSEN"
+      "active_ingredient": "ZILGANERSEN SODIUM"
     },
     {
       "application_type": "ANDA",
@@ -14917,6 +14987,20 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "220493",
+      "product_number": "004",
+      "drug_name": "BUPIVACAINE HYDROCHLORIDE",
+      "active_ingredient": "BUPIVACAINE HYDROCHLORIDE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220493",
+      "product_number": "005",
+      "drug_name": "BUPIVACAINE HYDROCHLORIDE",
+      "active_ingredient": "BUPIVACAINE HYDROCHLORIDE"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "220511",
       "product_number": "001",
       "drug_name": "EMPAGLIFLOZIN AND METFORMIN HYDROCHLORIDE",
@@ -14942,6 +15026,27 @@
       "product_number": "004",
       "drug_name": "EMPAGLIFLOZIN AND METFORMIN HYDROCHLORIDE",
       "active_ingredient": "EMPAGLIFLOZIN, METFORMIN HYDROCHLORIDE"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220613",
+      "product_number": "001",
+      "drug_name": "OMCAZIO",
+      "active_ingredient": "CABOZANTINIB LAURYLSULFATE"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220613",
+      "product_number": "002",
+      "drug_name": "OMCAZIO",
+      "active_ingredient": "CABOZANTINIB LAURYLSULFATE"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220613",
+      "product_number": "003",
+      "drug_name": "OMCAZIO",
+      "active_ingredient": "CABOZANTINIB LAURYLSULFATE"
     },
     {
       "application_type": "NDA",

@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "0b230b90b5723ddbdb9428a3be5bd64feceb1aac1150d4f44773bde7405057fa",
+  "drugsfda_source_sha256": "e145bc0f21e0da7a6fa54dadac35ab6b66396b8e8ccde41171c761acf89af9ba",
   "orange_book_source_sha256": "84e616aacf4f42bb85a94586c10abfc260f8fb9b60f07db3f10315ae70a3298e",
-  "drugsfda_only_products": 2153,
+  "drugsfda_only_products": 2168,
   "marketing_status_counts": {
     "Discontinued": 213,
     "None (Tentative Approval)": 1421,
     "Over-the-counter": 12,
-    "Prescription": 507
+    "Prescription": 522
   },
   "products": [
     {
@@ -14489,6 +14489,14 @@
       "marketing_status": "None (Tentative Approval)"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "217072",
+      "product_number": "001",
+      "drug_name": "METOCLOPRAMIDE HYDROCHLORIDE",
+      "active_ingredient": "METOCLOPRAMIDE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "217082",
       "product_number": "001",
@@ -15207,6 +15215,14 @@
       "drug_name": "ERDAFITINIB",
       "active_ingredient": "ERDAFITINIB",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "218592",
+      "product_number": "001",
+      "drug_name": "PIXCLARA",
+      "active_ingredient": "FLORETYROSINE F 18",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",
@@ -16162,11 +16178,67 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "219561",
+      "product_number": "001",
+      "drug_name": "HYDROXYZINE HYDROCHLORIDE",
+      "active_ingredient": "HYDROXYZINE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "219570",
       "product_number": "002",
       "drug_name": "RIFAXIMIN",
       "active_ingredient": "RIFAXIMIN",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "001",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "002",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "003",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "004",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "005",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219579",
+      "product_number": "006",
+      "drug_name": "DASATINIB",
+      "active_ingredient": "DASATINIB",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -16449,6 +16521,14 @@
       "marketing_status": "None (Tentative Approval)"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "219832",
+      "product_number": "001",
+      "drug_name": "EPINEPHRINE",
+      "active_ingredient": "EPINEPHRINE",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "219843",
       "product_number": "002",
@@ -16725,7 +16805,7 @@
       "application_number": "220210",
       "product_number": "001",
       "drug_name": "ZANVASTRO",
-      "active_ingredient": "ZILGANERSEN",
+      "active_ingredient": "ZILGANERSEN SODIUM",
       "marketing_status": "Prescription"
     },
     {
@@ -17010,6 +17090,22 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "220493",
+      "product_number": "004",
+      "drug_name": "BUPIVACAINE HYDROCHLORIDE",
+      "active_ingredient": "BUPIVACAINE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220493",
+      "product_number": "005",
+      "drug_name": "BUPIVACAINE HYDROCHLORIDE",
+      "active_ingredient": "BUPIVACAINE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "220511",
       "product_number": "001",
       "drug_name": "EMPAGLIFLOZIN AND METFORMIN HYDROCHLORIDE",
@@ -17039,6 +17135,30 @@
       "drug_name": "EMPAGLIFLOZIN AND METFORMIN HYDROCHLORIDE",
       "active_ingredient": "EMPAGLIFLOZIN, METFORMIN HYDROCHLORIDE",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220613",
+      "product_number": "001",
+      "drug_name": "OMCAZIO",
+      "active_ingredient": "CABOZANTINIB LAURYLSULFATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220613",
+      "product_number": "002",
+      "drug_name": "OMCAZIO",
+      "active_ingredient": "CABOZANTINIB LAURYLSULFATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220613",
+      "product_number": "003",
+      "drug_name": "OMCAZIO",
+      "active_ingredient": "CABOZANTINIB LAURYLSULFATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",
