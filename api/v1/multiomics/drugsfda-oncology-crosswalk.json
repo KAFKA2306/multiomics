@@ -3,8 +3,8 @@
   "authority": "U.S. Food and Drug Administration",
   "dataset": "Drugs@FDA Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
-  "source_sha256": "e145bc0f21e0da7a6fa54dadac35ab6b66396b8e8ccde41171c761acf89af9ba",
-  "source_retrieved_at": "2026-09-17T01:26:31Z",
+  "source_sha256": "8608829d050b6a207af8c5d9d687df95edae4f4859bd8035f1e7f744ee3d3151",
+  "source_retrieved_at": "2026-11-07T02:49:23Z",
   "canonical_approval_path": "data/multiomics-v1.json",
   "approvals": [
     {
@@ -166,7 +166,7 @@
         {
           "application_number": "220359",
           "application_type": "NDA",
-          "sponsor_name": "ASTRAZENECA PHARMACEUTICALS, LP",
+          "sponsor_name": "ASTRAZENECA",
           "product_numbers": [
             "001"
           ],

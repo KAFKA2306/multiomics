@@ -2,11 +2,11 @@
   "schema_version": 2,
   "authority": "U.S. Food and Drug Administration",
   "scope": "Evidence for why Drugs@FDA NDA and ANDA products are absent from the current Orange Book product file",
-  "drugsfda_source_sha256": "e145bc0f21e0da7a6fa54dadac35ab6b66396b8e8ccde41171c761acf89af9ba",
-  "orange_book_source_sha256": "84e616aacf4f42bb85a94586c10abfc260f8fb9b60f07db3f10315ae70a3298e",
-  "drugsfda_only_products": 2168,
+  "drugsfda_source_sha256": "8608829d050b6a207af8c5d9d687df95edae4f4859bd8035f1e7f744ee3d3151",
+  "orange_book_source_sha256": "c2088c7a36db1930a152b63db23e7a995c471bf4b18c960b1d28190580984e4d",
+  "drugsfda_only_products": 2263,
   "fda_documented_absence": {
-    "tentative_approval_products": 1421,
+    "tentative_approval_products": 1414,
     "source_url": "https://www.fda.gov/media/160167/download",
     "basis": "FDA states that drug products with tentative approval are not listed in the Orange Book.",
     "product_specific_primary_evidence": [
@@ -255,11 +255,11 @@
       }
     ]
   },
-  "remaining_unverified_products": 725,
+  "remaining_unverified_products": 827,
   "remaining_marketing_status_counts": {
-    "Discontinued": 197,
-    "Over-the-counter": 8,
-    "Prescription": 520
+    "Discontinued": 206,
+    "Over-the-counter": 11,
+    "Prescription": 610
   },
   "interpretation": {
     "source_url": "https://www.fda.gov/drugs/development-approval-process-drugs/orange-book-preface",
