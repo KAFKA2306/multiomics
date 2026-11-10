@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "8608829d050b6a207af8c5d9d687df95edae4f4859bd8035f1e7f744ee3d3151",
+  "drugsfda_source_sha256": "a96c64de147f582ac24f842c15181dc0adc8fe63ae29992047ba6b483eeca945",
   "orange_book_source_sha256": "c2088c7a36db1930a152b63db23e7a995c471bf4b18c960b1d28190580984e4d",
-  "drugsfda_only_products": 2263,
+  "drugsfda_only_products": 2264,
   "marketing_status_counts": {
     "Discontinued": 222,
     "None (Tentative Approval)": 1414,
     "Over-the-counter": 15,
-    "Prescription": 612
+    "Prescription": 613
   },
   "products": [
     {
@@ -14009,6 +14009,14 @@
       "marketing_status": "None (Tentative Approval)"
     },
     {
+      "application_type": "NDA",
+      "application_number": "215783",
+      "product_number": "001",
+      "drug_name": "PHENYLEPHRINE HYDROCHLORIDE IN SODIUM CHLORIDE",
+      "active_ingredient": "PHENYLEPHRINE HYDROCHLORIDE IN SODIUM CHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "ANDA",
       "application_number": "215791",
       "product_number": "002",
@@ -17892,8 +17900,8 @@
       "application_type": "NDA",
       "application_number": "220748",
       "product_number": "001",
-      "drug_name": "Axycis",
-      "active_ingredient": "",
+      "drug_name": "AXYCIS",
+      "active_ingredient": "CISPLATIN",
       "marketing_status": "Prescription"
     },
     {

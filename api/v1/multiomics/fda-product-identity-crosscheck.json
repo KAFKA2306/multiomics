@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "8608829d050b6a207af8c5d9d687df95edae4f4859bd8035f1e7f744ee3d3151",
-    "source_retrieved_at": "2026-11-07T02:49:23Z"
+    "source_sha256": "a96c64de147f582ac24f842c15181dc0adc8fe63ae29992047ba6b483eeca945",
+    "source_retrieved_at": "2026-11-10T04:37:57Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48865,
     "orange_book_dated_products": 42992,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 51126,
+    "drugsfda_nda_anda_products": 51127,
     "identity_overlap_products": 48863,
     "matched_application_type_products": 48863,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 2,
-    "drugsfda_only_products": 2263
+    "drugsfda_only_products": 2264
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -12291,6 +12291,13 @@
       "active_ingredient": "PALIPERIDONE PALMITATE"
     },
     {
+      "application_type": "NDA",
+      "application_number": "215783",
+      "product_number": "001",
+      "drug_name": "PHENYLEPHRINE HYDROCHLORIDE IN SODIUM CHLORIDE",
+      "active_ingredient": "PHENYLEPHRINE HYDROCHLORIDE IN SODIUM CHLORIDE"
+    },
+    {
       "application_type": "ANDA",
       "application_number": "215791",
       "product_number": "002",
@@ -15689,8 +15696,8 @@
       "application_type": "NDA",
       "application_number": "220748",
       "product_number": "001",
-      "drug_name": "Axycis",
-      "active_ingredient": ""
+      "drug_name": "AXYCIS",
+      "active_ingredient": "CISPLATIN"
     },
     {
       "application_type": "NDA",
