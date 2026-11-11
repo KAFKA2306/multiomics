@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "a96c64de147f582ac24f842c15181dc0adc8fe63ae29992047ba6b483eeca945",
+  "drugsfda_source_sha256": "306d3de76a95a43e31d50b32efc0758a7affd9bb5b7e6cd3f2f31234fa221e6d",
   "orange_book_source_sha256": "c2088c7a36db1930a152b63db23e7a995c471bf4b18c960b1d28190580984e4d",
-  "drugsfda_only_products": 2264,
+  "drugsfda_only_products": 2274,
   "marketing_status_counts": {
-    "Discontinued": 222,
+    "Discontinued": 223,
     "None (Tentative Approval)": 1414,
     "Over-the-counter": 15,
-    "Prescription": 613
+    "Prescription": 622
   },
   "products": [
     {
@@ -94,7 +94,7 @@
       "product_number": "001",
       "drug_name": "NORMINEST FE",
       "active_ingredient": "ETHINYL ESTRADIOL;NORETHINDRONE; FERROUS FUMARATE",
-      "marketing_status": "Prescription"
+      "marketing_status": "Discontinued"
     },
     {
       "application_type": "NDA",
@@ -13114,6 +13114,14 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "214059",
+      "product_number": "001",
+      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE FUMARATE",
+      "active_ingredient": "EMTRICITABINE; TENOFOVIR ALAFENAMIDE FUMARATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "214072",
       "product_number": "001",
       "drug_name": "TENOFOVIR ALAFENAMIDE",
@@ -15633,6 +15641,14 @@
       "marketing_status": "None (Tentative Approval)"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "218617",
+      "product_number": "001",
+      "drug_name": "TAFAMIDIS MEGLUMINE",
+      "active_ingredient": "TAFAMIDIS MEGLUMINE",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "218623",
       "product_number": "001",
@@ -16801,6 +16817,14 @@
       "marketing_status": "None (Tentative Approval)"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "219639",
+      "product_number": "001",
+      "drug_name": "AMITRIPTYLINE HYDROCHLORIDE",
+      "active_ingredient": "AMITRIPTYLINE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "219660",
       "product_number": "002",
@@ -17785,6 +17809,30 @@
       "marketing_status": "Prescription"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "220619",
+      "product_number": "001",
+      "drug_name": "VENLAFAXINE HYDROCHLORIDE",
+      "active_ingredient": "VENLAFAXINE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220619",
+      "product_number": "002",
+      "drug_name": "VENLAFAXINE HYDROCHLORIDE",
+      "active_ingredient": "VENLAFAXINE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220619",
+      "product_number": "003",
+      "drug_name": "VENLAFAXINE HYDROCHLORIDE",
+      "active_ingredient": "VENLAFAXINE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "220634",
       "product_number": "001",
@@ -17967,6 +18015,38 @@
       "drug_name": "TOFACITINIB CITRATE",
       "active_ingredient": "TOFACITINIB CITRATE",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "221019",
+      "product_number": "001",
+      "drug_name": "ELTROMBOPAG OLAMINE",
+      "active_ingredient": "ELTROMBOPAG OLAMINE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "221019",
+      "product_number": "002",
+      "drug_name": "ELTROMBOPAG OLAMINE",
+      "active_ingredient": "ELTROMBOPAG OLAMINE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "221019",
+      "product_number": "003",
+      "drug_name": "ELTROMBOPAG OLAMINE",
+      "active_ingredient": "ELTROMBOPAG OLAMINE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "221019",
+      "product_number": "004",
+      "drug_name": "ELTROMBOPAG OLAMINE",
+      "active_ingredient": "ELTROMBOPAG OLAMINE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",

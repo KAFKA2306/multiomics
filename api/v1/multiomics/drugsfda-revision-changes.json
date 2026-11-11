@@ -8,106 +8,268 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "8608829d050b6a207af8c5d9d687df95edae4f4859bd8035f1e7f744ee3d3151",
-    "retrieved_at": "2026-11-07T02:49:23Z"
-  },
-  "current_revision": {
     "source_sha256": "a96c64de147f582ac24f842c15181dc0adc8fe63ae29992047ba6b483eeca945",
     "retrieved_at": "2026-11-10T04:37:57Z"
   },
+  "current_revision": {
+    "source_sha256": "306d3de76a95a43e31d50b32efc0758a7affd9bb5b7e6cd3f2f31234fa221e6d",
+    "retrieved_at": "2026-11-11T02:47:34Z"
+  },
   "counts": {
-    "previous_products": 51126,
-    "current_products": 51127,
-    "added_products": 1,
+    "previous_products": 51127,
+    "current_products": 51137,
+    "added_products": 10,
     "removed_products": 0,
-    "changed_products": 3
+    "changed_products": 1
   },
   "added": [
     {
-      "application_type": "NDA",
-      "application_number": "215783",
+      "application_type": "ANDA",
+      "application_number": "214059",
       "product_number": "001",
-      "drug_name": "PHENYLEPHRINE HYDROCHLORIDE IN SODIUM CHLORIDE",
-      "active_ingredient": "PHENYLEPHRINE HYDROCHLORIDE IN SODIUM CHLORIDE",
-      "dosage_form": "SOLUTION; INJECTION",
-      "strength": "100MG/250ML 400MCG/ML",
+      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE FUMARATE",
+      "active_ingredient": "EMTRICITABINE; TENOFOVIR ALAFENAMIDE FUMARATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "200MG;EQ 25MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218617",
+      "product_number": "001",
+      "drug_name": "TAFAMIDIS MEGLUMINE",
+      "active_ingredient": "TAFAMIDIS MEGLUMINE",
+      "dosage_form": "CAPSULE;ORAL",
+      "strength": "20MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219639",
+      "product_number": "001",
+      "drug_name": "AMITRIPTYLINE HYDROCHLORIDE",
+      "active_ingredient": "AMITRIPTYLINE HYDROCHLORIDE",
+      "dosage_form": "CONCENTRATE;ORAL",
+      "strength": "40MG/ML",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220619",
+      "product_number": "001",
+      "drug_name": "VENLAFAXINE HYDROCHLORIDE",
+      "active_ingredient": "VENLAFAXINE HYDROCHLORIDE",
+      "dosage_form": "CAPSULE, EXTENDED RELEASE;ORAL",
+      "strength": "EQ 37.5MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220619",
+      "product_number": "002",
+      "drug_name": "VENLAFAXINE HYDROCHLORIDE",
+      "active_ingredient": "VENLAFAXINE HYDROCHLORIDE",
+      "dosage_form": "CAPSULE, EXTENDED RELEASE;ORAL",
+      "strength": "EQ 75MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220619",
+      "product_number": "003",
+      "drug_name": "VENLAFAXINE HYDROCHLORIDE",
+      "active_ingredient": "VENLAFAXINE HYDROCHLORIDE",
+      "dosage_form": "CAPSULE, EXTENDED RELEASE;ORAL",
+      "strength": "EQ 150MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "221019",
+      "product_number": "001",
+      "drug_name": "ELTROMBOPAG OLAMINE",
+      "active_ingredient": "ELTROMBOPAG OLAMINE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 12.5MG ACID",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "221019",
+      "product_number": "002",
+      "drug_name": "ELTROMBOPAG OLAMINE",
+      "active_ingredient": "ELTROMBOPAG OLAMINE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 25MG ACID",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "221019",
+      "product_number": "003",
+      "drug_name": "ELTROMBOPAG OLAMINE",
+      "active_ingredient": "ELTROMBOPAG OLAMINE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 50MG ACID",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "221019",
+      "product_number": "004",
+      "drug_name": "ELTROMBOPAG OLAMINE",
+      "active_ingredient": "ELTROMBOPAG OLAMINE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 75MG ACID",
       "marketing_status": "Prescription"
     }
   ],
   "removed": [],
   "changed": [
     {
-      "application_number": "220380",
+      "application_number": "017948",
       "product_number": "001",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=220380",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=017948",
       "changes": {
-        "dosage_form": {
-          "before": "SYRINGE",
-          "after": "SOLUTION;INTRAMUSCULAR, INTRAVENOUS"
-        },
-        "strength": {
-          "before": "50MG/5ML (10MG/ML)",
-          "after": "EQ 50MG BASE/5ML (EQ 10MG BASE/ML)"
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
         }
       },
       "official_submission_context": {
-        "matched_submission_count": 1,
+        "matched_submission_count": 33,
         "submissions": [
           {
             "submission_type": "ORIG",
             "submission_number": 1
-          }
-        ]
-      }
-    },
-    {
-      "application_number": "220380",
-      "product_number": "002",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=220380",
-      "changes": {
-        "dosage_form": {
-          "before": "SYRINGE",
-          "after": "SOLUTION;INTRAMUSCULAR, INTRAVENOUS"
-        },
-        "strength": {
-          "before": "50MG/ML (50MG/ML)",
-          "after": "EQ 50MG BASE/ML (EQ 50MG BASE/ML)"
-        }
-      },
-      "official_submission_context": {
-        "matched_submission_count": 1,
-        "submissions": [
+          },
           {
-            "submission_type": "ORIG",
-            "submission_number": 1
-          }
-        ]
-      }
-    },
-    {
-      "application_number": "220748",
-      "product_number": "001",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=220748",
-      "changes": {
-        "drug_name": {
-          "before": "Axycis",
-          "after": "AXYCIS"
-        },
-        "active_ingredient": {
-          "before": "",
-          "after": "CISPLATIN"
-        },
-        "strength": {
-          "before": "",
-          "after": "1MG/ML"
-        }
-      },
-      "official_submission_context": {
-        "matched_submission_count": 1,
-        "submissions": [
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          },
           {
-            "submission_type": "ORIG",
-            "submission_number": 1
+            "submission_type": "SUPPL",
+            "submission_number": 3
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 5
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 10
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 11
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 17
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 18
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 19
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 20
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 21
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 22
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 23
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 24
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 25
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 29
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 31
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 32
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 33
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 35
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 36
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 37
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 38
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 39
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 40
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 42
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 43
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 44
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 45
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 46
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 47
           }
         ]
       }
