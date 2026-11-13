@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "306d3de76a95a43e31d50b32efc0758a7affd9bb5b7e6cd3f2f31234fa221e6d",
-    "source_retrieved_at": "2026-11-11T02:47:34Z"
+    "source_sha256": "a06b22788d05f6217a4b0c34c91ca998387de14c239fd7eca830f8303fc9e232",
+    "source_retrieved_at": "2026-11-13T03:25:13Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48865,
     "orange_book_dated_products": 42992,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 51137,
+    "drugsfda_nda_anda_products": 51147,
     "identity_overlap_products": 48863,
     "matched_application_type_products": 48863,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 2,
-    "drugsfda_only_products": 2274
+    "drugsfda_only_products": 2284
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -13195,6 +13195,13 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "217589",
+      "product_number": "001",
+      "drug_name": "BRIMONIDINE TARTRATE AND TIMOLOL MALEATE",
+      "active_ingredient": "BRIMONIDINE TARTRATE; TIMOLOL MALEATE"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "217642",
       "product_number": "002",
       "drug_name": "ELAGOLIX",
@@ -14559,6 +14566,13 @@
       "active_ingredient": "CALCUIM CHLORIDE"
     },
     {
+      "application_type": "NDA",
+      "application_number": "219457",
+      "product_number": "001",
+      "drug_name": "MULTIBIC",
+      "active_ingredient": "MULTIBIC"
+    },
+    {
       "application_type": "ANDA",
       "application_number": "219473",
       "product_number": "002",
@@ -15532,6 +15546,13 @@
       "active_ingredient": "RIFAXIMIN"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "220458",
+      "product_number": "002",
+      "drug_name": "TOFACITINIB CITRATE",
+      "active_ingredient": "TOFACITINIB CITRATE"
+    },
+    {
       "application_type": "NDA",
       "application_number": "220461",
       "product_number": "001",
@@ -15770,6 +15791,41 @@
       "active_ingredient": "ROMIDEPSIN"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "001",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "002",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "003",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "004",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "005",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM"
+    },
+    {
       "application_type": "NDA",
       "application_number": "220860",
       "product_number": "001",
@@ -15880,6 +15936,20 @@
       "product_number": "001",
       "drug_name": "EDARAVONE",
       "active_ingredient": "EDARAVONE"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221093",
+      "product_number": "001",
+      "drug_name": "OXDERYS",
+      "active_ingredient": "DOXORUBICIN HYDROCHLORIDE"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221093",
+      "product_number": "002",
+      "drug_name": "OXDERYS",
+      "active_ingredient": "DOXORUBICIN HYDROCHLORIDE"
     },
     {
       "application_type": "ANDA",

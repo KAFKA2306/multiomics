@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "306d3de76a95a43e31d50b32efc0758a7affd9bb5b7e6cd3f2f31234fa221e6d",
+  "drugsfda_source_sha256": "a06b22788d05f6217a4b0c34c91ca998387de14c239fd7eca830f8303fc9e232",
   "orange_book_source_sha256": "c2088c7a36db1930a152b63db23e7a995c471bf4b18c960b1d28190580984e4d",
-  "drugsfda_only_products": 2274,
+  "drugsfda_only_products": 2284,
   "marketing_status_counts": {
     "Discontinued": 223,
-    "None (Tentative Approval)": 1414,
+    "None (Tentative Approval)": 1412,
     "Over-the-counter": 15,
-    "Prescription": 622
+    "Prescription": 634
   },
   "products": [
     {
@@ -15042,6 +15042,14 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "217589",
+      "product_number": "001",
+      "drug_name": "BRIMONIDINE TARTRATE AND TIMOLOL MALEATE",
+      "active_ingredient": "BRIMONIDINE TARTRATE; TIMOLOL MALEATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "217642",
       "product_number": "002",
       "drug_name": "ELAGOLIX",
@@ -15734,7 +15742,7 @@
       "product_number": "002",
       "drug_name": "TOFACITINIB CITRATE",
       "active_ingredient": "TOFACITINIB CITRATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",
@@ -16598,6 +16606,14 @@
       "product_number": "001",
       "drug_name": "CALREZDY",
       "active_ingredient": "CALCUIM CHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "219457",
+      "product_number": "001",
+      "drug_name": "MULTIBIC",
+      "active_ingredient": "MULTIBIC",
       "marketing_status": "Prescription"
     },
     {
@@ -17713,6 +17729,14 @@
       "marketing_status": "None (Tentative Approval)"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "220458",
+      "product_number": "002",
+      "drug_name": "TOFACITINIB CITRATE",
+      "active_ingredient": "TOFACITINIB CITRATE",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "220461",
       "product_number": "001",
@@ -17985,6 +18009,46 @@
       "marketing_status": "Prescription"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "001",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "002",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "003",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "004",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220832",
+      "product_number": "005",
+      "drug_name": "BRIVARACETAM",
+      "active_ingredient": "BRIVARACETAM",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "220860",
       "product_number": "001",
@@ -18014,7 +18078,7 @@
       "product_number": "002",
       "drug_name": "TOFACITINIB CITRATE",
       "active_ingredient": "TOFACITINIB CITRATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -18111,6 +18175,22 @@
       "drug_name": "EDARAVONE",
       "active_ingredient": "EDARAVONE",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221093",
+      "product_number": "001",
+      "drug_name": "OXDERYS",
+      "active_ingredient": "DOXORUBICIN HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221093",
+      "product_number": "002",
+      "drug_name": "OXDERYS",
+      "active_ingredient": "DOXORUBICIN HYDROCHLORIDE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
