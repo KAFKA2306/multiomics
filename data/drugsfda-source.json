@@ -4,10 +4,10 @@
   "dataset": "Drugs@FDA Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
   "source_download_url": "https://www.fda.gov/media/89850/download?attachment=",
-  "retrieved_at": "2026-11-13T03:25:13Z",
-  "source_sha256": "a06b22788d05f6217a4b0c34c91ca998387de14c239fd7eca830f8303fc9e232",
-  "raw_path": "data/raw/fda/drugsatfda/a06b22788d05f6217a4b0c34c91ca998387de14c239fd7eca830f8303fc9e232.zip",
-  "archive_size_bytes": 6114909,
+  "retrieved_at": "2026-11-14T03:17:07Z",
+  "source_sha256": "5a4ffd00c18737e6437782469856be43120c2dfd4a2d724a0516f64891b0e1d6",
+  "raw_path": "data/raw/fda/drugsatfda/5a4ffd00c18737e6437782469856be43120c2dfd4a2d724a0516f64891b0e1d6.zip",
+  "archive_size_bytes": 6115285,
   "table_count": 12,
   "tables": [
     {
@@ -34,9 +34,9 @@
         "ApplicationDocsURL",
         "ApplicationDocsDate"
       ],
-      "row_count": 81512,
-      "sha256": "5fc94ce056773ea8a7ce88c35a022271552ae3d6a7a8247a4a64861863fdc86f",
-      "size_bytes": 11170306
+      "row_count": 81522,
+      "sha256": "ade4df51838c586a5c6f84bbc8d7dabf7b96b806ca332076eaf2827b0b662539",
+      "size_bytes": 11171676
     },
     {
       "file_name": "Applications.txt",
@@ -69,9 +69,9 @@
         "SubmissionNo",
         "ActionTypes_LookupID"
       ],
-      "row_count": 210358,
-      "sha256": "0a2736de901c6b3e14acbe056046bc3ba7ebfa97257fb449d618265ac629b85e",
-      "size_bytes": 6954719
+      "row_count": 210373,
+      "sha256": "e3cc6eab149fd0dffedf0efbb030399871cbb0292e37275f51c6636888542363",
+      "size_bytes": 6955231
     },
     {
       "file_name": "MarketingStatus.txt",
@@ -130,9 +130,9 @@
         "SubmissionPropertyTypeCode",
         "SubmissionPropertyTypeID"
       ],
-      "row_count": 322213,
-      "sha256": "99aee073a2df72d8a478d7bc11ff21dfb8e42b0e64beec02fed7b5995ba2f647",
-      "size_bytes": 9361162
+      "row_count": 322270,
+      "sha256": "c10dd5896e9c44fe949f743b7646af4ca8966aeffe1fb6c4383d8fcd8a8b99f9",
+      "size_bytes": 9362820
     },
     {
       "file_name": "Submissions.txt",
@@ -146,9 +146,9 @@
         "SubmissionsPublicNotes",
         "ReviewPriority"
       ],
-      "row_count": 194474,
-      "sha256": "48d1e956672f412ccd9ac55e42854a5cf0f52c0054440d41e5cdde4db75e8485",
-      "size_bytes": 9384266
+      "row_count": 194485,
+      "sha256": "25e8f2435d610a94d1cfe71d9e9732dd5c6f4a2442eddcc769eb9b588f593718",
+      "size_bytes": 9384894
     },
     {
       "file_name": "TE.txt",

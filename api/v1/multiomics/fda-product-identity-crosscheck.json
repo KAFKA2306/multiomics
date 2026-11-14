@@ -8,24 +8,24 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "a06b22788d05f6217a4b0c34c91ca998387de14c239fd7eca830f8303fc9e232",
-    "source_retrieved_at": "2026-11-13T03:25:13Z"
+    "source_sha256": "5a4ffd00c18737e6437782469856be43120c2dfd4a2d724a0516f64891b0e1d6",
+    "source_retrieved_at": "2026-11-14T03:17:07Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
-    "source_sha256": "c2088c7a36db1930a152b63db23e7a995c471bf4b18c960b1d28190580984e4d",
-    "source_retrieved_at": "2026-11-07T02:49:24Z"
+    "source_sha256": "d4dbc9d85df4fbd78c5e448f130a55b05054f529d2054a46df10735437792241",
+    "source_retrieved_at": "2026-11-14T03:17:08Z"
   },
   "counts": {
-    "orange_book_products": 48865,
-    "orange_book_dated_products": 42992,
+    "orange_book_products": 48990,
+    "orange_book_dated_products": 43117,
     "orange_book_pre_1982_products": 5873,
     "drugsfda_nda_anda_products": 51147,
-    "identity_overlap_products": 48863,
-    "matched_application_type_products": 48863,
+    "identity_overlap_products": 48984,
+    "matched_application_type_products": 48984,
     "application_type_mismatch_products": 0,
-    "orange_book_only_products": 2,
-    "drugsfda_only_products": 2284
+    "orange_book_only_products": 6,
+    "drugsfda_only_products": 2163
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -44,6 +44,38 @@
       "trade_name": "EPTIFIBATIDE",
       "ingredient": "EPTIFIBATIDE",
       "approval_date": "Dec 8, 2016"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "218145",
+      "product_number": "002",
+      "trade_name": "SIMTRIYO",
+      "ingredient": "CENTANAFADINE HYDROCHLORIDE",
+      "approval_date": "Oct 30, 2026"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "218145",
+      "product_number": "003",
+      "trade_name": "SIMTRIYO",
+      "ingredient": "CENTANAFADINE HYDROCHLORIDE",
+      "approval_date": "Oct 30, 2026"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "218475",
+      "product_number": "003",
+      "trade_name": "EPINEPHRINE BITARTRATE IN 0.9% SODIUM CHLORIDE",
+      "ingredient": "EPINEPHRINE BITARTRATE",
+      "approval_date": "Oct 19, 2026"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "219776",
+      "product_number": "005",
+      "trade_name": "ORLADEYO",
+      "ingredient": "BEROTRALSTAT DIHYDROCHLORIDE",
+      "approval_date": "Oct 15, 2026"
     }
   ],
   "drugsfda_only": [
@@ -5649,13 +5681,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "091133",
-      "product_number": "003",
-      "drug_name": "BENZONATATE",
-      "active_ingredient": "BENZONATATE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "091137",
       "product_number": "001",
       "drug_name": "GRANISETRON HYDROCHLORIDE",
@@ -6993,13 +7018,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "203421",
-      "product_number": "001",
-      "drug_name": "PROPOFOL",
-      "active_ingredient": "PROPOFOL"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "203624",
       "product_number": "001",
       "drug_name": "ACETYLCYSTEINE",
@@ -7398,13 +7416,6 @@
       "active_ingredient": "LEVETIRACETAM"
     },
     {
-      "application_type": "NDA",
-      "application_number": "205109",
-      "product_number": "002",
-      "drug_name": "VELPHORO",
-      "active_ingredient": "FERRIC OXYHYDROXIDE"
-    },
-    {
       "application_type": "ANDA",
       "application_number": "205267",
       "product_number": "002",
@@ -7683,34 +7694,6 @@
       "product_number": "001",
       "drug_name": "MEDICAL AIR, USP",
       "active_ingredient": "MEDICAL AIR"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "205797",
-      "product_number": "001",
-      "drug_name": "AMLODIPINE BESYLATE AND VALSARTAN",
-      "active_ingredient": "AMLODIPINE BESYLATE; VALSARTAN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "205797",
-      "product_number": "002",
-      "drug_name": "AMLODIPINE BESYLATE AND VALSARTAN",
-      "active_ingredient": "AMLODIPINE BESYLATE; VALSARTAN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "205797",
-      "product_number": "003",
-      "drug_name": "AMLODIPINE BESYLATE AND VALSARTAN",
-      "active_ingredient": "AMLODIPINE BESYLATE; VALSARTAN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "205797",
-      "product_number": "004",
-      "drug_name": "AMLODIPINE BESYLATE AND VALSARTAN",
-      "active_ingredient": "AMLODIPINE BESYLATE; VALSARTAN"
     },
     {
       "application_type": "NDA",
@@ -8820,20 +8803,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "208359",
-      "product_number": "001",
-      "drug_name": "MEMANTINE HYDROCHLORIDE AND DONEPEZIL HYDROCHLORIDE",
-      "active_ingredient": "DONEPEZIL HYDROCHLORIDE; MEMANTINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "208359",
-      "product_number": "002",
-      "drug_name": "MEMANTINE HYDROCHLORIDE AND DONEPEZIL HYDROCHLORIDE",
-      "active_ingredient": "DONEPEZIL HYDROCHLORIDE; MEMANTINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "208430",
       "product_number": "001",
       "drug_name": "LINAGLIPTIN; METFORMIN HYDROCHLORIDE",
@@ -8901,34 +8870,6 @@
       "product_number": "003",
       "drug_name": "LINAGLIPTIN AND METFORMIN HYDROCHLORIDE",
       "active_ingredient": "LINAGLIPTIN; METFORMIN HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "208522",
-      "product_number": "001",
-      "drug_name": "CARBIDOPA AND LEVODOPA",
-      "active_ingredient": "CARBIDOPA; LEVODOPA"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "208522",
-      "product_number": "002",
-      "drug_name": "CARBIDOPA AND LEVODOPA",
-      "active_ingredient": "CARBIDOPA; LEVODOPA"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "208522",
-      "product_number": "003",
-      "drug_name": "CARBIDOPA AND LEVODOPA",
-      "active_ingredient": "CARBIDOPA; LEVODOPA"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "208522",
-      "product_number": "004",
-      "drug_name": "CARBIDOPA AND LEVODOPA",
-      "active_ingredient": "CARBIDOPA; LEVODOPA"
     },
     {
       "application_type": "ANDA",
@@ -9429,20 +9370,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "209917",
-      "product_number": "001",
-      "drug_name": "FLUTICASONE PROPIONATE",
-      "active_ingredient": "FLUTICASONE PROPIONATE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "209917",
-      "product_number": "002",
-      "drug_name": "FLUTICASONE PROPIONATE",
-      "active_ingredient": "FLUTICASONE PROPIONATE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "209923",
       "product_number": "001",
       "drug_name": "TOFACITINIB",
@@ -9821,27 +9748,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "210804",
-      "product_number": "001",
-      "drug_name": "AFATINIB DIMALEATE",
-      "active_ingredient": "AFATINIB DIMALEATE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "210804",
-      "product_number": "002",
-      "drug_name": "AFATINIB DIMALEATE",
-      "active_ingredient": "AFATINIB DIMALEATE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "210804",
-      "product_number": "003",
-      "drug_name": "AFATINIB DIMALEATE",
-      "active_ingredient": "AFATINIB DIMALEATE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "210805",
       "product_number": "001",
       "drug_name": "LEVOMILNACIPRAN",
@@ -9937,20 +9843,6 @@
       "product_number": "004",
       "drug_name": "LEVOMILNACIPRAN",
       "active_ingredient": "LEVOMILNACIPRAN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "210890",
-      "product_number": "001",
-      "drug_name": "CYCLOPHOSPHAMIDE",
-      "active_ingredient": "CYCLOPHOSPHAMIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "210890",
-      "product_number": "002",
-      "drug_name": "CYCLOPHOSPHAMIDE",
-      "active_ingredient": "CYCLOPHOSPHAMIDE"
     },
     {
       "application_type": "ANDA",
@@ -10483,34 +10375,6 @@
       "product_number": "001",
       "drug_name": "EMPAGLIFLOZIN; METFORMIN HYDROCHLORIDE",
       "active_ingredient": "EMPAGLIFLOZIN;METFORMIN HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "212247",
-      "product_number": "001",
-      "drug_name": "RIVAROXABAN",
-      "active_ingredient": "RIVAROXABAN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "212247",
-      "product_number": "002",
-      "drug_name": "RIVAROXABAN",
-      "active_ingredient": "RIVAROXABAN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "212247",
-      "product_number": "003",
-      "drug_name": "RIVAROXABAN",
-      "active_ingredient": "RIVAROXABAN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "212247",
-      "product_number": "004",
-      "drug_name": "RIVAROXABAN",
-      "active_ingredient": "RIVAROXABAN"
     },
     {
       "application_type": "ANDA",
@@ -11508,13 +11372,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "214059",
-      "product_number": "001",
-      "drug_name": "EMTRICITABINE AND TENOFOVIR ALAFENAMIDE FUMARATE",
-      "active_ingredient": "EMTRICITABINE; TENOFOVIR ALAFENAMIDE FUMARATE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "214072",
       "product_number": "001",
       "drug_name": "TENOFOVIR ALAFENAMIDE",
@@ -11711,13 +11568,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "214412",
-      "product_number": "001",
-      "drug_name": "TERIPARATIDE",
-      "active_ingredient": "TERIPARATIDE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "214494",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
@@ -11890,27 +11740,6 @@
       "product_number": "006",
       "drug_name": "BUPRENORPHINE HYDROCHLORIDE AND NALOXONE HYDROCHLORIDE",
       "active_ingredient": "BUPRENORPHINE HYDROCHLORIDE; NALOXONE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "214747",
-      "product_number": "001",
-      "drug_name": "VENETOCLAX",
-      "active_ingredient": "VENETOCLAX"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "214747",
-      "product_number": "002",
-      "drug_name": "VENETOCLAX",
-      "active_ingredient": "VENETOCLAX"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "214747",
-      "product_number": "003",
-      "drug_name": "VENETOCLAX",
-      "active_ingredient": "VENETOCLAX"
     },
     {
       "application_type": "ANDA",
@@ -12453,41 +12282,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "216072",
-      "product_number": "001",
-      "drug_name": "PROPRANOLOL HYDROCHLORIDE",
-      "active_ingredient": "PROPRANOLOL HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "216072",
-      "product_number": "002",
-      "drug_name": "PROPRANOLOL HYDROCHLORIDE",
-      "active_ingredient": "PROPRANOLOL HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "216072",
-      "product_number": "003",
-      "drug_name": "PROPRANOLOL HYDROCHLORIDE",
-      "active_ingredient": "PROPRANOLOL HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "216072",
-      "product_number": "004",
-      "drug_name": "PROPRANOLOL HYDROCHLORIDE",
-      "active_ingredient": "PROPRANOLOL HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "216072",
-      "product_number": "005",
-      "drug_name": "PROPRANOLOL HYDROCHLORIDE",
-      "active_ingredient": "PROPRANOLOL HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "216074",
       "product_number": "001",
       "drug_name": "IVACAFTOR",
@@ -12663,24 +12457,10 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "216722",
-      "product_number": "001",
-      "drug_name": "FULVESTRANT",
-      "active_ingredient": "FULVESTRANT"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "216757",
       "product_number": "002",
       "drug_name": "MIRABEGRON",
       "active_ingredient": "MIRABEGRON"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "216758",
-      "product_number": "001",
-      "drug_name": "SUCRALFATE",
-      "active_ingredient": "SUCRALFATE"
     },
     {
       "application_type": "ANDA",
@@ -12823,13 +12603,6 @@
       "active_ingredient": "APREPITANT"
     },
     {
-      "application_type": "ANDA",
-      "application_number": "216996",
-      "product_number": "001",
-      "drug_name": "CALCITONIN-SALMON",
-      "active_ingredient": "CALCITONIN SALMON"
-    },
-    {
       "application_type": "NDA",
       "application_number": "217003",
       "product_number": "002",
@@ -12963,46 +12736,11 @@
       "active_ingredient": "CARBON DIOXIDE"
     },
     {
-      "application_type": "ANDA",
-      "application_number": "217103",
-      "product_number": "001",
-      "drug_name": "DEFLAZACORT",
-      "active_ingredient": "DEFLAZACORT"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217103",
-      "product_number": "002",
-      "drug_name": "DEFLAZACORT",
-      "active_ingredient": "DEFLAZACORT"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217103",
-      "product_number": "003",
-      "drug_name": "DEFLAZACORT",
-      "active_ingredient": "DEFLAZACORT"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217103",
-      "product_number": "004",
-      "drug_name": "DEFLAZACORT",
-      "active_ingredient": "DEFLAZACORT"
-    },
-    {
       "application_type": "NDA",
       "application_number": "217188",
       "product_number": "002",
       "drug_name": "PAXLOVID (COPACKAGED)",
       "active_ingredient": "NIRMATRELVIR; RITONAVIR"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217267",
-      "product_number": "001",
-      "drug_name": "VALGANCICLOVIR HYDROCHLORIDE",
-      "active_ingredient": "VALGANCICLOVIR HYDROCHLORIDE"
     },
     {
       "application_type": "ANDA",
@@ -13195,13 +12933,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "217589",
-      "product_number": "001",
-      "drug_name": "BRIMONIDINE TARTRATE AND TIMOLOL MALEATE",
-      "active_ingredient": "BRIMONIDINE TARTRATE; TIMOLOL MALEATE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "217642",
       "product_number": "002",
       "drug_name": "ELAGOLIX",
@@ -13234,20 +12965,6 @@
       "product_number": "001",
       "drug_name": "POSACONAZOLE",
       "active_ingredient": "POSACONAZOLE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217723",
-      "product_number": "001",
-      "drug_name": "CIPROFLOXACIN AND DEXAMETHASONE",
-      "active_ingredient": "CIPROFLOXACIN; DEXAMETHASONE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217736",
-      "product_number": "001",
-      "drug_name": "MESALAMINE",
-      "active_ingredient": "MESALAMINE"
     },
     {
       "application_type": "ANDA",
@@ -13286,34 +13003,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "217856",
-      "product_number": "001",
-      "drug_name": "OLOPATADINE HYDROCHLORIDE",
-      "active_ingredient": "OLOPATADINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217870",
-      "product_number": "001",
-      "drug_name": "CABOZANTINIB S-MALATE",
-      "active_ingredient": "CABOZANTINIB S-MALATE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217870",
-      "product_number": "002",
-      "drug_name": "CABOZANTINIB S-MALATE",
-      "active_ingredient": "CABOZANTINIB S-MALATE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217870",
-      "product_number": "003",
-      "drug_name": "CABOZANTINIB S-MALATE",
-      "active_ingredient": "CABOZANTINIB S-MALATE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "217936",
       "product_number": "002",
       "drug_name": "OLAPARIB",
@@ -13332,13 +13021,6 @@
       "product_number": "003",
       "drug_name": "SITAGLIPTIN",
       "active_ingredient": "SITAGLIPTIN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "217996",
-      "product_number": "001",
-      "drug_name": "AMIFAMPRIDINE PHOSPHATE",
-      "active_ingredient": "AMIFAMPRIDINE PHOSPHATE"
     },
     {
       "application_type": "ANDA",
@@ -13439,13 +13121,6 @@
       "active_ingredient": "EPINEPHRINE"
     },
     {
-      "application_type": "NDA",
-      "application_number": "218145",
-      "product_number": "001",
-      "drug_name": "SIMTRIYO",
-      "active_ingredient": "CENTANAFADINE HYDROCHLORIDE"
-    },
-    {
       "application_type": "ANDA",
       "application_number": "218147",
       "product_number": "001",
@@ -13475,41 +13150,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "218200",
-      "product_number": "002",
-      "drug_name": "LEUCOVORIN CALCIUM",
-      "active_ingredient": "LEUCOVORIN CALCIUM"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218228",
-      "product_number": "001",
-      "drug_name": "SIPONIMOD",
-      "active_ingredient": "SIPONIMOD"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218228",
-      "product_number": "002",
-      "drug_name": "SIPONIMOD",
-      "active_ingredient": "SIPONIMOD"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218228",
-      "product_number": "003",
-      "drug_name": "SIPONIMOD",
-      "active_ingredient": "SIPONIMOD"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218274",
-      "product_number": "001",
-      "drug_name": "SODIUM PHOSPHATES",
-      "active_ingredient": "SODIUM PHOSPHATE, DIBASIC, HEPTAHYDRATE; SODIUM PHOSPHATE, MONOBASIC, MONOHYDRATE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "218383",
       "product_number": "001",
       "drug_name": "ABACAVIR; DOLUTEGRAVIR; LAMIVUDINE",
@@ -13605,27 +13245,6 @@
       "product_number": "003",
       "drug_name": "OXCARBAZEPINE",
       "active_ingredient": "OXCARBAZEPINE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218447",
-      "product_number": "001",
-      "drug_name": "CARBAMAZEPINE",
-      "active_ingredient": "CARBAMAZEPINE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218447",
-      "product_number": "002",
-      "drug_name": "CARBAMAZEPINE",
-      "active_ingredient": "CARBAMAZEPINE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218447",
-      "product_number": "003",
-      "drug_name": "CARBAMAZEPINE",
-      "active_ingredient": "CARBAMAZEPINE"
     },
     {
       "application_type": "ANDA",
@@ -13726,13 +13345,6 @@
       "active_ingredient": "ERDAFITINIB"
     },
     {
-      "application_type": "ANDA",
-      "application_number": "218617",
-      "product_number": "001",
-      "drug_name": "TAFAMIDIS MEGLUMINE",
-      "active_ingredient": "TAFAMIDIS MEGLUMINE"
-    },
-    {
       "application_type": "NDA",
       "application_number": "218623",
       "product_number": "001",
@@ -13801,13 +13413,6 @@
       "product_number": "002",
       "drug_name": "UBROGEPANT",
       "active_ingredient": "UBROGEPANT"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218668",
-      "product_number": "002",
-      "drug_name": "TOFACITINIB CITRATE",
-      "active_ingredient": "TOFACITINIB CITRATE"
     },
     {
       "application_type": "NDA",
@@ -13944,41 +13549,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "218832",
-      "product_number": "001",
-      "drug_name": "PITOLISANT HYDROCHLORIDE",
-      "active_ingredient": "PITOLISANT HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218832",
-      "product_number": "002",
-      "drug_name": "PITOLISANT HYDROCHLORIDE",
-      "active_ingredient": "PITOLISANT HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218866",
-      "product_number": "001",
-      "drug_name": "UPADACITINIB",
-      "active_ingredient": "UPADACITINIB"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218866",
-      "product_number": "002",
-      "drug_name": "UPADACITINIB",
-      "active_ingredient": "UPADACITINIB"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218930",
-      "product_number": "001",
-      "drug_name": "ERIBULIN MESYLATE",
-      "active_ingredient": "ERIBULIN MESYLATE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "218971",
       "product_number": "001",
       "drug_name": "SITAGLIPTIN AND METFORMIN HCL",
@@ -14011,27 +13581,6 @@
       "product_number": "005",
       "drug_name": "SITAGLIPTIN AND METFORMIN HCL",
       "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "219007",
-      "product_number": "001",
-      "drug_name": "WELTRUZA",
-      "active_ingredient": "OLANZAPINE"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "219007",
-      "product_number": "002",
-      "drug_name": "WELTRUZA",
-      "active_ingredient": "OLANZAPINE"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "219007",
-      "product_number": "003",
-      "drug_name": "WELTRUZA",
-      "active_ingredient": "OLANZAPINE"
     },
     {
       "application_type": "ANDA",
@@ -14553,20 +14102,6 @@
     },
     {
       "application_type": "NDA",
-      "application_number": "219455",
-      "product_number": "001",
-      "drug_name": "CIENBY",
-      "active_ingredient": "SODIUM CTIRATE"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "219456",
-      "product_number": "001",
-      "drug_name": "CALREZDY",
-      "active_ingredient": "CALCUIM CHLORIDE"
-    },
-    {
-      "application_type": "NDA",
       "application_number": "219457",
       "product_number": "001",
       "drug_name": "MULTIBIC",
@@ -14613,13 +14148,6 @@
       "product_number": "001",
       "drug_name": "SELENIOUS ACID",
       "active_ingredient": "SELENIOUS ACID"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "219542",
-      "product_number": "002",
-      "drug_name": "TOFACITINIB CITRATE",
-      "active_ingredient": "TOFACITINIB CITRATE"
     },
     {
       "application_type": "ANDA",
@@ -14679,31 +14207,10 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "219588",
-      "product_number": "001",
-      "drug_name": "PROGESTERONE",
-      "active_ingredient": "PROGESTERONE"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "219617",
-      "product_number": "001",
-      "drug_name": "TRABECTEDIN",
-      "active_ingredient": "TRABECTEDIN"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "219623",
       "product_number": "002",
       "drug_name": "DOLUTEGRAVIR AND LAMIVUDINE",
       "active_ingredient": "DOLUTEGRAVIR AND LAMIVUDINE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "219628",
-      "product_number": "001",
-      "drug_name": "ATROPINE SULFATE",
-      "active_ingredient": "ATROPINE SULFATE"
     },
     {
       "application_type": "ANDA",
@@ -14762,13 +14269,6 @@
       "active_ingredient": "ELTROMBOPAG OLAMINE"
     },
     {
-      "application_type": "ANDA",
-      "application_number": "219639",
-      "product_number": "001",
-      "drug_name": "AMITRIPTYLINE HYDROCHLORIDE",
-      "active_ingredient": "AMITRIPTYLINE HYDROCHLORIDE"
-    },
-    {
       "application_type": "NDA",
       "application_number": "219660",
       "product_number": "002",
@@ -14788,20 +14288,6 @@
       "product_number": "004",
       "drug_name": "Ruxolitinib",
       "active_ingredient": "Ruxolitinib"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "219662",
-      "product_number": "001",
-      "drug_name": "METHYLPREDNISOLONE ACETATE",
-      "active_ingredient": "METHYLPREDNISOLONE ACETATE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "219662",
-      "product_number": "002",
-      "drug_name": "METHYLPREDNISOLONE ACETATE",
-      "active_ingredient": "METHYLPREDNISOLONE ACETATE"
     },
     {
       "application_type": "ANDA",
@@ -15028,13 +14514,6 @@
       "active_ingredient": "CARBIDOPA, LEVODOPA"
     },
     {
-      "application_type": "ANDA",
-      "application_number": "220010",
-      "product_number": "001",
-      "drug_name": "MELOXICAM",
-      "active_ingredient": "MELOXICAM"
-    },
-    {
       "application_type": "NDA",
       "application_number": "220018",
       "product_number": "002",
@@ -15183,13 +14662,6 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "220139",
-      "product_number": "001",
-      "drug_name": "AMPHOTERICIN B",
-      "active_ingredient": "AMPHOTERICIN B"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "220221",
       "product_number": "002",
       "drug_name": "VERICIGUAT",
@@ -15294,34 +14766,6 @@
       "active_ingredient": "AMPHETAMINE"
     },
     {
-      "application_type": "NDA",
-      "application_number": "220290",
-      "product_number": "001",
-      "drug_name": "BREZTRI AEROSPHERE",
-      "active_ingredient": "BUDESONIDE; FORMOTEROL FUMARATE; GLYCOPYRROLATE"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "220290",
-      "product_number": "002",
-      "drug_name": "BREZTRI AEROSPHERE",
-      "active_ingredient": "BUDESONIDE; FORMOTEROL FUMARATE; GLYCOPYRROLATE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220300",
-      "product_number": "001",
-      "drug_name": "HYDROXYUREA",
-      "active_ingredient": "HYDROXYUREA"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220300",
-      "product_number": "002",
-      "drug_name": "HYDROXYUREA",
-      "active_ingredient": "HYDROXYUREA"
-    },
-    {
       "application_type": "ANDA",
       "application_number": "220313",
       "product_number": "002",
@@ -15369,13 +14813,6 @@
       "product_number": "003",
       "drug_name": "VILOXAZINE HYDROCHLORIDE",
       "active_ingredient": "VILOXAZINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "220341",
-      "product_number": "001",
-      "drug_name": "BRYTLY",
-      "active_ingredient": "APRACLONIDINE HYDROCHLORIDE"
     },
     {
       "application_type": "ANDA",
@@ -15442,38 +14879,10 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "220380",
-      "product_number": "001",
-      "drug_name": "KETAMINE HYDROCHLORIDE",
-      "active_ingredient": "KETAMINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220380",
-      "product_number": "002",
-      "drug_name": "KETAMINE HYDROCHLORIDE",
-      "active_ingredient": "KETAMINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
       "application_number": "220384",
       "product_number": "002",
       "drug_name": "TIVOZANIB",
       "active_ingredient": "TIVOZANIB"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220400",
-      "product_number": "001",
-      "drug_name": "EPINEPHRINE",
-      "active_ingredient": "EPINEPHRINE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220407",
-      "product_number": "001",
-      "drug_name": "ESTRADIOL AND LEVONORGESTREL",
-      "active_ingredient": "ESTRADIOL; LEVONORGESTREL"
     },
     {
       "application_type": "NDA",
@@ -15488,13 +14897,6 @@
       "product_number": "002",
       "drug_name": "GABAPENTIN ENACARBIL",
       "active_ingredient": "GABAPENTIN ENACARBIL"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220432",
-      "product_number": "001",
-      "drug_name": "LORATADINE AND PSEUDOEPHEDRINE SULFATE",
-      "active_ingredient": "LORATADINE; PSEUDOEPHEDRINE SULFATE"
     },
     {
       "application_type": "ANDA",
@@ -15544,13 +14946,6 @@
       "product_number": "002",
       "drug_name": "RIFAXIMIN",
       "active_ingredient": "RIFAXIMIN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220458",
-      "product_number": "002",
-      "drug_name": "TOFACITINIB CITRATE",
-      "active_ingredient": "TOFACITINIB CITRATE"
     },
     {
       "application_type": "NDA",
@@ -15604,13 +14999,6 @@
     {
       "application_type": "NDA",
       "application_number": "220583",
-      "product_number": "001",
-      "drug_name": "ISOVUE READI",
-      "active_ingredient": "IOPAMIDOL"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "220583",
       "product_number": "002",
       "drug_name": "ISOVUE READI",
       "active_ingredient": "IOPAMIDOL"
@@ -15628,34 +15016,6 @@
       "product_number": "004",
       "drug_name": "ISOVUE READI",
       "active_ingredient": "IOPAMIDOL"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220602",
-      "product_number": "001",
-      "drug_name": "KETAMINE HYDROCHLORIDE",
-      "active_ingredient": "KETAMINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220619",
-      "product_number": "001",
-      "drug_name": "VENLAFAXINE HYDROCHLORIDE",
-      "active_ingredient": "VENLAFAXINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220619",
-      "product_number": "002",
-      "drug_name": "VENLAFAXINE HYDROCHLORIDE",
-      "active_ingredient": "VENLAFAXINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220619",
-      "product_number": "003",
-      "drug_name": "VENLAFAXINE HYDROCHLORIDE",
-      "active_ingredient": "VENLAFAXINE HYDROCHLORIDE"
     },
     {
       "application_type": "NDA",
@@ -15757,75 +15117,12 @@
     },
     {
       "application_type": "NDA",
-      "application_number": "220748",
-      "product_number": "001",
-      "drug_name": "AXYCIS",
-      "active_ingredient": "CISPLATIN"
-    },
-    {
-      "application_type": "NDA",
       "application_number": "220758",
       "product_number": "001",
       "drug_name": "EMPAGLIFLOZIN",
       "active_ingredient": "EMPAGLIFLOZIN"
     },
     {
-      "application_type": "ANDA",
-      "application_number": "220782",
-      "product_number": "001",
-      "drug_name": "TRIAMTERENE",
-      "active_ingredient": "TRIAMTERENE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220782",
-      "product_number": "002",
-      "drug_name": "TRIAMTERENE",
-      "active_ingredient": "TRIAMTERENE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220783",
-      "product_number": "001",
-      "drug_name": "ROMIDEPSIN",
-      "active_ingredient": "ROMIDEPSIN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "001",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "002",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "003",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "004",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "005",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM"
-    },
-    {
       "application_type": "NDA",
       "application_number": "220860",
       "product_number": "001",
@@ -15845,41 +15142,6 @@
       "product_number": "003",
       "drug_name": "ORZEYFUL",
       "active_ingredient": "OVEPOREXTON"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220972",
-      "product_number": "002",
-      "drug_name": "TOFACITINIB CITRATE",
-      "active_ingredient": "TOFACITINIB CITRATE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "221019",
-      "product_number": "001",
-      "drug_name": "ELTROMBOPAG OLAMINE",
-      "active_ingredient": "ELTROMBOPAG OLAMINE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "221019",
-      "product_number": "002",
-      "drug_name": "ELTROMBOPAG OLAMINE",
-      "active_ingredient": "ELTROMBOPAG OLAMINE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "221019",
-      "product_number": "003",
-      "drug_name": "ELTROMBOPAG OLAMINE",
-      "active_ingredient": "ELTROMBOPAG OLAMINE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "221019",
-      "product_number": "004",
-      "drug_name": "ELTROMBOPAG OLAMINE",
-      "active_ingredient": "ELTROMBOPAG OLAMINE"
     },
     {
       "application_type": "NDA",
@@ -15904,34 +15166,6 @@
     },
     {
       "application_type": "NDA",
-      "application_number": "221033",
-      "product_number": "001",
-      "drug_name": "YULZETY",
-      "active_ingredient": "RIVAROXABAN"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "221033",
-      "product_number": "002",
-      "drug_name": "YULZETY",
-      "active_ingredient": "RIVAROXABAN"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "221049",
-      "product_number": "001",
-      "drug_name": "LUBIPROSTONE",
-      "active_ingredient": "LUBIPROSTONE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "221049",
-      "product_number": "002",
-      "drug_name": "LUBIPROSTONE",
-      "active_ingredient": "LUBIPROSTONE"
-    },
-    {
-      "application_type": "NDA",
       "application_number": "221059",
       "product_number": "001",
       "drug_name": "EDARAVONE",
@@ -15952,60 +15186,11 @@
       "active_ingredient": "DOXORUBICIN HYDROCHLORIDE"
     },
     {
-      "application_type": "ANDA",
-      "application_number": "221145",
-      "product_number": "001",
-      "drug_name": "BUPRENORPHINE HYDROCHLORIDE",
-      "active_ingredient": "BUPRENORPHINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "221154",
-      "product_number": "001",
-      "drug_name": "HOVILPRI",
-      "active_ingredient": "PRITELIVIR MESYLATE"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "221183",
-      "product_number": "001",
-      "drug_name": "EVOXAC",
-      "active_ingredient": "CEVIMELINE HYDROCHLORIDE"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "221194",
-      "product_number": "001",
-      "drug_name": "TRIMETHOPRIM",
-      "active_ingredient": "TRIMETHOPRIM"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "221213",
-      "product_number": "001",
-      "drug_name": "TRANEXAMIC ACID",
-      "active_ingredient": "TRANEXAMIC ACID"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "221276",
-      "product_number": "001",
-      "drug_name": "HIBSAGO",
-      "active_ingredient": "BEPIROVIRSEN"
-    },
-    {
       "application_type": "NDA",
       "application_number": "221287",
       "product_number": "001",
       "drug_name": "AIR",
       "active_ingredient": "AIR"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "221301",
-      "product_number": "001",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM"
     },
     {
       "application_type": "NDA",

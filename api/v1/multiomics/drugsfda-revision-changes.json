@@ -8,196 +8,22 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "306d3de76a95a43e31d50b32efc0758a7affd9bb5b7e6cd3f2f31234fa221e6d",
-    "retrieved_at": "2026-11-11T02:47:34Z"
-  },
-  "current_revision": {
     "source_sha256": "a06b22788d05f6217a4b0c34c91ca998387de14c239fd7eca830f8303fc9e232",
     "retrieved_at": "2026-11-13T03:25:13Z"
   },
-  "counts": {
-    "previous_products": 51137,
-    "current_products": 51147,
-    "added_products": 10,
-    "removed_products": 0,
-    "changed_products": 2
+  "current_revision": {
+    "source_sha256": "5a4ffd00c18737e6437782469856be43120c2dfd4a2d724a0516f64891b0e1d6",
+    "retrieved_at": "2026-11-14T03:17:07Z"
   },
-  "added": [
-    {
-      "application_type": "ANDA",
-      "application_number": "217589",
-      "product_number": "001",
-      "drug_name": "BRIMONIDINE TARTRATE AND TIMOLOL MALEATE",
-      "active_ingredient": "BRIMONIDINE TARTRATE; TIMOLOL MALEATE",
-      "dosage_form": "SOLUTION/DROPS;OPHTHALMIC",
-      "strength": "0.2%;EQ 0.5% BASE",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "219457",
-      "product_number": "001",
-      "drug_name": "MULTIBIC",
-      "active_ingredient": "MULTIBIC",
-      "dosage_form": "SOLUTION",
-      "strength": "N/A",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220458",
-      "product_number": "002",
-      "drug_name": "TOFACITINIB CITRATE",
-      "active_ingredient": "TOFACITINIB CITRATE",
-      "dosage_form": "TABLET, EXTENDED RELEASE;ORAL",
-      "strength": "EQ 22MG BASE",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "001",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "10MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "002",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "25MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "003",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "50MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "004",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "75MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220832",
-      "product_number": "005",
-      "drug_name": "BRIVARACETAM",
-      "active_ingredient": "BRIVARACETAM",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "100MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "221093",
-      "product_number": "001",
-      "drug_name": "OXDERYS",
-      "active_ingredient": "DOXORUBICIN HYDROCHLORIDE",
-      "dosage_form": "VIAL; MULTIDOSE",
-      "strength": "40MG/20ML (2MG/ML)",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "221093",
-      "product_number": "002",
-      "drug_name": "OXDERYS",
-      "active_ingredient": "DOXORUBICIN HYDROCHLORIDE",
-      "dosage_form": "VIAL; MULTIDOSE",
-      "strength": "160MG/80ML (2MG/ML)",
-      "marketing_status": "Prescription"
-    }
-  ],
+  "counts": {
+    "previous_products": 51147,
+    "current_products": 51147,
+    "added_products": 0,
+    "removed_products": 0,
+    "changed_products": 0
+  },
+  "added": [],
   "removed": [],
-  "changed": [
-    {
-      "application_number": "218668",
-      "product_number": "002",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218668",
-      "changes": {
-        "strength": {
-          "before": "22MG",
-          "after": "EQ 22MG BASE"
-        },
-        "marketing_status": {
-          "before": "None (Tentative Approval)",
-          "after": "Prescription"
-        }
-      },
-      "official_submission_context": {
-        "matched_submission_count": 5,
-        "submissions": [
-          {
-            "submission_type": "ORIG",
-            "submission_number": 1
-          },
-          {
-            "submission_type": "ORIG",
-            "submission_number": 2
-          },
-          {
-            "submission_type": "SUPPL",
-            "submission_number": 3
-          },
-          {
-            "submission_type": "SUPPL",
-            "submission_number": 4
-          },
-          {
-            "submission_type": "SUPPL",
-            "submission_number": 5
-          }
-        ]
-      }
-    },
-    {
-      "application_number": "220972",
-      "product_number": "002",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=220972",
-      "changes": {
-        "marketing_status": {
-          "before": "None (Tentative Approval)",
-          "after": "Prescription"
-        }
-      },
-      "official_submission_context": {
-        "matched_submission_count": 4,
-        "submissions": [
-          {
-            "submission_type": "ORIG",
-            "submission_number": 1
-          },
-          {
-            "submission_type": "ORIG",
-            "submission_number": 2
-          },
-          {
-            "submission_type": "SUPPL",
-            "submission_number": 1
-          },
-          {
-            "submission_type": "SUPPL",
-            "submission_number": 2
-          }
-        ]
-      }
-    }
-  ],
+  "changed": [],
   "interpretation": "A changed record reports only fields that differ between official snapshots and includes exact-application submission identities from the current official Drugs@FDA revision; neither the linked history nor the submission context establishes the regulatory cause of the snapshot change."
 }
