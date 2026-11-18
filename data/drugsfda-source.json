@@ -4,10 +4,10 @@
   "dataset": "Drugs@FDA Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
   "source_download_url": "https://www.fda.gov/media/89850/download?attachment=",
-  "retrieved_at": "2026-11-14T03:17:07Z",
-  "source_sha256": "5a4ffd00c18737e6437782469856be43120c2dfd4a2d724a0516f64891b0e1d6",
-  "raw_path": "data/raw/fda/drugsatfda/5a4ffd00c18737e6437782469856be43120c2dfd4a2d724a0516f64891b0e1d6.zip",
-  "archive_size_bytes": 6115285,
+  "retrieved_at": "2026-11-18T04:23:04Z",
+  "source_sha256": "ec95509e1f09a056ae510cbe3d007bb6b08adcbf7fac222e93af6582e0f94032",
+  "raw_path": "data/raw/fda/drugsatfda/ec95509e1f09a056ae510cbe3d007bb6b08adcbf7fac222e93af6582e0f94032.zip",
+  "archive_size_bytes": 6116025,
   "table_count": 12,
   "tables": [
     {
@@ -34,9 +34,9 @@
         "ApplicationDocsURL",
         "ApplicationDocsDate"
       ],
-      "row_count": 81522,
-      "sha256": "ade4df51838c586a5c6f84bbc8d7dabf7b96b806ca332076eaf2827b0b662539",
-      "size_bytes": 11171676
+      "row_count": 81541,
+      "sha256": "e7bfbbec7358f19d00979a3ce78a68486bfbf1e19aa15e66f122841ff8648d7f",
+      "size_bytes": 11174168
     },
     {
       "file_name": "Applications.txt",
@@ -46,9 +46,9 @@
         "ApplPublicNotes",
         "SponsorName"
       ],
-      "row_count": 29458,
-      "sha256": "c722bc08ffc73b579917a8f7fe68f2d4937f50754c901fadff3a8f688fe7cb3e",
-      "size_bytes": 783463
+      "row_count": 29461,
+      "sha256": "6c0df5e39e23fc7fccfa5b00f776e7a7b3254a125ebf97df45b1528744a4f816",
+      "size_bytes": 783434
     },
     {
       "file_name": "ApplicationsDocsType_Lookup.txt",
@@ -69,9 +69,9 @@
         "SubmissionNo",
         "ActionTypes_LookupID"
       ],
-      "row_count": 210373,
-      "sha256": "e3cc6eab149fd0dffedf0efbb030399871cbb0292e37275f51c6636888542363",
-      "size_bytes": 6955231
+      "row_count": 210403,
+      "sha256": "8ae38f6135a661ae215a95644b51dcf32b4ac0f67b13dcb7bcfe7e0f29859c50",
+      "size_bytes": 6956259
     },
     {
       "file_name": "MarketingStatus.txt",
@@ -80,9 +80,9 @@
         "ApplNo",
         "ProductNo"
       ],
-      "row_count": 52613,
-      "sha256": "5829282a6e913e21d3ff55e54b1cf66e48298fe9d698a30d24301eef1c66772a",
-      "size_bytes": 736618
+      "row_count": 52621,
+      "sha256": "d99c5aa0b77a9261d4bbdc83955e7e64912d96e0b1df8e65bd4c764337ad8ba4",
+      "size_bytes": 736730
     },
     {
       "file_name": "MarketingStatus_Lookup.txt",
@@ -106,9 +106,9 @@
         "ActiveIngredient",
         "ReferenceStandard"
       ],
-      "row_count": 52003,
-      "sha256": "9e55390c5cce6ffc4b3895e9be882cdf5e2c80d6c95f7d49f3008ea8573bd975",
-      "size_bytes": 4665979
+      "row_count": 52011,
+      "sha256": "f5de44135dcf89c14c2318e533342a2d3e464419e17f5c639e8518821acc78d1",
+      "size_bytes": 4666646
     },
     {
       "file_name": "SubmissionClass_Lookup.txt",
@@ -130,9 +130,9 @@
         "SubmissionPropertyTypeCode",
         "SubmissionPropertyTypeID"
       ],
-      "row_count": 322270,
-      "sha256": "c10dd5896e9c44fe949f743b7646af4ca8966aeffe1fb6c4383d8fcd8a8b99f9",
-      "size_bytes": 9362820
+      "row_count": 322364,
+      "sha256": "c777480ef31e46337604977da40f46d4972980d6445f8445f97c4df1277bbcfe",
+      "size_bytes": 9365565
     },
     {
       "file_name": "Submissions.txt",
@@ -146,9 +146,9 @@
         "SubmissionsPublicNotes",
         "ReviewPriority"
       ],
-      "row_count": 194485,
-      "sha256": "25e8f2435d610a94d1cfe71d9e9732dd5c6f4a2442eddcc769eb9b588f593718",
-      "size_bytes": 9384894
+      "row_count": 194507,
+      "sha256": "a31b0881fd69014d7fdd6d9140a03a5cd0f3c9f08dc30b14e339216058adb4e3",
+      "size_bytes": 9386017
     },
     {
       "file_name": "TE.txt",
@@ -159,7 +159,7 @@
         "TECode"
       ],
       "row_count": 26866,
-      "sha256": "7c4126e049c4b25cd88a714f72bf931abbb08ef24049c97c599f045542bb2051",
+      "sha256": "aaf54c5c4f54d0aa3ff3ed2e792741906359a1fb19f5cb9556914755b825e973",
       "size_bytes": 458657
     }
   ]

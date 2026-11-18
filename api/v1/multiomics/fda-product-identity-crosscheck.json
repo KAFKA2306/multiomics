@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "5a4ffd00c18737e6437782469856be43120c2dfd4a2d724a0516f64891b0e1d6",
-    "source_retrieved_at": "2026-11-14T03:17:07Z"
+    "source_sha256": "ec95509e1f09a056ae510cbe3d007bb6b08adcbf7fac222e93af6582e0f94032",
+    "source_retrieved_at": "2026-11-18T04:23:04Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48990,
     "orange_book_dated_products": 43117,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 51147,
-    "identity_overlap_products": 48984,
-    "matched_application_type_products": 48984,
+    "drugsfda_nda_anda_products": 51153,
+    "identity_overlap_products": 48988,
+    "matched_application_type_products": 48988,
     "application_type_mismatch_products": 0,
-    "orange_book_only_products": 6,
-    "drugsfda_only_products": 2163
+    "orange_book_only_products": 2,
+    "drugsfda_only_products": 2165
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -44,38 +44,6 @@
       "trade_name": "EPTIFIBATIDE",
       "ingredient": "EPTIFIBATIDE",
       "approval_date": "Dec 8, 2016"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "218145",
-      "product_number": "002",
-      "trade_name": "SIMTRIYO",
-      "ingredient": "CENTANAFADINE HYDROCHLORIDE",
-      "approval_date": "Oct 30, 2026"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "218145",
-      "product_number": "003",
-      "trade_name": "SIMTRIYO",
-      "ingredient": "CENTANAFADINE HYDROCHLORIDE",
-      "approval_date": "Oct 30, 2026"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "218475",
-      "product_number": "003",
-      "trade_name": "EPINEPHRINE BITARTRATE IN 0.9% SODIUM CHLORIDE",
-      "ingredient": "EPINEPHRINE BITARTRATE",
-      "approval_date": "Oct 19, 2026"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "219776",
-      "product_number": "005",
-      "trade_name": "ORLADEYO",
-      "ingredient": "BEROTRALSTAT DIHYDROCHLORIDE",
-      "approval_date": "Oct 15, 2026"
     }
   ],
   "drugsfda_only": [
@@ -14886,6 +14854,13 @@
     },
     {
       "application_type": "NDA",
+      "application_number": "220414",
+      "product_number": "001",
+      "drug_name": "PIMJETMI",
+      "active_ingredient": "PIMICOTINIB"
+    },
+    {
+      "application_type": "NDA",
       "application_number": "220415",
       "product_number": "005",
       "drug_name": "JUVMO",
@@ -15191,6 +15166,13 @@
       "product_number": "001",
       "drug_name": "AIR",
       "active_ingredient": "AIR"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221291",
+      "product_number": "001",
+      "drug_name": "SUNHARBO",
+      "active_ingredient": "ASUNDEXIAN"
     },
     {
       "application_type": "NDA",

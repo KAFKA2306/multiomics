@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "5a4ffd00c18737e6437782469856be43120c2dfd4a2d724a0516f64891b0e1d6",
+  "drugsfda_source_sha256": "ec95509e1f09a056ae510cbe3d007bb6b08adcbf7fac222e93af6582e0f94032",
   "orange_book_source_sha256": "d4dbc9d85df4fbd78c5e448f130a55b05054f529d2054a46df10735437792241",
-  "drugsfda_only_products": 2163,
+  "drugsfda_only_products": 2165,
   "marketing_status_counts": {
     "Discontinued": 223,
     "None (Tentative Approval)": 1412,
     "Over-the-counter": 12,
-    "Prescription": 516
+    "Prescription": 518
   },
   "products": [
     {
@@ -16938,6 +16938,14 @@
     },
     {
       "application_type": "NDA",
+      "application_number": "220414",
+      "product_number": "001",
+      "drug_name": "PIMJETMI",
+      "active_ingredient": "PIMICOTINIB",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
       "application_number": "220415",
       "product_number": "005",
       "drug_name": "JUVMO",
@@ -17286,6 +17294,14 @@
       "product_number": "001",
       "drug_name": "AIR",
       "active_ingredient": "AIR",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221291",
+      "product_number": "001",
+      "drug_name": "SUNHARBO",
+      "active_ingredient": "ASUNDEXIAN",
       "marketing_status": "Prescription"
     },
     {

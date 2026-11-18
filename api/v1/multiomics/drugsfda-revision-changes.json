@@ -8,22 +8,952 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "a06b22788d05f6217a4b0c34c91ca998387de14c239fd7eca830f8303fc9e232",
-    "retrieved_at": "2026-11-13T03:25:13Z"
-  },
-  "current_revision": {
     "source_sha256": "5a4ffd00c18737e6437782469856be43120c2dfd4a2d724a0516f64891b0e1d6",
     "retrieved_at": "2026-11-14T03:17:07Z"
   },
+  "current_revision": {
+    "source_sha256": "ec95509e1f09a056ae510cbe3d007bb6b08adcbf7fac222e93af6582e0f94032",
+    "retrieved_at": "2026-11-18T04:23:04Z"
+  },
   "counts": {
     "previous_products": 51147,
-    "current_products": 51147,
-    "added_products": 0,
+    "current_products": 51153,
+    "added_products": 6,
     "removed_products": 0,
-    "changed_products": 0
+    "changed_products": 29
   },
-  "added": [],
+  "added": [
+    {
+      "application_type": "NDA",
+      "application_number": "218145",
+      "product_number": "002",
+      "drug_name": "SIMTRIYO",
+      "active_ingredient": "CENTANAFADINE HYDROCHLORIDE",
+      "dosage_form": "CAPSULE, EXTENDED RELEASE;ORAL",
+      "strength": "EQ 210MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "218145",
+      "product_number": "003",
+      "drug_name": "SIMTRIYO",
+      "active_ingredient": "CENTANAFADINE HYDROCHLORIDE",
+      "dosage_form": "CAPSULE, EXTENDED RELEASE;ORAL",
+      "strength": "EQ 280MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "218475",
+      "product_number": "003",
+      "drug_name": "EPINEPHRINE BITARTRATE IN 0.9% SODIUM CHLORIDE",
+      "active_ingredient": "EPINEPHRINE BITARTRATE",
+      "dosage_form": "SOLUTION;INTRAVENOUS",
+      "strength": "EQ 8MG BASE/250ML (EQ 32MCG BASE/ML)",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "219776",
+      "product_number": "005",
+      "drug_name": "ORLADEYO",
+      "active_ingredient": "BEROTRALSTAT DIHYDROCHLORIDE",
+      "dosage_form": "PELLETS;ORAL",
+      "strength": "EQ 150MG BASE/PACKET",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220414",
+      "product_number": "001",
+      "drug_name": "PIMJETMI",
+      "active_ingredient": "PIMICOTINIB",
+      "dosage_form": "CAPSULE; ORAL",
+      "strength": "50MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221291",
+      "product_number": "001",
+      "drug_name": "SUNHARBO",
+      "active_ingredient": "ASUNDEXIAN",
+      "dosage_form": "TABLET; FILM COATED",
+      "strength": "50MG",
+      "marketing_status": "Prescription"
+    }
+  ],
   "removed": [],
-  "changed": [],
+  "changed": [
+    {
+      "application_number": "020610",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=020610",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 16,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 13
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 14
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 16
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 17
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 18
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 19
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 20
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 21
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 23
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 24
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 25
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 26
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 27
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "021758",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=021758",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 11,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 3
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 7
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 14
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 16
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 17
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 18
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 19
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "022573",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=022573",
+      "changes": {
+        "drug_name": {
+          "before": "NORETHINDRONE AND ETHINYL ESTRADIOL AND FERROUS FUMARATE",
+          "after": "GENERESS FE"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 8,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 3
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 5
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 8
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 14
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "076019",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=076019",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 8,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 8
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 11
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 14
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 20
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 27
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 30
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 33
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "200690",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=200690",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 5,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 5
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 16
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "200690",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=200690",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 5,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 5
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 16
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "201408",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=201408",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 5,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 5
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 8
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "201408",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=201408",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 5,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 5
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 8
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "201408",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=201408",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 5,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 5
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 8
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "201408",
+      "product_number": "004",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=201408",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 5,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 4
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 5
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 8
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 12
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "203167",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=203167",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 2,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "210449",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=210449",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "210449",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=210449",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "211583",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=211583",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "211583",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=211583",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "211583",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=211583",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "211583",
+      "product_number": "004",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=211583",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "211583",
+      "product_number": "005",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=211583",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "212568",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212568",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "215422",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215422",
+      "changes": {
+        "marketing_status": {
+          "before": "Discontinued",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218145",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218145",
+      "changes": {
+        "dosage_form": {
+          "before": "CAPSULE, EXTENDED RELEASE",
+          "after": "CAPSULE, EXTENDED RELEASE;ORAL"
+        },
+        "strength": {
+          "before": "280MG",
+          "after": "EQ 140MG BASE"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218725",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218725",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218725",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218725",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218866",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218866",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218866",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218866",
+      "changes": {
+        "marketing_status": {
+          "before": "Prescription",
+          "after": "Discontinued"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "219455",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=219455",
+      "changes": {
+        "active_ingredient": {
+          "before": "SODIUM CTIRATE",
+          "after": "TRISODIUM CITRATE"
+        },
+        "dosage_form": {
+          "before": "SOLUTION; INJECTION",
+          "after": "SOLUTION;EXTRACORPOREAL"
+        },
+        "strength": {
+          "before": "40G/L trisodium citrate dihydrate (136MMOL/L citrate)",
+          "after": "40GM/1000ML (1500ML)"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "219456",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=219456",
+      "changes": {
+        "active_ingredient": {
+          "before": "CALCUIM CHLORIDE",
+          "after": "CALCIUM CHLORIDE"
+        },
+        "dosage_form": {
+          "before": "SOLUTION; INJECTION",
+          "after": "SOLUTION;EXTRACORPOREAL"
+        },
+        "strength": {
+          "before": "14.7G/L calcium chloride dihydrate (100MMOL/L calcium)",
+          "after": "14.7GM/1000ML (1500ML)"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "220748",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=220748",
+      "changes": {
+        "dosage_form": {
+          "before": "LIQUID",
+          "after": "SOLUTION;INTRAVENOUS"
+        },
+        "strength": {
+          "before": "1MG/ML",
+          "after": "50MG/50ML (1MG/ML)"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "221276",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=221276",
+      "changes": {
+        "active_ingredient": {
+          "before": "BEPIROVIRSEN",
+          "after": "BEPIROVIRSEN SODIUM"
+        },
+        "dosage_form": {
+          "before": "INJECTION;SOLUTION",
+          "after": "SOLUTION;SUBCUTANEOUS"
+        },
+        "strength": {
+          "before": "",
+          "after": "EQ 150MG BASE/ML (EQ 150MG BASE/ML)"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    }
+  ],
   "interpretation": "A changed record reports only fields that differ between official snapshots and includes exact-application submission identities from the current official Drugs@FDA revision; neither the linked history nor the submission context establishes the regulatory cause of the snapshot change."
 }
