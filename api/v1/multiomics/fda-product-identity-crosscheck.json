@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "ec95509e1f09a056ae510cbe3d007bb6b08adcbf7fac222e93af6582e0f94032",
-    "source_retrieved_at": "2026-11-18T04:23:04Z"
+    "source_sha256": "b12bacbe8520c9969b12261fa2db0d1fef75303c5ba94e9a4e9a76eff51e3786",
+    "source_retrieved_at": "2026-11-19T04:12:19Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48990,
     "orange_book_dated_products": 43117,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 51153,
+    "drugsfda_nda_anda_products": 51163,
     "identity_overlap_products": 48988,
     "matched_application_type_products": 48988,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 2,
-    "drugsfda_only_products": 2165
+    "drugsfda_only_products": 2175
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -12046,6 +12046,13 @@
       "active_ingredient": "EDARAVONE"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "215632",
+      "product_number": "001",
+      "drug_name": "FORMOTEROL FUMARATE",
+      "active_ingredient": "FORMOTEROL FUMARATE"
+    },
+    {
       "application_type": "NDA",
       "application_number": "215668",
       "product_number": "001",
@@ -12922,6 +12929,13 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "217678",
+      "product_number": "002",
+      "drug_name": "BINIMETINIB",
+      "active_ingredient": "BINIMETINIB"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "217690",
       "product_number": "002",
       "drug_name": "ELAGOLIX",
@@ -12989,6 +13003,20 @@
       "product_number": "003",
       "drug_name": "SITAGLIPTIN",
       "active_ingredient": "SITAGLIPTIN"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218007",
+      "product_number": "001",
+      "drug_name": "AMIFAMPRIDINE PHOSPHATE",
+      "active_ingredient": "AMIFAMPRIDINE PHOSPHATE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218029",
+      "product_number": "001",
+      "drug_name": "AMIFAMPRIDINE PHOSPHATE",
+      "active_ingredient": "AMIFAMPRIDINE PHOSPHATE"
     },
     {
       "application_type": "ANDA",
@@ -13269,6 +13297,13 @@
       "product_number": "003",
       "drug_name": "NILOTINIB",
       "active_ingredient": "NILOTINIB"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218562",
+      "product_number": "001",
+      "drug_name": "TRETINOIN",
+      "active_ingredient": "TRETINOIN"
     },
     {
       "application_type": "ANDA",
@@ -15099,6 +15134,27 @@
     },
     {
       "application_type": "NDA",
+      "application_number": "220791",
+      "product_number": "001",
+      "drug_name": "WILSERDLY",
+      "active_ingredient": "GIREDESTRAN"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220792",
+      "product_number": "001",
+      "drug_name": "MIRABEGRON",
+      "active_ingredient": "MIRABEGRON"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220792",
+      "product_number": "002",
+      "drug_name": "MIRABEGRON",
+      "active_ingredient": "MIRABEGRON"
+    },
+    {
+      "application_type": "NDA",
       "application_number": "220860",
       "product_number": "001",
       "drug_name": "ORZEYFUL",
@@ -15117,6 +15173,20 @@
       "product_number": "003",
       "drug_name": "ORZEYFUL",
       "active_ingredient": "OVEPOREXTON"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220920",
+      "product_number": "001",
+      "drug_name": "TRIMETHOPRIM",
+      "active_ingredient": "TRIMETHOPRIM"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220976",
+      "product_number": "001",
+      "drug_name": "THIAMINE HYDROCHLORIDE",
+      "active_ingredient": "THIAMINE HYDROCHLORIDE"
     },
     {
       "application_type": "NDA",

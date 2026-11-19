@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "ec95509e1f09a056ae510cbe3d007bb6b08adcbf7fac222e93af6582e0f94032",
+  "drugsfda_source_sha256": "b12bacbe8520c9969b12261fa2db0d1fef75303c5ba94e9a4e9a76eff51e3786",
   "orange_book_source_sha256": "d4dbc9d85df4fbd78c5e448f130a55b05054f529d2054a46df10735437792241",
-  "drugsfda_only_products": 2165,
+  "drugsfda_only_products": 2175,
   "marketing_status_counts": {
     "Discontinued": 223,
-    "None (Tentative Approval)": 1412,
+    "None (Tentative Approval)": 1411,
     "Over-the-counter": 12,
-    "Prescription": 518
+    "Prescription": 529
   },
   "products": [
     {
@@ -13729,6 +13729,14 @@
       "marketing_status": "None (Tentative Approval)"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "215632",
+      "product_number": "001",
+      "drug_name": "FORMOTEROL FUMARATE",
+      "active_ingredient": "FORMOTEROL FUMARATE",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "215668",
       "product_number": "001",
@@ -14726,7 +14734,15 @@
       "product_number": "001",
       "drug_name": "BINIMETINIB",
       "active_ingredient": "BINIMETINIB",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "217678",
+      "product_number": "002",
+      "drug_name": "BINIMETINIB",
+      "active_ingredient": "BINIMETINIB",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -14807,6 +14823,22 @@
       "drug_name": "SITAGLIPTIN",
       "active_ingredient": "SITAGLIPTIN",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218007",
+      "product_number": "001",
+      "drug_name": "AMIFAMPRIDINE PHOSPHATE",
+      "active_ingredient": "AMIFAMPRIDINE PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218029",
+      "product_number": "001",
+      "drug_name": "AMIFAMPRIDINE PHOSPHATE",
+      "active_ingredient": "AMIFAMPRIDINE PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -15127,6 +15159,14 @@
       "drug_name": "NILOTINIB",
       "active_ingredient": "NILOTINIB",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218562",
+      "product_number": "001",
+      "drug_name": "TRETINOIN",
+      "active_ingredient": "TRETINOIN",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -17218,6 +17258,30 @@
     },
     {
       "application_type": "NDA",
+      "application_number": "220791",
+      "product_number": "001",
+      "drug_name": "WILSERDLY",
+      "active_ingredient": "GIREDESTRAN",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220792",
+      "product_number": "001",
+      "drug_name": "MIRABEGRON",
+      "active_ingredient": "MIRABEGRON",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220792",
+      "product_number": "002",
+      "drug_name": "MIRABEGRON",
+      "active_ingredient": "MIRABEGRON",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
       "application_number": "220860",
       "product_number": "001",
       "drug_name": "ORZEYFUL",
@@ -17238,6 +17302,22 @@
       "product_number": "003",
       "drug_name": "ORZEYFUL",
       "active_ingredient": "OVEPOREXTON",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220920",
+      "product_number": "001",
+      "drug_name": "TRIMETHOPRIM",
+      "active_ingredient": "TRIMETHOPRIM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220976",
+      "product_number": "001",
+      "drug_name": "THIAMINE HYDROCHLORIDE",
+      "active_ingredient": "THIAMINE HYDROCHLORIDE",
       "marketing_status": "Prescription"
     },
     {
