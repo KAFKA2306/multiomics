@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "b12bacbe8520c9969b12261fa2db0d1fef75303c5ba94e9a4e9a76eff51e3786",
+  "drugsfda_source_sha256": "5667fdacbf4ca60a58c9e70d81d29840b663e43fe40336d336eba2060f5acbfb",
   "orange_book_source_sha256": "d4dbc9d85df4fbd78c5e448f130a55b05054f529d2054a46df10735437792241",
-  "drugsfda_only_products": 2175,
+  "drugsfda_only_products": 2180,
   "marketing_status_counts": {
     "Discontinued": 223,
     "None (Tentative Approval)": 1411,
     "Over-the-counter": 12,
-    "Prescription": 529
+    "Prescription": 534
   },
   "products": [
     {
@@ -14098,6 +14098,14 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "216476",
+      "product_number": "001",
+      "drug_name": "LIRAGLUTIDE",
+      "active_ingredient": "LIRAGLUTIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "216516",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
@@ -17313,11 +17321,35 @@
       "marketing_status": "Prescription"
     },
     {
+      "application_type": "NDA",
+      "application_number": "220936",
+      "product_number": "001",
+      "drug_name": "NELKARMI",
+      "active_ingredient": "NELADALKIB",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "ANDA",
       "application_number": "220976",
       "product_number": "001",
       "drug_name": "THIAMINE HYDROCHLORIDE",
       "active_ingredient": "THIAMINE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220985",
+      "product_number": "001",
+      "drug_name": "CALCIUM CHLORIDE 10%",
+      "active_ingredient": "CALCIUM CHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220996",
+      "product_number": "001",
+      "drug_name": "LEMBAZ",
+      "active_ingredient": "ADRABETADEX",
       "marketing_status": "Prescription"
     },
     {
@@ -17390,6 +17422,14 @@
       "product_number": "001",
       "drug_name": "MEDICAL AIR, USP",
       "active_ingredient": "",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221496",
+      "product_number": "001",
+      "drug_name": "LENACAPAVIR",
+      "active_ingredient": "LENACAPAVIR",
       "marketing_status": "Prescription"
     },
     {

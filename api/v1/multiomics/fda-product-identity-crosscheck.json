@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "b12bacbe8520c9969b12261fa2db0d1fef75303c5ba94e9a4e9a76eff51e3786",
-    "source_retrieved_at": "2026-11-19T04:12:19Z"
+    "source_sha256": "5667fdacbf4ca60a58c9e70d81d29840b663e43fe40336d336eba2060f5acbfb",
+    "source_retrieved_at": "2026-11-20T03:58:57Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48990,
     "orange_book_dated_products": 43117,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 51163,
+    "drugsfda_nda_anda_products": 51168,
     "identity_overlap_products": 48988,
     "matched_application_type_products": 48988,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 2,
-    "drugsfda_only_products": 2175
+    "drugsfda_only_products": 2180
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -12369,6 +12369,13 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "216476",
+      "product_number": "001",
+      "drug_name": "LIRAGLUTIDE",
+      "active_ingredient": "LIRAGLUTIDE"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "216516",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
@@ -15182,11 +15189,32 @@
       "active_ingredient": "TRIMETHOPRIM"
     },
     {
+      "application_type": "NDA",
+      "application_number": "220936",
+      "product_number": "001",
+      "drug_name": "NELKARMI",
+      "active_ingredient": "NELADALKIB"
+    },
+    {
       "application_type": "ANDA",
       "application_number": "220976",
       "product_number": "001",
       "drug_name": "THIAMINE HYDROCHLORIDE",
       "active_ingredient": "THIAMINE HYDROCHLORIDE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220985",
+      "product_number": "001",
+      "drug_name": "CALCIUM CHLORIDE 10%",
+      "active_ingredient": "CALCIUM CHLORIDE"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220996",
+      "product_number": "001",
+      "drug_name": "LEMBAZ",
+      "active_ingredient": "ADRABETADEX"
     },
     {
       "application_type": "NDA",
@@ -15250,6 +15278,13 @@
       "product_number": "001",
       "drug_name": "MEDICAL AIR, USP",
       "active_ingredient": ""
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221496",
+      "product_number": "001",
+      "drug_name": "LENACAPAVIR",
+      "active_ingredient": "LENACAPAVIR"
     },
     {
       "application_type": "NDA",
