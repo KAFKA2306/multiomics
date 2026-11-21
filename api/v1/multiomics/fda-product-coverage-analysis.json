@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "5667fdacbf4ca60a58c9e70d81d29840b663e43fe40336d336eba2060f5acbfb",
+  "drugsfda_source_sha256": "36d4d327f6bc7001fc7f1e846eb6ac5516dcaa42e0f0efc4ddb5e9a85c3dc950",
   "orange_book_source_sha256": "d4dbc9d85df4fbd78c5e448f130a55b05054f529d2054a46df10735437792241",
-  "drugsfda_only_products": 2180,
+  "drugsfda_only_products": 2184,
   "marketing_status_counts": {
     "Discontinued": 223,
     "None (Tentative Approval)": 1411,
     "Over-the-counter": 12,
-    "Prescription": 534
+    "Prescription": 538
   },
   "products": [
     {
@@ -14121,6 +14121,14 @@
       "marketing_status": "None (Tentative Approval)"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "216534",
+      "product_number": "001",
+      "drug_name": "ZOLEDRONIC ACID",
+      "active_ingredient": "ZOLEDRONIC ACID",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "216614",
       "product_number": "001",
@@ -17398,6 +17406,30 @@
       "product_number": "002",
       "drug_name": "OXDERYS",
       "active_ingredient": "DOXORUBICIN HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221144",
+      "product_number": "001",
+      "drug_name": "INFILBRAY",
+      "active_ingredient": "VENGLUSTAT",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221144",
+      "product_number": "002",
+      "drug_name": "INFILBRAY",
+      "active_ingredient": "VENGLUSTAT",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221251",
+      "product_number": "001",
+      "drug_name": "LIVSAYIS",
+      "active_ingredient": "CEMDISIRAN",
       "marketing_status": "Prescription"
     },
     {

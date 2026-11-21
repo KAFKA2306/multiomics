@@ -8,69 +8,59 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "b12bacbe8520c9969b12261fa2db0d1fef75303c5ba94e9a4e9a76eff51e3786",
-    "retrieved_at": "2026-11-19T04:12:19Z"
-  },
-  "current_revision": {
     "source_sha256": "5667fdacbf4ca60a58c9e70d81d29840b663e43fe40336d336eba2060f5acbfb",
     "retrieved_at": "2026-11-20T03:58:57Z"
   },
+  "current_revision": {
+    "source_sha256": "36d4d327f6bc7001fc7f1e846eb6ac5516dcaa42e0f0efc4ddb5e9a85c3dc950",
+    "retrieved_at": "2026-11-21T03:58:59Z"
+  },
   "counts": {
-    "previous_products": 51163,
-    "current_products": 51168,
-    "added_products": 5,
+    "previous_products": 51168,
+    "current_products": 51172,
+    "added_products": 4,
     "removed_products": 0,
     "changed_products": 0
   },
   "added": [
     {
       "application_type": "ANDA",
-      "application_number": "216476",
+      "application_number": "216534",
       "product_number": "001",
-      "drug_name": "LIRAGLUTIDE",
-      "active_ingredient": "LIRAGLUTIDE",
-      "dosage_form": "SOLUTION;SUBCUTANEOUS",
-      "strength": "18MG/3ML (6MG/ML)",
+      "drug_name": "ZOLEDRONIC ACID",
+      "active_ingredient": "ZOLEDRONIC ACID",
+      "dosage_form": "INJECTABLE;INTRAVENOUS",
+      "strength": "EQ 4MG BASE/5ML",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",
-      "application_number": "220936",
+      "application_number": "221144",
       "product_number": "001",
-      "drug_name": "NELKARMI",
-      "active_ingredient": "NELADALKIB",
+      "drug_name": "INFILBRAY",
+      "active_ingredient": "VENGLUSTAT",
       "dosage_form": "TABLET; ORAL",
-      "strength": "150MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "220985",
-      "product_number": "001",
-      "drug_name": "CALCIUM CHLORIDE 10%",
-      "active_ingredient": "CALCIUM CHLORIDE",
-      "dosage_form": "INJECTABLE;INJECTION",
-      "strength": "100MG/ML",
+      "strength": "6MG",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",
-      "application_number": "220996",
-      "product_number": "001",
-      "drug_name": "LEMBAZ",
-      "active_ingredient": "ADRABETADEX",
-      "dosage_form": "INJECTION;SOLUTION",
-      "strength": "900MG/4.5ML (200MG/ML)",
+      "application_number": "221144",
+      "product_number": "002",
+      "drug_name": "INFILBRAY",
+      "active_ingredient": "VENGLUSTAT",
+      "dosage_form": "TABLET; ORAL",
+      "strength": "15MG",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",
-      "application_number": "221496",
+      "application_number": "221251",
       "product_number": "001",
-      "drug_name": "LENACAPAVIR",
-      "active_ingredient": "LENACAPAVIR",
-      "dosage_form": "INJECTABLE;INJECTION",
-      "strength": "463.5MG/1.5ML",
+      "drug_name": "LIVSAYIS",
+      "active_ingredient": "CEMDISIRAN",
+      "dosage_form": "VIAL;SINGLE-DOSE",
+      "strength": "189MG/ML",
       "marketing_status": "Prescription"
     }
   ],
