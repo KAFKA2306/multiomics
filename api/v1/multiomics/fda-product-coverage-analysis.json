@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "36d4d327f6bc7001fc7f1e846eb6ac5516dcaa42e0f0efc4ddb5e9a85c3dc950",
+  "drugsfda_source_sha256": "3f6ab9facb4d3deb1e9d0fad007fede89bf5097bf6bc563b37ab73ab28c0c122",
   "orange_book_source_sha256": "d4dbc9d85df4fbd78c5e448f130a55b05054f529d2054a46df10735437792241",
-  "drugsfda_only_products": 2184,
+  "drugsfda_only_products": 2191,
   "marketing_status_counts": {
     "Discontinued": 223,
     "None (Tentative Approval)": 1411,
     "Over-the-counter": 12,
-    "Prescription": 538
+    "Prescription": 545
   },
   "products": [
     {
@@ -3031,6 +3031,14 @@
       "drug_name": "ZIDOVUDINE",
       "active_ingredient": "ZIDOVUDINE",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "074625",
+      "product_number": "002",
+      "drug_name": "OXYBUTYNIN CHLORIDE",
+      "active_ingredient": "OXYBUTYNIN CHLORIDE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -10121,6 +10129,14 @@
       "marketing_status": "None (Tentative Approval)"
     },
     {
+      "application_type": "ANDA",
+      "application_number": "208620",
+      "product_number": "002",
+      "drug_name": "TESTOSTERONE",
+      "active_ingredient": "TESTOSTERONE",
+      "marketing_status": "Prescription"
+    },
+    {
       "application_type": "NDA",
       "application_number": "208645",
       "product_number": "001",
@@ -14858,6 +14874,38 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "218043",
+      "product_number": "001",
+      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
+      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218043",
+      "product_number": "002",
+      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
+      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218043",
+      "product_number": "003",
+      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
+      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218043",
+      "product_number": "004",
+      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
+      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "218044",
       "product_number": "001",
       "drug_name": "OLAPARIB",
@@ -15127,6 +15175,14 @@
       "drug_name": "EMPAGLIFLOZIN; METFORMIN HYDROCHLORIDE",
       "active_ingredient": "EMPAGLIFLOZIN;METFORMIN HYDROCHLORIDE",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218511",
+      "product_number": "001",
+      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
+      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
