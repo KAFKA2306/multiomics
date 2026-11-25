@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "3f6ab9facb4d3deb1e9d0fad007fede89bf5097bf6bc563b37ab73ab28c0c122",
-    "source_retrieved_at": "2026-11-24T06:57:37Z"
+    "source_sha256": "ec68007b8fecb211d40d31ea372e2f4ac44a0fc14445b5a0c413c6f5209ad563",
+    "source_retrieved_at": "2026-11-25T05:26:49Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48990,
     "orange_book_dated_products": 43117,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 51179,
+    "drugsfda_nda_anda_products": 51180,
     "identity_overlap_products": 48988,
     "matched_application_type_products": 48988,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 2,
-    "drugsfda_only_products": 2191
+    "drugsfda_only_products": 2192
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -12457,6 +12457,13 @@
       "product_number": "005",
       "drug_name": "PALIPERIDONE PALMITATE",
       "active_ingredient": "PALIPERIDONE PALMITATE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216736",
+      "product_number": "003",
+      "drug_name": "DICYCLOMINE HYDROCHLORIDE",
+      "active_ingredient": "DICYCLOMINE HYDROCHLORIDE"
     },
     {
       "application_type": "ANDA",

@@ -8,89 +8,29 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "36d4d327f6bc7001fc7f1e846eb6ac5516dcaa42e0f0efc4ddb5e9a85c3dc950",
-    "retrieved_at": "2026-11-21T03:58:59Z"
-  },
-  "current_revision": {
     "source_sha256": "3f6ab9facb4d3deb1e9d0fad007fede89bf5097bf6bc563b37ab73ab28c0c122",
     "retrieved_at": "2026-11-24T06:57:37Z"
   },
+  "current_revision": {
+    "source_sha256": "ec68007b8fecb211d40d31ea372e2f4ac44a0fc14445b5a0c413c6f5209ad563",
+    "retrieved_at": "2026-11-25T05:26:49Z"
+  },
   "counts": {
-    "previous_products": 51172,
-    "current_products": 51179,
-    "added_products": 7,
+    "previous_products": 51179,
+    "current_products": 51180,
+    "added_products": 1,
     "removed_products": 0,
     "changed_products": 0
   },
   "added": [
     {
       "application_type": "ANDA",
-      "application_number": "074625",
-      "product_number": "002",
-      "drug_name": "OXYBUTYNIN CHLORIDE",
-      "active_ingredient": "OXYBUTYNIN CHLORIDE",
-      "dosage_form": "TABLET;ORAL",
-      "strength": "2.5MG",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "208620",
-      "product_number": "002",
-      "drug_name": "TESTOSTERONE",
-      "active_ingredient": "TESTOSTERONE",
-      "dosage_form": "GEL;TRANSDERMAL",
-      "strength": "1.62% (40.5MG/2.5GM PACKET)",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218043",
-      "product_number": "001",
-      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
-      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
-      "dosage_form": "FOR SUSPENSION, DELAYED RELEASE;ORAL",
-      "strength": "EQ 2.5MG BASE/PACKET",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218043",
-      "product_number": "002",
-      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
-      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
-      "dosage_form": "FOR SUSPENSION, DELAYED RELEASE;ORAL",
-      "strength": "EQ 5MG BASE/PACKET",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218043",
+      "application_number": "216736",
       "product_number": "003",
-      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
-      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
-      "dosage_form": "FOR SUSPENSION, DELAYED RELEASE;ORAL",
-      "strength": "EQ 20MG BASE/PACKET",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218043",
-      "product_number": "004",
-      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
-      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
-      "dosage_form": "FOR SUSPENSION, DELAYED RELEASE;ORAL",
-      "strength": "EQ 40MG BASE/PACKET",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "218511",
-      "product_number": "001",
-      "drug_name": "ESOMEPRAZOLE MAGNESIUM",
-      "active_ingredient": "ESOMEPRAZOLE MAGNESIUM",
-      "dosage_form": "FOR SUSPENSION, DELAYED RELEASE;ORAL",
-      "strength": "EQ 10MG BASE/PACKET",
+      "drug_name": "DICYCLOMINE HYDROCHLORIDE",
+      "active_ingredient": "DICYCLOMINE HYDROCHLORIDE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "10MG",
       "marketing_status": "Prescription"
     }
   ],

@@ -3,8 +3,8 @@
   "authority": "U.S. Food and Drug Administration",
   "dataset": "Drugs@FDA Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
-  "source_sha256": "3f6ab9facb4d3deb1e9d0fad007fede89bf5097bf6bc563b37ab73ab28c0c122",
-  "source_retrieved_at": "2026-11-24T06:57:37Z",
+  "source_sha256": "ec68007b8fecb211d40d31ea372e2f4ac44a0fc14445b5a0c413c6f5209ad563",
+  "source_retrieved_at": "2026-11-25T05:26:49Z",
   "canonical_approval_path": "data/multiomics-v1.json",
   "approvals": [
     {

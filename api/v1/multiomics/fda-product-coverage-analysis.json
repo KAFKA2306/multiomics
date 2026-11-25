@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "3f6ab9facb4d3deb1e9d0fad007fede89bf5097bf6bc563b37ab73ab28c0c122",
+  "drugsfda_source_sha256": "ec68007b8fecb211d40d31ea372e2f4ac44a0fc14445b5a0c413c6f5209ad563",
   "orange_book_source_sha256": "d4dbc9d85df4fbd78c5e448f130a55b05054f529d2054a46df10735437792241",
-  "drugsfda_only_products": 2191,
+  "drugsfda_only_products": 2192,
   "marketing_status_counts": {
     "Discontinued": 223,
     "None (Tentative Approval)": 1411,
     "Over-the-counter": 12,
-    "Prescription": 545
+    "Prescription": 546
   },
   "products": [
     {
@@ -14199,6 +14199,14 @@
       "drug_name": "PALIPERIDONE PALMITATE",
       "active_ingredient": "PALIPERIDONE PALMITATE",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216736",
+      "product_number": "003",
+      "drug_name": "DICYCLOMINE HYDROCHLORIDE",
+      "active_ingredient": "DICYCLOMINE HYDROCHLORIDE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
