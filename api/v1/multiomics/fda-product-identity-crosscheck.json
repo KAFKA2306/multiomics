@@ -8,8 +8,8 @@
   ],
   "drugsfda": {
     "dataset": "Drugs@FDA Data Files",
-    "source_sha256": "ec68007b8fecb211d40d31ea372e2f4ac44a0fc14445b5a0c413c6f5209ad563",
-    "source_retrieved_at": "2026-11-25T05:26:49Z"
+    "source_sha256": "b5f97ad97d5ac78437dcb305808f9f8e1a6caee7983904d96f85adadbd13269f",
+    "source_retrieved_at": "2026-11-26T05:05:46Z"
   },
   "orange_book": {
     "dataset": "Orange Book Data Files",
@@ -20,12 +20,12 @@
     "orange_book_products": 48990,
     "orange_book_dated_products": 43117,
     "orange_book_pre_1982_products": 5873,
-    "drugsfda_nda_anda_products": 51180,
+    "drugsfda_nda_anda_products": 51188,
     "identity_overlap_products": 48988,
     "matched_application_type_products": 48988,
     "application_type_mismatch_products": 0,
     "orange_book_only_products": 2,
-    "drugsfda_only_products": 2192
+    "drugsfda_only_products": 2200
   },
   "application_type_mismatches": [],
   "orange_book_only": [
@@ -9039,15 +9039,36 @@
       "application_type": "ANDA",
       "application_number": "208906",
       "product_number": "001",
-      "drug_name": "TREPROSTINIL",
-      "active_ingredient": "TREPROSTINIL"
+      "drug_name": "TREPROSTINIL DIOLAMINE",
+      "active_ingredient": "TREPROSTINIL DIOLAMINE"
     },
     {
       "application_type": "ANDA",
       "application_number": "208906",
       "product_number": "002",
-      "drug_name": "TREPROSTINIL",
-      "active_ingredient": "TREPROSTINIL"
+      "drug_name": "TREPROSTINIL DIOLAMINE",
+      "active_ingredient": "TREPROSTINIL DIOLAMINE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "208906",
+      "product_number": "003",
+      "drug_name": "TREPROSTINIL DIOLAMINE",
+      "active_ingredient": "TREPROSTINIL DIOLAMINE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "208906",
+      "product_number": "004",
+      "drug_name": "TREPROSTINIL DIOLAMINE",
+      "active_ingredient": "TREPROSTINIL DIOLAMINE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "208906",
+      "product_number": "005",
+      "drug_name": "TREPROSTINIL DIOLAMINE",
+      "active_ingredient": "TREPROSTINIL DIOLAMINE"
     },
     {
       "application_type": "ANDA",
@@ -9244,6 +9265,13 @@
       "product_number": "001",
       "drug_name": "DOLUTEGRAVIR, LAMIVUDINE, AND TENOFOVIR DISOPROXIL FUMARATE",
       "active_ingredient": "DOLUTEGRAVIR;LAMIVUDINE;TENOFOVIR DISOPROXIL FUMARATE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "209693",
+      "product_number": "001",
+      "drug_name": "FERRIC CITRATE",
+      "active_ingredient": "FERRIC CITRATE"
     },
     {
       "application_type": "ANDA",
@@ -11551,16 +11579,23 @@
     {
       "application_type": "ANDA",
       "application_number": "214494",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214494",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "METFORMIN HYDROCHLORIDE, SITAGLIPTIN"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
     },
     {
       "application_type": "ANDA",
       "application_number": "214494",
       "product_number": "003",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "METFORMIN HYDROCHLORIDE, SITAGLIPTIN"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
     },
     {
       "application_type": "ANDA",
@@ -12338,6 +12373,13 @@
       "product_number": "001",
       "drug_name": "NERATINIB MALEATE",
       "active_ingredient": "NERATINIB MALEATE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216270",
+      "product_number": "001",
+      "drug_name": "ARFORMOTEROL TARTRATE",
+      "active_ingredient": "ARFORMOTEROL TARTRATE"
     },
     {
       "application_type": "ANDA",
@@ -14816,6 +14858,20 @@
       "product_number": "001",
       "drug_name": "Carbon Dioxide, USP",
       "active_ingredient": "Carbon Dioxide"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220279",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220279",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
     },
     {
       "application_type": "ANDA",
