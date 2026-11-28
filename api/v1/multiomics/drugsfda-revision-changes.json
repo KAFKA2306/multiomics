@@ -8,64 +8,214 @@
     "product_number"
   ],
   "previous_revision": {
-    "source_sha256": "ec68007b8fecb211d40d31ea372e2f4ac44a0fc14445b5a0c413c6f5209ad563",
-    "retrieved_at": "2026-11-25T05:26:49Z"
-  },
-  "current_revision": {
     "source_sha256": "b5f97ad97d5ac78437dcb305808f9f8e1a6caee7983904d96f85adadbd13269f",
     "retrieved_at": "2026-11-26T05:05:46Z"
   },
+  "current_revision": {
+    "source_sha256": "a552c8533475679fa99ed0d53723d3c9e50b5fa7a4467cbd15b9a1999f8f289b",
+    "retrieved_at": "2026-11-28T04:44:27Z"
+  },
   "counts": {
-    "previous_products": 51180,
-    "current_products": 51188,
-    "added_products": 8,
-    "removed_products": 0,
-    "changed_products": 4
+    "previous_products": 51188,
+    "current_products": 51227,
+    "added_products": 40,
+    "removed_products": 1,
+    "changed_products": 39
   },
   "added": [
     {
       "application_type": "ANDA",
-      "application_number": "208906",
+      "application_number": "209543",
       "product_number": "003",
-      "drug_name": "TREPROSTINIL DIOLAMINE",
-      "active_ingredient": "TREPROSTINIL DIOLAMINE",
-      "dosage_form": "TABLET, EXTENDED RELEASE;ORAL",
-      "strength": "EQ 1MG BASE",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "208906",
-      "product_number": "004",
-      "drug_name": "TREPROSTINIL DIOLAMINE",
-      "active_ingredient": "TREPROSTINIL DIOLAMINE",
-      "dosage_form": "TABLET, EXTENDED RELEASE;ORAL",
-      "strength": "EQ 2.5MG BASE",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "208906",
-      "product_number": "005",
-      "drug_name": "TREPROSTINIL DIOLAMINE",
-      "active_ingredient": "TREPROSTINIL DIOLAMINE",
-      "dosage_form": "TABLET, EXTENDED RELEASE;ORAL",
-      "strength": "EQ 5MG BASE",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "ANDA",
-      "application_number": "209693",
-      "product_number": "001",
-      "drug_name": "FERRIC CITRATE",
-      "active_ingredient": "FERRIC CITRATE",
+      "drug_name": "BOSUTINIB MONOHYDRATE",
+      "active_ingredient": "BOSUTINIB MONOHYDRATE",
       "dosage_form": "TABLET;ORAL",
-      "strength": "EQ 210MG IRON",
+      "strength": "EQ 400MG BASE",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
-      "application_number": "214494",
+      "application_number": "212546",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "212546",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "1GM;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "212952",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 25MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "212952",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "212952",
+      "product_number": "003",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 100MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214433",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 25MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214433",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214433",
+      "product_number": "003",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 100MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214685",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214685",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "1GM;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214859",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "215411",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216086",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 25MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216288",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216644",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216886",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 25MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216886",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216886",
+      "product_number": "003",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 100MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "217395",
       "product_number": "001",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
       "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
@@ -75,53 +225,298 @@
     },
     {
       "application_type": "ANDA",
-      "application_number": "216270",
+      "application_number": "217545",
       "product_number": "001",
-      "drug_name": "ARFORMOTEROL TARTRATE",
-      "active_ingredient": "ARFORMOTEROL TARTRATE",
-      "dosage_form": "SOLUTION;INHALATION",
-      "strength": "EQ 0.015MG BASE/2ML",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
-      "application_number": "220279",
-      "product_number": "001",
+      "application_number": "217545",
+      "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
       "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
-      "dosage_form": "TABLET, EXTENDED RELEASE;ORAL",
+      "dosage_form": "TABLET;ORAL",
       "strength": "1GM;EQ 50MG BASE",
       "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
-      "application_number": "220279",
-      "product_number": "002",
+      "application_number": "217829",
+      "product_number": "001",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
       "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
       "dosage_form": "TABLET, EXTENDED RELEASE;ORAL",
-      "strength": "1GM;EQ 100MG BASE",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "217979",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 25MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218405",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218441",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "EQ 25MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218486",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218486",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "1GM;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218621",
+      "product_number": "001",
+      "drug_name": "EPHEDRINE SULFATE",
+      "active_ingredient": "EPHEDRINE SULFATE",
+      "dosage_form": "SOLUTION;INTRAVENOUS",
+      "strength": "50MG/ML (50MG/ML)",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219041",
+      "product_number": "001",
+      "drug_name": "SUGAMMADEX SODIUM",
+      "active_ingredient": "SUGAMMADEX SODIUM",
+      "dosage_form": "SOLUTION;INTRAVENOUS",
+      "strength": "EQ 200MG BASE/2ML (EQ 100MG BASE/ML)",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219041",
+      "product_number": "002",
+      "drug_name": "SUGAMMADEX SODIUM",
+      "active_ingredient": "SUGAMMADEX SODIUM",
+      "dosage_form": "SOLUTION;INTRAVENOUS",
+      "strength": "EQ 500MG BASE/5ML (EQ 100MG BASE/ML)",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220370",
+      "product_number": "001",
+      "drug_name": "VERAPAMIL HYDROCHLORIDE",
+      "active_ingredient": "VERAPAMIL HYDROCHLORIDE",
+      "dosage_form": "TABLET, EXTENDED RELEASE;ORAL",
+      "strength": "120MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220370",
+      "product_number": "002",
+      "drug_name": "VERAPAMIL HYDROCHLORIDE",
+      "active_ingredient": "VERAPAMIL HYDROCHLORIDE",
+      "dosage_form": "TABLET, EXTENDED RELEASE;ORAL",
+      "strength": "180MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220370",
+      "product_number": "003",
+      "drug_name": "VERAPAMIL HYDROCHLORIDE",
+      "active_ingredient": "VERAPAMIL HYDROCHLORIDE",
+      "dosage_form": "TABLET, EXTENDED RELEASE;ORAL",
+      "strength": "240MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220389",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "500MG;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220389",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "dosage_form": "TABLET;ORAL",
+      "strength": "1GM;EQ 50MG BASE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220740",
+      "product_number": "001",
+      "drug_name": "BACFENSSI",
+      "active_ingredient": "DOXYCYCLINE HYCLATE",
+      "dosage_form": "EXTENEDED RELEASE PASTE",
+      "strength": "63MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220905",
+      "product_number": "001",
+      "drug_name": "WELGEMDA",
+      "active_ingredient": "RIBITOL",
+      "dosage_form": "SOLUTION;ORAL",
+      "strength": "9G",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221283",
+      "product_number": "001",
+      "drug_name": "EKITNA",
+      "active_ingredient": "BEZUCLASTINIB",
+      "dosage_form": "TABLET; ORAL",
+      "strength": "75MG",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221325",
+      "product_number": "001",
+      "drug_name": "WILSERDLY",
+      "active_ingredient": "GIREDESTRANT",
+      "dosage_form": "CAPSULE; ORAL",
+      "strength": "30MG",
       "marketing_status": "Prescription"
     }
   ],
-  "removed": [],
+  "removed": [
+    {
+      "application_type": "NDA",
+      "application_number": "022046",
+      "product_number": "002",
+      "drug_name": "BUPIVACAINE HYDROCHLORIDE",
+      "active_ingredient": "BUPIVACAINE HYDROCHLORIDE",
+      "dosage_form": "INJECTABLE; INJECTION",
+      "strength": "0.5%",
+      "marketing_status": "Prescription"
+    }
+  ],
   "changed": [
     {
-      "application_number": "208906",
+      "application_number": "208186",
       "product_number": "001",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=208906",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=208186",
+      "changes": {
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "208186",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=208186",
+      "changes": {
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "208186",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=208186",
+      "changes": {
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "212338",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212338",
       "changes": {
         "drug_name": {
-          "before": "TREPROSTINIL",
-          "after": "TREPROSTINIL DIOLAMINE"
+          "before": "METFORMIN HYDROCHLORIDE AND SITAGLIPTIN PHOSPHATE",
+          "after": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
         },
         "active_ingredient": {
-          "before": "TREPROSTINIL",
-          "after": "TREPROSTINIL DIOLAMINE"
+          "before": "METFORMIN HYDROCHLORIDE || SITAGLIPTIN",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET:FILM COATED",
+          "after": "TABLET;ORAL"
         },
         "strength": {
-          "before": "0.125MG",
-          "after": "EQ 0.125MG BASE"
+          "before": "50MG",
+          "after": "500MG;EQ 50MG BASE"
         },
         "marketing_status": {
           "before": "None (Tentative Approval)",
@@ -139,21 +534,25 @@
       }
     },
     {
-      "application_number": "208906",
+      "application_number": "212338",
       "product_number": "002",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=208906",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212338",
       "changes": {
         "drug_name": {
-          "before": "TREPROSTINIL",
-          "after": "TREPROSTINIL DIOLAMINE"
+          "before": "METFORMIN HYDROCHLORIDE AND SITAGLIPTIN PHOSPHATE",
+          "after": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
         },
         "active_ingredient": {
-          "before": "TREPROSTINIL",
-          "after": "TREPROSTINIL DIOLAMINE"
+          "before": "METFORMIN HYDROCHLORIDE || SITAGLIPTIN",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET;FILM COATED",
+          "after": "TABLET;ORAL"
         },
         "strength": {
-          "before": "0.25MG",
-          "after": "EQ 0.25MG BASE"
+          "before": "500MG",
+          "after": "1GM;EQ 50MG BASE"
         },
         "marketing_status": {
           "before": "None (Tentative Approval)",
@@ -171,16 +570,664 @@
       }
     },
     {
-      "application_number": "214494",
+      "application_number": "214700",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214700",
+      "changes": {
+        "dosage_form": {
+          "before": "TABLET;FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "25MG",
+          "after": "EQ 25MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "214700",
       "product_number": "002",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214494",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214700",
+      "changes": {
+        "dosage_form": {
+          "before": "TABLET;FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "214700",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214700",
+      "changes": {
+        "dosage_form": {
+          "before": "TABLET;FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "100MG",
+          "after": "EQ 100MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "214784",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214784",
+      "changes": {
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "214784",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214784",
+      "changes": {
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "214784",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214784",
+      "changes": {
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "214859",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214859",
+      "changes": {
+        "active_ingredient": {
+          "before": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "500MG",
+          "after": "1GM;EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "215411",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215411",
+      "changes": {
+        "active_ingredient": {
+          "before": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "1GM;EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216057",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216057",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "25MG",
+          "after": "EQ 25MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216057",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216057",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216057",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216057",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "100MG",
+          "after": "EQ 100MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216086",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216086",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET; FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216086",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216086",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET; FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "100MG",
+          "after": "EQ 100MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216288",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216288",
       "changes": {
         "active_ingredient": {
           "before": "METFORMIN HYDROCHLORIDE, SITAGLIPTIN",
           "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
         },
         "dosage_form": {
-          "before": "TABLET, EXTENDED RELEASE",
+          "before": "TABLET, COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "1GM;EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216337",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216337",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET; FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "25MG",
+          "after": "EQ 25MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216337",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216337",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET; FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216337",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216337",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET; FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "100MG",
+          "after": "EQ 100MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216644",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216644",
+      "changes": {
+        "active_ingredient": {
+          "before": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "500MG",
+          "after": "1GM;EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216919",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216919",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET; FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "25MG",
+          "after": "EQ 25MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216919",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216919",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET; FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "216919",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216919",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET; FILM COATED",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "100MG",
+          "after": "EQ 100MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "217395",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217395",
+      "changes": {
+        "active_ingredient": {
+          "before": "SITAGLIPTIN PHOSPHATE ANHYDROUS, METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
           "after": "TABLET, EXTENDED RELEASE;ORAL"
         },
         "strength": {
@@ -203,12 +1250,76 @@
       }
     },
     {
-      "application_number": "214494",
+      "application_number": "217395",
       "product_number": "003",
-      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214494",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217395",
       "changes": {
         "active_ingredient": {
-          "before": "METFORMIN HYDROCHLORIDE, SITAGLIPTIN",
+          "before": "SITAGLIPTIN PHOSPHATE ANHYDROUS, METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET, EXTENDED RELEASE;ORAL"
+        },
+        "strength": {
+          "before": "500MG",
+          "after": "1GM;EQ 100MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "217829",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217829",
+      "changes": {
+        "active_ingredient": {
+          "before": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET, EXTENDED RELEASE",
+          "after": "TABLET, EXTENDED RELEASE;ORAL"
+        },
+        "strength": {
+          "before": "500MG",
+          "after": "1GM;EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "217829",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217829",
+      "changes": {
+        "active_ingredient": {
+          "before": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
           "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
         },
         "dosage_form": {
@@ -230,6 +1341,322 @@
           {
             "submission_type": "ORIG",
             "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "217979",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217979",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "217979",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217979",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "100MG",
+          "after": "EQ 100MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218405",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218405",
+      "changes": {
+        "active_ingredient": {
+          "before": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "1GM;EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218441",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218441",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "50MG",
+          "after": "EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218441",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218441",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN",
+          "after": "SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET;ORAL"
+        },
+        "strength": {
+          "before": "100MG",
+          "after": "EQ 100MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218971",
+      "product_number": "001",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218971",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN AND METFORMIN HCL",
+          "after": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET, EXTENDED RELEASE;ORAL"
+        },
+        "strength": {
+          "before": "1000MG ER TABLET",
+          "after": "500MG;EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218971",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218971",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN AND METFORMIN HCL",
+          "after": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET, EXTENDED RELEASE;ORAL"
+        },
+        "strength": {
+          "before": "EQ 100MG BASE TABLET",
+          "after": "1GM;EQ 50MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "218971",
+      "product_number": "003",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218971",
+      "changes": {
+        "drug_name": {
+          "before": "SITAGLIPTIN AND METFORMIN HCL",
+          "after": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
+        },
+        "active_ingredient": {
+          "before": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
+          "after": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE"
+        },
+        "dosage_form": {
+          "before": "TABLET",
+          "after": "TABLET, EXTENDED RELEASE;ORAL"
+        },
+        "strength": {
+          "before": "500MG",
+          "after": "1GM;EQ 100MG BASE"
+        },
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 1,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          }
+        ]
+      }
+    },
+    {
+      "application_number": "219442",
+      "product_number": "002",
+      "application_history_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=219442",
+      "changes": {
+        "marketing_status": {
+          "before": "None (Tentative Approval)",
+          "after": "Prescription"
+        }
+      },
+      "official_submission_context": {
+        "matched_submission_count": 4,
+        "submissions": [
+          {
+            "submission_type": "ORIG",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "ORIG",
+            "submission_number": 2
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 1
+          },
+          {
+            "submission_type": "SUPPL",
+            "submission_number": 2
           }
         ]
       }

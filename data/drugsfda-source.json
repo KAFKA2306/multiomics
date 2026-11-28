@@ -4,10 +4,10 @@
   "dataset": "Drugs@FDA Data Files",
   "source_page_url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
   "source_download_url": "https://www.fda.gov/media/89850/download?attachment=",
-  "retrieved_at": "2026-11-26T05:05:46Z",
-  "source_sha256": "b5f97ad97d5ac78437dcb305808f9f8e1a6caee7983904d96f85adadbd13269f",
-  "raw_path": "data/raw/fda/drugsatfda/b5f97ad97d5ac78437dcb305808f9f8e1a6caee7983904d96f85adadbd13269f.zip",
-  "archive_size_bytes": 6122502,
+  "retrieved_at": "2026-11-28T04:44:27Z",
+  "source_sha256": "a552c8533475679fa99ed0d53723d3c9e50b5fa7a4467cbd15b9a1999f8f289b",
+  "raw_path": "data/raw/fda/drugsatfda/a552c8533475679fa99ed0d53723d3c9e50b5fa7a4467cbd15b9a1999f8f289b.zip",
+  "archive_size_bytes": 6124214,
   "table_count": 12,
   "tables": [
     {
@@ -34,9 +34,9 @@
         "ApplicationDocsURL",
         "ApplicationDocsDate"
       ],
-      "row_count": 81635,
-      "sha256": "5eb722b61b7d1a03fa75a348c56fb8045d986bd47c43472e35f5bd9eeedf3820",
-      "size_bytes": 11187674
+      "row_count": 81651,
+      "sha256": "eeb8fa60d40bd9440b7a25b1455c5a0fb785c16cee228a6b4b1fb489c0eaaaf6",
+      "size_bytes": 11190040
     },
     {
       "file_name": "Applications.txt",
@@ -46,9 +46,9 @@
         "ApplPublicNotes",
         "SponsorName"
       ],
-      "row_count": 29482,
-      "sha256": "a5731b66929805ed4517b1a80fce5186ebef04cc0f181bebb8eed29270fe0f53",
-      "size_bytes": 783641
+      "row_count": 29492,
+      "sha256": "31c41254f2f02af4eb1031fb4482677f5636ab2a5c732d007ac080c177c0e3eb",
+      "size_bytes": 783666
     },
     {
       "file_name": "ApplicationsDocsType_Lookup.txt",
@@ -69,9 +69,9 @@
         "SubmissionNo",
         "ActionTypes_LookupID"
       ],
-      "row_count": 210619,
-      "sha256": "bbc2df1e5fbe3fb8774a11b817eadf66701438688f400ff381cf42a1e38f0bf6",
-      "size_bytes": 6963733
+      "row_count": 210641,
+      "sha256": "360e73c1bf191c197bc2fcfd89a4619757335ecec30768d808bf389116287f19",
+      "size_bytes": 6964485
     },
     {
       "file_name": "MarketingStatus.txt",
@@ -80,9 +80,9 @@
         "ApplNo",
         "ProductNo"
       ],
-      "row_count": 52651,
-      "sha256": "ebdaa85825740de8f8294cef4bfab68ac30061d4eecdb530e2124758c30762ab",
-      "size_bytes": 737150
+      "row_count": 52668,
+      "sha256": "abd0b5708090ae57547cdc4bdf469cd2b5f28dc2252bd983c7641180d221de59",
+      "size_bytes": 737388
     },
     {
       "file_name": "MarketingStatus_Lookup.txt",
@@ -106,9 +106,9 @@
         "ActiveIngredient",
         "ReferenceStandard"
       ],
-      "row_count": 52046,
-      "sha256": "df0367145f9eebf16ea864eb50a898c3534e030c6eb1588716e96feead1e2b6f",
-      "size_bytes": 4670374
+      "row_count": 52085,
+      "sha256": "c3b8e28860a088240726238e366039e1203f181547206561a2446a392c3aa3e3",
+      "size_bytes": 4675257
     },
     {
       "file_name": "SubmissionClass_Lookup.txt",
@@ -130,9 +130,9 @@
         "SubmissionPropertyTypeCode",
         "SubmissionPropertyTypeID"
       ],
-      "row_count": 323056,
-      "sha256": "73aa00c1ae0b626190b29679ed4c4022cc05665ddc354f88cc720d727884f3e2",
-      "size_bytes": 9385887
+      "row_count": 323188,
+      "sha256": "de9dec436d02ba2f388c115979512b98a9312199d81e6dbaa859f8be00c75ae5",
+      "size_bytes": 9389701
     },
     {
       "file_name": "Submissions.txt",
@@ -146,9 +146,9 @@
         "SubmissionsPublicNotes",
         "ReviewPriority"
       ],
-      "row_count": 194656,
-      "sha256": "78b9bc65e83d7417922d934e84a34f8e7e9b5bab0d73c6240e448712a798338f",
-      "size_bytes": 9393682
+      "row_count": 194673,
+      "sha256": "dc8f512a814252a7aac995df35cd106f86f440b1bc1272f64d56de39aafe20ad",
+      "size_bytes": 9394541
     },
     {
       "file_name": "TE.txt",
@@ -158,9 +158,9 @@
         "MarketingStatusID",
         "TECode"
       ],
-      "row_count": 26903,
-      "sha256": "0f96b13c12de82b0e2db7849b7b4dbafd2676ec4e242b16c4f467d74da0aaafc",
-      "size_bytes": 459289
+      "row_count": 26978,
+      "sha256": "2640f6de1362d516bd4040055b03383338d43241e806f930bec9f0daa30c9ece",
+      "size_bytes": 460564
     }
   ]
 }

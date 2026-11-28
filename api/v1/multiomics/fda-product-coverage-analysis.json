@@ -6,14 +6,14 @@
     "application_number",
     "product_number"
   ],
-  "drugsfda_source_sha256": "b5f97ad97d5ac78437dcb305808f9f8e1a6caee7983904d96f85adadbd13269f",
+  "drugsfda_source_sha256": "a552c8533475679fa99ed0d53723d3c9e50b5fa7a4467cbd15b9a1999f8f289b",
   "orange_book_source_sha256": "d4dbc9d85df4fbd78c5e448f130a55b05054f529d2054a46df10735437792241",
-  "drugsfda_only_products": 2200,
+  "drugsfda_only_products": 2239,
   "marketing_status_counts": {
     "Discontinued": 223,
-    "None (Tentative Approval)": 1407,
+    "None (Tentative Approval)": 1368,
     "Over-the-counter": 12,
-    "Prescription": 558
+    "Prescription": 636
   },
   "products": [
     {
@@ -1446,14 +1446,6 @@
       "product_number": "001",
       "drug_name": "YAZ",
       "active_ingredient": "DROSPIRENONE; ETHINYL ESTRADIOL",
-      "marketing_status": "Prescription"
-    },
-    {
-      "application_type": "NDA",
-      "application_number": "022046",
-      "product_number": "002",
-      "drug_name": "BUPIVACAINE HYDROCHLORIDE",
-      "active_ingredient": "BUPIVACAINE HYDROCHLORIDE",
       "marketing_status": "Prescription"
     },
     {
@@ -9886,7 +9878,7 @@
       "product_number": "001",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -9894,7 +9886,7 @@
       "product_number": "002",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -9902,7 +9894,7 @@
       "product_number": "003",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -10479,6 +10471,14 @@
       "drug_name": "CARFILZOMIB",
       "active_ingredient": "CARFILZOMIB",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "209543",
+      "product_number": "003",
+      "drug_name": "BOSUTINIB MONOHYDRATE",
+      "active_ingredient": "BOSUTINIB MONOHYDRATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -11892,17 +11892,17 @@
       "application_type": "ANDA",
       "application_number": "212338",
       "product_number": "001",
-      "drug_name": "METFORMIN HYDROCHLORIDE AND SITAGLIPTIN PHOSPHATE",
-      "active_ingredient": "METFORMIN HYDROCHLORIDE || SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "212338",
       "product_number": "002",
-      "drug_name": "METFORMIN HYDROCHLORIDE AND SITAGLIPTIN PHOSPHATE",
-      "active_ingredient": "METFORMIN HYDROCHLORIDE || SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -12178,6 +12178,22 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "212546",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "212546",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "212581",
       "product_number": "001",
       "drug_name": "AZELAIC ACID",
@@ -12375,6 +12391,30 @@
       "drug_name": "VASOPRESSIN",
       "active_ingredient": "VASOPRESSIN",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "212952",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "212952",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "212952",
+      "product_number": "003",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -13194,6 +13234,30 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "214433",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214433",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214433",
+      "product_number": "003",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "214494",
       "product_number": "001",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
@@ -13266,6 +13330,22 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "214685",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214685",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "214693",
       "product_number": "001",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
@@ -13294,7 +13374,7 @@
       "product_number": "001",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -13302,7 +13382,7 @@
       "product_number": "002",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -13310,7 +13390,7 @@
       "product_number": "003",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",
@@ -13446,7 +13526,7 @@
       "product_number": "001",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -13454,7 +13534,7 @@
       "product_number": "002",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -13462,7 +13542,7 @@
       "product_number": "003",
       "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -13523,10 +13603,18 @@
     {
       "application_type": "ANDA",
       "application_number": "214859",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "214859",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -13723,10 +13811,18 @@
     {
       "application_type": "ANDA",
       "application_number": "215411",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "215411",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -13996,25 +14092,25 @@
       "application_type": "ANDA",
       "application_number": "216057",
       "product_number": "001",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "216057",
       "product_number": "002",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "216057",
       "product_number": "003",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -14035,18 +14131,26 @@
     {
       "application_type": "ANDA",
       "application_number": "216086",
-      "product_number": "002",
-      "drug_name": "SITAGLIPTIN",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216086",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "216086",
       "product_number": "003",
-      "drug_name": "SITAGLIPTIN",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -14115,10 +14219,18 @@
     {
       "application_type": "ANDA",
       "application_number": "216288",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216288",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "METFORMIN HYDROCHLORIDE, SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -14140,25 +14252,25 @@
       "application_type": "ANDA",
       "application_number": "216337",
       "product_number": "001",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "216337",
       "product_number": "002",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "216337",
       "product_number": "003",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -14203,10 +14315,18 @@
     {
       "application_type": "ANDA",
       "application_number": "216644",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216644",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -14338,6 +14458,30 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "216886",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216886",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "216886",
+      "product_number": "003",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "216914",
       "product_number": "002",
       "drug_name": "BICTEGRAVIR, EMTRICITABINE AND TENOFOVIR ALAFENAMIDE",
@@ -14380,25 +14524,25 @@
       "application_type": "ANDA",
       "application_number": "216919",
       "product_number": "001",
-      "drug_name": "SITAGLIPTIN",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "216919",
       "product_number": "002",
-      "drug_name": "SITAGLIPTIN",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "216919",
       "product_number": "003",
-      "drug_name": "SITAGLIPTIN",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
       "active_ingredient": "SITAGLIPTIN PHOSPHATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -14627,18 +14771,26 @@
     {
       "application_type": "ANDA",
       "application_number": "217395",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "217395",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "SITAGLIPTIN PHOSPHATE ANHYDROUS, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "217395",
       "product_number": "003",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "SITAGLIPTIN PHOSPHATE ANHYDROUS, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -14794,6 +14946,22 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "217545",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "217545",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "217558",
       "product_number": "002",
       "drug_name": "SODIUM ZIRCONIUM CYCLOSILICATE",
@@ -14851,18 +15019,26 @@
     {
       "application_type": "ANDA",
       "application_number": "217829",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "217829",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "217829",
       "product_number": "003",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -14899,18 +15075,26 @@
     {
       "application_type": "ANDA",
       "application_number": "217979",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "217979",
       "product_number": "002",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "217979",
       "product_number": "003",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -15155,10 +15339,18 @@
     {
       "application_type": "ANDA",
       "application_number": "218405",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218405",
       "product_number": "002",
       "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
-      "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -15187,18 +15379,26 @@
     {
       "application_type": "ANDA",
       "application_number": "218441",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218441",
       "product_number": "002",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "218441",
       "product_number": "003",
-      "drug_name": "SITAGLIPTIN",
-      "active_ingredient": "SITAGLIPTIN",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN PHOSPHATE",
+      "active_ingredient": "SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -15231,6 +15431,22 @@
       "drug_name": "EMPAGLIFLOZIN; METFORMIN HYDROCHLORIDE",
       "active_ingredient": "EMPAGLIFLOZIN;METFORMIN HYDROCHLORIDE",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218486",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218486",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -15343,6 +15559,14 @@
       "drug_name": "ERDAFITINIB",
       "active_ingredient": "ERDAFITINIB",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "218621",
+      "product_number": "001",
+      "drug_name": "EPHEDRINE SULFATE",
+      "active_ingredient": "EPHEDRINE SULFATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",
@@ -15580,25 +15804,25 @@
       "application_type": "ANDA",
       "application_number": "218971",
       "product_number": "001",
-      "drug_name": "SITAGLIPTIN AND METFORMIN HCL",
-      "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "218971",
       "product_number": "002",
-      "drug_name": "SITAGLIPTIN AND METFORMIN HCL",
-      "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
       "application_number": "218971",
       "product_number": "003",
-      "drug_name": "SITAGLIPTIN AND METFORMIN HCL",
-      "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
-      "marketing_status": "None (Tentative Approval)"
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -15615,6 +15839,22 @@
       "drug_name": "SITAGLIPTIN AND METFORMIN HCL",
       "active_ingredient": "SITAGLIPTIN, METFORMIN HYDROCHLORIDE",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219041",
+      "product_number": "001",
+      "drug_name": "SUGAMMADEX SODIUM",
+      "active_ingredient": "SUGAMMADEX SODIUM",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "219041",
+      "product_number": "002",
+      "drug_name": "SUGAMMADEX SODIUM",
+      "active_ingredient": "SUGAMMADEX SODIUM",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -16190,7 +16430,7 @@
       "product_number": "002",
       "drug_name": "TOFACITINIB CITRATE",
       "active_ingredient": "TOFACITINIB CITRATE",
-      "marketing_status": "None (Tentative Approval)"
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "ANDA",
@@ -17042,6 +17282,30 @@
     },
     {
       "application_type": "ANDA",
+      "application_number": "220370",
+      "product_number": "001",
+      "drug_name": "VERAPAMIL HYDROCHLORIDE",
+      "active_ingredient": "VERAPAMIL HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220370",
+      "product_number": "002",
+      "drug_name": "VERAPAMIL HYDROCHLORIDE",
+      "active_ingredient": "VERAPAMIL HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220370",
+      "product_number": "003",
+      "drug_name": "VERAPAMIL HYDROCHLORIDE",
+      "active_ingredient": "VERAPAMIL HYDROCHLORIDE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
       "application_number": "220375",
       "product_number": "002",
       "drug_name": "RUXOLITINIB",
@@ -17119,6 +17383,22 @@
       "drug_name": "TIVOZANIB",
       "active_ingredient": "TIVOZANIB",
       "marketing_status": "None (Tentative Approval)"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220389",
+      "product_number": "001",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "ANDA",
+      "application_number": "220389",
+      "product_number": "002",
+      "drug_name": "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE",
+      "active_ingredient": "METFORMIN HYDROCHLORIDE; SITAGLIPTIN PHOSPHATE",
+      "marketing_status": "Prescription"
     },
     {
       "application_type": "NDA",
@@ -17394,6 +17674,14 @@
     },
     {
       "application_type": "NDA",
+      "application_number": "220740",
+      "product_number": "001",
+      "drug_name": "BACFENSSI",
+      "active_ingredient": "DOXYCYCLINE HYCLATE",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
       "application_number": "220758",
       "product_number": "001",
       "drug_name": "EMPAGLIFLOZIN",
@@ -17446,6 +17734,14 @@
       "product_number": "003",
       "drug_name": "ORZEYFUL",
       "active_ingredient": "OVEPOREXTON",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "220905",
+      "product_number": "001",
+      "drug_name": "WELGEMDA",
+      "active_ingredient": "RIBITOL",
       "marketing_status": "Prescription"
     },
     {
@@ -17562,6 +17858,14 @@
     },
     {
       "application_type": "NDA",
+      "application_number": "221283",
+      "product_number": "001",
+      "drug_name": "EKITNA",
+      "active_ingredient": "BEZUCLASTINIB",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
       "application_number": "221287",
       "product_number": "001",
       "drug_name": "AIR",
@@ -17574,6 +17878,14 @@
       "product_number": "001",
       "drug_name": "SUNHARBO",
       "active_ingredient": "ASUNDEXIAN",
+      "marketing_status": "Prescription"
+    },
+    {
+      "application_type": "NDA",
+      "application_number": "221325",
+      "product_number": "001",
+      "drug_name": "WILSERDLY",
+      "active_ingredient": "GIREDESTRANT",
       "marketing_status": "Prescription"
     },
     {
